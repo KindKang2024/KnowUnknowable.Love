@@ -2,10 +2,13 @@
   "compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
-
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
@@ -13,18 +16,30 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "react-jsx",
-
     /* Linting */
     "strict": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": false,
-
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     }
   },
-  "include": ["src"]
+  "include": [
+    "src",
+    "newObj/src/components/Character.tsx",
+    "newObj/src/components/CharacterController.tsx",
+    "newObj/src/components/Experience.tsx",
+    "newObj/src/components/KanaSpots.tsx",
+    "newObj/src/components/Kicker.tsx",
+    "newObj/src/components/Menu.tsx",
+    "newObj/src/components/Stage.tsx",
+    "newObj/src/components/Torii.tsx",
+    "src/components/interaction/.tsx",
+    "src/particles.min.js"
+  ]
 }
