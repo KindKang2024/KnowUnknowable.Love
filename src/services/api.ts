@@ -6,7 +6,7 @@ import {Address} from "viem";
 export const DEFAULT_PAGE_SIZE = process.env.NODE_ENV === 'development' ? 2 : 10;
 // Types for API responses
 // export const URL_API = 'http://localhost:8787';
-export const URL_API = 'http://localhost:8080';
+export const URL_API = process.env.NODE_ENV === 'development' ? 'http://localhost:8080': "https://knowunknowable.love";
 // const URL_API = 'https://api_unstoppable.beswarm.workers.dev';
 export const URL_API_NONCE = URL_API + '/open/nonce';
 export const URL_API_LOGIN = URL_API + '/open/login';
