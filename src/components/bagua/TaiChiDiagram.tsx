@@ -1,5 +1,6 @@
-import {useIChing} from '@/i18n/DataProvider';
-import React, {useCallback} from 'react';
+import { useIChing } from '@/i18n/DataProvider';
+import { binaryIChingMap } from '@/i18n/symbols';
+import React, { useCallback } from 'react';
 
 const EMPTY_KEY: string = "☯️";
 
@@ -10,6 +11,11 @@ interface TaiChiDiagramProps {
     onItemClick?: (key: string) => void;
 }
 
+enum TextType {
+    NAME = 'NAME',
+    SYMBOL = 'SYMBOL',
+}
+
 export const TaiChiDiagram: React.FC<TaiChiDiagramProps> = ({
     width = 592 + 20,
     height = 592 + 20,
@@ -18,13 +24,23 @@ export const TaiChiDiagram: React.FC<TaiChiDiagramProps> = ({
 }) => {
     const iChingMap = useIChing();
 
-    const c = useCallback((key: string) => {
+    const roundFontSizes = ["8px", "8px", "8px","6px","8px"];
+
+    const c = useCallback((key: string, textType: TextType = null) => {
         if (iChingMap === undefined || iChingMap[key] === undefined) {
             console.log('iChingMap is undefined', key, key === '');
             return '';
         }
         const val = iChingMap[key];
-        return val.name + ' ' + val.symbol;
+
+        if (textType === null) {
+            return val.name + ' ' + binaryIChingMap[key]?.symbol || '';
+        } else if (textType === TextType.SYMBOL) {
+            return binaryIChingMap[key]?.symbol || '';
+        } else if (textType === TextType.NAME) {
+            return val.name;
+        }
+        return '';
     }, [iChingMap]);
 
     return (
@@ -675,7 +691,7 @@ export const TaiChiDiagram: React.FC<TaiChiDiagramProps> = ({
                                     textAnchor="end"
                                     transform="translate(295,295) rotate(88) translate(-6,4)"
                                     fontFamily="Lato"
-                                    fontSize="14px"
+                                    fontSize={roundFontSizes[0]}
                                     fontWeight="400"
                                     fill="#000"
                                     opacity="1"
@@ -687,7 +703,7 @@ export const TaiChiDiagram: React.FC<TaiChiDiagramProps> = ({
                                     textAnchor="end"
                                     transform="translate(233.78731184508038,297.13759417302816) rotate(-2) translate(-6,4)"
                                     fontFamily="Lato"
-                                    fontSize="14px"
+                                    fontSize={roundFontSizes[1]}
                                     fontWeight="400"
                                     fill="#000"
                                     opacity="1"
@@ -699,7 +715,7 @@ export const TaiChiDiagram: React.FC<TaiChiDiagramProps> = ({
                                     textAnchor="start"
                                     transform="translate(356.21268815491965,292.86240582697184) rotate(358) translate(6,4)"
                                     fontFamily="Lato"
-                                    fontSize="14px"
+                                    fontSize={roundFontSizes[1]}
                                     fontWeight="400"
                                     fill="#000"
                                     opacity="1"
@@ -738,7 +754,7 @@ export const TaiChiDiagram: React.FC<TaiChiDiagramProps> = ({
                                         textAnchor={item.anchor}
                                         transform={item.transform}
                                         fontFamily="Lato"
-                                        fontSize="14px"
+                                        fontSize={roundFontSizes[2]}
                                         fontWeight="400"
                                         fill="#000"
                                         opacity="1"
@@ -763,7 +779,7 @@ export const TaiChiDiagram: React.FC<TaiChiDiagramProps> = ({
                                         textAnchor={item.textAnchor}
                                         transform={`${item.translate} rotate(${item.angle}) translate(${item.textAnchor === "end" ? "-6" : "6"},4)`}
                                         fontFamily="Lato"
-                                        fontSize="14px"
+                                        fontSize={roundFontSizes[3]}
                                         fontWeight="400"
                                         fill="#000"
                                         opacity="1"
@@ -843,19 +859,21 @@ export const TaiChiDiagram: React.FC<TaiChiDiagramProps> = ({
                                         { key: "000000", textAnchor: "end", transform: "translate(324.85798913,538.17380715) rotate(263) translate(-6,4)" }
                                     ]
                                         .map(item => (
-                                            <text
-                                                key={item.key}
-                                                textAnchor={item.textAnchor}
-                                                transform={item.transform}
-                                                fontFamily="Lato"
-                                                fill="#000"
-                                                fontSize="14px"
-                                                fontWeight="400"
-                                                opacity="1"
-                                                onClick={() => onItemClick?.(item.key)}
-                                            >
-                                                {c(item.key)}
-                                            </text>
+                                            <>
+                                                <text
+                                                    key={item.key}
+                                                    textAnchor={item.textAnchor}
+                                                    transform={item.transform}
+                                                    fontFamily="Lato"
+                                                    fill="#000"
+                                                    fontSize={roundFontSizes[4]}
+                                                    fontWeight="400"
+                                                    opacity="1"
+                                                    onClick={() => onItemClick?.(item.key)}
+                                                >
+                                                    {c(item.key)}
+                                                </text>
+                                            </>
                                         ))}
                             </g>
                         </g>

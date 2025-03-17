@@ -43,7 +43,8 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
 
   // Sync internal state with external section prop
   const getDynamicStyles = (section: Section, disabled = false): React.CSSProperties => {
-    if (section.seq === DualityDaoLoveSection.seq || section.seq === internalSection.seq) {
+    // if (section.seq === DualityDaoLoveSection.seq || section.seq === internalSection.seq) {
+    if (section.seq === internalSection.seq) {
       return {
         fill: section.color,
         opacity: section.opacity,
@@ -55,7 +56,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
 
     }
     return {
-      fill: "#F2F3F5",
+      fill: "#bb94f4",
       opacity: 0.4,
       cursor: 'pointer'
     };
@@ -98,7 +99,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
         }}
       >
         <g id="Heaven" transform="matrix(-1.4142136,-1.4142136,1.4142136,-1.4142136,-562.57796,661.11673)"
-          style={getDynamicStyles(BaguaSections[0])} onClick={handleClick(BaguaSections[0])}
+          style={getDynamicStyles(BaguaSections[7])} onClick={handleClick(BaguaSections[7])}
         >
           <path
             d="m -56.150316,480.50277 -54.588464,54.58847 -4.01932,-10.09403 48.640965,-48.64096 9.966819,4.14652 z" />
@@ -109,7 +110,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
         </g>
 
         <g id="Marsh" transform="matrix(1.4142136,1.4142136,1.4142136,-1.4142136,-115.23781,1109.1021)"
-          style={getDynamicStyles(BaguaSections[1])} onClick={handleClick(BaguaSections[1])}
+          style={getDynamicStyles(BaguaSections[6])} onClick={handleClick(BaguaSections[6])}
         >
           <path d="m -230.14704,456.98159 0,-47.42257 10.26339,4.45787 0,38.7412 -10.26339,4.2235 z" />
           <g transform="matrix(0,-1,1,0,-427.916,688.859)" id="g19810">
@@ -120,7 +121,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
         </g>
 
         <g id="Fire" transform="matrix(0,-1,1,0,-0.42408989,547.57552)"
-          style={getDynamicStyles(BaguaSections[2])} onClick={handleClick(BaguaSections[2])}
+          style={getDynamicStyles(BaguaSections[5])} onClick={handleClick(BaguaSections[5])}
         >
           <path id="rect1929" d="m 195.38414,61.18398 154.3995,0 -8.59094,19.95928 -137.5774,0 -8.23116,-19.95928 z" />
           <g transform="matrix(2,0,0,2,414.98,-66.3153)" id="g13458">
@@ -133,7 +134,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
         </g>
 
         <g id="Thunder" transform="matrix(-1.4142136,1.4142136,1.4142136,1.4142136,-562.20899,-116.46155)"
-          style={getDynamicStyles(BaguaSections[3])} onClick={handleClick(BaguaSections[3])}
+          style={getDynamicStyles(BaguaSections[4])} onClick={handleClick(BaguaSections[4])}
         >
           <g transform="matrix(0,1,-1,0,111.22,177.682)" id="g19700">
             <path d="m 216.82691,162.80702 34.69975,0 -0.17047,9.97964 -30.4137,0 -4.11558,-9.97964 z" />
@@ -147,7 +148,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
         </g>
 
         <g id="Earth" transform="matrix(-1.4142136,1.4142136,-1.4142136,-1.4142136,660.0843,1109.2251)"
-          style={getDynamicStyles(BaguaSections[4])} onClick={handleClick(BaguaSections[4])}
+          style={getDynamicStyles(BaguaSections[0])} onClick={handleClick(BaguaSections[0])}
         >
           <g transform="matrix(0.707107,0.707107,-0.707107,0.707107,11.4016,362.538)" id="g19842-7">
             <path d="m -102.64956,80.813527 27.51516,-0.04187 -0.0242,10.1728 -23.07441,0 -4.41655,-10.13093 z" />
@@ -166,7 +167,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
         </g>
 
         <g id="Mountain" transform="matrix(0,-2.0000001,2.0000001,0,-588.20858,-43.662709)"
-          style={getDynamicStyles(BaguaSections[5])} onClick={handleClick(BaguaSections[5])}
+          style={getDynamicStyles(BaguaSections[1])} onClick={handleClick(BaguaSections[1])}
         >
           <path d="m -206.06096,533.89948 -54.58846,-54.58847 10.09403,-4.0193 48.64096,48.64094 -4.14653,9.96683 z" />
           <g transform="matrix(-0.707107,-0.707107,0.707107,-0.707107,-328.778,501.339)" id="g19718">
@@ -182,7 +183,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
         </g>
 
         <g id="Water" transform="matrix(0,-2.0000001,2.0000001,0,-593.37512,-42.477538)"
-          style={getDynamicStyles(BaguaSections[6])} onClick={handleClick(BaguaSections[6])}
+          style={getDynamicStyles(BaguaSections[2])} onClick={handleClick(BaguaSections[2])}
         >
           <g transform="matrix(1,0,0,-1,-403.22,666.434)" id="g19753">
             <g transform="translate(-11.125,0.125)" id="g19755">
@@ -197,7 +198,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
           <path d="m -189.74477,521.31812 62.05053,-0.125 -4.18865,-9.95542 -53.69224,0 -4.16964,10.08042 z" />
         </g>
         <g id="Wind" transform="matrix(0,2.0000001,-2.0000001,0,1137.4737,591.16344)"
-          style={getDynamicStyles(BaguaSections[7])} onClick={handleClick(BaguaSections[7])}
+          style={getDynamicStyles(BaguaSections[3])} onClick={handleClick(BaguaSections[3])}
         >
           <path d="m -261.04407,384.78595 54.58846,-54.58847 4.01933,10.09402 -48.64097,48.64096 -9.96682,-4.14651 z" />
           <g transform="matrix(0.707107,-0.707107,0.707107,0.707107,-497.119,439.898)" id="g19690-7">
@@ -213,7 +214,8 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
       <g id="yinyang_dao_love" onClick={handleClick(DualityDaoLoveSection)} >
         <circle cx="273.70739" cy="273.70739" style={getDynamicStyles(internalSection)} r="85.5" opacity="0.5" filter="url(#f)" />
 
-        {BaguaSections.map((section, index) => {
+        {BaguaSections.filter(section => section.seq !== DualityDaoLoveSection.seq).map((section, index) => {
+        // {BaguaSections.map((section, index) => {
           const point = getPointOnCircle(section);
           const isSelected = internalSection.seq === section.seq
 
@@ -222,7 +224,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
               <text
                 x={point.x}
                 y={point.y}
-                // transform={`rotate(${point.rotation}, ${point.x}, ${point.y})`}
+                transform={`rotate(${point.rotation}, ${point.x}, ${point.y})`}
                 textAnchor="middle"
                 dominantBaseline="middle"
                 // fill={section.percentage <= 0 ? "#EF4444" : (isSelected ? "#9333EA" : "white")}
@@ -230,7 +232,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
                 // fontSize={section.percentage <= 0 ? "60" : "18"}
                 fontSize={"18"}
               >
-                {bpsArr[section.seq] <= 0 ? '•' : `${bpsArr[section.seq]}%`}
+                {bpsArr[section.seq] <= 0 ? '•' : `${section.id} ${bpsArr[section.seq]}%`}
               </text>
             </g>
           );

@@ -77,12 +77,12 @@ const Section: React.FC<SectionProps> = ({
                 <div className="relative px-3 py-3 transition-all duration-300 ease-in-out">
                     {/* Vertical line aligned with the triangle icon */}
                     <div className={cn(
-                        "absolute left-7 top-0 bottom-2 w-px",
+                        "absolute top-0 bottom-1 w-px",
                         isActive ? "bg-indigo-500/30" :
                             isCompleted ? "bg-emerald-500/30" : "bg-gray-700/50"
                     )}></div>
                     {/* Add padding-left to ensure content doesn't cross the line */}
-                    <div className="pl-8">
+                    <div className="pl-4">
                         {children}
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 {
   "iChing": {
     "☯️": {
-      "name": "太极",
+      "name": "Taiji",
       "symbol": "☯️",
       "gua_ci": "",
       "yao_ci": [
@@ -15,7 +15,7 @@
       ]
     },
     "0": {
-      "name": "阴",
+      "name": "Yin",
       "symbol": "⚋",
       "gua_ci": "",
       "yao_ci": [
@@ -29,7 +29,7 @@
       ]
     },
     "1": {
-      "name": "阳",
+      "name": "Yang",
       "symbol": "⚊",
       "gua_ci": "",
       "yao_ci": [
@@ -43,7 +43,7 @@
       ]
     },
     "00": {
-      "name": "太阴",
+      "name": "Old Yin",
       "symbol": "⚏",
       "gua_ci": "",
       "yao_ci": [
@@ -57,7 +57,7 @@
       ]
     },
     "01": {
-      "name": "少阳",
+      "name": "Young Yang",
       "symbol": "⚎",
       "gua_ci": "",
       "yao_ci": [
@@ -71,7 +71,7 @@
       ]
     },
     "10": {
-      "name": "少阴",
+      "name": "Young Yin",
       "symbol": "⚍",
       "gua_ci": "",
       "yao_ci": [
@@ -85,7 +85,7 @@
       ]
     },
     "11": {
-      "name": "太阳",
+      "name": "Old Yang",
       "symbol": "⚌",
       "gua_ci": "",
       "yao_ci": [
@@ -99,7 +99,7 @@
       ]
     },
     "000": {
-      "name": "坤",
+      "name": "Earth, The Receptive",
       "symbol": "☷",
       "gua_ci": "",
       "yao_ci": [
@@ -112,7 +112,7 @@
       ]
     },
     "001": {
-      "name": "艮",
+      "name": "Mountain, Keeping Still",
       "symbol": "☶",
       "gua_ci": "",
       "yao_ci": [
@@ -125,7 +125,7 @@
       ]
     },
     "010": {
-      "name": "坎",
+      "name": "Water, The Abysmal",
       "symbol": "☵",
       "gua_ci": "",
       "yao_ci": [
@@ -138,11 +138,10 @@
       ]
     },
     "011": {
-      "name": "巽",
+      "name": "Wind, The Gentle",
       "symbol": "☴",
       "gua_ci": "",
       "yao_ci": [
-        "",
         "",
         "",
         "",
@@ -152,11 +151,10 @@
       ]
     },
     "100": {
-      "name": "震",
+      "name": "Thunder, The Arousing",
       "symbol": "☳",
       "gua_ci": "",
       "yao_ci": [
-        "",
         "",
         "",
         "",
@@ -166,11 +164,10 @@
       ]
     },
     "101": {
-      "name": "离",
+      "name": "Fire, The Clinging",
       "symbol": "☲",
       "gua_ci": "",
       "yao_ci": [
-        "",
         "",
         "",
         "",
@@ -180,11 +177,10 @@
       ]
     },
     "110": {
-      "name": "兑",
+      "name": "Lake, The Joyous",
       "symbol": "☱",
       "gua_ci": "",
       "yao_ci": [
-        "",
         "",
         "",
         "",
@@ -194,11 +190,10 @@
       ]
     },
     "111": {
-      "name": "乾",
+      "name": "Heaven, The Creative",
       "symbol": "☰",
       "gua_ci": "",
       "yao_ci": [
-        "",
         "",
         "",
         "",
@@ -208,880 +203,816 @@
       ]
     },
     "100000": {
-      "name": "復",
-      "symbol": "䷗",
-      "gua_ci": "復：亨。出入無疾，朋來無咎。反復其道，七日來復，利有攸往。",
+      "name": "Falling Away",
+      "gua_ci": "SPLITTING APART. IT does not further one\nTo go anywhere.",
       "yao_ci": [
-        "初九：不復遠，無祗悔，元吉。",
-        "六二：休復，吉。",
-        "六三：頻復，厲無咎。",
-        "六四：中行獨復。",
-        "六五：敦復，無悔。",
-        "上六：迷復，兇，有災眚。用行師，終有大敗，以其國君，兇；至於十年，不克征。"
+        "Initial Six: The leg of the bed is split.\nThose who persevere are destroyed.\nMisfortune.",
+        "Second Six: The bed is split at the edge.\nThose who persevere are destroyed.\nMisfortune.",
+        "Third Six: He splits with them. No blame.",
+        "Fourth Six: The bed is split up to the skin.\nMisfortune.",
+        "Fifth Six: A shoal of fishes. Favor comes through the court ladies.\nEverything acts to further.",
+        "Top Nine: There is a large fruit still uneaten.\nThe superior man receives a carriage.\nThe house of the inferior man is split apart."
       ]
     },
     "100001": {
-      "name": "頤",
-      "symbol": "䷚",
-      "gua_ci": "頤：貞吉。觀頤，自求口實。",
+      "name": "Nourishing",
+      "gua_ci": "THE CORNERS OF THE MOUTH.\nPerseverance brings good fortune.\nPay heed to the providing of nourishment\nAnd to what a man seeks\nTo fill his own mouth with.\nIn bestowing care and nourishment, it is important that the right people should be taken care of and that we should attend to our own nourishment in the right way. If we wish to know what anyone is like, we have only to observe on whom he bestows his care and what sides of his own nature he cultivates and nourishes. Nature nourishes all creatures. The great man fosters and takes care of superior men, in order to take care of all men through them. Mencius says about this:",
       "yao_ci": [
-        "初九：舍爾靈龜，觀我朵頤，兇。",
-        "六二：顛頤，拂經，於丘頤，征兇。",
-        "六三：拂頤，貞兇，十年勿用，無攸利。",
-        "六四：顛頤，吉，虎視眈眈，其欲逐逐，無咎。",
-        "六五：拂經，居貞吉，不可涉大川。",
-        "上九：由頤，厲吉，利涉大川。"
+        "Initial Nine: You let your magic tortoise go,\nAnd look at me with the corners of your mouth drooping.\nMisfortune.",
+        "Second Six: Turning to the summit for nourishment,\nDeviating from the path",
+        "Third Six: Turning away from nourishment.\nPerseverance brings misfortune.\nDo not act thus for ten years.",
+        "Fourth Six: Turning to the summit\nFor provision of nourishment\nBrings good fortune.",
+        "Fifth Six: Turning away from the path.",
+        "Top Nine: The source of nourishment.\nAwareness of danger brings good fortune.\nIt furthers one to cross the great water."
       ]
     },
     "100010": {
-      "name": "屯",
-      "symbol": "䷂",
-      "gua_ci": "元亨，利貞，勿用有攸往，利建侯。",
+      "name": "Childhood",
+      "gua_ci": "YOUTHFUL FOLLY has success.\nIt is not I who seek the young fool;\nThe young fool seeks me.\nAt the first oracle I inform him.\nIf he asks two or three times, it is importunity.\nIf he importunes, I give him no information.\nPerseverance furthers.",
       "yao_ci": [
-        "初九：磐桓；利居貞，利建侯。",
-        "六二：屯如邅如，乘馬班如。匪寇婚媾，女子貞不字，十年乃字。",
-        "六三：即鹿無虞，惟入於林中，君子幾不如舍，往吝。",
-        "六四：乘馬班如，求婚媾，往吉，無不利。",
-        "九五：屯其膏，小貞吉，大貞兇。",
-        "上六：乘馬班如，泣血漣如。"
+        "Initial Six: To make a fool develop\nIt furthers one to apply discipline.\nThe fetters should be removed.\nTo go on in this way bring humiliation.",
+        "Second Nine: To bear with fools in kindliness brings good fortune.\nTo know how to take women\nBrings good fortune.\nThe son is capable of taking charge of the household.",
+        "Third Six: Take not a maiden who. When she sees a man of bronze,\nLoses possession of herself.\nNothing furthers.",
+        "Fourth Six: Entangled folly bring humiliation.",
+        "Fifth Six: Childlike folly brings good fortune.",
+        "Top Nine: In punishing folly\nIt does not further one\nTo commit transgressions.\nThe only thing that furthers\nIs to prevent transgressions."
       ]
     },
     "100011": {
-      "name": "益",
-      "symbol": "䷩",
-      "gua_ci": "益：利有攸往，利涉大川。",
+      "name": "Decreasing",
+      "gua_ci": "DECREASE combined with sincerity\nBrings about supreme good fortune\nWithout blame.\nOne may be persevering in this.\nIt furthers one to undertake something.\nHow is this to be carried out?\nOne may use two small bowls for the sacrifice.",
       "yao_ci": [
-        "初九：利用為大作，元吉，無咎。",
-        "六二：或益之，十朋之龜弗克違，永貞吉。王用享於帝，吉。",
-        "六三：益之用兇事，無咎。有孚中行，告公用圭。",
-        "六四：中行，告公從。利用為依遷國。",
-        "九五：有孚惠心，勿問元吉。有孚惠我德。",
-        "上九：莫益之，或擊之，立心勿恒，兇。"
+        "Initial Nine: Going quickly when one's tasks are finished\nIs without blame.\nBut one must reflect on how much one may decrease others.",
+        "Second Nine: Perseverance furthers.",
+        "Third Six: When three people journey together,",
+        "Fourth Six: If a man deceases his faults,\nIt makes the other hasten to come and rejoice.",
+        "Fifth Six: Someone does indeed increase him.",
+        "Top Nine: If one is increased without depriving other,"
       ]
     },
     "100100": {
-      "name": "震",
-      "symbol": "䷲",
-      "gua_ci": "震：亨。震來虩虩，笑言啞啞。震驚百裏，不喪匕鬯。",
+      "name": "Keeping Still",
+      "gua_ci": "KEEPING STILL. Keeping his back still\nSo that he no longer feels his body.\nHe goes into his courtyard\nAnd does not see his people.\nNo blame.",
       "yao_ci": [
-        "初九：震來虩虩，後笑言啞啞，吉。",
-        "六二：震來厲，億喪貝，躋於九陵，勿逐，七日得。",
-        "六三：震蘇蘇，震行無眚。   ",
-        "九四：震遂泥。",
-        "六五：震往來厲，億無喪，有事。",
-        "上六：震索索，視矍矍，征兇。震不於其躬，於其鄰，無咎。婚媾有言。"
+        "Initial Six: Keeping his toes still.",
+        "Second Six: Keeping his calves still.\nHe cannot rescue him whom he follows.\nHis heart is not glad.",
+        "Third Nine: Keeping his hips still.\nMaking his sacrum stiff.\nDangerous. The heart suffocates.",
+        "Fourth Six: Keeping his trunk still.",
+        "Fifth Six: Keeping his jaws still.",
+        "Top Nine: Noblehearted keeping still.\nGood fortune."
       ]
     },
     "100101": {
-      "name": "噬嗑",
-      "symbol": "䷔",
-      "gua_ci": "噬嗑：亨。利用獄。",
+      "name": "Adorning",
+      "gua_ci": "GRACE has success.\nIn small matters\nIt is favorable to undertake something.",
       "yao_ci": [
-        "初九：屨校滅趾，無咎。",
-        "六二：噬膚滅鼻，無咎。",
-        "六三：噬臘肉，遇毒；小吝，無咎。",
-        "九四：噬乾胏，得金矢，利艱貞，吉。",
-        "六五：噬乾肉，得黃金，貞厲，無咎。",
-        "上九：何校滅耳，兇。"
+        "Initial Nine: He lends grace to his toes, leaves the carriage, and walks.",
+        "Second Six: Lends grace to the beard on his chin.",
+        "Third Nine: Graceful and moist.\nConstant perseverance brings good fortune.",
+        "Fourth Six: Grace or simplicity?\nA white horse comes as if on wings.\nHe is not a robber,\nHe will woo at the right time.",
+        "Fifth Six: Grace in the hills and gardens.\nThe roll of silk is meager and small.\nHumiliation, but in the end good fortune.",
+        "Top Nine: Simple grace. No blame."
       ]
     },
     "100110": {
-      "name": "隨",
-      "symbol": "䷐",
-      "gua_ci": "隨：元亨利貞，無咎。",
+      "name": "Remedying",
+      "gua_ci": "WORK ON WHAT HAS BEEN SPOILED\nHas supreme success.\nIt furthers one to cross the great water.\nBefore the starting point, three days.\nAfter the starting point, three days.",
       "yao_ci": [
-        "初九：官有渝，貞吉。出門交有功。",
-        "六二：系小子，失丈夫。",
-        "六三：系丈夫，失小子。隨有求得，利居貞。",
-        "九四：隨有獲，貞兇。有孚在道，以明，何咎。",
-        "九五：孚於嘉，吉。",
-        "上六：拘系之，乃從維之。王用亨於西山。"
+        "Initial Six: Setting right what has been spoiled by the father.\nIf there is a son,\nNo blame rests upon the departed father.\nDanger. In the end good fortune.",
+        "Second Nine: Setting right what has been spoiled by the mother.\nOne must not be too persevering.",
+        "Third Nine: Setting right what has been spoiled by the father.\nThere will be a little remorse. No great blame.",
+        "Fourth Six: Tolerating what has been spoiled by the father.\nIn continuing one sees humiliation.",
+        "Fifth Six: Setting right what has been spoiled by the father.\nOne meets with praise.",
+        "Top Nine: He does not serve kings and princes,\nSets himself higher goals."
       ]
     },
     "100111": {
-      "name": "無妄",
-      "symbol": "䷘",
-      "gua_ci": "無妄：元亨，利貞。其匪正有眚，不利有攸往。",
+      "name": "Great Accumulation",
+      "gua_ci": "THE TAMING POWER OF THE GREAT.\nPerseverance furthers.\nNot eating at home brings good fortune.\nIt furthers one to cross the great water.",
       "yao_ci": [
-        "初九：無妄，往吉。",
-        "六二：不耕獲，不災畬，則利有攸往。",
-        "六三：無妄之災，或系之牛，行人之得，邑人之災。",
-        "九四：可貞，無咎。",
-        "九五：無妄之疾，勿藥有喜。",
-        "上九：無妄，行有眚，無攸利。"
+        "Initial Nine: Danger is at hand. It furthers one to desist.",
+        "Second Nine: The axletrees are taken from the wagon.",
+        "Third Nine: A good horse that follows others.\nAwareness of danger,\nWith perseverance, furthers.\nPractice chariot driving and armed defense daily.\nIt furthers one to have somewhere to go.",
+        "Fourth Six: The headboard of a young bull.\nGreat good fortune.",
+        "Fifth Six: The tusk of a gelded boar.\nGood fortune.",
+        "Top Nine: One attains the way of heaven."
       ]
     },
     "101000": {
-      "name": "明夷",
-      "symbol": "䷣",
-      "gua_ci": "明夷：利艱貞。",
+      "name": "Proceeding Forward",
+      "gua_ci": "PROGRESS. The powerful prince\nIs honored with horses in large numbers.\nIn a single day he is granted audience three times.\nAs an example of progress, this pictures a time when a powerful feudal lord rallies the other lords around the sovereign and pledges fealty and peace. The sovereign rewards him richly and invites him to a closer intimacy.",
       "yao_ci": [
-        "初九：明夷於飛，垂其翼。君子於行，三日不食，有攸往，主人有言。",
-        "六二：明夷，夷於左股，用拯馬壯，吉。",
-        "九三：明夷於南狩，得其大首，不可疾貞。",
-        "六四：入於左腹，獲明夷之心，出於門庭。",
-        "六五：箕子之明夷，利貞。",
-        "上六：不明晦，初登於天，後入於地。"
+        "Initial Six: Progressing, but turned back.\nPerseverance brings good fortune.\nIf one meets with no confidence, one should remain calm.",
+        "Second Six: Progressing, but in sorrow.\nPerseverance brings good fortune.",
+        "Third Six: All are in accord. Remorse disappears.",
+        "Fourth Nine: Progress like a hamster.\nPerseverance brings danger.",
+        "Fifth Six: Remorse disappears.",
+        "Top Nine: Making progress with the horns is permissible\nOnly for the purpose of punishing one's own city."
       ]
     },
     "101001": {
-      "name": "賁",
-      "symbol": "䷕",
-      "gua_ci": "賁：亨。小利有攸往。",
+      "name": "Eradicating",
+      "gua_ci": "BITING THROUGH has success.\nIt is favorable to let justice be administered.",
       "yao_ci": [
-        "初九：賁其趾，舍車而徒。",
-        "六二：賁其須。",
-        "九三：賁如濡如，永貞吉。",
-        "六四：賁如皤如，白馬翰如，匪寇婚媾。",
-        "六五：賁於丘園，束帛戔戔，吝，終吉。",
-        "上九：白賁，無咎。"
+        "Initial Nine: His feet are fastened in the stocks,\nSo that his toes disappear.\nNo blame.",
+        "Second Six: Bites through tender meat,\nSo that his nose disappears.\nNo blame.",
+        "Third Six: Bites on old dried meat\nAnd strikes on something poisonous.\nSlight humiliation. No blame.",
+        "Fourth Nine: Bites on dried gristly meat.\nReceives metal arrows.\nIt furthers one to be mindful of difficulties\nAnd to be persevering.\nGood fortune.",
+        "Fifth Six: Bites on dried lean meat.\nReceives yellow gold.\nPerseveringly aware of danger.",
+        "Top Nine: His neck is fastened in the wooden cangue,\nSo that his ears disappear.\nMisfortune."
       ]
     },
     "101010": {
-      "name": "既濟",
-      "symbol": "䷾",
-      "gua_ci": "既濟：亨，小利貞，初吉終亂。",
+      "name": "Not Yet Fulfilled",
+      "gua_ci": "BEFORE COMPLETION. Success.\nBut if the little fox, after nearly completing the crossing,\nGets his tail in the water,\nThere is nothing that would further.",
       "yao_ci": [
-        "初九：曳其輪，濡其尾，無咎。",
-        "六二：婦喪其茀，勿逐，七日得。",
-        "九三：高宗伐鬼方，三年克之，小人勿用。",
-        "六四：繻有衣袽，終日戒。",
-        "九五：東鄰殺牛，不如西鄰之禴祭，實受其福。",
-        "上六：濡其首，厲。"
+        "Initial Six: He gets his tail in the water.\nHumiliating.",
+        "Second Nine: He brakes his wheels.\nPerseverance brings good fortune.",
+        "Third Six: Before completion, attack brings misfortune.\nIt furthers one to cross the great water.",
+        "Fourth Nine: Perseverance brings good fortune.\nRemorse disappears.",
+        "Fifth Six: Perseverance brings good fortune.",
+        "Top Nine: There is drinking of wine\nIn genuine confidence. No blame.\nBut if one wets his head,\nHe loses it, in truth."
       ]
     },
     "101011": {
-      "name": "家人",
-      "symbol": "䷤",
-      "gua_ci": "家人：利女貞。",
+      "name": "Diversity",
+      "gua_ci": "OPPOSITION. In small matters, good fortune.",
       "yao_ci": [
-        "初九：閑有家，悔亡。",
-        "六二：無攸遂，在中饋，貞吉。",
-        "九三：家人嗃嗃，悔厲吉；婦子嘻嘻，終吝。",
-        "六四：富家，大吉。",
-        "九五：王假有家，勿恤，往吉。",
-        "上九：有孚威如，終吉。"
+        "Initial Nine: Remorse disappears.\nIf you lose your horse, do not run after it;\nIt will come back of its own accord.\nWhen you see evil people,\nGuard yourself against mistakes.",
+        "Second Nine: One meets his lord in a narrow street.",
+        "Third Six: One sees the wagon dragged back,",
+        "Fourth Nine: Isolated through opposition,\nOne meets a like-minded man\nWith whom one can associate in good faith.\nDespite the danger, no blame.",
+        "Fifth Six: Remorse disappears.",
+        "Top Nine: Isolated through opposition,\nOne sees one's companion as a pig covered with dirt,\nAs a wagon full of devils.\nFirst one draws a bow against him,"
       ]
     },
     "101100": {
-      "name": "豐",
-      "symbol": "䷶",
-      "gua_ci": "豐：亨，王假之，勿憂，宜日中。",
+      "name": "Travelling",
+      "gua_ci": "The Wanderer. Success through smallness.\nPerseverance brings good fortune to the wanderer.\nWHEN A man is a wanderer and stranger, he should not be gruff nor overbearing. He has no large circle of acquaintances, therefore he should not give himself airs. He must be cautious and reserved; in this way he protects himself from evil. If he is obliging toward others, he wins success.",
       "yao_ci": [
-        "初九：遇其配主，雖旬無咎，往有尚。",
-        "六二：豐其蔀，日中見鬥，往得疑疾，有孚發若，吉。",
-        "九三：豐其沛，日中見沫，折其右肱，無咎。",
-        "九四：豐其蔀，日中見鬥，遇其夷主，吉。",
-        "六五：來章，有慶譽，吉。",
-        "上六：豐其屋，蔀其家，闚其戶，闃其無人，三歲不覿，兇。"
+        "Initial Six: If the wanderer busies himself with trivial things,\nHe draws down misfortune upon himself.",
+        "Second Six: The wanderer comes to an inn.\nHe has his property with him.\nHe wins the steadfastness of a young servant.",
+        "Third Nine: The wanderer's inn burns down.\nHe loses the steadfastness of his young servant.\nDanger.",
+        "Fourth Nine: The wanderer rests in a shelter.\nHe obtains his property and an ax.\nMy heart is not glad.",
+        "Fifth Six: He shoots a pheasant.\nIt drops with the first arrow.\nIn the end this brings both praise and office.",
+        "Top Nine: The bird's nest burns up."
       ]
     },
     "101101": {
-      "name": "離",
-      "symbol": "䷝",
-      "gua_ci": "離：利貞，亨。畜牝牛，吉。",
+      "name": "Brightness",
+      "gua_ci": "THE CLINGING. Perseverance furthers.\nIt brings success.\nCare of the cow brings good fortune.",
       "yao_ci": [
-        "初九：履錯然，敬之無咎。",
-        "六二：黃離，元吉。",
-        "九三：日昃之離，不鼓缶而歌，則大耋之嗟，兇。",
-        "九四：突如其來如，焚如，死如，棄如。",
-        "六五：出涕沱若，戚嗟若，吉。",
-        "上九：王用出征，有嘉折首，獲匪其醜，無咎。"
+        "Initial Nine: The footprints run crisscross.\nIf one is seriously intent, no blame.",
+        "Second Six: Yellow light. Supreme good fortune.",
+        "Third Nine: In the light of the setting sun,\nMen either beat the pot and sing\nOr loudly bewail the approach of old age.\nMisfortune.",
+        "Fourth Nine: Its coming is sudden;\nIt flames up, dies down, is thrown away.",
+        "Fifth Six: Tears in floods, sighing and lamenting.\nGood fortune.",
+        "Top Nine: The king used him to march forth and chastise."
       ]
     },
     "101110": {
-      "name": "革",
-      "symbol": "䷰",
-      "gua_ci": "革：巳日乃孚，元亨利貞，悔亡。",
+      "name": "Establishing The New",
+      "gua_ci": "THE CALDRON. Supreme good fortune.\nSuccess.",
       "yao_ci": [
-        "初九：鞏用黃牛之革。",
-        "六二：巳日乃革之，征吉，無咎。",
-        "九三：征兇，貞厲，革言三就，有孚。   ",
-        "九四：悔亡，有孚改命，吉。",
-        "九五：大人虎變，未占有孚。",
-        "上六：君子豹變，小人革面，征兇，居貞吉。"
+        "Initial Six: A ting with legs upturned.\nFurthers removal of stagnating stuff.\nOne takes a concubine for the sake of her son.",
+        "Second Nine: There is food in the ting.\nMy comrades are envious,\nBut they cannot harm me.\nGood fortune.",
+        "Third Nine: The handle of the ting is altered.\nOne is impeded in his way of life.",
+        "Fourth Nine: The legs of the ting are broken.",
+        "Fifth Six: The ting has yellow handles, golden carrying rings.\nPerseverance furthers.",
+        "Top Nine: The ting has rings of jade.\nGreat good fortune."
       ]
     },
     "101111": {
-      "name": "同人",
-      "symbol": "䷌",
-      "gua_ci": "同人於野，亨。利涉大川，利君子貞。",
+      "name": "Great Harvest",
+      "gua_ci": "POSSESSION IN GREAT MEASURE.\nSupreme success.",
       "yao_ci": [
-        "初九：同人於門，無咎。",
-        "六二：同人於宗，吝。",
-        "九三：伏戎於莽，升其高陵，三歲不興。",
-        "九四：乘其墉，弗克攻，吉。",
-        "九五：同人，先號啕而後笑。大師克相遇。",
-        "上九：同人於郊，無悔。"
+        "Initial Nine: No relationship with what is harmful;\nThere is no blame in this.\nIf one remains conscious of difficulty,\nOne remains without blame.",
+        "Second Nine: A big wagon for loading.\nOne may undertake something.\nNo blame.",
+        "Third Nine: A prince offers it to the Son of Heaven.\nA petty man cannot do this.",
+        "Fourth Nine: He makes a difference\nBetween himself and his neighbor.\nNo blame.",
+        "Fifth Six: He whose truth is accessible, yet dignified,\nHas good fortune.",
+        "Top Nine: He is blessed by heaven.\nGood fortune.\nNothing that does not further."
       ]
     },
     "110000": {
-      "name": "臨",
-      "symbol": "䷒",
-      "gua_ci": "臨：元，亨，利，貞。至於八月有兇。",
+      "name": "Watching",
+      "gua_ci": "CONTEMPLATION. The ablution has been made,\nBut not yet the offering.\nFull of trust they look up to him.",
       "yao_ci": [
-        "初九：鹹臨，貞吉。",
-        "九二：鹹臨，吉無不利。",
-        "六三：甘臨，無攸利。既憂之，無咎。",
-        "六四：至臨，無咎。",
-        "六五：知臨，大君之宜，吉。",
-        "上六：敦臨，吉無咎。"
+        "Initial Six: Boy like contemplation.\nFor an inferior man, no blame.\nFor a superior man, humiliation.",
+        "Second Six: Contemplation through the crack of the door.\nFurthering for the perseverance of a woman.",
+        "Third Six: Contemplation of my life\nDecides the choice\nBetween advance and retreat.",
+        "Fourth Six: Contemplation of the light of the kingdom.\nIt furthers one to exert influence as the guest of a king.",
+        "Fifth Nine: Contemplation of my life.\nThe superior man is without blame.",
+        "Top Nine: Contemplation of his life.\nThe superior man is without blame."
       ]
     },
     "110001": {
-      "name": "損",
-      "symbol": "䷨",
-      "gua_ci": "損：有孚，元吉，無咎，可貞，利有攸往。曷之用，二簋可用享。",
+      "name": "Increasing",
+      "gua_ci": "INCREASE. It furthers one\nTo undertake something.\nIt furthers one to cross the great water.",
       "yao_ci": [
-        "初九：巳事遄往，無咎，酌損之。",
-        "九二：利貞，征兇，弗損，益之。",
-        "六三：三人行，則損一人；一人行，則得其友。",
-        "六四：損其疾，使遄有喜，無咎。",
-        "六五：或益之，十朋之龜弗克違，元吉。",
-        "上九：弗損益之，無咎，貞吉，有攸往，得臣無家。"
+        "Initial Nine: It furthers one to accomplish great deeds.",
+        "Second Six: Someone does indeed increase him;",
+        "Third Six: One is enriched through unfortunate events.",
+        "Fourth Six: If you walk in the middle\nAnd report the prince,\nHe will follow.\nIt furthers one to be used\nIn the removal of the capital.",
+        "Fifth Nine: If in truth you have a kind heart, ask not.",
+        "Top Nine: He brings increase to no one.\nIndeed, someone even strikes him.\nHe does not keep his heart constantly steady.\nMisfortune."
       ]
     },
     "110010": {
-      "name": "節",
-      "symbol": "䷻",
-      "gua_ci": "節：亨。苦節，不可貞。",
+      "name": "Dispersing",
+      "gua_ci": "DISPERSION. Success.\nThe king approaches his temple.\nIt furthers one to cross the great water.\nPerseverance furthers.\nThe text of this hexagram resembles that of Ts'ui, GATHERING TOGETHER",
       "yao_ci": [
-        "初九：不出戶庭，無咎。",
-        "九二：不出門庭，兇。",
-        "六三：不節若，則嗟若，無咎。",
-        "六四：安節，亨。",
-        "九五：甘節，吉；往有尚。",
-        "上六：苦節，貞兇，悔亡。"
+        "Initial Six: He brings help with the strength of a horse.\nGood fortune.",
+        "Second Nine: At the dissolution\nHe hurries to that which supports him.\nRemorse disappears.",
+        "Third Six: He dissolves his self. No remorse.",
+        "Fourth Six: He dissolves his bond with his group.",
+        "Fifth Nine: His loud cries are as dissolving as sweat.\nDissolution! A king abides without blame.",
+        "Top Nine: He dissolves his blood.\nDeparting, keeping at a distance, going out,\nIs without blame."
       ]
     },
     "110011": {
-      "name": "中孚",
-      "symbol": "䷼",
-      "gua_ci": "中孚：豚魚吉，利涉大川，利貞。",
+      "name": "Innermost Sincerity",
+      "gua_ci": "INNER TRUTH. Pigs and fishes.\nGood fortune.\nIt furthers one to cross the great water.\nPerseverance furthers.",
       "yao_ci": [
-        "初九：虞吉，有它不燕。",
-        "九二：鳴鶴在陰，其子和之，我有好爵，吾與爾靡之。",
-        "六三：得敵，或鼓或罷，或泣或歌。",
-        "六四：月幾望，馬匹亡，無咎。",
-        "九五：有孚攣如，無咎。",
-        "上九：翰音登於天，貞兇。"
+        "Initial Nine: Being prepared brings good fortune.\nIf there are secret designs, it is disquieting.",
+        "Second Nine: A crane calling in the shade.\nIts young answers it.\nI have a good goblet.\nI will share it with you.",
+        "Third Six: He finds a comrade.",
+        "Fourth Six: The moon nearly at the full.",
+        "Fifth Nine: He possesses truth, which links together.",
+        "Top Nine: Cockcrow penetrating to heaven.\nPerseverance brings misfortune."
       ]
     },
     "110100": {
-      "name": "歸妹",
-      "symbol": "䷵",
-      "gua_ci": "歸妹：征兇，無攸利。",
+      "name": "Developing Gradually",
+      "gua_ci": "DEVELOPMENT. The maiden\nIs given in marriage.\nGood fortune.\nPerseverance furthers.",
       "yao_ci": [
-        "初九：歸妹以娣，跛能履，征吉。",
-        "九二：眇能視，利幽人之貞。",
-        "六三：歸妹以須，反歸以娣。",
-        "九四：歸妹愆期，遲歸有時。",
-        "六五：帝乙歸妹，其君之袂，不如其娣之袂良，月幾望，吉。",
-        "上六：女承筐無實，士刲羊無血，無攸利。"
+        "Initial Six: The wild goose gradually draws near the shore.",
+        "Second Six: The wild goose gradually draws near the cliff.\nEating and drinking in peace and concord.\nGood fortune.",
+        "Third Nine: The wild goose gradually draws near the plateau.",
+        "Fourth Six: The wild goose goes gradually draws near the tree.\nPerhaps it will find a flat branch. No blame.",
+        "Fifth Nine: The wild goose gradually draws near the summit.\nFor three years the woman has no child.\nIn the end nothing can hinder her.\nGood fortune.",
+        "Top Nine: The wild goose gradually draws near the clouds heights.\nIts feathers can be used for the sacred dance.\nGood fortune."
       ]
     },
     "110101": {
-      "name": "睽",
-      "symbol": "䷥",
-      "gua_ci": "睽：小事吉。",
+      "name": "Household",
+      "gua_ci": "THE FAMILY. The perseverance of the woman furthers.",
       "yao_ci": [
-        "初九：悔亡，喪馬勿逐，自復；見惡人無咎。",
-        "九二：遇主於巷，無咎。",
-        "六三：見輿曳，其牛掣，其人天且劓，無初有終。",
-        "九四：睽孤，遇元夫，交孚，厲無咎。",
-        "六五：悔亡，厥宗噬膚，往何咎。",
-        "上九：睽孤，見豕負塗，載鬼一車，先張之弧，後說之弧，匪寇婚媾，往遇雨則吉。"
+        "Initial Nine: Firm seclusion within the family.\nRemorse disappears.",
+        "Second Six: She should not follow her whims.",
+        "Third Nine: When tempers flare up in the family,",
+        "Fourth Six: She is the treasure of the house.\nGreat good fortune.",
+        "Fifth Nine: As a king he approaches his family.\nFear not.\nGood fortune.",
+        "Top Nine: His work commands respect.'\nIn the end good fortune comes."
       ]
     },
     "110110": {
-      "name": "兌",
-      "symbol": "䷹",
-      "gua_ci": "兌：亨，利貞。",
+      "name": "Proceeding Humbly",
+      "gua_ci": "THE GENTLE. Success through what is small.\nIt furthers one to have somewhere to go.\nIt furthers one to see the great man.",
       "yao_ci": [
-        "初九：和兌，吉。",
-        "九二：孚兌，吉，悔亡。",
-        "六三：來兌，兇。",
-        "九四：商兌，未寧，介疾有喜。",
-        "九五：孚於剝，有厲。",
-        "上六：引兌。"
+        "Initial Six: In advancing and in retreating,",
+        "Second Nine: Penetration under the bed.\nPriests and magicians are used in great number.\nGood fortune. No blame.",
+        "Third Nine: Repeated penetration. Humiliation.",
+        "Fourth Six: Remorse vanishes.\nDuring the hunt",
+        "Fifth Nine: Perseverance brings good fortune.\nRemorse vanishes.",
+        "Top Nine: Penetration under the bed.\nHe loses his property and his ax.\nPerseverance brings misfortune."
       ]
     },
     "110111": {
-      "name": "履",
-      "symbol": "䷉",
-      "gua_ci": "履虎尾，不咥人，亨。",
+      "name": "Little Accumulation",
+      "gua_ci": "THE TAMING POWER OF THE SMALL\nHas success.\nDense clouds, no rain from our western region.",
       "yao_ci": [
-        "初九：素履，往無咎。",
-        "九二：履道坦坦，幽人貞吉。",
-        "六三：眇能視，跛能履，履虎尾，咥人，兇。武人為於大君。",
-        "九四：履虎尾，訴訴，終吉。",
-        "九五：夬履，貞厲。",
-        "上九：視履考祥，其旋元吉。"
+        "Initial Nine: Return to the way.\nHow could there be blame in this?\nGood fortune.",
+        "Second Nine: He allows himself to be drawn into returning.\nGood fortune.",
+        "Third Nine: The spokes burst out of the wagon wheels.\nMan and wife roll their eyes.",
+        "Fourth Six: If you are sincere, blood vanishes and fear gives way.\nNo blame.",
+        "Fifth Nine: If you are sincere and loyally attached,\nYou are rich in your neighbor.",
+        "Top Nine: The rain comes, there is rest.\nThis is due to the lasting effect of character.\nPerseverance brings the woman into danger.\nThe moon is nearly full.\nIf the superior man persists,\nMisfortune comes."
       ]
     },
     "111000": {
-      "name": "泰",
-      "symbol": "䷊",
-      "gua_ci": "泰：小往大來，吉亨。",
+      "name": "Hindrance",
+      "gua_ci": "STANDSTILL. Evil people do not further\nThe perseverance of the superior man.\nThe great departs; the small approaches.",
       "yao_ci": [
-        "初九：拔茅茹，以其彙，征吉。",
-        "九二：包荒，用馮河，不遐遺，朋亡，得尚於中行。",
-        "九三：無平不陂，無往不復，艱貞無咎。勿恤其孚，於食有福。",
-        "六四：翩翩，不富，以其鄰，不戒以孚。",
-        "六五：帝乙歸妹，以祉元吉。",
-        "上六：城復於隍，勿用師。自邑告命，貞吝。"
+        "Initial Six: When ribbon grass is pulled up, the sod comes with it.\nEach according to his kind.\nPerseverance brings good fortune and success.",
+        "Second Six: They bear and endure;\nThis means good fortune for inferior people.\nThe standstill serves to help the great man to attain success.",
+        "Third Six: They bear shame.",
+        "Fourth Nine: He who acts at the command of the highest\nRemains without blame.\nThose of like mind partake of the blessing.",
+        "Fifth Nine: Standstill is giving way.\nGood fortune for the great man.\n\"What if it should fail, what if it should fail?\"\nIn this way he ties it to a cluster of mulberry shoots.",
+        "Top Nine: The standstill comes to an end.\nFirst standstill, then good fortune."
       ]
     },
     "111001": {
-      "name": "大畜",
-      "symbol": "䷙",
-      "gua_ci": "大畜：利貞，不家食吉，利涉大川。",
+      "name": "Without Falsehood",
+      "gua_ci": "INNOCENCE. Supreme success.\nPerseverance furthers.\nIf someone is not as he should be,\nHe has misfortune,\nAnd it does not further him\nTo undertake anything.",
       "yao_ci": [
-        "初九：有厲利已。",
-        "九二：輿說輹。",
-        "九三：良馬逐，利艱貞。曰閑輿衛，利有攸往。",
-        "六四：童牛之牿，元吉。",
-        "六五：豶豕之牙，吉。",
-        "上九：何天之衢，亨。"
+        "Initial Nine: Innocent behavior brings good fortune.",
+        "Second Six: If one does not count on the harvest while plowing,",
+        "Third Six: Undeserved misfortune.",
+        "Fourth Nine: He who can be persevering\nRemains without blame.",
+        "Fifth Nine: Use no medicine in an illness\nIncurred through no fault of your own.\nIt will pass of itself.",
+        "Top Nine: Innocent action brings misfortune."
       ]
     },
     "111010": {
-      "name": "需",
-      "symbol": "䷄",
-      "gua_ci": "需：有孚，光亨，貞吉。利涉大川。",
+      "name": "Contention",
+      "gua_ci": "CONFLICT. You are sincere\nAnd are being obstructed.\nA cautious halt halfway brings good fortune.\nGoing through to the end brings misfortune.\nIt furthers one to see the great man.\nIt does not further one to cross the great water.",
       "yao_ci": [
-        "初九：需於郊。利用恒，無咎。",
-        "九二：需於沙。小有言，終吉。",
-        "九三：需於泥，致寇至。",
-        "六四：需於血，出自穴。",
-        "九五：需於酒食，貞吉。",
-        "上六：入於穴，有不速之客三人來，敬之終吉。"
+        "Initial Six: If one does not perpetuate the affair,\nThere is a little gossip.\nIn the end, good fortune comes.",
+        "Second Nine: One cannot engage in conflict;\nOne returns home, gives way.\nThe people of his town,\nThree hundred households,\nRemain free of guilt.",
+        "Third Six: To nourish oneself on ancient virtue induces perseverance.\nDanger. In the end, good fortune comes.\nIf by chance you are in the service of a king,\nSeek not works.",
+        "Fourth Nine: One cannot engage in conflict.\nOne turns back and submits to fate,\nChanges one's attitude,\nAnd finds peace in perseverance.\nGood fortune.",
+        "Fifth Nine: To contend before him\nBrings supreme good fortune.",
+        "Top Nine: Even if by chance a leather belt is bestowed on one,'\nBy the end of a morning\nIt will have been snatched away three times."
       ]
     },
     "111011": {
-      "name": "小畜",
-      "symbol": "䷈",
-      "gua_ci": "小畜：亨。密雲不雨，自我西郊。",
+      "name": "Fulfillment",
+      "gua_ci": "TREADING. Treading upon the tail of the tiger.\nIt does not bite the man. Success.",
       "yao_ci": [
-        "初九：復自道，何其咎，吉。",
-        "九二：牽復，吉。",
-        "九三：輿說輻，夫妻反目。",
-        "六四：有孚，血去惕出，無咎。",
-        "九五：有孚攣如，富以其鄰。",
-        "上九：既雨既處，尚德載，婦貞厲。月幾望，君子征兇。"
+        "Initial Nine: Simple conduct. Progress without blame.",
+        "Second Nine: Treading a smooth, level course.\nThe perseverance of a dark man\nBrings good fortune.",
+        "Third Six: A one-eyed man is able to see,\nA lame man is able to tread.\nHe treads on the tail of the tiger.",
+        "Fourth Nine: He treads on the tail of the tiger.\nCaution and circumspection\nLead ultimately to good fortune.",
+        "Fifth Nine: Resolute conduct.\nPerseverance with awareness of danger.",
+        "Top Nine: Look to your conduct and weigh the favorable signs.\nWhen everything is fulfilled, supreme good fortune comes."
       ]
     },
     "111100": {
-      "name": "大壯",
-      "symbol": "䷡",
-      "gua_ci": "大壯：利貞",
+      "name": "Retreat",
+      "gua_ci": "RETREAT. Success.\nIn what is small, perseverance furthers.",
       "yao_ci": [
-        "初九：壯於趾，征兇，有孚。",
-        "九二：貞吉。",
-        "九三：小人用壯，君子用罔，貞厲。羝羊觸藩，羸其角。",
-        "九四：貞吉悔亡，藩決不羸，壯於大輿之輹。",
-        "六五：喪羊於易，無悔。",
-        "上六：羝羊觸藩，不能退，不能遂，無攸利，艱則吉。"
+        "Initial Six: At the tail in retreat. This is dangerous.\nOne must not wish to undertake anything.",
+        "Second Six: he holds him fast with yellow oxhide.",
+        "Third Nine: A halted retreat\nIs nerve-wracking and dangerous.",
+        "Fourth Nine: Voluntary retreat brings good fortune to the superior man\nAnd downfall to the inferior man.",
+        "Fifth Nine: Friendly retreat. Perseverance brings good fortune.",
+        "Top Nine: Cheerful retreat. Everything serves to further."
       ]
     },
     "111101": {
-      "name": "大有",
-      "symbol": "䷍",
-      "gua_ci": "大有：元亨。",
+      "name": "Seeking Harmony",
+      "gua_ci": "FELLOWSHIP WITH MEN in the open.\nSuccess.\nIt furthers one to cross the great water.\nThe perseverance of the superior man furthers.",
       "yao_ci": [
-        "初九：無交害，匪咎，艱則無咎。",
-        "六二：同人於宗，吝。",
-        "九三：公用亨於天子，小人弗克。",
-        "九四：匪其彭，無咎。",
-        "六五：厥孚交如，威如；吉。",
-        "上九：自天佑之，吉無不利。"
+        "Initial Nine: Fellowship with men at the gate.\nNo blame.",
+        "Second Six: Fellowship with men in the clan.\nHumiliation.",
+        "Third Nine: He hides weapons in the thicket;\nHe climbs the high hill in front of it.\nFor three years he does not rise up.",
+        "Fourth Nine: He climbs up on his wall; he cannot attack.\nGood fortune.",
+        "Fifth Nine: Men bound in fellowship first weep and lament,\nBut afterward they laugh.\nAfter great struggles they succeed in meeting.",
+        "Top Nine: Fellowship with men in the meadow.\nNo remorse."
       ]
     },
     "111110": {
-      "name": "夬",
-      "symbol": "䷪",
-      "gua_ci": "夬：揚於王庭，孚號，有厲，告自邑，不利即戎，利有攸往。",
+      "name": "Encountering",
+      "gua_ci": "COMING TO MEET. The maiden is powerful.\nOne should not marry such a maiden.",
       "yao_ci": [
-        "初九：壯於前趾，往不勝為咎。",
-        "九二：惕號，莫夜有戎，勿恤。",
-        "九三：壯於頄，有兇。君子夬夬，獨行，遇雨，若濡，有慍，無咎。   ",
-        "九四：臀無膚，其行次且。牽羊悔亡，聞言不信。",
-        "九五：莧陸夬夬，中行無咎。",
-        "上六：無號，終有兇。"
+        "Initial Six: It must be checked with a brake of bronze.\nPerseverance brings good fortune.\nIf one lets it take its course, one experiences misfortune.\nEven a lean pig has it in him to rage around.",
+        "Second Nine: There is a fish in the tank. No blame.\nDoes not further guests.",
+        "Third Nine: And walking comes hard.\nIf one is mindful of the danger,",
+        "Fourth Nine: No fish in the tank.",
+        "Fifth Nine: A melon covered with willow leaves.\nHidden lines.",
+        "Top Nine: He comes to meet with his horns.\nHumiliation. No blame."
       ]
     },
     "111111": {
-      "name": "乾",
-      "symbol": "䷀",
-      "gua_ci": "乾：元亨，利貞。",
+      "name": "Initiating",
+      "gua_ci": "THE CREATIVE works sublime success, Furthering through perseverance.",
       "yao_ci": [
-        "初九：潛龍，勿用。",
-        "九二：見龍在田，利見大人。",
-        "九三：君子終日乾乾，夕惕若，厲，無咎。",
-        "九四：或躍在淵，無咎。",
-        "九五：飛龍在天，利見大人。",
-        "上九：亢龍有悔。"
+        "Initial Nine: Hidden dragon. Do not act.",
+        "Second Nine: Dragon appearing in the field.\nIt furthers one to see the great man.",
+        "Third Nine: All day long the superior man is creatively active.\nAt nightfall his mind is still beset with cares.\nDanger. No blame.",
+        "Fourth Nine: Wavering flight over the depths.\nNo blame.",
+        "Fifth Nine: Flying dragon in the heavens.\nIt furthers one to see the great man.",
+        "Top Nine: Arrogant dragon will have cause to repent."
       ],
-      "yong_ci": [
-        "用九：見群龍無首，吉。"
-      ]
+      "yong_ci": "There appears a flight of dragons without heads.\nGood fortune."
     },
     "000000": {
-      "name": "坤",
-      "symbol": "䷁",
-      "gua_ci": "坤：元亨，利牝馬之貞。君子有攸往，先迷後得主，利西南得朋，東北喪朋。安貞，吉。",
+      "name": "Responding",
+      "gua_ci": "THE RECEPTIVE brings about sublime success,\nFurthering through the perseverance of a mare.\nIf the superior man undertakes something and tries to lead,\nHe goes astray;\nBut if he follows, he finds guidance.\nIt is favorable to find friends in the west and south,\nTo forego friends in the east and north.\nQuiet perseverance brings good fortune.",
       "yao_ci": [
-        "初六：履霜，堅冰至。",
-        "六二：直，方，大，不習無不利。",
-        "六三：含章可貞。或從王事，無成有終。",
-        "六四：括囊；無咎，無譽。",
-        "六五：黃裳，元吉。",
-        "上六：龍戰於野，其血玄黃。"
+        "Initial Six: When there is hoarfrost underfoot,\nSolid ice is not far off.",
+        "Second Six: Straight, square, great.\nWithout purpose,\nYet nothing remains unfurthered.",
+        "Third Six: Hidden lines.\nOne is able to remain persevering.\nIf by chance you are in the service of a king,\nSeek not works, but bring to completion.",
+        "Fourth Six: A tied-up sack. No blame, no praise.",
+        "Fifth Six: A yellow lower garment brings supreme good fortune.",
+        "Top Six: Dragons fight in the meadow.\nTheir blood is black and yellow."
       ],
-      "yong_ci": [
-        "用六：利永貞。"
-      ]
+      "yong_ci": "A yielding ruler comes forth. Good fortune."
     },
     "010001": {
-      "name": "蒙",
-      "symbol": "䷃",
-      "gua_ci": "蒙：亨。匪我求童蒙，童蒙求我。初筮告，再三瀆，瀆則不告。利貞。",
+      "name": "Beginning",
+      "gua_ci": "DIFFICULTY AT THE BEGINNING works supreme success,\nFurthering through perseverance.\nNothing should be undertaken.\nIt furthers one to appoint helpers.",
       "yao_ci": [
-        "初六：發蒙，利用刑人，用說桎梏，以往吝。",
-        "九二：包蒙吉；納婦吉；子克家。",
-        "六三：勿用娶女；見金夫，不有躬，無攸利。",
-        "六四：困蒙，吝。",
-        "六五：童蒙，吉。",
-        "上九：擊蒙；不利為寇，利禦寇。"
+        "Initial Nine: Hesitation and hindrance.\nIt furthers one to remain persevering.\nIt furthers one to appoint helpers.",
+        "Second Six: Difficulties pile up.\nHorse and wagon part.\nHe is not a robber;\nHe wants to woo when the time comes.\nThe maiden is chaste,\nShe does not pledge herself.\nTen years--then she pledges herself.",
+        "Third Six: Whoever hunts deer without the forester\nOnly loses his way in the forest.\nThe superior man understands the signs of the time\nAnd prefers to desist.\nTo go on brings humiliation.",
+        "Fourth Six: Horse and wagon part.\nStrive for union.\nTo go brings good fortune.\nEverything acts to further.",
+        "Fifth Nine: Difficulties in blessing.\nA little perseverance brings good fortune.\nGreat perseverance brings misfortune.",
+        "Top Six: Horse and wagon part.\nBloody tears flow."
       ]
     },
     "010111": {
-      "name": "訟",
-      "symbol": "䷅",
-      "gua_ci": "訟：有孚，窒。惕中吉。終兇。利見大人，不利涉大川。",
+      "name": "Needing",
+      "gua_ci": "WAITING. If you are sincere,\nYou have light and success.\nPerseverance brings good fortune.\nIt furthers one to cross the great water.",
       "yao_ci": [
-        "初六：不永所事，小有言，終吉。",
-        "九二：不克訟，歸而逋，其邑人三百戶，無眚。",
-        "六三：食舊德，貞厲，終吉，或從王事，無成。",
-        "九四：不克訟，復即命渝，安貞吉。",
-        "九五：訟元吉。",
-        "上九：或錫之鞶帶，終朝三褫之。"
-      ]
-    },
-    "010000": {
-      "name": "師",
-      "symbol": "䷆",
-      "gua_ci": "貞，丈人，吉無咎。",
-      "yao_ci": [
-        "初六：師出以律，否臧兇。",
-        "九二：在師中吉，無咎，王三錫命。",
-        "六三：師或輿屍，兇。",
-        "六四：師左次，無咎。",
-        "六五：田有禽，利執言，無咎。長子帥師，弟子輿屍，貞兇。",
-        "上六：大君有命，開國承家，小人勿用。"
+        "Initial Nine: Waiting in the meadow.\nIT furthers one to abide in what endures.\nNo blame.",
+        "Second Nine: Waiting on the sand.\nThere is some gossip.\nThe end brings good fortune.",
+        "Third Nine: Waiting in the mud\nBrings about the arrival of the enemy.",
+        "Fourth Six: Waiting in blood.\nGet out of the pit.",
+        "Fifth Nine: Waiting at meat and drink.\nPerseverance brings good fortune.",
+        "Top Six: One falls into the pit.\nThree uninvited guests arrive.\nHonor them, and in the end there will be good fortune."
       ]
     },
     "000010": {
-      "name": "比",
-      "symbol": "䷇",
-      "gua_ci": "吉。原筮元永貞，無咎。不寧方來，後夫兇。",
+      "name": "Multitude",
+      "gua_ci": "THE ARMY. The army needs perseverance\nAnd a strong man.\nGood fortune without blame.\nAn army is a mass that needs organization in order to become a fighting force.",
       "yao_ci": [
-        "初六：有孚，比之，無咎。有孚盈缶，終來有他，吉。",
-        "六二：比之自內，貞吉。",
-        "六三：比之匪人。",
-        "六四：外比之，貞吉。",
-        "九五：顯比，王用三驅，失前禽。邑人不誡，吉。",
-        "上六：比之無首，兇。"
+        "Initial Six: An army must set forth in proper order.\nIf the order is not good, misfortune threatens.",
+        "Second Nine: In the midst of the army.\nGood fortune. No blame.\nThe king bestows a triple decoration.",
+        "Third Six: Perchance the army carries corpses in the wagon.\nMisfortune.",
+        "Fourth Six: The army retreats. No blame.",
+        "Fifth Six: There is game in the field.\nIt furthers one to catch it.\nWithout blame.\nLet the eldest lead the army.\nThe younger transports corpses;\nThen perseverance brings misfortune.",
+        "Top Six: The great prince issues commands,\nFounds states, vests families with fiefs.\nInferior people should not be employed."
+      ]
+    },
+    "010000": {
+      "name": "Union",
+      "gua_ci": "HOLDING TOGETHER brings good fortune.\nInquire of the oracle once again\nWhether you possess sublimity, constancy, and perseverance;\nThen there is no blame.\nThose who are uncertain gradually join.\nWhoever come too late\nMeets with misfortune.",
+      "yao_ci": [
+        "Initial Six: Hold to him in truth and loyalty;\nThis is without blame.\nTruth, like a full earthen bowl\"\nThus in the end\nGood fortune comes from without.",
+        "Second Six: Hold to him inwardly.\nPerseverance brings good fortune.",
+        "Third Six: You hold together with the wrong people.",
+        "Fourth Six: Hold to him outwardly also.\nPerseverance brings good fortune.",
+        "Fifth Nine: Manifestation of holding together.\nIn the hunt the king uses beaters on three sides only\nAnd forgoes game that runs off in front.\nThe citizens need no warning.\nGood fortune.",
+        "Top Six: He finds no head for holding together.\nMisfortune."
       ]
     },
     "000111": {
-      "name": "否",
-      "symbol": "䷋",
-      "gua_ci": "否之匪人，不利君子貞，大往小來。",
+      "name": "Advance",
+      "gua_ci": "PEACE. The small departs,\nThe great approaches.\nGood fortune. Success.",
       "yao_ci": [
-        "初六：拔茅茹，以其匯，貞吉亨。",
-        "六二：包承。小人吉，大人否，亨。",
-        "六三：包羞。",
-        "九四：有命，無咎，疇離祉。",
-        "九五：休否，大人吉。其亡其亡，系於苞桑。",
-        "上九：傾否，先否後喜。"
-      ]
-    },
-    "001000": {
-      "name": "謙",
-      "symbol": "䷎",
-      "gua_ci": "謙：亨，君子有終。",
-      "yao_ci": [
-        "初六：謙謙君子，用涉大川，吉。",
-        "六二：鳴謙，貞吉。",
-        "九三：勞謙，君子有終，吉。",
-        "六四：無不利，撝謙。",
-        "六五：不富，以其鄰，利用侵伐，無不利。",
-        "上六：鳴謙，利用行師，征邑國。"
+        "Initial Nine: When ribbon grass is pulled up, the sod comes with it.\nEach according to his kind.\nUndertakings bring good fortune.",
+        "Second Nine: Bearing with the uncultured in gentleness,\nFording the river with resolution,\nNot neglecting what is distant,\nNot regarding one's companions:",
+        "Third Nine: No plain not followed by a slope.\nNo going not followed by a return.\nHe who remains persevering in danger\nIs without blame.\nDo not complain about this truth;\nEnjoy the good fortune you still possess.",
+        "Fourth Six: He flutters down, not boasting of his wealth,\nTogether with his neighbor,\nGuileless and sincere.",
+        "Fifth Six: The sovereign I\nGives his daughter in marriage.\nAnd supreme good fortune.",
+        "Top Six: The wall falls back into the moat.\nUse no army now.\nMake your commands known within your own town.\nPerseverance brings humiliation."
       ]
     },
     "000100": {
-      "name": "豫",
-      "symbol": "䷏",
-      "gua_ci": "豫：利建侯，行師。",
+      "name": "Humbleness",
+      "gua_ci": "MODESTY creates success.\n. The superior man carries things through.",
       "yao_ci": [
-        "初六：鳴豫，兇。",
-        "六二：介於石，不終日，貞吉。",
-        "六三：盱豫，悔。遲有悔。",
-        "九四：由豫，大有得。勿疑。朋盍簪。",
-        "六五：貞疾，恒不死。",
-        "上六：冥豫，成有渝，無咎。"
+        "Initial Six: A superior man modest about his modesty\nMay cross the great water.\nGood fortune.",
+        "Second Six: Modesty that comes to expression. Perseverance brings good fortune.",
+        "Third Nine: A superior man of modesty and merit\nCarries things to conclusion.\nGood fortune.",
+        "Fourth Six: Nothing that would not further modesty\nIn movement.",
+        "Fifth Six: No boasting of wealth before one's neighbor.\nIt is favorable to attack with force.\nNothing that would not further.",
+        "Top Six: Modesty that comes to expression.\nIt is favorable to set armies marching\nTo chastise one's own city and one's country."
+      ]
+    },
+    "001000": {
+      "name": "Delight",
+      "gua_ci": "ENTHUSIASM. It furthers one to install helpers\nAnd to set armies marching.",
+      "yao_ci": [
+        "Initial Six: Enthusiasm that expresses itself\nBrings misfortune.",
+        "Second Six: Firm as a rock. Not a whole day.\nPerseverance brings good fortune.",
+        "Third Six: Enthusiasm that looks upward creates remorse.\nHesitation brings remorse.",
+        "Fourth Nine: The source of enthusiasm.\nHe achieves great things.\nDoubt not.\nYou gather friends around you\nAs a hair clasp gathers the hair.",
+        "Fifth Six: Persistently ill, and still does not die.",
+        "Top Six: Deluded enthusiasm.\nBut if after completion one changes,\nThere is no blame."
       ]
     },
     "011001": {
-      "name": "蠱",
-      "symbol": "䷑",
-      "gua_ci": "蠱：元亨，利涉大川。先甲三日，後甲三日。",
+      "name": "Following",
+      "gua_ci": "FOLLOWING has supreme success.\nPerseverance furthers. No blame.",
       "yao_ci": [
-        "初六：幹父之蠱，有子，考無咎，厲終吉。",
-        "九二：幹母之蠱，不可貞。",
-        "九三：幹父之蠱，小有悔，無大咎。",
-        "六四：裕父之蠱，往見吝。",
-        "六五：幹父之蠱，用譽。",
-        "上九：不事王侯，高尚其事。"
+        "Initial Nine: The standard is changing.\nPerseverance brings good fortune.\nTo go out of the door in company\nProduces deeds.",
+        "Second Six: If one clings to the little boy,\nOne loses the strong man.",
+        "Third Six: If one clings to the strong man,\nOne loses the little boy.",
+        "Fourth Nine: Following creates success.\nPerseverance brings misfortune.\nTo go one's way with sincerity brings clarity.\nHow could there be blame in this?",
+        "Fifth Nine: Sincere in the good. Good fortune.",
+        "Top Six: He meets with firm allegiance\nAnd is still further bound.\nThe king introduces him\nTo the Western Mountain."
       ]
     },
     "000011": {
-      "name": "觀",
-      "symbol": "䷓",
-      "gua_ci": "觀：盥而不薦，有孚顒若。",
+      "name": "Approaching",
+      "gua_ci": "APPROACH has supreme success.\nPerseverance furthers.\nWhen the eighth month comes,\n. There will be misfortune.",
       "yao_ci": [
-        "初六：童觀，小人無咎，君子吝。",
-        "六二：窺觀，利女貞。",
-        "六三：觀我生，進退。",
-        "六四：觀國之光，利用賓於王。",
-        "九五：觀我生，君子無咎。",
-        "上九：觀其生，君子無咎。"
+        "Initial Nine: Joint approach.\nPerseverance brings good fortune.",
+        "Second Nine: Joint approach.\nGood fortune.\nEverything furthers.",
+        "Third Six: Comfortable approach.\nNothing that would further.\nIf one is induced to grieve over it,\nOne becomes free of blame.",
+        "Fourth Six: Complete approach.\nNo blame.",
+        "Fifth Six: Wise approach.\nThis is right for a great prince.\nGood fortune.",
+        "Top Six: Great hearted approach.\nGood-hearted approach.\nGood fortune. No blame."
       ]
     },
     "000001": {
-      "name": "剝",
-      "symbol": "䷖",
-      "gua_ci": "剝：不利有攸往。",
+      "name": "Turning Back",
+      "gua_ci": "RETURN. Success.\nGoing out and coming in without error.\nFriends come without blame.\nTo and fro goes the way.\nOn the seventh day comes return.\nIt furthers one to have somewhere to go.",
       "yao_ci": [
-        "初六：剝床以足，蔑貞兇。",
-        "六二：剝床以辨，蔑貞兇。",
-        "六三：剝之，無咎。",
-        "六四：剝床以膚，兇。",
-        "六五：貫魚，以宮人寵，無不利。",
-        "上九：碩果不食，君子得輿，小人剝廬。"
+        "Initial Nine: Return from a short distance.\nNo need for remorse.\nGreat good fortune.",
+        "Second Six: Quiet return. Good fortune.",
+        "Third Six: Repeated return. Danger. No blame.",
+        "Fourth Six: Walking in the midst of others,\nOne returns alone.",
+        "Fifth Six: Noblehearted return. No remorse.",
+        "Top Six: Missing the return. Misfortune.\nMisfortune from within and without.\nIf armies are set marching in this way,\nOne will in the end suffer a great defeat,\nDisastrous for the ruler of the country.\nFor ten years\nIt will not be possible to attack again."
       ]
     },
     "011110": {
-      "name": "大過",
-      "symbol": "䷛",
-      "gua_ci": "大過：棟橈，利有攸往，亨。",
+      "name": "Great Exceeding",
+      "gua_ci": "PREPONDERANCE OF THE GREAT.\nThe ridgepole sags to the breaking point.\nIt furthers one to have somewhere to go.\nSuccess.",
       "yao_ci": [
-        "初六：藉用白茅，無咎。",
-        "九二：枯楊生稊，老夫得其女妻，無不利。",
-        "九三：棟橈，兇。",
-        "九四：棟隆，吉；有它吝。",
-        "九五：枯楊生華，老婦得士夫，無咎無譽。",
-        "上六：過涉滅頂，兇，無咎。"
+        "Initial Six: To spread white rushes underneath.",
+        "Second Nine: A dry poplar sprouts at the root.\nAn older man takes a young wife.\nEverything furthers.",
+        "Third Nine: The ridgepole sags to the breaking point.\nMisfortune.",
+        "Fourth Nine: The ridgepole is braced. Good fortune.\nIf there are ulterior motives, it is humiliating.",
+        "Fifth Nine: A withered poplar puts forth flowers.\nAn older woman takes a husband.",
+        "Top Six: One must go through the water.\nIt goes over one's head.\nMisfortune. No blame."
       ]
     },
     "010010": {
-      "name": "坎",
-      "symbol": "䷜",
-      "gua_ci": "坎：習坎，有孚，維心亨，行有尚。",
+      "name": "Darkness",
+      "gua_ci": "The Abysmal repeated.\nIf you are sincere, you have success in your heart,\nAnd whatever you do succeeds.",
       "yao_ci": [
-        "初六：習坎，入於坎窞，兇。",
-        "九二：坎有險，求小得。",
-        "六三：來之坎坎，險且枕，入於坎窞，勿用。",
-        "六四：樽酒簋貳，用缶，納約自牖，終無咎。",
-        "九五：坎不盈，祗既平，無咎。",
-        "上六：系用徽纆，置於叢棘，三歲不得，兇。"
-      ]
-    },
-    "001110": {
-      "name": "鹹",
-      "symbol": "䷞",
-      "gua_ci": "鹹，亨，利貞，取女吉。",
-      "yao_ci": [
-        "初六，鹹其拇。",
-        "六二，鹹其腓，兇，居吉。",
-        "九三，鹹其股，執其隨，往吝。",
-        "九四，貞吉，悔亡，憧憧往來，朋從爾思。",
-        "九五，鹹其脢，無悔。",
-        "上六，鹹其輔頰舌。"
+        "Initial Six: Repetition of the Abysmal.\nIn the abyss one falls into a pit.\nMisfortune.",
+        "Second Nine: The abyss is dangerous.\nOne should strive to attain small things only.",
+        "Third Six: Forward and backward, abyss on abyss.\nIn danger like this, pause at first and wait,\nOtherwise you will fall into a pit in the abyss.\nDo not act this way.",
+        "Fourth Six: A jug of wine, a bowl of rice with it;\nEarthen vessels",
+        "Fifth Nine: The abyss is not filled to overflowing,\nIt is filled only to the rim.",
+        "Top Six: Bound with cords and ropes,"
       ]
     },
     "011100": {
-      "name": "恒",
-      "symbol": "䷟",
-      "gua_ci": "恒：亨，無咎，利貞，利有攸往。",
+      "name": "Mutual Influence",
+      "gua_ci": "Influence. Success.\nPerseverance furthers.\nTo take a maiden to wife brings good fortune.",
       "yao_ci": [
-        "初六：浚恒，貞兇，無攸利。",
-        "九二：悔亡。",
-        "九三：不恒其德，或承之羞，貞吝。",
-        "九四：田無禽。",
-        "六五：恒其德，貞，婦人吉，夫子兇。",
-        "上六：振恒，兇。"
+        "Initial Six: The influence shows itself in the big toe.",
+        "Second Six: The influence shows itself in the calves of the legs.\nMisfortune.",
+        "Third Nine: The influence shows itself in the thighs.\nHolds to that which follows it.",
+        "Fourth Nine: Perseverance brings good fortune.\nRemorse disappears.\nIf a man is agitated in mind,\nAnd his thoughts go hither and thither,\nOnly those friends\nOn whom he fixes his conscious thoughts\nWill follow.",
+        "Fifth Nine: The influence shows itself in the back of the neck.",
+        "Top Six: The influence shows itself in the jaws, cheeks, and tongue."
+      ]
+    },
+    "001110": {
+      "name": "Long Lasting",
+      "gua_ci": "DURATION. Success. No blame.\nPerseverance furthers.\nIt furthers one to have somewhere to go.",
+      "yao_ci": [
+        "Initial Six: Seeking duration too hastily brings misfortune persistently.",
+        "Second Nine: Remorse disappears.",
+        "Third Nine: He who does not give duration to his character\nMeets with disgrace.\nPersistent humiliation.",
+        "Fourth Nine: No game in the field.",
+        "Fifth Six: Giving duration to one's character through perseverance.",
+        "Top Six: Restlessness as an enduring condition brings misfortune."
       ]
     },
     "001111": {
-      "name": "遯",
-      "symbol": "䷠",
-      "gua_ci": "遯：亨，小利貞。",
+      "name": "Great Strength",
+      "gua_ci": "THE POWER OF THE GREAT. Perseverance furthers.",
       "yao_ci": [
-        "初六：遯尾，厲，勿用有攸往。",
-        "六二：執之用黃牛之革，莫之勝說。",
-        "九三：系遯，有疾厲，畜臣妾吉。",
-        "九四：好遯，君子吉，小人否。",
-        "九五：嘉遯，貞吉。",
-        "上九：肥遯，無不利。"
+        "Initial Nine: Power in the toes.\nContinuing brings misfortune.",
+        "Second Nine: Perseverance brings good fortune.",
+        "Third Nine: The inferior man works through power.",
+        "Fourth Nine: Perseverance brings good fortune.\nRemorse disappears.",
+        "Fifth Six: Loses the goat with ease.",
+        "Top Six: A goat butts against a hedge.\nIt cannot go backward, it cannot go forward."
       ]
     },
     "000101": {
-      "name": "晉",
-      "symbol": "䷢",
-      "gua_ci": "晉：康侯用錫馬蕃庶，晝日三接。",
+      "name": "Brilliance Injured",
+      "gua_ci": "DARKENING OF THE LIGHT. In adversity\nIt furthers one to be persevering.",
       "yao_ci": [
-        "初六：晉如，摧如，貞吉。罔孚，裕無咎。",
-        "六二：晉如，愁如，貞吉。受茲介福，於其王母。",
-        "六三：眾允，悔亡。",
-        "九四：晉如碩鼠，貞厲。",
-        "六五：悔亡，失得勿恤，往吉，無不利。",
-        "上九：晉其角，維用伐邑，厲吉無咎，貞吝。"
-      ]
-    },
-    "001010": {
-      "name": "蹇",
-      "symbol": "䷦",
-      "gua_ci": "蹇：利西南，不利東北；利見大人，貞吉。",
-      "yao_ci": [
-        "初六：往蹇，來譽。",
-        "六二：王臣蹇蹇，匪躬之故。",
-        "九三：往蹇來反。",
-        "六四：往蹇來連。",
-        "九五：大蹇朋來。",
-        "上六：往蹇來碩，吉；利見大人。"
+        "Initial Nine: Darkening of the light during flight.\nHe lowers his wings.",
+        "Second Six: Darkening of the light injures him in the left thigh.\nHe gives aid with the strength of a horse.\nGood fortune.",
+        "Third Nine: Darkening of the light during the hunt in the south.",
+        "Fourth Six: He penetrates the left side of the belly.\nOne gets at the very heart of the darkening of the light.",
+        "Fifth Six: Darkening of the light as with Prince Chi.\nPerseverance furthers.",
+        "Top Six: Not light but darkness.\nFirst he climbed up to heaven,"
       ]
     },
     "010100": {
-      "name": "解",
-      "symbol": "䷧",
-      "gua_ci": "解：利西南，無所往，其來復吉。有攸往，夙吉。",
+      "name": "Hardship",
+      "gua_ci": "OBSTRUCTION. The southwest furthers.\nThe northeast does not further.\nIt furthers one to see the great man.\nPerseverance brings good fortune.",
       "yao_ci": [
-        "初六：無咎。",
-        "九二：田獲三狐，得黃矢，貞吉。",
-        "六三：負且乘，致寇至，貞吝。",
-        "九四：解而拇，朋至斯孚。",
-        "六五：君子維有解，吉；有孚於小人。",
-        "上六：公用射隼於高墉之上，獲之，無不利。"
+        "Initial Six: Going leads to obstructions,\nComing meets with praise.",
+        "Second Six: The King's servant is beset by obstruction upon obstruction,\nBut it is not his own fault.",
+        "Third Nine: Going leads to obstructions;\nHence he comes back.",
+        "Fourth Six: Going leads to obstructions,\nComing leads to union.",
+        "Fifth Nine: In the midst of the greatest obstructions,\nFriends come.",
+        "Top Six: Going leads to obstructions,\nComing leads to great good fortune.\nIt furthers one to see the great man."
+      ]
+    },
+    "001010": {
+      "name": "Relief",
+      "gua_ci": "DELIVERANCE. The southwest furthers.\nIf there is no longer anything where one has to go,\nReturn brings good fortune.\nIf there is still something where one has to go,\nHastening brings good fortune.",
+      "yao_ci": [
+        "Initial Six: Without blame.",
+        "Second Nine: One kills three foxes in the field\nAnd receives a yellow arrow.\nPerseverance brings good fortune.",
+        "Third Six: If a man carries a burden on his back\nAnd nonetheless rides in a carriage,\nHe thereby encourages robbers to draw near.\nPerseverance leads to humiliation.",
+        "Fourth Nine: Deliver yourself from your great toe.",
+        "Fifth Six: If only the superior man can deliver himself,\nIt brings good fortune.",
+        "Top Six: The prince shoots at a hawk on a high wall.\nHe kills it. Everything serves to further."
       ]
     },
     "011111": {
-      "name": "姤",
-      "symbol": "䷫",
-      "gua_ci": "姤：女壯，勿用取女。",
+      "name": "Eliminating",
+      "gua_ci": "BREAK-THROUGH. One must resolutely make the matter known\nAt the court of the king.\nIt must be announced truthfully. Danger.\nIt is necessary to notify one's own city.\nIt does not further to resort to arms.\nIt furthers one to undertake something.",
       "yao_ci": [
-        "初六：系於金柅，貞吉，有攸往，見兇，羸豕孚踟躅。",
-        "九二：包有魚，無咎，不利賓。",
-        "九三：臀無膚，其行次且，厲，無大咎。   ",
-        "九四：包無魚，起兇。",
-        "九五：以杞包瓜，含章，有隕自天。九五：以杞包瓜，含章，有隕自天。",
-        "上九：姤其角，吝，無咎。"
-      ]
-    },
-    "000110": {
-      "name": "萃",
-      "symbol": "䷬",
-      "gua_ci": "萃：亨。王假有廟，利見大人，亨，利貞。用大牲吉，利有攸往。",
-      "yao_ci": [
-        "初六：有孚不終，乃亂乃萃，若號一握為笑，勿恤，往無咎。",
-        "六二：引吉，無咎，孚乃利用禴。",
-        "六三：萃如，嗟如，無攸利，往無咎，小吝。   ",
-        "九四：大吉，無咎。",
-        "九五：萃有位，無咎。匪孚，元永貞，悔亡。",
-        "上六：賫咨涕洟，無咎。"
+        "Initial Nine: Mighty in the forward-striding toes.\nWhen one goes and is not equal to the task,\nOne makes a mistake.",
+        "Second Nine: A cry of alarm. Arms at evening and at night.\nFear nothing.",
+        "Third Nine: To be powerful in the cheekbones\nBrings misfortune.",
+        "Fourth Nine: There is no skin on his thighs,\nAnd walking comes hard.\nIf a man were to let himself be led like a sheep,\nRemorse would disappear.\nBut if these words are heard",
+        "Fifth Nine: In dealing with weeds,\nFirm resolution is necessary.\nWalking in the middle\nRemains free of blame.",
+        "Top Six: No cry.\nIn the end misfortune comes."
       ]
     },
     "011000": {
-      "name": "升",
-      "symbol": "䷭",
-      "gua_ci": "升：元亨，用見大人，勿恤，南征吉。",
+      "name": "Bringing Together",
+      "gua_ci": "GATHERING TOGETHER. Success.\nThe king approaches his temple.\nIt furthers one to see the great man.\nThis brings success. Perseverance furthers.\nTo bring great offerings creates good fortune.\nIt furthers one to undertake something.",
       "yao_ci": [
-        "初六：允升，大吉。",
-        "九二：孚乃利用禴，無咎。",
-        "九三：升虛邑。   ",
-        "六四：王用亨於岐山，吉無咎。",
-        "六五：貞吉，升階。",
-        "上六：冥升，利於不息之貞。"
+        "Initial Six: If you are sincere, but not to the end,",
+        "Second Six: Letting oneself be drawn\nBrings good fortune and remains blameless.\nIf one is sincere,\nIt furthers one to bring even a small offering.",
+        "Third Six: Gathering together amid sighs.",
+        "Fourth Nine: Great good fortune. No blame.",
+        "Fifth Nine: If in gathering together one has position,",
+        "Top Six: Lamenting and sighing, floods of tears."
       ]
     },
-    "010110": {
-      "name": "困",
-      "symbol": "䷮",
-      "gua_ci": "困：亨，貞，大人吉，無咎，有言不信。",
+    "000110": {
+      "name": "Growing Upward",
+      "gua_ci": "PUSHING UPWARD has supreme success.\nOne must see the great man.\nFear not.\nDeparture toward the south\nBrings good fortune.",
       "yao_ci": [
-        "初六：臀困於株木，入於幽谷，三歲不覿。",
-        "九二：困於酒食，朱紱方來，利用享祀，征兇，無咎。",
-        "六三：困於石，據於蒺藜，入於其宮，不見其妻，兇。   ",
-        "九四：來徐徐，困於金車，吝，有終。",
-        "九五：劓刖，困於赤紱，乃徐有說，利用祭祀。",
-        "上六：困於葛藟，於臲卼，曰動悔。有悔，征吉。"
+        "Initial Six: Pushing upward that meets with confidence\nBrings great good fortune.",
+        "Second Nine: If one is sincere,\nIt furthers one to bring even a small offering.",
+        "Third Nine: One pushes upward into an empty city.",
+        "Fourth Six: The king offers him Mount Ch'i.\nGood fortune. No blame.",
+        "Fifth Six: Perseverance brings good fortune.\nOne pushes upward by steps.",
+        "Top Six: Pushing upward in darkness.\nIt furthers one"
       ]
     },
     "011010": {
-      "name": "井",
-      "symbol": "䷯",
-      "gua_ci": "井：改邑不改井，無喪無得，往來井井。汔至，亦未繘井，羸其瓶，兇。",
+      "name": "Exhausting",
+      "gua_ci": "OPPRESSION. Success. Perseverance.\nThe great man brings about good fortune.\nNo blame.\nWhen one has something to say,\nIt is not believed.",
       "yao_ci": [
-        "初六：井泥不食，舊井無禽。",
-        "九二：井谷射鮒，甕敝漏。",
-        "九三：井渫不食，為我心惻，可用汲，王明，並受其福。   ",
-        "六四：井甃，無咎。",
-        "九五：井冽，寒泉食。",
-        "上六：井收勿幕，有孚元吉。"
+        "Initial Six: One sits oppressed under a bare tree\nAnd strays into a gloomy valley.\nFor three years one sees nothing.",
+        "Second Nine: One is oppressed while at meat and drink.",
+        "Third Six: A man permits himself to be oppressed by stone,\nAnd leans on thorns and thistles.\nHe enters the house and does not see his wife.\nMisfortune.",
+        "Fourth Nine: He comes very quietly, oppressed in a golden carriage.\nHumiliation, but the end is reached.",
+        "Fifth Nine: His nose and feet are cut off.\nOppression at the hands of the man with the purple knee bands.\nJoy comes softly.\nIt furthers one to make offerings and libations.",
+        "Top Six: He is oppressed by creeping vines.\nHe moves uncertainly and says, \"Movement brings remorse.\"\nIf one feels remorse over this and makes a start,\nGood fortune comes."
+      ]
+    },
+    "010110": {
+      "name": "Replenishing",
+      "gua_ci": "THE WELL. The town may be changed,\nBut the well cannot be changed.\nIt neither decreases nor increases.\nThey come and go and draw from the well.\nIf one gets down almost to the water\nAnd the rope does not go all the way,\nOr the jug breaks, it brings misfortune.",
+      "yao_ci": [
+        "Initial Six: One does not drink the mud of the well.",
+        "Second Nine: At the well hole one shoots fishes.",
+        "Third Nine: The well is cleaned, but no one drinks from it.",
+        "Fourth Six: The well is being lined. No blame.",
+        "Fifth Nine: In the well there is a clear, cold spring\nFrom which one can drink.",
+        "Top Six: One draws from the well\nWithout hindrance.\nIt is dependable."
       ]
     },
     "011101": {
-      "name": "鼎",
-      "symbol": "䷱",
-      "gua_ci": "鼎：元吉，亨。",
+      "name": "Abolishing The Old",
+      "gua_ci": "REVOLUTION. On your own day\nYou are believed.\nSupreme success,\nFurthering through perseverance.\nRemorse disappears.",
       "yao_ci": [
-        "初六：鼎顛趾，利出否，得妾以其子，無咎。",
-        "九二：鼎有實，我仇有疾，不我能即，吉。",
-        "九三：鼎耳革，其行塞，雉膏不食，方雨虧悔，終吉。   ",
-        "九四：鼎折足，覆公餗，其形渥，兇。",
-        "六五：鼎黃耳，金鉉，利貞。",
-        "上九：鼎玉鉉，大吉，無不利。"
+        "Initial Nine: Wrapped in the hide of a yellow cow.",
+        "Second Six: When one's own day comes, one may create revolution.",
+        "Third Nine: Starting brings misfortune.\nPerseverance brings danger.\nWhen talk of revolution has gone the rounds three times,\nOne may commit himself,\nAnd men will believe him.",
+        "Fourth Nine: Remorse disappears. Men believe him.\nChanging the form of government brings good fortune.",
+        "Fifth Nine: The great man changes like a tiger.\nEven before he questions the oracle\nHe is believed.",
+        "Top Six: The superior man changes like a panther."
       ]
     },
     "001001": {
-      "name": "艮",
-      "symbol": "䷳",
-      "gua_ci": "艮：艮其背，不獲其身，行其庭，不見其人，無咎。",
+      "name": "Taking Action",
+      "gua_ci": "SHOCK brings success. Shock comes-oh, oh! Laughing words -ha, ha!\nThe shock terrifies for a hundred miles,\nAnd he does not let fall the sacrificial spoon and chalice.",
       "yao_ci": [
-        "初六：艮其趾，無咎，利永貞。",
-        "六二：艮其腓，不拯其隨，其心不快。",
-        "九三：艮其限，列其夤，厲薰心。",
-        "六四：艮其身，無咎。",
-        "六五：艮其輔，言有序，悔亡。",
-        "上九：敦艮，吉。"
+        "Initial Nine: Shock comes-oh, oh!",
+        "Second Six: Shock comes bringing danger.\nA hundred thousand times\nYou lose your treasures\nAnd must climb the nine hills.\nDo not go in pursuit of them.\nAfter seven days you will get them back again.",
+        "Third Six: Shock comes and makes one distraught.\nIf shock spurs to action\nOne remains free of misfortune.",
+        "Fourth Nine: Shock is mired.",
+        "Fifth Six: Shock goes hither and thither.\nDanger.\nHowever, nothing at all is lost.\nYet there are things to be done.",
+        "Top Six: Shock brings ruin and terrified gazing around.\nGoing ahead brings misfortune.\nIf it has not yet touched one's own body\nBut has reached one's neighbor first,"
       ]
     },
     "001011": {
-      "name": "漸",
-      "symbol": "䷴",
-      "gua_ci": "漸：女歸吉，利貞。",
+      "name": "Marrying Maiden",
+      "gua_ci": "THE MARRYING MAIDEN.\nUndertakings bring misfortune.\nNothing that would further.",
       "yao_ci": [
-        "初六：鴻漸於幹，小子厲，有言，無咎。",
-        "六二：鴻漸於磐，飲食衎衎，吉。",
-        "九三：鴻漸於陸，夫征不復，婦孕不育，兇；利禦寇。",
-        "六四：鴻漸於木，或得其桷，無咎。",
-        "九五：鴻漸於陵，婦三歲不孕，終莫之勝，吉。",
-        "上九：鴻漸於陸，其羽可用為儀，吉。"
+        "Initial Nine: The marrying maiden as a concubine.\nA lame man who is able to tread.\nUndertakings bring good fortune.",
+        "Second Nine: A one-eyed man who is able to see.",
+        "Third Six: The marrying maiden as a slave.",
+        "Fourth Nine: The marrying maiden draws out the allotted time.\nA late marriage comes in due course.",
+        "Fifth Six: The sovereign I gave his daughter in marriage.",
+        "Top Six: The woman holds the basket, but there are no fruits in it."
       ]
     },
     "001101": {
-      "name": "旅",
-      "symbol": "䷷",
-      "gua_ci": "旅：小亨，旅貞吉。",
+      "name": "Abundance",
+      "gua_ci": "ABUNDANCE has success.\nThe king attains abundance.\nBe not sad.\nBe like the sun at midday.",
       "yao_ci": [
-        "初六：旅瑣瑣，斯其所取災。",
-        "六二：旅即次，懷其資，得童仆貞。",
-        "九三：旅焚其次，喪其童仆，貞厲。",
-        "九四：旅於處，得其資斧，我心不快。",
-        "六五：射雉一矢亡，終以譽命。",
-        "上九：鳥焚其巢，旅人先笑後號啕。喪牛於易，兇。"
+        "Initial Nine: When a man meets his destined ruler,",
+        "Second Six: The curtain is of such fullness",
+        "Third Nine: The underbrush is of such abundance",
+        "Fourth Nine: The curtain is of such fullness",
+        "Fifth Six: Lines are coming,\nBlessing and fame draw near.\nGood fortune.",
+        "Top Six: His house is in a state of abundance.\nHe screens off his family.\nHe peers through the gate\nAnd no longer perceives anyone.\nFor three years he sees nothing.\nMisfortune."
       ]
     },
     "011011": {
-      "name": "巽",
-      "symbol": "䷸",
-      "gua_ci": "巽：小亨，利攸往，利見大人。",
+      "name": "Joyful",
+      "gua_ci": "THE JOYOUS. Success.\nPerseverance is favorable.",
       "yao_ci": [
-        "初六：進退，利武人之貞。",
-        "九二：巽在床下，用史巫紛若，吉，無咎。",
-        "九三：頻巽，吝。",
-        "六四：悔亡，田獲三品。",
-        "九五：貞吉悔亡，無不利。無初有終，先庚三日，後庚三日，吉。",
-        "上九：巽在床下，喪其資斧，貞兇。"
+        "Initial Nine: Contented joyousness. Good fortune.",
+        "Second Nine: Sincere joyousness. Good fortune.\nRemorse disappears.",
+        "Third Six: Coming joyousness. Misfortune.",
+        "Fourth Nine: Joyousness that is weighed is not at peace.\nAfter ridding himself of mistakes a man has joy.",
+        "Fifth Nine: Sincerity toward disintegrating influences is dangerous.",
+        "Top Six: Seductive joyousness."
       ]
     },
     "010011": {
-      "name": "渙",
-      "symbol": "䷺",
-      "gua_ci": "渙：亨。王假有廟，利涉大川，利貞。",
+      "name": "Restricting",
+      "gua_ci": "LIMITATION. Success.\nGalling limitation must not be persevered in.",
       "yao_ci": [
-        "初六：用拯馬壯，吉。",
-        "九二：渙奔其機，悔亡。",
-        "六三：渙其躬，無悔。",
-        "六四：渙其群，元吉。渙有丘，匪夷所思。",
-        "九五：渙汗其大號，渙王居，無咎。",
-        "上九：渙其血，去逖出，無咎。"
+        "Initial Nine: Not going out of the door and the courtyard\nIs without blame.",
+        "Second Nine: Not going out of the gate and the courtyard\nBrings misfortune.",
+        "Third Six: He who knows limitation\nWill have cause to lament.",
+        "Fourth Six: Contented limitation. Success.",
+        "Fifth Nine: Sweet limitation brings good fortune.\nGoing brings esteem.",
+        "Top Six: Galling limitation.\nPerseverance brings misfortune.\nRemorse disappears."
       ]
     },
     "001100": {
-      "name": "小過",
-      "symbol": "䷽",
-      "gua_ci": "小過：亨，利貞，可小事，不可大事。飛鳥遺之音，不宜上，宜下，大吉。",
+      "name": "Little Exceeding",
+      "gua_ci": "PREPONDERANCE OF THE SMALL. Success.\nPerseverance furthers.\nSmall things may be done; great things should not be done.\nThe flying bird brings the message:\nIt is not well to strive upward,\nIt is well to remain below.\nGreat good fortune.\nExceptional modesty and conscientiousness are sure to be rewarded with success; however, if a man is not to throw himself away, it is important that they should not become empty form and subservience but be combined always with a correct dignity in personal behavior. We must understand the demands of the time in order to find the necessary offset for its deficiencies and damages. In any event we must not count on great success, since the requisite strength is lacking. In this lies the importance of the message that one should not strive after lofty things but hold to lowly things. The structure of the hexagram gives rise to the idea that this message is brought by a bird. In Ta Kuo, PREPONDERANCE OF THE GREAT",
       "yao_ci": [
-        "初六：飛鳥以兇。",
-        "六二：過其祖，遇其妣；不及其君，遇其臣；無咎。",
-        "九三：弗過防之，從或戕之，兇。",
-        "九四：無咎，弗過遇之。往厲必戒，勿用永貞。",
-        "六五：密雲不雨，自我西郊，公弋取彼在穴。",
-        "上六：弗遇過之，飛鳥離之，兇，是謂災眚。"
+        "Initial Six: The bird meets with misfortune through flying.",
+        "Second Six: She passes by her ancestor\nAnd meets her ancestress.\nHe does not reach his prince\nAnd meets the official.",
+        "Third Nine: If one is not extremely careful,",
+        "Fourth Nine: No blame. He meets him without passing by.\nGoing brings danger. One must be on guard.\nDo not act. Be constantly persevering.",
+        "Fifth Six: Dense clouds,",
+        "Top Six: He passes him by, not meeting him."
       ]
     },
     "010101": {
-      "name": "未濟",
-      "symbol": "䷿",
-      "gua_ci": "未濟：亨，小狐汔濟，濡其尾，無攸利。",
+      "name": "Already Fulfilled",
+      "gua_ci": "AFTER COMPLETION. Success in small matters.\nPerseverance furthers.\nAt the beginning good fortune.\nAt the end disorder.",
       "yao_ci": [
-        "初六：濡其尾，吝。",
-        "九二：曳其輪，貞吉。",
-        "六三：未濟，征兇，利涉大川。",
-        "九四：貞吉，悔亡，震用伐鬼方，三年有賞於大國。",
-        "六五：貞吉，無悔，君子之光，有孚，吉。",
-        "上九：有孚於飲酒，無咎，濡其首，有孚失是。"
+        "Initial Nine: He breaks his wheels.\nHe gets his tail in the water.",
+        "Second Six: The woman loses the curtain of her carriage.\nDo not run after it;\nOn the seventh day you will get it.",
+        "Third Nine: The Illustrious Ancestor\nDisciplines the Devil's Country.\nAfter three years he conquers it.\nInferior people must not be employed.",
+        "Fourth Six: The finest clothes turn to rags.\nBe careful all day long.",
+        "Fifth Nine: The neighbor in the east who slaughters an ox\nDoes not attain as much real happiness\nAs the neighbor in the west\nWith his small offering.",
+        "Top Six: He gets his head in the water. Danger."
       ]
     }
   },
-
   "ui": {
     "gua": "Gua",
     "mutation": "Gua Mutation",
     "mutationCountSuffix": "Possible Mutations",
-
     "willPageData": {
       "samples": {
         "typings": {
-          "prefix": "I want to",
+          "prefix": "",
           "suffix_options": [
-            "know how my will to find a new job is going to manifest in the future.",
-            "know how my will to get a promotion is going to manifest in the future.",
-            "know how my will to find my love is going to manifest in the future."
+            "I want to find a new job. How is it going to manifest in the future?",
+            "I want to get a promotion. How is it going to unfold in the future?",
+            "I want to find my true love. What is going to happen in the future?"
           ]
         },
-        "suggestions": [{
-          "key": "World Peace",
-          "value": "know how the will to achieve peace in Ukraine is going to manifest in the future."
-        }, {
-          "key": "ALM.World Advocacy",
-          "value": "divine how the will to Make All Great Again is going to play out in the future."
-        }, {
-          "key": "GO TO MARS",
-          "value": "predict that is it possible that humans to Mars is going to happen before 2030."
-        }, {
-          "key": "Education",
-          "value": "predict how the effort to make education fair for everyone's gonna shape up eventually."
-        }, {
-          "key": "Job Hunting",
-          "value": "I wanna know how my push to land a new web3 job's gonna play out down the road"
-        }]
+        "suggestions": [
+          {
+            "key": "World Peace",
+            "value": "Can the will to cherish life and bring peace be fully fulfilled in the Ukraine-Russia conflict before 2026?"
+          },
+          {
+            "key": "ALM.World Advocacy",
+            "value": "Will the AllLivesMatter.World advocacy be associated with racism after 2024?"
+          },
+          {
+            "key": "GO TO MARS",
+            "value": "Will the will to go to Mars become fully manifested before 2030?"
+          },
+          {
+            "key": "Education",
+            "value": "predict how the effort to make education fair for everyone's gonna shape up eventually."
+          },
+          {
+            "key": "Job Hunting",
+            "value": "I wanna know how my push to land a new web3 job's gonna play out down the road"
+          }
+        ]
       },
       "diviAlgo": "Divide to Divine",
-      "diviAlgoDescription": "Experience the ancient art of divination through modern insight. Let us guide you through the mysteries of your future.",
-      "diviAlgoStepsTitle": "Your Journey to Enlightenment",
+      "diviAlgoDescription": "Embark on a journey of self-discovery with I Ching divination, know the unknowable guided by a kindness-focused DAO",
+      "diviAlgoStepsTitle": "The Journey to Enlightenment",
       "diviAlgoSteps": [
         {
           "title": "Will Awakens",
@@ -1096,8 +1027,8 @@
           "description": "Manifest divine wisdom into tangible representation - where spiritual truth meets physical reality"
         }
       ],
-      "diviAlgoSlogan": "Where Ancient Wisdom Meets Modern Insight",
-      "diviAlgoSloganDescription": "Unlock the secrets of your destiny through the power of divine guidance",
+      "diviAlgoSlogan": "Where Ancient Wisdom Meets Modern DAO",
+      "diviAlgoSloganDescription": "Unlock the secrets of will destiny through the power of divine guidance",
       "willDiviTemplate": "I want to know how [the will] is going to manifest in the future?",
       "myDivinations": "My Divinations",
       "daoLatestDivinations": "Latest Divinations",
@@ -1108,69 +1039,96 @@
     "daoPageData": {
       "sections": [
         {
+          "title": "Private Love For Creators",
+          "description": "Wills Receptivity and Nurturing",
+          "target": "Money to DUKIGE - We need sin first for survival and then evolve to be love",
+          "requirements": {
+            "p1": "DUKI for all lives in that community",
+            "p2": "Fairness always, those who love and care for the world indeed deserves more DUKI"
+          }
+        },
+        {
+          "title": "Private Love For Maintainers",
+          "description": "Wills Stillness and Meditation",
+          "target": "Money to Founders - Fairness Always! We need visionary creators to evolve.",
+          "requirements": {
+            "p1": "Survival of the fittest. Nothing can skip the rule, we have to survive first and then thrive.",
+            "p2": "When resources are scarce, basic survival needs must be addressed before other pursuits. we better make the resources more abundant avoid conflicts and thrive."
+          }
+        },
+
+        {
+          "title": "Private Love For Investors",
+          "description": "Wills Flow and Adaptation",
+          "target": "Money to Investors - Free Will of Goodness needs power to manifest and be useful",
+          "requirements": {
+            "p1": "You can invest in the DUKI in action. Currently, 20% of the DAO is for the investors; the investment is 100 USDC each.",
+            "p2": "Thanks for your investment. 20% of the DAO will allocated to the investors, even only one investor. the numbers of the investors determines the project value. Fair.",
+            "btn": {
+              "text": "Become an Investor",
+              "modal": "INVEST"
+            }
+          }
+        },
+        {
+          "title": "Private Love For Contributors",
+          "description": "Wills Influence and Penetration",
+          "target": "Money to Partners - Fostering strategic collaborations and alliances",
           "requirements": {
             "p1": " We need a usable zkp human proof system to make all great again.",
             "p2": ""
           }
         },
         {
-          "requirements": {
-            "p1": "DUKI is used for all lives, you just need to prove you are a unique human.DUKI needs decentralized zero knowledge proof system to uniquely identify humans.",
-            "p2": "WorldID is not enough for DUKI. &nbsp; <a href='https://x.com/OrdKindKang/status/1835352385423814858' target='_blank' className='text-cyan-400 hover:text-cyan-300 underline'>Without True Authority, WorldID Could Become a Hoax</a>",
-            "btn": {
-              "text": "Become an Investor",
-              "modal": "INVEST"
-            }
-          }
-        },
-        {
-          "requirements": {
-            "p1": "All nations and all countries should matter, just some matters more than others.",
-            "p2": "Currently, The zero knowledge human proof system should have national identity. The one who make all great again deserves better than those who are not."
-          }
-        },
-        {
-          "requirements": {
-            "p1": "You must be actively participating in the lottery. when you join, you get an monotioally increasing ticket number which starts from 1.",
-            "p2": "Each round, an random number is draw from 1 to min(10000, total_community_members). and max 3 claims are allowed."
-          }
-        },
-        {
+          "title": "Public Love For Builders",
+          "description": "Wills Initiative and Action",
+          "target": "Money to Community - Nurturing active and engaged user base",
           "requirements": {
             "p1": "Any one interested who build the DUKI in action , please contact me. I could add you here.",
             "p2": "Even if the money is tiny , but it means the manifestion of the will. The will matters."
           }
         },
         {
+          "title": "Public Love For Community",
+          "description": "Wills Clarity and Transformation",
+          "target": "Money to Pioneers - First adopters and adventurers are the pioneers of the world",
+          "requirements": {
+            "p1": "You must be actively participating in the lottery. when you join, you get an monotioally increasing ticket number which starts from 1.",
+            "p2": "Each round, an random number is draw from 1 to min(10000, total_community_members). and max 3 claims are allowed."
+          }
+        },
+        {
+          "title": "Public Love For Nation",
+          "description": "Wills Joy and Satisfaction",
+          "target": "Money to Nation - A nation of people who love and care for the world",
+          "requirements": {
+            "p1": "All nations and all countries should matter, just some matters more than others.",
+            "p2": "Currently, The zero knowledge human proof system should have national identity. The one who make all great again deserves better than those who are not."
+          }
+        },
+        {
+          "title": "Public Love For All Lives",
+          "description": "Wills Humanity and Creativity",
+          "target": "Money to World - DUKI in Action to remind all lives that freedom is not free, it needs power to reject evil and do good",
           "requirements": {
             "p1": "All lives matters, no matter how small or big if it is positive and constructive.",
-            "p2": "Even if the money is tiny , but it means the manifestion of the will. The will matters."
+            "p2": "Even if the money is tiny , but it means the manifestion of the will. The will matters.",
+            "p1_": "DUKI is used for all lives, you just need to prove you are a unique human.DUKI needs decentralized zero knowledge proof system to uniquely identify humans.",
+            "p2_": "WorldID is not enough for DUKI. &nbsp; <a href='https://x.com/OrdKindKang/status/1835352385423814858' target='_blank' className='text-cyan-400 hover:text-cyan-300 underline'>Without True Authority, WorldID Could Become a Hoax</a>"
           }
         },
         {
-          "requirements": {
-            "p1": "You can invest in the DUKI in action. Currently, 10% of the DAO is for the investors; the investment is 100 USDC each.",
-            "p2": "Thanks for your investment. 10% of the DAO will allocated to the investors, even only one investor. the numbers of the investors determines the project value. Fair.",
-            "btn": {
-              "text": "Become an Investor",
-              "modal": "INVEST"
-            }
-          }
-        },
-        {
-          "requirements": {
-            "p1": "Survival of the fittest. Nothing can skip the rule, we have to survive first and then thrive.",
-            "p2": "When resources are scarce, basic survival needs must be addressed before other pursuits. we better make the resources more abundant avoid conflicts and thrive."
-          }
-        },
-        {
+          "title": "Love Be The Way",
+          "description": "Dao is All Love.",
+          "target": "to free will. Free will are born of love and born with sin, it needs power and wisdom to be useful",
           "requirements": {
             "p1": "Free will is the unknownable thing that born by 'making love together'. Every creation is born from love.",
-            "p2": "The representation or manifestation of love is the world. All lives matter worldwide."
+            "p2": "The representation or manifestation of will is the world. And Love is the way to know it."
           }
         }
       ],
       "claimRequirements": "Claim Requirements",
+      "philosophy": "Philosophical Thinking",
       "dropUnits": "FairDrop Units (Left/Total):",
       "dropDollars": "FairDrop Dollars:",
       "totalParticipants": "Total Participants:",
@@ -1188,20 +1146,19 @@
           "desc": "Give, and it will be given to you. For with the measure you use for the world, it will be measured to you."
         }
       ],
-      "daoTerm":"DAO IS ALL LOVE",
-      "daoTermDefinitionPrefix":"Kindness First, Fairness Always and ",
-      "daoTermDefinitionMiddle":"DUKI",
-      "dukiDefinition":"DUKI /dju:ki/: Decentralized Universal Kindness Initiative.  A DAO-based system promoting fairness and kindness in action",
-      "daoTermDefinitionSuffix":"In Action",
-
-      "evolutionStatus":"Evolution Status",
-      "currentBlock":"Current Block",
-      "fairDrop":"FairDrop",
-      "usdcAvailable":"USDC Available",
-      "treasury":"Treasury",
-      "usdcBalance":"USDC Balance",
-      "lottery":"Lottery",
-      "claim":"Claim"
+      "daoTerm": "DAO IS ALL LOVE",
+      "daoTermDefinitionPrefix": "Kindness First, Fairness Always and ",
+      "daoTermDefinitionMiddle": "DUKI",
+      "dukiDefinition": "DUKI /dju:ki/: Decentralized Universal Kindness Initiative.  A DAO-based system promoting fairness and kindness in action",
+      "daoTermDefinitionSuffix": "In Action",
+      "evolutionStatus": "Evolution Status",
+      "currentBlock": "Current Block",
+      "fairDrop": "FairDrop",
+      "usdcAvailable": "USDC Available",
+      "treasury": "Treasury",
+      "usdcBalance": "USDC Balance",
+      "lottery": "Lottery",
+      "claim": "Claim"
     },
     "diviPageData": {
       "y": ""

@@ -1,8 +1,8 @@
 import {
-    createUseReadContract,
-    createUseSimulateContract,
-    createUseWatchContractEvent,
-    createUseWriteContract,
+  createUseReadContract,
+  createUseWriteContract,
+  createUseSimulateContract,
+  createUseWatchContractEvent,
 } from 'wagmi/codegen'
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -67,9 +67,15 @@ export const baguaDukiDaoContractAbi = [
         internalType: 'struct ISharedStructs.BaguaDaoAgg',
         type: 'tuple',
         components: [
+          { name: 'evolveNum', internalType: 'uint256', type: 'uint256' },
           { name: 'bornSeconds', internalType: 'uint256', type: 'uint256' },
           {
             name: 'totalClaimedAmount',
+            internalType: 'uint256',
+            type: 'uint256',
+          },
+          {
+            name: 'stableCoinBalance',
             internalType: 'uint256',
             type: 'uint256',
           },
@@ -179,12 +185,29 @@ export const baguaDukiDaoContractAbi = [
   },
   {
     type: 'function',
-    inputs: [
-      { name: 'randomNumber', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'evolveDaoAndDivideLove',
+    inputs: [],
+    name: 'connectDaoToInvest',
     outputs: [],
     stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'diviUuid', internalType: 'bytes16', type: 'bytes16' },
+      { name: 'diviWillHash', internalType: 'bytes32', type: 'bytes32' },
+      { name: 'diviWillAnswer', internalType: 'bytes16', type: 'bytes16' },
+      { name: 'willPowerAmount', internalType: 'uint256', type: 'uint256' },
+    ],
+    name: 'connectDaoToKnow',
+    outputs: [],
+    stateMutability: 'nonpayable',
+  },
+  {
+    type: 'function',
+    inputs: [],
+    name: 'humanZkpRegistry',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
+    stateMutability: 'view',
   },
   {
     type: 'function',
@@ -211,29 +234,6 @@ export const baguaDukiDaoContractAbi = [
     name: 'owner',
     outputs: [{ name: '', internalType: 'address', type: 'address' }],
     stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'willMessage', internalType: 'string', type: 'string' },
-      { name: 'willSignature', internalType: 'string', type: 'string' },
-      {
-        name: 'willDivinationResult',
-        internalType: 'uint256',
-        type: 'uint256',
-      },
-      { name: 'loveAsMoneyAmount', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'payLoveIntoDao',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [],
-    name: 'payToInvest',
-    outputs: [],
-    stateMutability: 'nonpayable',
   },
   {
     type: 'function',
@@ -363,13 +363,6 @@ export const baguaDukiDaoContractAbi = [
   },
   {
     type: 'function',
-    inputs: [],
-    name: 'totalStableCoin',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
     inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
     name: 'transferOwnership',
     outputs: [],
@@ -391,6 +384,20 @@ export const baguaDukiDaoContractAbi = [
     name: 'upgradeToAndCall',
     outputs: [],
     stateMutability: 'payable',
+  },
+  {
+    type: 'function',
+    inputs: [
+      { name: 'diviUuid', internalType: 'bytes16', type: 'bytes16' },
+      {
+        name: 'knownStatus',
+        internalType: 'enum ISharedStructs.KnownStatus',
+        type: 'uint8',
+      },
+    ],
+    name: 'vowDaoManifestation',
+    outputs: [],
+    stateMutability: 'nonpayable',
   },
   {
     type: 'event',
@@ -453,6 +460,37 @@ export const baguaDukiDaoContractAbi = [
     anonymous: false,
     inputs: [
       {
+        name: 'diviner',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
+      {
+        name: 'diviId',
+        internalType: 'bytes16',
+        type: 'bytes16',
+        indexed: false,
+      },
+      {
+        name: 'diviWillHash',
+        internalType: 'bytes32',
+        type: 'bytes32',
+        indexed: false,
+      },
+      {
+        name: 'timestamp',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'ConnectDaoEvent',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
         name: 'willId',
         internalType: 'uint256',
         type: 'uint256',
@@ -493,7 +531,7 @@ export const baguaDukiDaoContractAbi = [
         indexed: false,
       },
     ],
-    name: 'DaoEvolutionManifestation',
+    name: 'DaoEvolutionRepresentation',
   },
   {
     type: 'event',
@@ -555,7 +593,7 @@ export const baguaDukiDaoContractAbi = [
         indexed: false,
       },
     ],
-    name: 'DukiInActionEvent',
+    name: 'DukiInAction',
   },
   {
     type: 'event',
@@ -601,6 +639,37 @@ export const baguaDukiDaoContractAbi = [
       },
     ],
     name: 'Upgraded',
+  },
+  {
+    type: 'event',
+    anonymous: false,
+    inputs: [
+      {
+        name: 'diviner',
+        internalType: 'address',
+        type: 'address',
+        indexed: false,
+      },
+      {
+        name: 'diviId',
+        internalType: 'bytes16',
+        type: 'bytes16',
+        indexed: false,
+      },
+      {
+        name: 'knownStatus',
+        internalType: 'enum ISharedStructs.KnownStatus',
+        type: 'uint8',
+        indexed: false,
+      },
+      {
+        name: 'timestamp',
+        internalType: 'uint256',
+        type: 'uint256',
+        indexed: false,
+      },
+    ],
+    name: 'VowDaoEvent',
   },
   {
     type: 'error',
@@ -658,6 +727,7 @@ export const baguaDukiDaoContractAbi = [
     name: 'InsufficientPayment',
   },
   { type: 'error', inputs: [], name: 'InvalidInitialization' },
+  { type: 'error', inputs: [], name: 'InvalidKnownStatus' },
   { type: 'error', inputs: [], name: 'InvalidSignature' },
   { type: 'error', inputs: [], name: 'InvalidTrigramIndexError' },
   { type: 'error', inputs: [], name: 'InvertorsFullExceed369' },
@@ -704,6 +774,7 @@ export const baguaDukiDaoContractAbi = [
     inputs: [{ name: 'actionNeeded', internalType: 'string', type: 'string' }],
     name: 'NotSupported',
   },
+  { type: 'error', inputs: [], name: 'NotZkProvedHuman' },
   { type: 'error', inputs: [], name: 'OnlyAnyrandCanCall' },
   { type: 'error', inputs: [], name: 'OnlyAutomationCanCall' },
   { type: 'error', inputs: [], name: 'OnlyMaintainerOrAutomationCanCall' },
@@ -894,171 +965,171 @@ export const useReadBaguaDukiDaoContract = /*#__PURE__*/ createUseReadContract({
  */
 export const useReadBaguaDukiDaoContractUpgradeInterfaceVersion =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'UPGRADE_INTERFACE_VERSION',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'UPGRADE_INTERFACE_VERSION',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"automationRegistry"`
  */
 export const useReadBaguaDukiDaoContractAutomationRegistry =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'automationRegistry',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'automationRegistry',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"baguaDaoBpsArr"`
  */
 export const useReadBaguaDukiDaoContractBaguaDaoBpsArr =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'baguaDaoBpsArr',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'baguaDaoBpsArr',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"baguaDaoFairDropArr"`
  */
 export const useReadBaguaDukiDaoContractBaguaDaoFairDropArr =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'baguaDaoFairDropArr',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'baguaDaoFairDropArr',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"baguaDaoUnitCountArr"`
  */
 export const useReadBaguaDukiDaoContractBaguaDaoUnitCountArr =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'baguaDaoUnitCountArr',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'baguaDaoUnitCountArr',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"buaguaDaoAgg4Me"`
  */
 export const useReadBaguaDukiDaoContractBuaguaDaoAgg4Me =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'buaguaDaoAgg4Me',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'buaguaDaoAgg4Me',
+  })
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"humanZkpRegistry"`
+ */
+export const useReadBaguaDukiDaoContractHumanZkpRegistry =
+  /*#__PURE__*/ createUseReadContract({
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'humanZkpRegistry',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"owner"`
  */
 export const useReadBaguaDukiDaoContractOwner =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'owner',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'owner',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"proxiableUUID"`
  */
 export const useReadBaguaDukiDaoContractProxiableUuid =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'proxiableUUID',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'proxiableUUID',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_anyrand"`
  */
 export const useReadBaguaDukiDaoContractSAnyrand =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_anyrand',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_anyrand',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_community_lucky_participant_no"`
  */
 export const useReadBaguaDukiDaoContractSCommunityLuckyParticipantNo =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_community_lucky_participant_no',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_community_lucky_participant_no',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_dao_born_seconds"`
  */
 export const useReadBaguaDukiDaoContractSDaoBornSeconds =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_dao_born_seconds',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_dao_born_seconds',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_dao_evolve_round"`
  */
 export const useReadBaguaDukiDaoContractSDaoEvolveRound =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_dao_evolve_round',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_dao_evolve_round',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_lastRandomnessWillCallbackTimestamp"`
  */
 export const useReadBaguaDukiDaoContractSLastRandomnessWillCallbackTimestamp =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_lastRandomnessWillCallbackTimestamp',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_lastRandomnessWillCallbackTimestamp',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_lastRandomnessWillId"`
  */
 export const useReadBaguaDukiDaoContractSLastRandomnessWillId =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_lastRandomnessWillId',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_lastRandomnessWillId',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_lastRandomnessWillTimestamp"`
  */
 export const useReadBaguaDukiDaoContractSLastRandomnessWillTimestamp =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_lastRandomnessWillTimestamp',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_lastRandomnessWillTimestamp',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_minWaitBetweenEvolutions"`
  */
 export const useReadBaguaDukiDaoContractSMinWaitBetweenEvolutions =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_minWaitBetweenEvolutions',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_minWaitBetweenEvolutions',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_randomnessRequestDeadline"`
  */
 export const useReadBaguaDukiDaoContractSRandomnessRequestDeadline =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_randomnessRequestDeadline',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_randomnessRequestDeadline',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"s_stableCoin"`
  */
 export const useReadBaguaDukiDaoContractSStableCoin =
   /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 's_stableCoin',
-})
-
-/**
- * Wraps __{@link useReadContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"totalStableCoin"`
- */
-export const useReadBaguaDukiDaoContractTotalStableCoin =
-  /*#__PURE__*/ createUseReadContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'totalStableCoin',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 's_stableCoin',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__
@@ -1071,189 +1142,189 @@ export const useWriteBaguaDukiDaoContract =
  */
 export const useWriteBaguaDukiDaoContractClaim0LoveFounderFairDrop =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim0Love_FounderFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim0Love_FounderFairDrop',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim1Love_MaintainerFairDrop"`
  */
 export const useWriteBaguaDukiDaoContractClaim1LoveMaintainerFairDrop =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim1Love_MaintainerFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim1Love_MaintainerFairDrop',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim2Love_InvestorFairDrop"`
  */
 export const useWriteBaguaDukiDaoContractClaim2LoveInvestorFairDrop =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim2Love_InvestorFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim2Love_InvestorFairDrop',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim3Love_ContributorFairDrop"`
  */
 export const useWriteBaguaDukiDaoContractClaim3LoveContributorFairDrop =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim3Love_ContributorFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim3Love_ContributorFairDrop',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim4Love_BuilderFairDrop"`
  */
 export const useWriteBaguaDukiDaoContractClaim4LoveBuilderFairDrop =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim4Love_BuilderFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim4Love_BuilderFairDrop',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim5Love_CommunityLotteryFairDrop"`
  */
 export const useWriteBaguaDukiDaoContractClaim5LoveCommunityLotteryFairDrop =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim5Love_CommunityLotteryFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim5Love_CommunityLotteryFairDrop',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim6Love_NationDukiInActionFairDrop"`
  */
 export const useWriteBaguaDukiDaoContractClaim6LoveNationDukiInActionFairDrop =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim6Love_NationDukiInActionFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim6Love_NationDukiInActionFairDrop',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim7Love_WorldDukiInActionFairDrop"`
  */
 export const useWriteBaguaDukiDaoContractClaim7LoveWorldDukiInActionFairDrop =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim7Love_WorldDukiInActionFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim7Love_WorldDukiInActionFairDrop',
+  })
 
 /**
- * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"evolveDaoAndDivideLove"`
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"connectDaoToInvest"`
  */
-export const useWriteBaguaDukiDaoContractEvolveDaoAndDivideLove =
+export const useWriteBaguaDukiDaoContractConnectDaoToInvest =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'evolveDaoAndDivideLove',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'connectDaoToInvest',
+  })
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"connectDaoToKnow"`
+ */
+export const useWriteBaguaDukiDaoContractConnectDaoToKnow =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'connectDaoToKnow',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"initialize"`
  */
 export const useWriteBaguaDukiDaoContractInitialize =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'initialize',
-})
-
-/**
- * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"payLoveIntoDao"`
- */
-export const useWriteBaguaDukiDaoContractPayLoveIntoDao =
-  /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'payLoveIntoDao',
-})
-
-/**
- * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"payToInvest"`
- */
-export const useWriteBaguaDukiDaoContractPayToInvest =
-  /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'payToInvest',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'initialize',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"receiveRandomness"`
  */
 export const useWriteBaguaDukiDaoContractReceiveRandomness =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'receiveRandomness',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'receiveRandomness',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"renounceOwnership"`
  */
 export const useWriteBaguaDukiDaoContractRenounceOwnership =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'renounceOwnership',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'renounceOwnership',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"requestDaoEvolution"`
  */
 export const useWriteBaguaDukiDaoContractRequestDaoEvolution =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'requestDaoEvolution',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'requestDaoEvolution',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"setAutomationRegistry"`
  */
 export const useWriteBaguaDukiDaoContractSetAutomationRegistry =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'setAutomationRegistry',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'setAutomationRegistry',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"setMinWaitBetweenEvolutions"`
  */
 export const useWriteBaguaDukiDaoContractSetMinWaitBetweenEvolutions =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'setMinWaitBetweenEvolutions',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'setMinWaitBetweenEvolutions',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"setRandomnessRequestDeadline"`
  */
 export const useWriteBaguaDukiDaoContractSetRandomnessRequestDeadline =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'setRandomnessRequestDeadline',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'setRandomnessRequestDeadline',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"transferOwnership"`
  */
 export const useWriteBaguaDukiDaoContractTransferOwnership =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'transferOwnership',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'transferOwnership',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"tryAbortDaoEvolution"`
  */
 export const useWriteBaguaDukiDaoContractTryAbortDaoEvolution =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'tryAbortDaoEvolution',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'tryAbortDaoEvolution',
+  })
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"upgradeToAndCall"`
  */
 export const useWriteBaguaDukiDaoContractUpgradeToAndCall =
   /*#__PURE__*/ createUseWriteContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'upgradeToAndCall',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'upgradeToAndCall',
+  })
+
+/**
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"vowDaoManifestation"`
+ */
+export const useWriteBaguaDukiDaoContractVowDaoManifestation =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'vowDaoManifestation',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__
@@ -1266,189 +1337,189 @@ export const useSimulateBaguaDukiDaoContract =
  */
 export const useSimulateBaguaDukiDaoContractClaim0LoveFounderFairDrop =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim0Love_FounderFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim0Love_FounderFairDrop',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim1Love_MaintainerFairDrop"`
  */
 export const useSimulateBaguaDukiDaoContractClaim1LoveMaintainerFairDrop =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim1Love_MaintainerFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim1Love_MaintainerFairDrop',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim2Love_InvestorFairDrop"`
  */
 export const useSimulateBaguaDukiDaoContractClaim2LoveInvestorFairDrop =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim2Love_InvestorFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim2Love_InvestorFairDrop',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim3Love_ContributorFairDrop"`
  */
 export const useSimulateBaguaDukiDaoContractClaim3LoveContributorFairDrop =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim3Love_ContributorFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim3Love_ContributorFairDrop',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim4Love_BuilderFairDrop"`
  */
 export const useSimulateBaguaDukiDaoContractClaim4LoveBuilderFairDrop =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim4Love_BuilderFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim4Love_BuilderFairDrop',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim5Love_CommunityLotteryFairDrop"`
  */
 export const useSimulateBaguaDukiDaoContractClaim5LoveCommunityLotteryFairDrop =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim5Love_CommunityLotteryFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim5Love_CommunityLotteryFairDrop',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim6Love_NationDukiInActionFairDrop"`
  */
 export const useSimulateBaguaDukiDaoContractClaim6LoveNationDukiInActionFairDrop =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim6Love_NationDukiInActionFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim6Love_NationDukiInActionFairDrop',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"claim7Love_WorldDukiInActionFairDrop"`
  */
 export const useSimulateBaguaDukiDaoContractClaim7LoveWorldDukiInActionFairDrop =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'claim7Love_WorldDukiInActionFairDrop',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'claim7Love_WorldDukiInActionFairDrop',
+  })
 
 /**
- * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"evolveDaoAndDivideLove"`
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"connectDaoToInvest"`
  */
-export const useSimulateBaguaDukiDaoContractEvolveDaoAndDivideLove =
+export const useSimulateBaguaDukiDaoContractConnectDaoToInvest =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'evolveDaoAndDivideLove',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'connectDaoToInvest',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"connectDaoToKnow"`
+ */
+export const useSimulateBaguaDukiDaoContractConnectDaoToKnow =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'connectDaoToKnow',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"initialize"`
  */
 export const useSimulateBaguaDukiDaoContractInitialize =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'initialize',
-})
-
-/**
- * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"payLoveIntoDao"`
- */
-export const useSimulateBaguaDukiDaoContractPayLoveIntoDao =
-  /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'payLoveIntoDao',
-})
-
-/**
- * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"payToInvest"`
- */
-export const useSimulateBaguaDukiDaoContractPayToInvest =
-  /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'payToInvest',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'initialize',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"receiveRandomness"`
  */
 export const useSimulateBaguaDukiDaoContractReceiveRandomness =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'receiveRandomness',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'receiveRandomness',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"renounceOwnership"`
  */
 export const useSimulateBaguaDukiDaoContractRenounceOwnership =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'renounceOwnership',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'renounceOwnership',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"requestDaoEvolution"`
  */
 export const useSimulateBaguaDukiDaoContractRequestDaoEvolution =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'requestDaoEvolution',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'requestDaoEvolution',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"setAutomationRegistry"`
  */
 export const useSimulateBaguaDukiDaoContractSetAutomationRegistry =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'setAutomationRegistry',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'setAutomationRegistry',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"setMinWaitBetweenEvolutions"`
  */
 export const useSimulateBaguaDukiDaoContractSetMinWaitBetweenEvolutions =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'setMinWaitBetweenEvolutions',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'setMinWaitBetweenEvolutions',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"setRandomnessRequestDeadline"`
  */
 export const useSimulateBaguaDukiDaoContractSetRandomnessRequestDeadline =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'setRandomnessRequestDeadline',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'setRandomnessRequestDeadline',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"transferOwnership"`
  */
 export const useSimulateBaguaDukiDaoContractTransferOwnership =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'transferOwnership',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'transferOwnership',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"tryAbortDaoEvolution"`
  */
 export const useSimulateBaguaDukiDaoContractTryAbortDaoEvolution =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'tryAbortDaoEvolution',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'tryAbortDaoEvolution',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"upgradeToAndCall"`
  */
 export const useSimulateBaguaDukiDaoContractUpgradeToAndCall =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: baguaDukiDaoContractAbi,
-  functionName: 'upgradeToAndCall',
-})
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'upgradeToAndCall',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `functionName` set to `"vowDaoManifestation"`
+ */
+export const useSimulateBaguaDukiDaoContractVowDaoManifestation =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: baguaDukiDaoContractAbi,
+    functionName: 'vowDaoManifestation',
+  })
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__
@@ -1461,72 +1532,90 @@ export const useWatchBaguaDukiDaoContractEvent =
  */
 export const useWatchBaguaDukiDaoContractBaguaDukiDaoBpsChangedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: baguaDukiDaoContractAbi,
-  eventName: 'BaguaDukiDaoBpsChanged',
-})
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'BaguaDukiDaoBpsChanged',
+  })
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"ConfigChanged"`
  */
 export const useWatchBaguaDukiDaoContractConfigChangedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: baguaDukiDaoContractAbi,
-  eventName: 'ConfigChanged',
-})
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'ConfigChanged',
+  })
 
 /**
- * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"DaoEvolutionManifestation"`
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"ConnectDaoEvent"`
  */
-export const useWatchBaguaDukiDaoContractDaoEvolutionManifestationEvent =
+export const useWatchBaguaDukiDaoContractConnectDaoEventEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: baguaDukiDaoContractAbi,
-  eventName: 'DaoEvolutionManifestation',
-})
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'ConnectDaoEvent',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"DaoEvolutionRepresentation"`
+ */
+export const useWatchBaguaDukiDaoContractDaoEvolutionRepresentationEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'DaoEvolutionRepresentation',
+  })
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"DaoEvolutionWilling"`
  */
 export const useWatchBaguaDukiDaoContractDaoEvolutionWillingEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: baguaDukiDaoContractAbi,
-  eventName: 'DaoEvolutionWilling',
-})
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'DaoEvolutionWilling',
+  })
 
 /**
- * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"DukiInActionEvent"`
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"DukiInAction"`
  */
-export const useWatchBaguaDukiDaoContractDukiInActionEventEvent =
+export const useWatchBaguaDukiDaoContractDukiInActionEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: baguaDukiDaoContractAbi,
-  eventName: 'DukiInActionEvent',
-})
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'DukiInAction',
+  })
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"Initialized"`
  */
 export const useWatchBaguaDukiDaoContractInitializedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: baguaDukiDaoContractAbi,
-  eventName: 'Initialized',
-})
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'Initialized',
+  })
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"OwnershipTransferred"`
  */
 export const useWatchBaguaDukiDaoContractOwnershipTransferredEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: baguaDukiDaoContractAbi,
-  eventName: 'OwnershipTransferred',
-})
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'OwnershipTransferred',
+  })
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"Upgraded"`
  */
 export const useWatchBaguaDukiDaoContractUpgradedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: baguaDukiDaoContractAbi,
-  eventName: 'Upgraded',
-})
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'Upgraded',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link baguaDukiDaoContractAbi}__ and `eventName` set to `"VowDaoEvent"`
+ */
+export const useWatchBaguaDukiDaoContractVowDaoEventEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: baguaDukiDaoContractAbi,
+    eventName: 'VowDaoEvent',
+  })
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link erc20Abi}__
@@ -1665,9 +1754,9 @@ export const useSimulateErc20Transfer = /*#__PURE__*/ createUseSimulateContract(
  */
 export const useSimulateErc20TransferFrom =
   /*#__PURE__*/ createUseSimulateContract({
-  abi: erc20Abi,
-  functionName: 'transferFrom',
-})
+    abi: erc20Abi,
+    functionName: 'transferFrom',
+  })
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link erc20Abi}__ and `functionName` set to `"permit"`
@@ -1689,15 +1778,15 @@ export const useWatchErc20Event = /*#__PURE__*/ createUseWatchContractEvent({
  */
 export const useWatchErc20ApprovalEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: erc20Abi,
-  eventName: 'Approval',
-})
+    abi: erc20Abi,
+    eventName: 'Approval',
+  })
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link erc20Abi}__ and `eventName` set to `"Transfer"`
  */
 export const useWatchErc20TransferEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
-  abi: erc20Abi,
-  eventName: 'Transfer',
-})
+    abi: erc20Abi,
+    eventName: 'Transfer',
+  })

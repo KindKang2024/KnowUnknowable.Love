@@ -14,6 +14,7 @@ interface DivinationState {
     will: string;
     visibility: Visibility;
     willSignature: string;
+    divinationCompleted: boolean;
     gua: Gua;
     stage: DiviState;
     id: string;
@@ -48,11 +49,12 @@ export const useDivinationStore = create<DivinationState & DivinationActions>()(
     immer((set, get) => ({
         // Initial state
         id: '',
-        will: 'x',
+        will: '',
         willSignature: '',
         gua: Gua.createEmpty(),
         interpretation: '',
         visibility: 1,
+        divinationCompleted: false,
         entry: null,
         stage: DiviState.FREE,
 
@@ -90,7 +92,7 @@ export const useDivinationStore = create<DivinationState & DivinationActions>()(
         divide: (yinCount: number) => {
             set(state => {
                 state.gua.divide(yinCount);
-
+                state.divinationCompleted = state.gua.isDivinationCompleted();
             });
         },
 

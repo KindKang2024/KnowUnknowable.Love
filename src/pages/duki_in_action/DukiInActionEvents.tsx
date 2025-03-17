@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import {formatDistanceToNow} from 'date-fns';
 import {dukiDaoContractConfig} from '@/contracts/externalContracts';
-import {useAccount} from 'wagmi';
-import {useWatchBaguaDukiDaoContractDukiInActionEventEvent} from '@/contracts/generated';
+import {useAccount, useChainId} from 'wagmi';
+import {useWatchBaguaDukiDaoContractDukiInActionEvent} from '@/contracts/generated';
 
 
 // enum InteractType {
@@ -135,26 +135,29 @@ const TransactionList: React.FC<TransactionListProps> = ({ transactions }) => {
 };
 
 
-const DukiInActionEvents = () => {
+const DukiInActionEvents = ({ chainId }: { chainId: number }) => {
     const [activeTab, setActiveTab] = useState('dao');
     const [almEvents, setAlmEvents] = useState<Transaction[]>([]);
     const [myEvents, setMyEvents] = useState<Transaction[]>([]);
     const { address } = useAccount();
-    useWatchBaguaDukiDaoContractDukiInActionEventEvent({
-        address: dukiDaoContractConfig.address,
-        pollingInterval: 3000,
-        enabled: !!address && activeTab === 'dao', // Only poll when address exists and 'me' tab is active
+
+    useWatchBaguaDukiDaoContractDukiInActionEvent({
+        address: dukiDaoContractConfig[chainId].address,
+        pollingInterval: 6000,
+        // enabled: !!address && activeTab === 'dao', // Only poll when address exists and 'me' tab is active
+        enabled: true,
         args: {},
         onError(error) {
             console.log('Error!', error)
         },
+        fromBlock: 0n,
         onLogs(logs) {
             console.log('logs', logs)
             const newTransactions = logs.map(log => ({
                 timestamp: Number(log.args.timestamp) * 1000,
                 txHash: log.transactionHash,
                 account: log.args.user,
-                amount: Number(log.args.amount) / dukiDaoContractConfig.StableCoinBase,
+                amount: Number(log.args.amount) / dukiDaoContractConfig[chainId].StableCoinBase,
                 interactType: log.args.interactType,
                 units: Number(log.args.unitNumber),
                 evolveNum: Number(log.args.daoEvolveRound)
@@ -171,23 +174,25 @@ const DukiInActionEvents = () => {
         },
     });
 
-    useWatchBaguaDukiDaoContractDukiInActionEventEvent({
-        address: dukiDaoContractConfig.address,
+    useWatchBaguaDukiDaoContractDukiInActionEvent({
+        address: dukiDaoContractConfig[chainId].address,
         pollingInterval: 6000,
-        enabled: !!address && activeTab === 'me', // Only poll when address exists and 'me' tab is active
+        // enabled: !!address && activeTab === 'me', // Only poll when address exists and 'me' tab is active
+        enabled: true,
         args: {
             account: address,
         },
         onError(error) {
             console.log('Error!', error)
         },
+        fromBlock: 0n,
         onLogs(logs) {
             console.log('logs', logs)
             const newTransactions = logs.map(log => ({
                 timestamp: Number(log.args.timestamp) * 1000,
                 txHash: log.transactionHash,
                 account: log.args.user,
-                amount: Number(log.args.amount) / dukiDaoContractConfig.StableCoinBase,
+                amount: Number(log.args.amount) / dukiDaoContractConfig[chainId].StableCoinBase,
                 interactType: log.args.interactType,
                 units: Number(log.args.unitNumber),
                 evolveNum: Number(log.args.daoEvolveRound)

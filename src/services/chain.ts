@@ -1,12 +1,12 @@
-import { Gua } from "@/stores/Gua";
-import { useInfiniteQuery, useMutation, useQuery, useQueryClient, } from "@tanstack/react-query";
-import { Address } from "viem";
+import {Gua} from "@/stores/Gua";
+import {useInfiniteQuery, useMutation, useQuery, useQueryClient,} from "@tanstack/react-query";
+import {Address} from "viem";
 
 
 export const DEFAULT_PAGE_SIZE = process.env.NODE_ENV === 'development' ? 2 : 10;
 // Types for API responses
 // export const URL_API = 'http://localhost:8787';
-export const URL_API = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : "https://knowunknowable.love";
+export const URL_API = process.env.NODE_ENV === 'development' ? 'http://localhost:8080': "https://knowunknowable.love";
 // const URL_API = 'https://api_unstoppable.beswarm.workers.dev';
 export const URL_API_NONCE = URL_API + '/open/nonce';
 export const URL_API_LOGIN = URL_API + '/open/login';
@@ -38,7 +38,6 @@ export type NonceData = {
 export type DivinationRequest = {
     will: string;
     will_signature: string;
-    will_hash: string;
     manifestation: string;
     interpretation: string;
     visibility: number;
@@ -55,13 +54,12 @@ export type DivinationRequest = {
 
 // Types for divination entries
 export interface DivinationEntry {
-    uuid: string;  // bytes16
+    uuid: string | number;
     diviner: string;
-    visibility: number;
     will: string;
-    will_hash: string;
+    visibility: number;
     will_signature: string;
-    manifestation: string; // bytes16
+    manifestation: string;
     interpretation: string;
     dao_tx: string;
     dao_tx_amount: number;
@@ -150,7 +148,7 @@ const apiClient = {
     },
     // API function for fetching latest public divinations
     fetchLatestPublicDivinations: async (): Promise<DivinationEntry[]> => {
-        const response = await fetch(`${URL_API}/open/latest_dao_divinations`, {
+        const response = await fetch(`${URL_API}/api/latest_public_divinations`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -200,7 +198,7 @@ const apiClient = {
     // API function for fetching my divinations
     fetchFeaturedDivinations: async ({ pageParam }): Promise<DivinationResponse> => {
         console.log(pageParam, "pageParam is cursor");
-        const response = await fetch(`${URL_API}/open/featured_dao_divinations`, {
+        const response = await fetch(`${URL_API}/api/featured_divinations`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -215,6 +213,7 @@ const apiClient = {
         if (!response.ok) {
             throw new Error('Failed to fetch featured divinations');
         }
+
         const result = await response.json() as DivinationResponse;
 
         // Add getGua method to each entry in the response
@@ -266,19 +265,6 @@ export const useCreateDivination = () => {
     return useMutation<DivinationEntry, Error, DivinationRequest>({
         // mutationKey: ['create-divination'],
         mutationFn: (data) => apiClient.createDivination(data),
-        onSuccess: (data) => {
-            // Optionally invalidate queries that should refetch after this mutation
-            queryClient.invalidateQueries({ queryKey: ['my-divinations'] });
-        }
-    });
-};
-
-export const useDeepseek = () => {
-    const queryClient = useQueryClient();
-
-    return useMutation<Interpretation, Error, string>({
-        // mutationKey: ['create-divination'],
-        mutationFn: (data) => apiClient.interpretDivination(data),
         onSuccess: (data) => {
             // Optionally invalidate queries that should refetch after this mutation
             queryClient.invalidateQueries({ queryKey: ['my-divinations'] });

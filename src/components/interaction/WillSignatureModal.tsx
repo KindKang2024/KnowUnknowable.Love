@@ -1,7 +1,8 @@
-import {Button} from "../ui/button";
-import {useAccount, useSignMessage} from 'wagmi';
-import {Dialog, DialogContent, DialogHeader, DialogTitle,} from "../ui/dialog";
-import {useDivinationStore} from "@/stores/divineStore";
+import { Button } from "../ui/button";
+import { useAccount, useSignMessage } from 'wagmi';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, } from "../ui/dialog";
+import { useDivinationStore } from "@/stores/divineStore";
+import { NiceButton } from "../ui/styled/nice-button";
 
 interface WillSignatureModalProps {
     isOpen: boolean;
@@ -47,7 +48,8 @@ export const WillSignatureModal = ({ isOpen, onClose }: WillSignatureModalProps)
 
                     <div className="space-y-2">
                         <label className="text-xs text-[#9b87f5]/60">Divinable Prerequisites</label>
-                        <div className="text-white/80">不诚不占 不义不占 不疑不占</div>
+                        {/* <div className="text-white/80">不诚不占 不义不占 不疑不占</div> */}
+                        <div className="text-white/80">Please be honest, be faithful, and be righteous for the wills.</div>
                     </div>
 
                     <div className="space-y-2">
@@ -68,9 +70,13 @@ export const WillSignatureModal = ({ isOpen, onClose }: WillSignatureModalProps)
                                     </div>
                                 </div>
                             ) : (
-                                <Button onClick={handleSignMessage} disabled={isPending}>
+                                // <Button onClick={handleSignMessage} disabled={isPending}>
+                                //     {isPending ? 'Signing...' : 'Sign'}
+                                // </Button>
+
+                                <NiceButton onClick={handleSignMessage} disabled={isPending} className="w-12">
                                     {isPending ? 'Signing...' : 'Sign'}
-                                </Button>
+                                </NiceButton>
                             )}
                         </div>
                     </div>

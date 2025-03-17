@@ -13,6 +13,8 @@ export type GenericContract = {
     abi: Abi;
     inheritedFunctions?: InheritedFunctions;
     external?: true;
+    deploymentFile?: string;
+    deploymentScript?: string;
 };
 
 export type InheritedFunctions = { readonly [key: string]: string };

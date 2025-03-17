@@ -1,38 +1,42 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 // import { BaguaDukiDAO } from '../components/assets/BaguaDukiDao';
-import {ArrowRight, Coins, ExternalLinkIcon, Gift, Heart, InfoIcon, Package, Scale, Users} from 'lucide-react';
+import { ArrowRight, Coins, ExternalLinkIcon, Gift, Heart, InfoIcon, Package, Scale, Users } from 'lucide-react';
 import {
-    useReadBaguaDukiDaoContractBuaguaDaoAgg4Me,
-    useReadErc20BalanceOf,
-    useWriteBaguaDukiDaoContractClaim0LoveFounderFairDrop,
-    useWriteBaguaDukiDaoContractClaim1LoveMaintainerFairDrop,
-    useWriteBaguaDukiDaoContractClaim2LoveInvestorFairDrop,
-    useWriteBaguaDukiDaoContractClaim3LoveContributorFairDrop,
-    useWriteBaguaDukiDaoContractClaim4LoveBuilderFairDrop,
-    useWriteBaguaDukiDaoContractClaim5LoveCommunityLotteryFairDrop,
-    useWriteBaguaDukiDaoContractClaim7LoveWorldDukiInActionFairDrop,
-    useWriteBaguaDukiDaoContractEvolveDaoAndDivideLove
+  useReadBaguaDukiDaoContractBuaguaDaoAgg4Me,
+  useReadErc20BalanceOf,
+  useReadErc20Allowance,
+  useWriteBaguaDukiDaoContractClaim0LoveFounderFairDrop,
+  useWriteBaguaDukiDaoContractClaim1LoveMaintainerFairDrop,
+  useWriteBaguaDukiDaoContractClaim2LoveInvestorFairDrop,
+  useWriteBaguaDukiDaoContractClaim3LoveContributorFairDrop,
+  useWriteBaguaDukiDaoContractClaim4LoveBuilderFairDrop,
+  useWriteBaguaDukiDaoContractClaim5LoveCommunityLotteryFairDrop,
+  useWriteBaguaDukiDaoContractClaim7LoveWorldDukiInActionFairDrop,
+  useWriteBaguaDukiDaoContractRequestDaoEvolution
 } from '@/contracts/generated';
-import {useUIStore} from '@/stores/uiStore';
-import {useAccount} from 'wagmi';
-import {dukiDaoContractConfig} from '@/contracts/externalContracts';
-import {waitForTransactionReceipt} from 'viem/actions';
-import {config} from '@/wagmi';
-import {BaguaDukiDAO} from '@/pages/divi/components/BaguaDukiDao.tsx';
-import {BaguaSections, getWillColor, Section} from '@/i18n/types';
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '@/components/ui/tooltip';
+import { useUIStore } from '@/stores/uiStore';
+import { useAccount } from 'wagmi';
+import { dukiDaoContractConfig } from '@/contracts/externalContracts';
+import { waitForTransactionReceipt } from 'viem/actions';
+import { config } from '@/wagmi';
+import { BaguaDukiDAO } from '@/pages/divi/components/BaguaDukiDao.tsx';
+import { BaguaSections, getWillColor, Section } from '@/i18n/types';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import DukiInActionEvents from './DukiInActionEvents';
-import {ModalType} from '@/types/common';
-import {usePageCommonData, usePageDaoData} from '@/i18n/DataProvider';
+import { ModalType } from '@/types/common';
+import { usePageCommonData, usePageDaoData } from '@/i18n/DataProvider';
+import { YinYangIcon } from '@/components/icons';
 
 // Helper function to safely get values from baguaDaoAgg4Me
-const getBaguaValue = (baguaDaoAgg4Me: any, index: number, type: 'unitAmount' | 'unitNumber' | 'unitTotal', defaultValue: string = '1') => {
+const getBaguaValue = (baguaDaoAgg4Me: any, chainId: number, index: number,
+
+  type: 'unitAmount' | 'unitNumber' | 'unitTotal', defaultValue: string = '1') => {
   try {
     console.log("baguaDaoAgg4Me here", baguaDaoAgg4Me, type);
     if (baguaDaoAgg4Me != undefined && type === 'unitAmount') {
       const amount = Number(baguaDaoAgg4Me?.fairDrops[index]?.unitAmount) * 1.0;
       console.log("why why amount", amount);
-      return (amount / dukiDaoContractConfig.StableCoinBase);
+      return (amount / dukiDaoContractConfig[chainId].StableCoinBase);
     } else {
       console.log("baguaDaoAgg4Me here empty", type);
       return baguaDaoAgg4Me?.fairDrops?.[index]?.[type]?.toString() || defaultValue;
@@ -46,7 +50,7 @@ const getBaguaValue = (baguaDaoAgg4Me: any, index: number, type: 'unitAmount' | 
 const DukiInAction = () => {
   const [selectedSection, setSelectedSection] = useState<Section>(BaguaSections[0]);
   const { openModal } = useUIStore();
-  const { address, isConnected } = useAccount();
+  const { address, isConnected, chainId } = useAccount();
 
   const handleSectionClick = (selectedSection: Section) => {
     console.log("selectedSection", selectedSection);
@@ -56,9 +60,11 @@ const DukiInAction = () => {
   const {
     data: baguaDaoAgg4Me,
     isLoading: baguaDaoAgg4MeLoading,
-    refetch: refetchBaguaDukiDao  // Get the refetch function
+    refetch: refetchBaguaDukiDao,
+    error: baguaDaoAgg4MeError
   } = useReadBaguaDukiDaoContractBuaguaDaoAgg4Me({
-    address: dukiDaoContractConfig.address,
+    address: dukiDaoContractConfig[chainId].address,
+    args: [address],
     query: {
       enabled: true
     }
@@ -66,14 +72,14 @@ const DukiInAction = () => {
 
   // Add balance check before approval
   const { data: totalBalanceOfDao } = useReadErc20BalanceOf({
-    address: dukiDaoContractConfig.stableCoin,
-    args: [dukiDaoContractConfig.address],
+    address: dukiDaoContractConfig[chainId].stableCoin,
+    args: [dukiDaoContractConfig[chainId].address],
     query: { enabled: true }
   });
   console.log("totalBalanceOfDao", totalBalanceOfDao);
 
 
-  const { writeContractAsync: evolveDao } = useWriteBaguaDukiDaoContractEvolveDaoAndDivideLove();
+  const { writeContractAsync: requestDaoEvolution } = useWriteBaguaDukiDaoContractRequestDaoEvolution();
 
 
   const { writeContractAsync: claim7AlmDukiInActionFairDrop } = useWriteBaguaDukiDaoContractClaim7LoveWorldDukiInActionFairDrop();
@@ -86,9 +92,9 @@ const DukiInAction = () => {
 
 
   const handleEvolve = async () => {
-    const tx = await evolveDao({
-      address: dukiDaoContractConfig.address,
-      args: [1]
+    const tx = await requestDaoEvolution({
+      address: dukiDaoContractConfig[chainId].address,
+      args: [dukiDaoContractConfig[chainId].requestDaoEvolutionGasLimit]
     });
     console.log(tx);
     // Wait for the transaction to be mined
@@ -96,6 +102,7 @@ const DukiInAction = () => {
       hash: tx,
     });
     console.log("txReceipt", txReceipt);
+    refetchBaguaDukiDao();
   }
 
 
@@ -105,37 +112,37 @@ const DukiInAction = () => {
       switch (seq) {
         case 0:
           return await claim0FounderFairDrop({
-            address: dukiDaoContractConfig.address,
+            address: dukiDaoContractConfig[chainId].address,
             args: [],
           });
         case 1:
           return await claim1MaintainerFairDrop({
-            address: dukiDaoContractConfig.address,
+            address: dukiDaoContractConfig[chainId].address,
             args: [],
           });
         case 2:
           return await claim2UnsInvestorFairDrop({
-            address: dukiDaoContractConfig.address,
+            address: dukiDaoContractConfig[chainId].address,
             args: []
           });
         case 3:
           return await claim3ContributorFairDrop({
-            address: dukiDaoContractConfig.address,
+            address: dukiDaoContractConfig[chainId].address,
             args: []
           });
         case 4:
           return await claim4BuilderFairDrop({
-            address: dukiDaoContractConfig.address,
-            args: ['kindkang']
+            address: dukiDaoContractConfig[chainId].address,
+            args: []
           });
         case 5:
           return await claim5CommunityLotteryDrop({
-            address: dukiDaoContractConfig.address,
+            address: dukiDaoContractConfig[chainId].address,
             args: []
           });
         case 7:
           return await claim7AlmDukiInActionFairDrop({
-            address: dukiDaoContractConfig.address,
+            address: dukiDaoContractConfig[chainId].address,
             args: []
           });
         default:
@@ -152,7 +159,8 @@ const DukiInAction = () => {
 
 
   // convert bigint to v/100 
-  const notEmptyBpsArr = baguaDaoAgg4Me?.bpsArr.map(bps => Number(bps) / 100) ?? [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  // const notEmptyBpsArr = baguaDaoAgg4Me?.bpsArr.map(bps => Number(bps) / 100) ?? [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const notEmptyBpsArr = baguaDaoAgg4Me?.bpsArr.map(bps => Number(bps) / 100) ?? [10, 10, 10, 10, 10, 10, 10, 10, 10];
 
   console.log("baguaDaoAgg4Me", baguaDaoAgg4Me);
 
@@ -185,7 +193,7 @@ const DukiInAction = () => {
               {pageDaoData.daoTerm}
             </h1>
             <a
-              href={`https://sepolia.etherscan.io/address/${dukiDaoContractConfig.address}`}
+              href={`${dukiDaoContractConfig[chainId].explorer}/address/${dukiDaoContractConfig[chainId].address}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-purple-500 hover:text-purple-300 transition-colors duration-300 ease-in-out transform hover:scale-110"
@@ -218,7 +226,7 @@ const DukiInAction = () => {
             {pageDaoData.daoTermDefinitionSuffix}
           </p>
 
-          {address === '0x70F0f595b9eA2E3602BE780cc65263513A72bba3' && (
+          {false && address === '0x70F0f595b9eA2E3602BE780cc65263513A72bba3' && (
             <button onClick={() => handleEvolve()} className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 mb-4 rounded">
               Evolve
             </button>
@@ -232,8 +240,10 @@ const DukiInAction = () => {
                 {/* Evolution Status */}
                 {pageDaoData.evolutionStatus}
               </div>
+
+
               <p className="text-3xl font-bold text-white mb-1">
-                {baguaDaoAgg4Me?.evolveNum || '0'}
+                {baguaDaoAgg4Me?.evolveNum?.toString() || '0'}
               </p>
               <p className="text-sm text-gray-400">
                 {pageDaoData.currentBlock}
@@ -247,7 +257,7 @@ const DukiInAction = () => {
                 {pageDaoData.fairDrop}
               </div>
               <p className="text-3xl font-bold text-white mb-1">
-                {getBaguaValue(baguaDaoAgg4Me, 1, 'unitAmount')}
+                {getBaguaValue(baguaDaoAgg4Me, chainId, 1, 'unitAmount')}
               </p>
               <p className="text-sm text-gray-400">
                 {pageDaoData.usdcAvailable}
@@ -279,10 +289,10 @@ const DukiInAction = () => {
                 {pageDaoData.lottery}
               </div>
               <p className="text-3xl font-bold text-white mb-1">
-                #{getBaguaValue(baguaDaoAgg4Me, 0, 'unitNumber')}
+                #{getBaguaValue(baguaDaoAgg4Me, chainId, 0, 'unitNumber')}
               </p>
               <p className="text-sm text-gray-400">
-                {getBaguaValue(baguaDaoAgg4Me, 3, 'unitAmount')} USDC Prize
+                {getBaguaValue(baguaDaoAgg4Me, chainId, 3, 'unitAmount')} USDC Prize
               </p>
             </div>
           </div>
@@ -291,7 +301,7 @@ const DukiInAction = () => {
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-2 items-center">
           {/* BaguaDuki Diagram - Added scaling classes */}
           <div className="relative w-full flex justify-center items-center border border-gray-700 rounded-xl">
-            <div className="w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px]">
+            <div className="w-[250px] h-[250px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] animate-[spin_60s_linear_infinite]">
               <BaguaDukiDAO onElementClick={handleSectionClick} bpsArr={notEmptyBpsArr} />
             </div>
           </div>
@@ -303,11 +313,16 @@ const DukiInAction = () => {
               <div className="mb-4">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3 break-words"
                   style={{ color: getWillColor(selectedSection.seq) }}>
-                  {selectedSection.seq} - {selectedSection.id}
-                  &nbsp;({selectedSection.ch_symbol}<Heart className="h-5 w-5 inline-block ml-1" />)
+                  {selectedSection.seq === 8 && (
+                    <YinYangIcon className="h-6 w-6 inline-block mr-1" />)
+                  }
+                  {selectedSection.seq !== 8 && selectedSection.seq.toString()}
+                  - {selectedSection.id}
+                  &nbsp;({selectedSection.ch_symbol}
+                  <Heart className="h-5 w-5 inline-block ml-1" />)
                 </h2>
                 <p className="text-gray-100 text-xl sm:text-sm">
-                  {selectedSection.description}
+                  {pageDaoData.sections?.[selectedSection.seq].description}
                 </p>
               </div>
 
@@ -315,7 +330,7 @@ const DukiInAction = () => {
               <div className="flex-grow border-t border-gray-700 pt-4 mb-4">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg sm:text-xl font-semibold text-purple-400 whitespace-nowrap">
-                    {selectedSection.title}
+                    {pageDaoData.sections?.[selectedSection.seq].title}
                   </h3>
 
                   {
@@ -339,7 +354,7 @@ const DukiInAction = () => {
                     </div>
                   ) : (
                     <div className="flex flex-col space-y-2">
-                      {selectedSection.seq === 0 ? (
+                      {selectedSection.seq === 8 ? (
                         <div className="flex flex-col space-y-4">
                           <div>
                             <span className="text-white flex items-center gap-1 text-ml font-bold">
@@ -379,8 +394,8 @@ const DukiInAction = () => {
                               {pageDaoData.dropUnits}
                             </span>
                             <span className="text-white font-medium">
-                              {getBaguaValue(baguaDaoAgg4Me, selectedSection.seq, 'unitNumber')}
-                              /{getBaguaValue(baguaDaoAgg4Me, selectedSection.seq, 'unitTotal')}
+                              {getBaguaValue(baguaDaoAgg4Me, chainId, selectedSection.seq, 'unitNumber')}
+                              /{getBaguaValue(baguaDaoAgg4Me, chainId, selectedSection.seq, 'unitTotal')}
                             </span>
                           </div>
                           <div className="flex justify-between text-sm">
@@ -389,7 +404,7 @@ const DukiInAction = () => {
                               {pageDaoData.dropDollars}
                             </span>
                             <span className="text-white font-medium">
-                              {getBaguaValue(baguaDaoAgg4Me, selectedSection.seq, 'unitAmount')} USDC
+                              {getBaguaValue(baguaDaoAgg4Me, chainId, selectedSection.seq, 'unitAmount')} USDC
                             </span>
                           </div>
                           <div className="flex justify-between text-sm">
@@ -410,7 +425,9 @@ const DukiInAction = () => {
 
               {/* SECTION 3: Requirements section */}
               <div className="border-t border-gray-700 pt-4 mt-auto">
-                <h4 className="text-lg font-semibold text-purple-400 mb-2">{pageDaoData.claimRequirements}</h4>
+                <h4 className="text-lg font-semibold text-purple-400 mb-2">
+                  {selectedSection.seq === 8 ? pageDaoData.philosophy : pageDaoData.claimRequirements}
+                </h4>
                 <div>
                   {(() => {
                     if (true) {
@@ -446,7 +463,7 @@ const DukiInAction = () => {
           </div>
         </div>
 
-        <DukiInActionEvents />
+        <DukiInActionEvents chainId={chainId} />
       </div>
     </div >
   );

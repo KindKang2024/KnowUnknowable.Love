@@ -15,10 +15,10 @@ export interface DataTypes {
 
 export interface IChing {
     name:     string;
-    symbol:   string;
+    symbol?:  string;
     gua_ci:   string;
     yao_ci:   string[];
-    yong_ci?: string[];
+    yong_ci?: string;
 }
 
 export interface UI {
@@ -85,6 +85,7 @@ export interface DiviFields {
 export interface DAOPageData {
     sections:                Section[];
     claimRequirements:       string;
+    philosophy:              string;
     dropUnits:               string;
     dropDollars:             string;
     totalParticipants:       string;
@@ -110,6 +111,9 @@ export interface AlmWorldSlogon {
 }
 
 export interface Section {
+    title:        string;
+    description:  string;
+    target:       string;
     requirements: Requirements;
 }
 
@@ -117,6 +121,8 @@ export interface Requirements {
     p1:   string;
     p2:   string;
     btn?: Btn;
+    p1_?: string;
+    p2_?: string;
 }
 
 export interface Btn {
@@ -340,10 +346,10 @@ const typeMap: any = {
     ], false),
     "IChing": o([
         { json: "name", js: "name", typ: "" },
-        { json: "symbol", js: "symbol", typ: "" },
+        { json: "symbol", js: "symbol", typ: u(undefined, "") },
         { json: "gua_ci", js: "gua_ci", typ: "" },
         { json: "yao_ci", js: "yao_ci", typ: a("") },
-        { json: "yong_ci", js: "yong_ci", typ: u(undefined, a("")) },
+        { json: "yong_ci", js: "yong_ci", typ: u(undefined, "") },
     ], false),
     "UI": o([
         { json: "gua", js: "gua", typ: "" },
@@ -404,6 +410,7 @@ const typeMap: any = {
     "DAOPageData": o([
         { json: "sections", js: "sections", typ: a(r("Section")) },
         { json: "claimRequirements", js: "claimRequirements", typ: "" },
+        { json: "philosophy", js: "philosophy", typ: "" },
         { json: "dropUnits", js: "dropUnits", typ: "" },
         { json: "dropDollars", js: "dropDollars", typ: "" },
         { json: "totalParticipants", js: "totalParticipants", typ: "" },
@@ -427,12 +434,17 @@ const typeMap: any = {
         { json: "desc", js: "desc", typ: "" },
     ], false),
     "Section": o([
+        { json: "title", js: "title", typ: "" },
+        { json: "description", js: "description", typ: "" },
+        { json: "target", js: "target", typ: "" },
         { json: "requirements", js: "requirements", typ: r("Requirements") },
     ], false),
     "Requirements": o([
         { json: "p1", js: "p1", typ: "" },
         { json: "p2", js: "p2", typ: "" },
         { json: "btn", js: "btn", typ: u(undefined, r("Btn")) },
+        { json: "p1_", js: "p1_", typ: u(undefined, "") },
+        { json: "p2_", js: "p2_", typ: u(undefined, "") },
     ], false),
     "Btn": o([
         { json: "text", js: "text", typ: "" },

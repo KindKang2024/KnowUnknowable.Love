@@ -1,6 +1,6 @@
 import {immerable} from "immer";
 import {YAO} from "./YAO";
-import {binaryIChingMap} from "@/assets/symbols";
+import {binaryIChingMap} from "@/i18n/symbols";
 
 /**
  * Gua class represents a complete hexagram in I Ching divination.
@@ -179,7 +179,6 @@ export class Gua {
 
     // mutated: boolean, at: number
     public mutate(mutated: boolean, at: number) {
-        debugger;
         if (!this.isComplete) {
             return;
         }
@@ -230,7 +229,10 @@ export class Gua {
         return Gua.getGeneticCodeFromBinary(binaryString);
     }
 
-    public static binaryToDecimalString(binary: string): string {
+    public static binaryToDecimalString(binary: string, paddingSpace: boolean = false): string {
+        if (paddingSpace) {
+            return parseInt(binary, 2).toString().padStart(2, ' ');
+        }
         return parseInt(binary, 2).toString();
     }
 
@@ -311,8 +313,13 @@ export class Gua {
         return allPossibleEvolutions.map(e => e.map(bit => bit ? '1' : '0').join(''));
     }
 
+    public getAllPossibleMutationSymbols(excludeOriginal: boolean = false): string[] {
+        const allPossibleEvolutions = Gua.getAllPossibleEvolutions(this, excludeOriginal);
+        return allPossibleEvolutions.map(e => binaryIChingMap[e.map(bit => bit ? '1' : '0').join('')].symbol);
+    }
+
     // each bool area is 6  
-    public static getAllPossibleEvolutions(gua: Gua): boolean[][] {
+    public static getAllPossibleEvolutions(gua: Gua, excludeOriginal: boolean = false): boolean[][] {
         const mutabilityArr = gua.mutabilityArr;
         const binaryArr = gua.binaryArr;
 
@@ -321,7 +328,9 @@ export class Gua {
         // Convert binary array to boolean array where true means yin (0) and false means yang (1)
         const originalState = [...binaryArr.map(bit => bit === 1)];
         // const allEvolutions: boolean[][] = [originalState];
-        allPossibleEvolutions.push(originalState);
+        if (!excludeOriginal) {
+            allPossibleEvolutions.push(originalState);
+        }
 
         // Find indices of mutable positions
         const mutableIndices: number[] = [];

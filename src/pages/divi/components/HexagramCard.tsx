@@ -1,8 +1,8 @@
 import React from "react";
-import {Circle, X} from "lucide-react";
-import {a, useSpring} from "@react-spring/web";
-import {IChing} from "@/i18n/data_types.ts";
-import {Gua} from "@/stores/Gua.ts";
+import { Circle, X } from "lucide-react";
+import { a, useSpring } from "@react-spring/web";
+import { IChing } from "@/i18n/data_types.ts";
+import { Gua } from "@/stores/Gua.ts";
 
 interface HexagramCardProps {
     hexagram: IChing;
@@ -24,24 +24,26 @@ const HexagramCard: React.FC<HexagramCardProps> = ({
     });
     return <a.div className={`relative w-full flex justify-center max-w-4xl mx-auto  overflow-hidden ${className}`} style={cardAnimation}>
         <div id="hex" className="p-6 w-full">
-            <div className="flex items-end mb-4  ">
+            <div className="flex items-end mb-4" id="gua_header">
                 <h2 className="text-5xl font-bold text-white text-nowrap" id="hexagram-name">{hexagram.name} </h2>
                 <div className="flex flex-col pr-2 text-left" id="hexagram-representation">
                     <p className="text-gray-300 text-[10px]">{gua.getDecimalNumberString()}</p>
                     <p className="text-gray-300 text-[10px]">{gua.getBinaryString()}</p>
                     <p className="text-gray-300 text-xs">{gua.getGeneticCode()}</p>
                 </div>
-
-                <div className="flex-grow" id="hexagram-ci">
-                    <p className="text-gray-300 text-wrap text-left">{hexagram.gua_ci} {hexagram.yong_ci ? `(${hexagram.yong_ci})` : ""}</p>
-                </div>
             </div>
 
-            <div className="w-full grid grid-cols-1 gap-4">
+            <div className="max-h-20 overflow-y-auto mb-4" id="hexagram-ci">
+                <p className="text-gray-300 text-sm text-left pr-2">
+                    {hexagram.gua_ci} {hexagram.yong_ci ? `(${hexagram.yong_ci})` : ""}
+                </p>
+            </div>
+
+            <div className="w-full grid grid-cols-1 gap-3">
                 {/* Display 6 rows from top to bottom (6th to 1st) */}
                 {Array.from({ length: 6 }, (_, index) => {
                     let yao = gua.yaos[5 - index];
-                    
+
                     const isHighlighted = false;
                     const lineClass = isHighlighted ? "border-2 border-blue-500" : "";
 
@@ -81,6 +83,11 @@ const HexagramCard: React.FC<HexagramCardProps> = ({
                                     ) : (
                                         <Circle className="w-3 h-3 text-yellow-300 mx-2 flex-shrink-0" />
                                     )}
+                                </div>)
+                                }
+
+                                {!isMutable && (<div className="block">
+                                    <div className="w-3 h-3 mx-2 flex-shrink-0"></div>
                                 </div>)
                                 }
 

@@ -1,15 +1,16 @@
-import {Button} from "../ui/button";
-import {useAccount} from 'wagmi';
-import {Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle,} from "../ui/dialog";
-import {useToast} from "../ui/use-toast";
-import {BookOpen, Calendar, Camera, HelpCircle, MessageSquare, Share2, TrendingUpDown, User, X} from "lucide-react";
-import {ScrollArea} from "../ui/scroll-area";
-import {useEffect, useRef, useState} from "react";
+import { Button } from "../ui/button";
+import { useAccount } from 'wagmi';
+import { Dialog, DialogClose, DialogContent, DialogHeader, DialogTitle, } from "../ui/dialog";
+import { useToast } from "../ui/use-toast";
+import { BookOpen, Calendar, Camera, HelpCircle, MessageSquare, Share2, TrendingUpDown, User, X } from "lucide-react";
+import { ScrollArea } from "../ui/scroll-area";
+import { useEffect, useRef, useState } from "react";
 import html2canvas from "html2canvas";
-import {useIChing} from "@/i18n/DataProvider";
+import { useIChing } from "@/i18n/DataProvider";
 import HexagramCard from "../../pages/divi/components/HexagramCard.tsx";
-import {Tooltip, TooltipContent, TooltipTrigger} from "../ui/tooltip";
-import {DivinationEntry, useCreateDivination} from "@/services/api.ts";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { DivinationEntry, useCreateDivination } from "@/services/api.ts";
+import { ArrowRightFromLine } from "lucide-react";
 
 
 interface EnlightenmentModalProps {
@@ -20,7 +21,7 @@ interface EnlightenmentModalProps {
 
 
 export const EnlightenmentModal = ({ isOpen, onClose, entry }: EnlightenmentModalProps) => {
-    
+
     // const { gua, interpretation, will } = useDivinationStore();
     const [copied, setCopied] = useState(false);
     const { toast } = useToast();
@@ -111,22 +112,28 @@ export const EnlightenmentModal = ({ isOpen, onClose, entry }: EnlightenmentModa
                             Interpretation
                         </div>
                         <div className="flex items-center ml-auto">
-                            <div className="flex gap-2">
+                            <div className="flex gap-2 mr-1">
                                 <Button size="sm" className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white border-none" onClick={captureAndDownload}>
-                                    <Camera className="mr-1 h-3 w-3" /> 保存图片
+                                    <Camera className="mr-1 h-3 w-3" />
+                                    {/* 保存图片 */}
+                                    Save Image
                                 </Button>
 
                                 <Button size="sm" className="bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 text-white border-none" onClick={() => {
 
                                 }}>
-                                    <Share2 className="mr-1 h-3 w-3" /> 分享
+                                    <Share2 className="mr-1 h-3 w-3" />
+                                    {/* 分享 */}
+                                    Share
                                 </Button>
 
                                 <DialogClose asChild>
                                     <Button size="sm" className="bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 text-white border-none" onClick={() => {
                                         onClose()
                                     }}>
-                                        <X className="mr-1 h-3 w-3" /> 关闭
+                                        <X className="mr-1 h-3 w-3" />
+                                        {/* 关闭 */}
+                                        Close
                                     </Button>
                                 </DialogClose>
                             </div>
@@ -166,7 +173,10 @@ export const EnlightenmentModal = ({ isOpen, onClose, entry }: EnlightenmentModa
                                                             <User className="h-4 w-4 mr-2 text-purple-300 flex-shrink-0" />
                                                         </TooltipTrigger>
                                                         <TooltipContent>
-                                                            <div className="text-white">占卜人</div>
+                                                            <div className="text-white">
+                                                                {/* 占卜人 */}
+                                                                Diviner
+                                                            </div>
                                                         </TooltipContent>
                                                     </Tooltip>
                                                     <div className="min-w-0 flex-1">
@@ -175,34 +185,41 @@ export const EnlightenmentModal = ({ isOpen, onClose, entry }: EnlightenmentModa
                                                 </div>
 
                                                 {/* Date */}
-                                                <div className="flex items-center">
+                                                <div className="flex items-center col-span-3">
                                                     <Tooltip>
                                                         <TooltipTrigger>
                                                             <Calendar className="h-4 w-4 mr-2 text-purple-300 flex-shrink-0" />
                                                         </TooltipTrigger>
                                                         <TooltipContent>
-                                                            <div className="text-white">创建时间</div>
+                                                            <div className="text-white">
+                                                                Create Time
+                                                                {/* 创建时间 */}
+                                                            </div>
                                                         </TooltipContent>
                                                     </Tooltip>
                                                     <div className="min-w-0 flex-1">
-                                                        <p className="text-white break-words">{entry.created_at}</p>
+                                                        <p className="text-white break-words">
+                                                            {new Date(entry.created_at).toISOString().replace('T', ' ').substring(0, 19)}
+                                                        </p>
                                                     </div>
                                                 </div>
-
-
 
                                                 {/* Process */}
                                                 <div className="flex items-center">
                                                     <Tooltip>
                                                         <TooltipTrigger>
-                                                            <MessageSquare className="h-4 w-4 mr-2 text-purple-300 flex-shrink-0" />
+                                                            <ArrowRightFromLine className="h-4 w-4 mr-2 text-purple-300 flex-shrink-0" />
+
                                                         </TooltipTrigger>
                                                         <TooltipContent>
-                                                            <div className="text-white">占卜过程</div>
+                                                            <div className="text-white">
+                                                                {/* 占卜过程 */}
+                                                                Divination Process
+                                                            </div>
                                                         </TooltipContent>
                                                     </Tooltip>
                                                     <div className="min-w-0 flex-1">
-                                                        <p className="text-white break-words">{entry.manifestation}</p>
+                                                        <p className="text-white break-words">{entry.gua.symbol()}</p>
                                                     </div>
                                                 </div>
 
@@ -213,13 +230,24 @@ export const EnlightenmentModal = ({ isOpen, onClose, entry }: EnlightenmentModa
                                                             <TrendingUpDown className="h-4 w-4 mr-2 text-purple-300 flex-shrink-0" />
                                                         </TooltipTrigger>
                                                         <TooltipContent>
-                                                            <div className="text-white">可能的变卦</div>
+                                                            <div className="text-white">
+                                                                {/* 可能的变卦 */}
+                                                                Possible Mutations
+                                                            </div>
                                                         </TooltipContent>
                                                     </Tooltip>
                                                     <div className="min-w-0 flex-1">
-                                                        <p className="text-white break-words">{'FIXME'}</p>
+                                                        <p className="text-white break-words">
+                                                            {entry.gua.getAllPossibleMutationSymbols(true).join(', ')}
+                                                        </p>
                                                     </div>
                                                 </div>
+
+
+
+
+
+
                                             </div>
                                         </div>
                                     </div>
@@ -255,8 +283,8 @@ export const EnlightenmentModal = ({ isOpen, onClose, entry }: EnlightenmentModa
                                 </div>
 
                                 <div className="mt-3 opacity-70 flex justify-center items-center">
-                                    <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors text-xs">
-                                        风火家人 · 易经智慧
+                                    <a href="https://knowunknowable.love" target="_blank" rel="noopener noreferrer" className="text-blue-200 hover:text-white transition-colors text-xs">
+                                        Love Be The Way To Know
                                     </a>
                                 </div>
                             </div>

@@ -40,7 +40,7 @@ export const ResultGrid = ({
     }}>
       <div className="text-center space-y-2">
         <div className="text-center items-center align-center  text-xs gap-2">
-        <label className=" text-[#9b87f5]/60">大衍筮法 ( {getTotalDivisions()} / 18 )</label>
+        <label className=" text-[#9b87f5]/60">Change Progress ( {getTotalDivisions()} / 18 )</label>
       </div>
 
       </div>

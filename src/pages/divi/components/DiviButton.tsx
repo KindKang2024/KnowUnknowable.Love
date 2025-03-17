@@ -10,16 +10,16 @@ interface DiviActionButtonProps {
     isDeepSeekUsed: boolean;
     isError: boolean;
     isPending: boolean;
-    handleDeepSeek: () => void;
-    openEnlightenmentModal: () => void;
+    // handleDeepSeek: () => void;
+    // openEnlightenmentModal: () => void;
 }
 
 const DiviButton: React.FC<DiviActionButtonProps> = ({
-    isDeepSeekUsed,
+    // isDeepSeekUsed,
     isError,
     isPending,
-    handleDeepSeek,
-    openEnlightenmentModal,
+    // handleDeepSeek,
+    // openEnlightenmentModal,
 }) => {
     const {
         isDivinationCompleted,
@@ -114,7 +114,7 @@ const DiviButton: React.FC<DiviActionButtonProps> = ({
             );
         }
 
-        const opsName = isDivinationCompleted() ? "Mutation" : "Divination";
+        const opsName = isDivinationCompleted() ? "Review" : "Divination";
 
         // if (isDivinationCompleted()) {
         //     if (isDeepSeekUsed) {
@@ -150,19 +150,19 @@ const DiviButton: React.FC<DiviActionButtonProps> = ({
                 {currentSpeedMode === "normal" && (
                     <>
                         <Hourglass className="w-4 h-4" />
-                        {opsName} Normal Mode
+                       Normal {opsName} 
                     </>
                 )}
                 {currentSpeedMode === "fast" && (
                     <>
                         <Timer className="w-4 h-4 animate-pulse" />
-                        {opsName} Fast Mode
+                        Fast {opsName}
                     </>
                 )}
                 {currentSpeedMode === "instant" && (
                     <>
                         <Zap className="w-4 h-4" />
-                        {opsName} Super Fast Mode
+                        Super Fast {opsName}
                     </>
                 )}
             </span>
@@ -206,16 +206,16 @@ const DiviButton: React.FC<DiviActionButtonProps> = ({
         }
 
         if (isDivinationCompleted()) {
-            if (isDeepSeekUsed) {
-                return (
-                    <div className="text-xs text-indigo-300 mb-2 text-center">
-                        <span>Divination complete - explore your insights</span>
-                    </div>
-                );
-            }
+            // if (isDeepSeekUsed) {
+            //     return (
+            //         <div className="text-xs text-indigo-300 mb-2 text-center">
+            //             <span>Divination complete - explore your insights</span>
+            //         </div>
+            //     );
+            // }
             return (
                 <div className="text-xs text-indigo-300 mb-2 text-center">
-                    <span>Completed - Get insights with DeepSeek</span>
+                    <span>Completed - Please Review Divine Answer</span>
                 </div>
             );
         }

@@ -65,7 +65,7 @@ export const GuaModal = ({ isOpen, binary, onClose }: GuaModalProps) => {
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="sm:max-w-md border-purple-800 p-3" >
+            <DialogContent className="sm:max-w-3xl border-purple-800 p-3" >
                 <div className="mt-4 bg-white/5 backdrop-blur-sm  border-white/10 p-2 sm:p-3 rounded-xl mb-4 sm:mb-6">
                     {binary.length >= 6 && hexagrams != null && (
                         <div className="mb-2 w-full">

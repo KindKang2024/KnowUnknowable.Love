@@ -5,7 +5,7 @@ import {animated, config, useSpring} from '@react-spring/three'
 import * as THREE from 'three'
 import Taiji from '@/components/bagua/Taiji'
 import {FakeGlowMaterial} from '@/utils/FakeGlowMaterial'
-import DNA from './Dna2'
+import DNA from './Dna'
 import {useUIStore} from '@/stores/uiStore'
 // Type definitions for the component
 

@@ -49,10 +49,11 @@ export const IChingProofSystem = ({ defaultBinary = "111111" }: ProofSystemProps
                         <p className="my-4"></p>
 
                         <div className="mt-6 p-3 border border-purple-500/30 rounded-lg bg-black/30">
-                            <p className="italic">Always remember, the prerequisite of the proof is the Verifier's divination is:"不诚不占，不疑不占，不义不占"
+                            <p className="italic">Always remember, the prerequisite of the proof is the Verifier's divination is:
+                                {/* "不诚不占，不疑不占，不义不占" */}
                             </p>
                             {/* <p className="font-medium text-purple-200 my-2">"不诚不占，不疑不占，不义不占"</p> */}
-                            <p className="text-yellow-200 font-medium">Please be honest, be faithful, and be righteous for the wills. Always remember: Love Is The Answer for Everything.</p>
+                            <p className="text-yellow-200 font-medium">Please be honest, be faithful, and be righteous for the wills. Always keep it in mind - Love is the answer for everything.</p>
                         </div>
                     </div>
 

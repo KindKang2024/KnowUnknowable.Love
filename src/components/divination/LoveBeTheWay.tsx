@@ -1,10 +1,10 @@
-import {useEffect, useMemo, useRef, useState} from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
-import {ThreeStep} from './ThreeStep';
-import {Text} from '@react-three/drei';
-import {Gua} from '@/stores/Gua';
-import {useIChing} from '@/i18n/DataProvider';
-import {useUIStore} from '@/stores/uiStore';
+import { ThreeStep } from './ThreeStep';
+import { Text } from '@react-three/drei';
+import { Gua } from '@/stores/Gua';
+import { useIChing } from '@/i18n/DataProvider';
+import { useUIStore } from '@/stores/uiStore';
 
 interface ThreeStepProps {
     gua: Gua;
@@ -168,25 +168,28 @@ export const LoveBeTheWay: React.FC<ThreeStepProps> = ({
 
     return (
         <group scale={scale} key={"love-be-the-way"}>
-            <group position={[1.8, 0, 0]}>
-                <Text fontSize={1} color="white" anchorX="left" anchorY="middle">
+            {/* <group position={[1.8, 0, 0]}> */}
+            <group position={[-1.0, 1.4, 0]}>
+                <Text fontSize={0.4} color="white" anchorX="left" anchorY="middle">
                     {iChing[binary].name}
                 </Text>
-                <Text fontSize={0.25}
-                    position={[0.1, -0.7, 0]}
-                    color="white" anchorX="left" anchorY="middle">
-                    {Gua.binaryToDecimalString(binary)}
-                </Text>
-                <Text fontSize={0.1}
-                    position={[0.65, -0.65, 0]}
-                    color="white" anchorX="left" anchorY="middle">
-                    {Gua.getGeneticCodeFromBinary(binary)}
-                </Text>
-                <Text fontSize={0.1}
-                    position={[0.5, -0.75, 0]}
-                    color="white" anchorX="left" anchorY="middle">
-                    {binary}
-                </Text>
+                <group position={[-0.9, 0.7, 0]}>
+                    <Text fontSize={0.25}
+                        position={[0.2, -0.7, 0]}
+                        color="white" anchorX="left" anchorY="middle">
+                        {Gua.binaryToDecimalString(binary, true)}
+                    </Text>
+                    <Text fontSize={0.1}
+                        position={[0.65, -0.65, 0]}
+                        color="white" anchorX="left" anchorY="middle">
+                        {Gua.getGeneticCodeFromBinary(binary)}
+                    </Text>
+                    <Text fontSize={0.1}
+                        position={[0.5, -0.75, 0]}
+                        color="white" anchorX="left" anchorY="middle">
+                        {binary}
+                    </Text>
+                </group>
             </group>
 
             {gua.yaos.map((yao, index) => (

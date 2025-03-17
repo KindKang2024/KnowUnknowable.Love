@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {FloatingPanel, Section} from './components/FloatingPanel.tsx';
 import html2canvas from "html2canvas";
 import {dataURLtoBlob} from "@/utils/imageUtils.ts";
@@ -16,6 +16,7 @@ import {Gua} from '@/stores/Gua.ts';
 import {DiviState} from '@/types/divi';
 import {useNavigate} from 'react-router-dom';
 import {NiceButton} from '@/components/ui/styled/nice-button.tsx';
+import { keccak256, stringToHex } from 'viem';
 
 const DiviPanel: React.FC = () => {
     const navigate = useNavigate();
@@ -24,15 +25,16 @@ const DiviPanel: React.FC = () => {
     const [customAmount, setCustomAmount] = useState<string>("0.1");
     const [shareImage, setShareImage] = useState<string>("");
 
-    const { will, isDivinationCompleted,
+    const { will, isDivinationCompleted,divinationCompleted,
         getTotalMutationCount, gua, getMutationGua, reset,
         divide, getTotalDivisions, getCurrentRound, mutate,
-        willSignature, setWillSignature,
+        willSignature,  setWillSignature,
         setStage, stage,
         id,
         visibility,
         recordDivination
     } = useDivinationStore();
+
 
     const [selectedYinCount, setSelectedYinCount] = useState<number>(6);
     const panelRef = useRef<HTMLDivElement>(null);
@@ -92,6 +94,7 @@ const DiviPanel: React.FC = () => {
     };
 
 
+
     const handleDownload = () => {
         const link = document.createElement('a');
         link.download = 'iching-divination.png';
@@ -144,7 +147,67 @@ const DiviPanel: React.FC = () => {
         isPending: createDivinationPending,
         isSuccess: createDivinationSuccess,
         data: entry } = useCreateDivination();
+
     const [showMeditationDialog, setShowMeditationDialog] = useState(false);
+
+    const handleCreateDivination = async () => {
+        if (id !== '' && !createDivinationError) {
+            setShowMeditationDialog(true);
+            return;
+        }
+
+        try {
+
+            const divinationData: DivinationRequest = {
+                will: will,
+                will_hash: keccak256(stringToHex(will)),
+                will_signature: willSignature,
+                manifestation: gua.toOpsString(),
+                interpretation: "",
+                visibility: visibility,
+                dao_money: 0,
+                dao_hash: '',
+                //other info
+                lang: 'en', // todo : multiple language
+                gua: gua.getBinaryString(),
+                mutability: gua.getMutabilityArray(),
+            };
+
+            const data = await createDivination(divinationData);
+
+            data.gua = Gua.createFromOpsBigint(BigInt(data.manifestation));
+
+            recordDivination(data);
+            toast({
+                title: "Your Divination is Complete And Saved",
+                description: "You can connect with the DAO to deep seek its meaning.",
+            });
+        } catch (error) {
+            console.error("DeepSeek error:", error);
+
+            // Extract the error message from the API response if available
+            let errorMessage = "Failed to process your reading. Please try again.";
+
+            if (error instanceof Error) {
+                // Use the error message from the API if available
+                errorMessage = error.message || errorMessage;
+            }
+
+            toast({
+                variant: "destructive",
+                title: "Error",
+                description: errorMessage,
+            });
+        }
+    };
+
+    useEffect(() => {
+        if (divinationCompleted && (entry === null || entry === undefined) 
+            && !createDivinationPending && !createDivinationSuccess) {
+            // handleDeepSeek();
+            handleCreateDivination();
+        }
+    }, [divinationCompleted]);
 
 
     const handleDeepSeek = async () => {
@@ -279,8 +342,8 @@ const DiviPanel: React.FC = () => {
                             isDeepSeekUsed={createDivinationSuccess}
                             isError={createDivinationError}
                             isPending={createDivinationPending}
-                            handleDeepSeek={handleDeepSeek}
-                            openEnlightenmentModal={() => openModal(ModalType.ENLIGHTENMENT, entry)}
+                            // handleDeepSeek={handleDeepSeek}
+                            // openEnlightenmentModal={() => openModal(ModalType.ENLIGHTENMENT, entry)}
                         />
                     </div>
 
@@ -294,7 +357,8 @@ const DiviPanel: React.FC = () => {
                 defaultOpen={isStep2Completed}
             >
                 <div className="text-sm text-indigo-300/80 bg-indigo-950/20 backdrop-blur-sm rounded-md p-2.5 border border-indigo-500/10 mb-3">
-                    You must connect with the DAO to deep seek its meaning. As The DAO is used an proof of concept for DUKI in action. DUKI /dju:ki/ is Decentralized Universal Kindness Income For All lives.
+                    The DAO is used an proof of concept for DUKI in action. DUKI /dju:ki/ is Decentralized Universal Kindness Income For All lives.
+                    You must connect with the DAO to deep seek its meaning.
                 </div>
 
                 <PaymentSection
@@ -311,14 +375,14 @@ const DiviPanel: React.FC = () => {
                 />
             </Section>
 
-            <Section title="Debug">
+            {/* <Section title="Debug">
                 <Button
                     onClick={handleTestDivide}
                     className="bg-gradient-to-r from-indigo-600/90 to-purple-700/90 hover:from-indigo-600 hover:to-purple-700 text-white border border-indigo-500/50 mt-4"
                 >
                     {isDivinationCompleted() ? "Reset Divination" : "Divide"}
                 </Button>
-            </Section>
+            </Section> */}
         </FloatingPanel >
     );
 };

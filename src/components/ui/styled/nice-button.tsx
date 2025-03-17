@@ -14,9 +14,9 @@ onClick={() => openModal(ModalType.WILL_SIGNATURE)}
 }
 
 import React from 'react';
-import {Button} from '../button';
+import {Button, ButtonProps} from '../button';
 
-interface NiceButtonProps {
+interface NiceButtonProps extends ButtonProps {
   variant?: 'default' | 'ghost';
   size?: 'sm' | 'default';
   onClick?: () => void;
@@ -24,7 +24,7 @@ interface NiceButtonProps {
 }
 
 
-export const NiceButton: React.FC<NiceButtonProps> = ({ variant = 'default', size = 'default', onClick, children }) => {
+export const NiceButton: React.FC<NiceButtonProps> = ({ variant = 'default', size = 'default', onClick, children, ...props }) => {
   return (
     <Button
       variant={variant}

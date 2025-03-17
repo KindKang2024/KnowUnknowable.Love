@@ -80,7 +80,7 @@ export default defineConfig({
   ],
   plugins: [
     foundry({
-      project: '../foundry',
+      project: '/Users/beswarm/Developer/web3/love/dao_is_all_love_contract/packages/foundry/',
       include: ['BaguaDukiDaoContract.sol/**'],
       // forge: {
       //   clean: true,

@@ -4,16 +4,26 @@ import {useFeaturedDaoDivinations} from "@/services/api";
 import {Loader2} from "lucide-react";
 import {useEffect, useState} from "react";
 
+enum KnownStatus {
+    Unknown = 0,
+    KnownRight = 1,
+    KnownWrong = 2,
+    Deprecated = 3,
+}
+
 export const FeaturedDaoDivinations = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     // Fetch latest public divinations
     const {
-        data: latestPublicDivinations = [],
+        data: featuredResponse,
         isLoading,
         isError,
         error
     } = useFeaturedDaoDivinations();
+
+    // Flatten pages data for rendering
+    const flattenedDivinations = featuredResponse?.pages?.flatMap(page => page.data) || [];
 
     // Add fade-in effect when component mounts
     useEffect(() => {
@@ -56,12 +66,12 @@ export const FeaturedDaoDivinations = () => {
                                 Error loading divinations
                             </TableCell>
                         </TableRow>
-                    ) : latestPublicDivinations.length === 0 ? (
+                    ) : flattenedDivinations.length === 0 ? (
                         <TableRow>
-                            <TableCell colSpan={5} className="text-center text-white/70 py-4">No divinations found</TableCell>
+                            <TableCell colSpan={5} className="text-center text-white/70 py-4">No featured divinations found</TableCell>
                         </TableRow>
                     ) : (
-                        latestPublicDivinations.map((divination, index) => (
+                        flattenedDivinations.map((divination, index) => (
                             <TableRow
                                 // key={divination.id}
                                 key={index}
@@ -71,11 +81,13 @@ export const FeaturedDaoDivinations = () => {
                                 <TableCell className="text-white/70">{new Date(divination.created_at).toLocaleDateString()}</TableCell>
                                 <TableCell className="text-white/70">{divination.visibility === 1 ? "Public" : "Private"}</TableCell>
                                 <TableCell>
-                                    <span className={`px-2 py-1 rounded-full text-xs ${divination.known_status === "known"
-                                        ? "bg-green-500/20 text-green-300"
-                                        : "bg-blue-500/20 text-blue-300"
+                                    <span className={`px-2 py-1 rounded-full text-xs ${divination.known_status === KnownStatus.Unknown
+                                        ? "bg-gray-500/20 text-gray-300"
+                                        : divination.known_status === KnownStatus.KnownRight
+                                            ? "bg-green-500/20 text-green-300"
+                                            : "bg-blue-500/20 text-blue-300"
                                         }`}>
-                                        {divination.known_status === "known" ? "Completed" : "In Progress"}
+                                        {divination.known_status === KnownStatus.Unknown ? "Unknown" : "Completed"}
                                     </span>
                                 </TableCell>
                                 <TableCell>

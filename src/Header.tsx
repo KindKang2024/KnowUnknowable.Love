@@ -102,7 +102,7 @@ const Header = () => {
 
 
             {/* Language Dropdown */}
-            <LanguageSwitcher />
+            {/* <LanguageSwitcher /> */}
             {/* <LanguageSwitcher isMobile={false} /> */}
 
             <div

@@ -39,8 +39,12 @@ export const DiviWillInput = ({ onSubmit, readonly }: DiviWillInputProps) => {
 
     const handleSuggestionClick = (suggestion: Suggestion) => {
         const { prefix } = pageWillData.samples.typings;
-        const fullText = `${prefix} ${suggestion.value}`;
-        setWill(fullText);
+        if (prefix === "") {
+            setWill(suggestion.value);
+        } else {
+            const fullText = `${prefix} ${suggestion.value}`;
+            setWill(fullText);
+        }
     };
 
     const handleSubmit = (e: React.FormEvent) => {

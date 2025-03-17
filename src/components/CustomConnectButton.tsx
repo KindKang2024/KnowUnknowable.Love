@@ -189,7 +189,7 @@ const CustomConnectButton = () => {
                                                     rel="noopener noreferrer"
                                                     className="flex items-center text-sm font-medium bg-purple-500/20 px-3 py-1 rounded-lg text-purple-300 hover:text-purple-200 transition-colors group"
                                                 >
-                                                    View on Etherscan
+                                                    View on Scroll 
                                                     <ExternalLink className="w-3 h-3 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                                 </a>
                                             </div>

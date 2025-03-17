@@ -1,18 +1,23 @@
-import {useState} from "react";
-import {AlertCircle, DollarSign, ExternalLink, Lock, MoveRight, Sparkles} from "lucide-react";
-import {Button} from "../../../components/ui/button.tsx";
-import {Input} from "../../../components/ui/input.tsx";
-import {useToast} from "@/hooks/use-toast.ts";
-import {useAccount} from "wagmi";
-import {parseUnits} from "viem";
+import { useState } from "react";
+import { AlertCircle, DollarSign, ExternalLink, Lock, MoveRight, Sparkles } from "lucide-react";
+import { Button } from "../../../components/ui/button.tsx";
+import { Input } from "../../../components/ui/input.tsx";
+import { useToast } from "@/hooks/use-toast.ts";
+import { useAccount } from "wagmi";
+import { parseUnits, formatUnits } from "viem";
 import {
-    useReadBaguaDukiDaoContractBuaguaDaoAgg4Me,
-    useWriteBaguaDukiDaoContractPayLoveIntoDao
+  useReadBaguaDukiDaoContractBuaguaDaoAgg4Me,
+  useReadErc20Allowance,
+  useReadErc20BalanceOf,
+  useWriteBaguaDukiDaoContractConnectDaoToKnow,
+  useWriteErc20Approve
 } from "@/contracts/generated.ts";
-import {dukiDaoContractConfig} from "@/contracts/externalContracts.ts";
-import {waitForTransactionReceipt} from "viem/actions";
-import {config} from "@/wagmi.ts";
-import {cn} from "@/lib/utils";
+import { dukiDaoContractConfig } from "@/contracts/externalContracts.ts";
+import { waitForTransactionReceipt } from "viem/actions";
+import { config } from "@/wagmi.ts";
+import { cn } from "@/lib/utils";
+import { useDivinationStore } from "@/stores/divineStore.ts";
+import { getApprovalBasedPaymasterInput } from "viem/zksync";
 
 interface PaymentSectionProps {
   selectedAmount: number;
@@ -43,7 +48,10 @@ export const PaymentSection = ({
   const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
   const [hasPaymentError, setHasPaymentError] = useState(false);
   const [isPaymentComplete, setIsPaymentComplete] = useState(false);
-  const { address, isConnected } = useAccount();
+  const { address, isConnected, chainId } = useAccount();
+
+  const { will, entry } = useDivinationStore();
+
 
   // Get contract details
   const {
@@ -51,16 +59,44 @@ export const PaymentSection = ({
     isLoading: baguaDaoAgg4MeLoading,
     refetch: refetchBaguaDukiDao  // Get the refetch function
   } = useReadBaguaDukiDaoContractBuaguaDaoAgg4Me({
-    address: dukiDaoContractConfig.address,
+    address: dukiDaoContractConfig[chainId].address,
     query: {
       enabled: true
     }
   })
-  const { writeContractAsync: payLoveIntoDao } = useWriteBaguaDukiDaoContractPayLoveIntoDao()
+  const { writeContractAsync: connectDaoToKnow } = useWriteBaguaDukiDaoContractConnectDaoToKnow()
+
+  const { data: allowance, refetch: refetchAllowance } = useReadErc20Allowance({
+    address: dukiDaoContractConfig[chainId].stableCoin,
+    args: [dukiDaoContractConfig[chainId].address, address],
+    query: { enabled: !!address }
+  })
+
+  const { writeContractAsync: approve } = useWriteErc20Approve();
+
+  const { data: balance } = useReadErc20BalanceOf({
+    address: dukiDaoContractConfig[chainId].stableCoin,
+    args: [address],
+    query: { enabled: !!address }
+  })
+
 
   const handlePayment = async () => {
     if (isPaymentComplete && !hasPaymentError) {
-      window.open('/dao-info', '_blank');
+      toast({
+        variant: "default",
+        title: "Payment Already Completed",
+        description: "You have already made a payment. You can deepseek it meaning.",
+      });
+      return;
+    }
+
+    if (!isDivinationCompleted) {
+      toast({
+        variant: "destructive",
+        title: "Divination Not Completed",
+        description: "Please complete the divination first.",
+      });
       return;
     }
 
@@ -73,31 +109,76 @@ export const PaymentSection = ({
       return;
     }
 
+    // Get the payment amount in the correct format
+    const paymentAmount = showCustomAmount
+      ? parseFloat(customAmount)
+      : selectedAmount;
+
+    if (isNaN(paymentAmount) || paymentAmount <= 0) {
+      toast({
+        variant: "destructive",
+        title: "Invalid Payment Amount",
+        description: "You must offer something to connect DAO.",
+      });
+      return;
+    }
+
+    // Convert to stable coin units
+    const amountInStableCoin = parseUnits(paymentAmount.toString(), dukiDaoContractConfig[chainId].StableCoinDecimals);
+
+    if (balance && balance < amountInStableCoin) {
+      toast({
+        variant: "destructive",
+        title: "Insufficient Balance",
+        description: "Insufficient USDT balance in your wallet.",
+      });
+      return;
+    }
+
     setIsPaymentProcessing(true);
     setHasPaymentError(false);
 
     try {
-      // Get the payment amount in the correct format
-      const paymentAmount = showCustomAmount
-        ? parseFloat(customAmount)
-        : selectedAmount;
+      if (allowance!== undefined && allowance < amountInStableCoin) {
+        // Approve the contract to spend the stable coin
+        const approveTx = await approve({
+          address: dukiDaoContractConfig[chainId].stableCoin,
+          args: [dukiDaoContractConfig[chainId].address, amountInStableCoin],
+        });
 
-      if (isNaN(paymentAmount) || paymentAmount <= 0) {
-        throw new Error("Invalid payment amount");
+        // // Wait for the transaction to be mined
+        const approveReceipt = await waitForTransactionReceipt(
+            config.getClient(),
+            {
+                hash: approveTx,
+                // timeout: 30_000 // Add 60 second timeout
+            }
+        );
+        if (approveReceipt.status === 'success') {
+            // Transaction was successful
+            console.log('Approval successful');
+            refetchAllowance();
+        } else {
+            toast({
+                variant: "destructive",
+                title: "Approval Failed",
+                description: "Please try again.",
+            });
+            return;
+        }
       }
 
-      // Convert to wei (assuming 18 decimals)
-      const amountInWei = parseUnits(paymentAmount.toString(), 18);
-
-      // Call the contract function
-      const txHash = await payLoveIntoDao({
+      // debugger;
+      // Call the contract function TODO
+      const manifestationStr = entry.manifestation.startsWith('0x') ? entry.manifestation : `0x${entry.manifestation}`;
+      const txHash = await connectDaoToKnow({
         args: [
-          "Love message", // willMessage
-          "Signature",    // willSignature
-          1n,      // willDivinationResult
-          amountInWei     // loveAsMoneyAmount
+          entry.uuid,
+          entry.will_hash,
+          manifestationStr,
+          amountInStableCoin
         ],
-        address: dukiDaoContractConfig.address,
+        address: dukiDaoContractConfig[chainId].address,
       });
       // Wait for the transaction to be mined
       const txReceipt = await waitForTransactionReceipt(config.getClient(), {
@@ -116,8 +197,9 @@ export const PaymentSection = ({
 
         toast({
           title: "Payment Successful",
-          description: "Click to learn about DAO flow.",
+          description: "You can now deepseek the meaning of your divination.",
         });
+
       } else {
         // Transaction failed
         throw new Error("Transaction failed: " + (txReceipt.status === 'reverted' ? "Reverted" : "Unknown error"));
@@ -140,7 +222,7 @@ export const PaymentSection = ({
       <div className="space-y-2">
         <label className="text-sm font-medium text-indigo-300/80 tracking-wide">Select Amount (USDT)</label>
         <div className="grid grid-cols-4 gap-2">
-          {[3, 6, 10].map((amount) => (
+          {[1, 2, 3].map((amount) => (
             <Button
               key={amount}
               onClick={() => onAmountSelect(amount)}
@@ -163,7 +245,7 @@ export const PaymentSection = ({
               showCustomAmount && "ring-1 ring-indigo-500/70 bg-indigo-800/40"
             )}
           >
-            Other
+            Any
           </Button>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import {Suspense, useMemo, useRef, useState} from 'react'
 import {Canvas, extend} from '@react-three/fiber'
-import {Stars} from '@react-three/drei'
+import {Preload, Stars} from '@react-three/drei'
 import * as THREE from 'three'
 import {Group} from 'three'
 import CompassOracle, {enhancedRingsConfig} from './CompassOracle.tsx'
@@ -110,9 +110,8 @@ const DiviScreen = () => {
                     // frameloop="always" 
                     frameloop="demand" 
                     >
-                    {/* <fog attach="fog" args={['#000', 5, 30]} /> */}
-                    {/* <color attach="background" args={['#000000']} /> */}
                     {/* <Environment preset="night" /> */}
+                    <Preload all />
 
                     <CameraController />
 
@@ -124,13 +123,6 @@ const DiviScreen = () => {
                     <ambientLight intensity={1.5} />
                     <pointLight position={[0, 0, 0]} intensity={25} distance={15} decay={2} />
 
-                    {/* <spotLight
-                        position={[0, 0, 0]}
-                        intensity={0.8}
-                        angle={0.5}
-                        penumbra={1}
-                        castShadow
-                    /> */}
 
                     {/* Main compass component */}
                     {diviLoaded && (
@@ -202,7 +194,7 @@ const DiviScreen = () => {
                     {/* <unrealBloomPass threshold={0.3} strength={0.8} radius={0.1} /> */}
                     {/* </Effects> */}
 
-                    {process.env.NODE_ENV === 'development' && (
+                    {false && process.env.NODE_ENV === 'development' && (
                         <>
                             <Perf
                                 position="top-right"
