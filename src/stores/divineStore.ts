@@ -17,7 +17,6 @@ interface DivinationState {
     divinationCompleted: boolean;
     gua: Gua;
     stage: DiviState;
-    id: string;
     entry: DivinationEntry | null;
 }
 
@@ -42,13 +41,15 @@ interface DivinationActions {
 
     recordDivination: (entry: DivinationEntry) => void;
 
+    recordDeepseekDao: (interpretation: string, daoTx: string, daoTxAmount: number) => void;
+
+
 }
 
 // Create the Zustand store with immer middleware for easier state updates
 export const useDivinationStore = create<DivinationState & DivinationActions>()(
     immer((set, get) => ({
         // Initial state
-        id: '',
         will: '',
         willSignature: '',
         gua: Gua.createEmpty(),
@@ -69,9 +70,10 @@ export const useDivinationStore = create<DivinationState & DivinationActions>()(
         // Actions
         reset: () => {
             set(state => {
-                state.will = get().will;
-                // state.yaos = Array.from({ length: 6 }, () => YAO.createEmpty());
+                state.will = '';
+                state.willSignature = '';
                 state.gua = Gua.createEmpty();
+                state.entry = null;
             });
         },
         setWillSignature: (signature: string) => {
@@ -114,6 +116,13 @@ export const useDivinationStore = create<DivinationState & DivinationActions>()(
                 console.log("mutate", mutated, at);
                 state.gua.mutate(mutated, at);
             });
+        },
+        recordDeepseekDao: (interpretation: string, daoTx: string, daoTxAmount: number) => {
+            set(state => {
+                state.entry.interpretation = interpretation;
+                state.entry.dao_tx = daoTx;
+                state.entry.dao_tx_amount = daoTxAmount;
+            })
         },
 
         // isDivinationCompleted: () => get().yaos[5].isCompleted(),

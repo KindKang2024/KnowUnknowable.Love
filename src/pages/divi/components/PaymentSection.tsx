@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AlertCircle, DollarSign, ExternalLink, Lock, MoveRight, Sparkles } from "lucide-react";
 import { Button } from "../../../components/ui/button.tsx";
 import { Input } from "../../../components/ui/input.tsx";
@@ -17,31 +17,18 @@ import { waitForTransactionReceipt } from "viem/actions";
 import { config } from "@/wagmi.ts";
 import { cn } from "@/lib/utils";
 import { useDivinationStore } from "@/stores/divineStore.ts";
-import { getApprovalBasedPaymasterInput } from "viem/zksync";
+import { DivinationEntry, useDeepseekDao } from "@/services/api.ts";
+import { AmountSelect } from "@/components/AmountSelect";
+import { useUIStore } from "@/stores/uiStore.ts";
+import { ModalType } from "@/types/common.ts";
 
 interface PaymentSectionProps {
-  selectedAmount: number;
-  showCustomAmount: boolean;
-  customAmount: string;
-  onAmountSelect: (amount: number | null) => void;
-  onCustomAmountChange: (value: string) => void;
-  onPayment: (amount: number) => void;
-  isDeepSeekUsed?: boolean;
   handleDeepSeek?: () => void;
-  openEnlightenmentModal?: () => void;
   isDivinationCompleted?: boolean;
 }
 
 export const PaymentSection = ({
-  selectedAmount,
-  showCustomAmount,
-  customAmount,
-  onAmountSelect,
-  onCustomAmountChange,
-  onPayment,
-  isDeepSeekUsed = false,
   handleDeepSeek = () => { },
-  openEnlightenmentModal = () => { },
   isDivinationCompleted = false,
 }: PaymentSectionProps) => {
   const { toast } = useToast();
@@ -49,9 +36,25 @@ export const PaymentSection = ({
   const [hasPaymentError, setHasPaymentError] = useState(false);
   const [isPaymentComplete, setIsPaymentComplete] = useState(false);
   const { address, isConnected, chainId } = useAccount();
+  const { openModal } = useUIStore();
 
-  const { will, entry } = useDivinationStore();
+  const { will, entry, recordDeepseekDao } = useDivinationStore();
 
+  const { mutate: deepseekDao,
+    isPending: isDeepseekDaoPending, isSuccess: isDeepseekDaoSuccess, data: deepseekDaoAnswer } = useDeepseekDao(
+      {
+        onSuccess: (data) => {
+          debugger;
+          recordDeepseekDao(
+            data.interpretation,
+            data.dao_tx,
+            data.dao_tx_amount
+          );
+        }
+      }
+    );
+
+  const [selectedAmount, setSelectedAmount] = useState<number>(1);
 
   // Get contract details
   const {
@@ -80,14 +83,19 @@ export const PaymentSection = ({
     query: { enabled: !!address }
   })
 
-
   const handlePayment = async () => {
-    if (isPaymentComplete && !hasPaymentError) {
+    if (!isConnected || !address) {
       toast({
-        variant: "default",
-        title: "Payment Already Completed",
-        description: "You have already made a payment. You can deepseek it meaning.",
+        variant: "destructive",
+        title: "Wallet Not Connected",
+        description: "Please connect your wallet to make a payment.",
       });
+      return;
+    }
+
+    if (isPaymentComplete && !hasPaymentError) {
+      const manifestation = dukiDaoContractConfig[chainId].explorer + "/tx/" + entry.manifestation;
+      window.open(manifestation, "_blank");
       return;
     }
 
@@ -100,19 +108,8 @@ export const PaymentSection = ({
       return;
     }
 
-    if (!isConnected || !address) {
-      toast({
-        variant: "destructive",
-        title: "Wallet Not Connected",
-        description: "Please connect your wallet to make a payment.",
-      });
-      return;
-    }
-
     // Get the payment amount in the correct format
-    const paymentAmount = showCustomAmount
-      ? parseFloat(customAmount)
-      : selectedAmount;
+    const paymentAmount = selectedAmount;
 
     if (isNaN(paymentAmount) || paymentAmount <= 0) {
       toast({
@@ -130,7 +127,7 @@ export const PaymentSection = ({
       toast({
         variant: "destructive",
         title: "Insufficient Balance",
-        description: "Insufficient USDT balance in your wallet.",
+        description: "Insufficient USDC balance in your wallet.",
       });
       return;
     }
@@ -139,7 +136,7 @@ export const PaymentSection = ({
     setHasPaymentError(false);
 
     try {
-      if (allowance!== undefined && allowance < amountInStableCoin) {
+      if (allowance !== undefined && allowance < amountInStableCoin) {
         // Approve the contract to spend the stable coin
         const approveTx = await approve({
           address: dukiDaoContractConfig[chainId].stableCoin,
@@ -148,30 +145,30 @@ export const PaymentSection = ({
 
         // // Wait for the transaction to be mined
         const approveReceipt = await waitForTransactionReceipt(
-            config.getClient(),
-            {
-                hash: approveTx,
-                // timeout: 30_000 // Add 60 second timeout
-            }
+          config.getClient(),
+          {
+            hash: approveTx,
+            // timeout: 30_000 // Add 60 second timeout
+          }
         );
         if (approveReceipt.status === 'success') {
-            // Transaction was successful
-            console.log('Approval successful');
-            refetchAllowance();
+          // Transaction was successful
+          console.log('Approval successful');
+          refetchAllowance();
         } else {
-            toast({
-                variant: "destructive",
-                title: "Approval Failed",
-                description: "Please try again.",
-            });
-            return;
+          toast({
+            variant: "destructive",
+            title: "Approval Failed",
+            description: "Please try again.",
+          });
+          return;
         }
       }
 
       // debugger;
       // Call the contract function TODO
       const manifestationStr = entry.manifestation.startsWith('0x') ? entry.manifestation : `0x${entry.manifestation}`;
-      const txHash = await connectDaoToKnow({
+      const pendingTxHash = await connectDaoToKnow({
         args: [
           entry.uuid,
           entry.will_hash,
@@ -182,22 +179,30 @@ export const PaymentSection = ({
       });
       // Wait for the transaction to be mined
       const txReceipt = await waitForTransactionReceipt(config.getClient(), {
-        hash: txHash,
+        hash: pendingTxHash,
       });
+
       console.log("txReceipt", txReceipt);
 
       // Check if the transaction was successful
       if (txReceipt.status === 'success') {
         // Transaction was successful
         // Notify the parent component about the payment
-        onPayment(paymentAmount);
+        // onPaymentSuccess(paymentAmount, txReceipt.transactionHash);
 
         setIsPaymentComplete(true);
         setIsPaymentProcessing(false);
 
+        // Call deepseekDao and handle the response
+        await deepseekDao({
+          entry,
+          daoTx: txReceipt.transactionHash,
+          daoTxAmount: paymentAmount
+        });
+
         toast({
-          title: "Payment Successful",
-          description: "You can now deepseek the meaning of your divination.",
+          title: "Connect DAO Successful",
+          description: "You can ask DAO to explain the meaning of your divination.",
         });
 
       } else {
@@ -219,50 +224,10 @@ export const PaymentSection = ({
 
   return (
     <div className="space-y-4">
-      <div className="space-y-2">
-        <label className="text-sm font-medium text-indigo-300/80 tracking-wide">Select Amount (USDT)</label>
-        <div className="grid grid-cols-4 gap-2">
-          {[1, 2, 3].map((amount) => (
-            <Button
-              key={amount}
-              onClick={() => onAmountSelect(amount)}
-              variant="outline"
-              size="sm"
-              className={cn(
-                "h-9 bg-indigo-900/30 border-indigo-700/50 hover:bg-indigo-800/40 text-indigo-300 transition-all duration-300",
-                selectedAmount === amount && "ring-1 ring-indigo-500/70 bg-indigo-800/40"
-              )}
-            >
-              ${amount}
-            </Button>
-          ))}
-          <Button
-            onClick={() => onAmountSelect(null)}
-            variant="outline"
-            size="sm"
-            className={cn(
-              "h-9 bg-indigo-900/30 border-indigo-700/50 hover:bg-indigo-800/40 text-indigo-300 transition-all duration-300",
-              showCustomAmount && "ring-1 ring-indigo-500/70 bg-indigo-800/40"
-            )}
-          >
-            Any
-          </Button>
-        </div>
-      </div>
-
-      {showCustomAmount && (
-        <div className="flex items-center gap-2">
-          <Input
-            type="number"
-            value={customAmount}
-            onChange={(e) => onCustomAmountChange(e.target.value)}
-            min={0.1}
-            step={0.1}
-            className="h-9 bg-indigo-900/30 border-indigo-700/50 text-sm text-indigo-300 focus-visible:ring-indigo-500/50"
-            placeholder="Enter amount"
-          />
-        </div>
-      )}
+      <AmountSelect
+        amounts={[1, 2, 3]}
+        onSelect={setSelectedAmount}
+      />
 
       {hasPaymentError ? (
         <Button
@@ -297,7 +262,7 @@ export const PaymentSection = ({
             <>
               <DollarSign className="h-3 w-2" />
               <span className="text-xs translate-x-[-9px]">
-                {showCustomAmount ? customAmount : selectedAmount}
+                {selectedAmount}
                 &nbsp;
                 Into DAO To Gain Insights
               </span>
@@ -325,11 +290,14 @@ export const PaymentSection = ({
         </div>
       ) : (
         <div className="mt-2">
-          {isDeepSeekUsed ? (
+          {isDeepseekDaoSuccess ? (
             <Button
               variant="outline"
               className="w-full bg-gradient-to-r from-emerald-900/30 to-teal-900/30 hover:from-emerald-900/40 hover:to-teal-900/40 text-emerald-300 border-emerald-700/50 transition-all duration-300 shadow-sm"
-              onClick={openEnlightenmentModal}
+              onClick={() => {
+                debugger;
+                openModal(ModalType.ENLIGHTENMENT, entry);
+              }}
             >
               <span className="flex items-center justify-center gap-2">
                 <Sparkles className="w-4 h-4" />
@@ -350,7 +318,7 @@ export const PaymentSection = ({
             </Button>
           )}
           <div className="text-xs text-center mt-1">
-            {isDeepSeekUsed ? (
+            {isDeepseekDaoSuccess ? (
               <span className="text-emerald-400/80">
                 Divination complete - explore your insights
               </span>

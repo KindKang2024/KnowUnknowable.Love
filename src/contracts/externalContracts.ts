@@ -27,7 +27,7 @@ export const dukiDaoContractConfig = {
         StableCoinBase: 10 ** 6,
         StableCoinDecimals: 6,
         investFee: 100, // 100 USDT,
-        explorer: "http://localhost:8545",
+        explorer: "https://sepolia.scrollscan.com",
         requestDaoEvolutionGasLimit: 100000000000000,
     },
     [scrollSepolia]: {

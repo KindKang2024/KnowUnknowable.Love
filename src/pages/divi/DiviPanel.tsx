@@ -1,21 +1,21 @@
-import React, {useEffect, useRef, useState} from 'react';
-import {FloatingPanel, Section} from './components/FloatingPanel.tsx';
+import React, { useEffect, useRef, useState } from 'react';
+import { FloatingPanel, Section } from './components/FloatingPanel.tsx';
 import html2canvas from "html2canvas";
-import {dataURLtoBlob} from "@/utils/imageUtils.ts";
-import {useToast} from '@/hooks/use-toast.ts';
-import {PaymentSection} from './components/PaymentSection.tsx';
-import {Button} from '@/components/ui/button.tsx';
-import {GuaSection, MutationGuaSection} from './components/GuaSection.tsx';
-import {ResultGrid} from './components/ResultGrid.tsx';
-import {useDivinationStore} from '@/stores/divineStore';
-import {useUIStore} from '@/stores/uiStore';
-import {DivinationRequest, useCreateDivination} from '@/services/api';
+import { dataURLtoBlob } from "@/utils/imageUtils.ts";
+import { useToast } from '@/hooks/use-toast.ts';
+import { PaymentSection } from './components/PaymentSection.tsx';
+import { Button } from '@/components/ui/button.tsx';
+import { GuaSection, MutationGuaSection } from './components/GuaSection.tsx';
+import { ResultGrid } from './components/ResultGrid.tsx';
+import { useDivinationStore } from '@/stores/divineStore';
+import { useUIStore } from '@/stores/uiStore';
+import { DivinationRequest, useCreateDivination } from '@/services/api';
 import DiviButton from '@/pages/divi/components/DiviButton.tsx';
-import {ModalType} from '@/types/common.ts';
-import {Gua} from '@/stores/Gua.ts';
-import {DiviState} from '@/types/divi';
-import {useNavigate} from 'react-router-dom';
-import {NiceButton} from '@/components/ui/styled/nice-button.tsx';
+import { ModalType } from '@/types/common.ts';
+import { Gua } from '@/stores/Gua.ts';
+import { DiviState } from '@/types/divi';
+import { useNavigate } from 'react-router-dom';
+import { NiceButton } from '@/components/ui/styled/nice-button.tsx';
 import { keccak256, stringToHex } from 'viem';
 
 const DiviPanel: React.FC = () => {
@@ -25,12 +25,12 @@ const DiviPanel: React.FC = () => {
     const [customAmount, setCustomAmount] = useState<string>("0.1");
     const [shareImage, setShareImage] = useState<string>("");
 
-    const { will, isDivinationCompleted,divinationCompleted,
+    const { will, isDivinationCompleted, divinationCompleted,
         getTotalMutationCount, gua, getMutationGua, reset,
         divide, getTotalDivisions, getCurrentRound, mutate,
-        willSignature,  setWillSignature,
+        willSignature, setWillSignature,
         setStage, stage,
-        id,
+        // id,
         visibility,
         recordDivination
     } = useDivinationStore();
@@ -46,6 +46,7 @@ const DiviPanel: React.FC = () => {
         } else {
             navigate('/'); // Navigate to home
         }
+        reset();
     };
 
     const handleAmountSelect = (amount: number | null) => {
@@ -106,12 +107,7 @@ const DiviPanel: React.FC = () => {
     const [hasPaymentError, setHasPaymentError] = useState(false);
     const [isPaymentComplete, setIsPaymentComplete] = useState(false);
 
-    const handlePayment = async () => {
-        if (isPaymentComplete && !hasPaymentError) {
-            window.open('/dao-info', '_blank');
-            return;
-        }
-
+    const handlePaymentSuccess = async (amount: number, daoTxHash: string) => {
         setIsPaymentProcessing(true);
         setHasPaymentError(false);
 
@@ -151,7 +147,7 @@ const DiviPanel: React.FC = () => {
     const [showMeditationDialog, setShowMeditationDialog] = useState(false);
 
     const handleCreateDivination = async () => {
-        if (id !== '' && !createDivinationError) {
+        if (entry !== null && !createDivinationError) {
             setShowMeditationDialog(true);
             return;
         }
@@ -202,7 +198,7 @@ const DiviPanel: React.FC = () => {
     };
 
     useEffect(() => {
-        if (divinationCompleted && (entry === null || entry === undefined) 
+        if (divinationCompleted && (entry === null || entry === undefined)
             && !createDivinationPending && !createDivinationSuccess) {
             // handleDeepSeek();
             handleCreateDivination();
@@ -211,7 +207,7 @@ const DiviPanel: React.FC = () => {
 
 
     const handleDeepSeek = async () => {
-        if (id !== '' && !createDivinationError) {
+        if (entry !== null && !createDivinationError) {
             setShowMeditationDialog(true);
             return;
         }
@@ -234,7 +230,7 @@ const DiviPanel: React.FC = () => {
 
             const data = await createDivination(divinationData);
 
-            data.gua = Gua.createFromOpsBigint(BigInt(data.manifestation));
+            data.gua = Gua.createFromOpsBigint(data.manifestation);
 
             recordDivination(data);
             toast({
@@ -342,9 +338,15 @@ const DiviPanel: React.FC = () => {
                             isDeepSeekUsed={createDivinationSuccess}
                             isError={createDivinationError}
                             isPending={createDivinationPending}
-                            // handleDeepSeek={handleDeepSeek}
-                            // openEnlightenmentModal={() => openModal(ModalType.ENLIGHTENMENT, entry)}
                         />
+
+                        <Button
+                            onClick={handleTestDivide}
+                            className="bg-gradient-to-r from-indigo-600/90 to-purple-700/90 hover:from-indigo-600 hover:to-purple-700 text-white border border-indigo-500/50 mt-4"
+                        >
+                            {isDivinationCompleted() ? "Reset Divination" : "Divide"}
+                        </Button>
+
                     </div>
 
 
@@ -362,27 +364,11 @@ const DiviPanel: React.FC = () => {
                 </div>
 
                 <PaymentSection
-                    selectedAmount={selectedAmount}
-                    showCustomAmount={showCustomAmount}
-                    customAmount={customAmount}
-                    onAmountSelect={handleAmountSelect}
-                    onCustomAmountChange={handleCustomAmountChange}
-                    onPayment={handlePayment}
                     isDeepSeekUsed={createDivinationSuccess}
                     handleDeepSeek={handleDeepSeek}
-                    openEnlightenmentModal={() => openModal(ModalType.ENLIGHTENMENT, entry)}
                     isDivinationCompleted={isDivinationCompleted()}
                 />
             </Section>
-
-            {/* <Section title="Debug">
-                <Button
-                    onClick={handleTestDivide}
-                    className="bg-gradient-to-r from-indigo-600/90 to-purple-700/90 hover:from-indigo-600 hover:to-purple-700 text-white border border-indigo-500/50 mt-4"
-                >
-                    {isDivinationCompleted() ? "Reset Divination" : "Divide"}
-                </Button>
-            </Section> */}
         </FloatingPanel >
     );
 };

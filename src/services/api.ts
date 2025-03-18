@@ -1,3 +1,4 @@
+import { useDivinationStore } from "@/stores/divineStore";
 import { Gua } from "@/stores/Gua";
 import { useInfiniteQuery, useMutation, useQuery, useQueryClient, } from "@tanstack/react-query";
 import { Address } from "viem";
@@ -24,6 +25,8 @@ export type CommonResponse<T> = {
 
 export type Interpretation = {
     interpretation: string;
+    dao_tx: string;
+    dao_tx_amount: number;
 }
 
 export type UserData = {
@@ -58,6 +61,7 @@ export interface DivinationEntry {
     uuid: string;  // bytes16
     diviner: string;
     visibility: number;
+    lang: string;
     will: string;
     will_hash: string;
     will_signature: string;
@@ -102,34 +106,27 @@ function addGetGuaMethod(entry: DivinationEntry): DivinationEntry {
 // API client with type hints
 const apiClient = {
     // API functions
-    interpretDivination: async (id: string): Promise<Interpretation> => {
-        const response = await fetch(`${API_BASE}/interpret`, {
+    interpretDivination: async (entry: DivinationEntry, daoTx: string, daoTxAmount: number): Promise<Interpretation> => {
+        const response = await fetch(`${API_BASE}/deepseek_dao`, {
             method: 'POST',
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ divination_id: id }),
+            body: JSON.stringify({
+                uuid: entry.uuid,
+                lang: entry.lang,
+                gua: entry.gua.getBinaryString(),
+                gua_mutability: entry.gua.getMutabilityString(),
+                dao_tx: daoTx,
+                dao_tx_money: daoTxAmount,
+            }),
         });
         if (!response.ok) {
             throw new Error('Failed to update zone');
         }
-        return response.json();
-    },
-    changeVisibility: async (id: string, visibility: boolean): Promise<CommonResponse<void>> => {
-        const response = await fetch(`${API_BASE}/zone/${id}`, {
-            method: 'DELETE',
-            credentials: 'include',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ id, visibility }),
-        });
-        if (!response.ok) {
-            const error = await response.json();
-            throw new Error(error.message || 'Failed to delete zone');
-        }
-        return response.json();
+        const resp = await response.json() as CommonResponse<Interpretation>;
+        return resp.data;
     },
     createDivination: async (data: DivinationRequest): Promise<DivinationEntry> => {
         const response = await fetch(`${API_BASE}/divination`, {
@@ -273,16 +270,31 @@ export const useCreateDivination = () => {
     });
 };
 
-export const useDeepseek = () => {
+export const useDeepseekDao = (options?: {
+    onSuccess?: (data: Interpretation) => void
+}) => {
     const queryClient = useQueryClient();
 
-    return useMutation<Interpretation, Error, string>({
-        // mutationKey: ['create-divination'],
-        mutationFn: (data) => apiClient.interpretDivination(data),
+    return useMutation<
+      Interpretation, // Success response type
+      Error, // Error type
+      { entry: DivinationEntry; daoTx: string; daoTxAmount: number }, // Variables type
+      unknown // Context type
+    >({
+        mutationFn: async (data) => {
+            const response = await apiClient.interpretDivination(
+                data.entry, 
+                data.daoTx, 
+                data.daoTxAmount
+            );
+            console.log(response, "response");
+            return response; // Make sure this matches the Interpretation type
+        },
         onSuccess: (data) => {
-            // Optionally invalidate queries that should refetch after this mutation
             queryClient.invalidateQueries({ queryKey: ['my-divinations'] });
-        }
+            options?.onSuccess?.(data);
+            debugger;
+        },
     });
 };
 

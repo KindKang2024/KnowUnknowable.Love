@@ -32,6 +32,13 @@ export class Gua {
     public yaos: YAO[] = [];
 
     /**
+     * Constants to explain the hex string length
+     */
+    private static readonly BITS_PER_YINCOUNT = 6;  // 6 bits per yinCount (range 1-49)
+    private static readonly TOTAL_BITS = 6 * 3 * Gua.BITS_PER_YINCOUNT;  // 108 bits
+    private static readonly BYTES16_HEX_LENGTH = 32;  // 16 bytes = 32 hex characters for bytes16
+
+    /**
      * Private constructor - use factory methods to create instances
      */
     private constructor(undividedGroupCounts: number[], yaos: YAO[]) {
@@ -175,6 +182,9 @@ export class Gua {
 
     public getMutabilityArray(): boolean[] {
         return [...this.mutabilityArr];
+    }
+    public getMutabilityString(): string {
+        return this.mutabilityArr.map(mutation => mutation ? '1' : '0').join('');
     }
 
     // mutated: boolean, at: number
@@ -413,7 +423,7 @@ export class Gua {
  * Converts the Gua to a BigInt representation
  * First YAO is in the most significant bits
  */
-    public toOpsBigint(): bigint {
+    private toOpsBigint(): bigint {
         let result = 0n;
 
         // Process YAOs from first to last (0 to 5)
@@ -432,16 +442,31 @@ export class Gua {
     }
 
     public toOpsString(): string {
-        return this.toOpsBigint().toString();
+        // Convert to hex and pad to 32 characters (16 bytes) for bytes16 compatibility
+        const hexString = this.toOpsBigint().toString(16).padStart(Gua.BYTES16_HEX_LENGTH, '0');
+        return '0x' + hexString;
     }
 
     /**
-     * Creates a Gua from a BigInt representation
-     * First YAO is in the most significant bits
+     * Creates a Gua from a bytes32 hex string representation
+     * @param opsValue - Hex string (with or without '0x' prefix) or bigint
      */
-    public static createFromOpsBigint(opsValue: bigint | string): Gua {
+    public static createFromOpsBigint(opsValue: string | bigint): Gua {
         try {
-            const packedValue = typeof opsValue === 'string' ? BigInt(opsValue) : opsValue;
+            let hexValue: string;
+            if (typeof opsValue === 'string') {
+                // Remove '0x' prefix if present and ensure valid hex string
+                hexValue = opsValue.toLowerCase().replace('0x', '');
+                if (!/^[0-9a-f]+$/.test(hexValue)) {
+                    throw new Error('Invalid hex string');
+                }
+            } else {
+                // Convert BigInt to hex string
+                hexValue = opsValue.toString(16);
+            }
+            console.log("hexValue", hexValue);
+            // Convert hex string to BigInt
+            const packedValue = BigInt('0x' + hexValue);
 
             const allYinCounts: number[][] = [];
             let tempValue = packedValue;

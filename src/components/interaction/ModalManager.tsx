@@ -14,6 +14,7 @@ export const ModalManager = () => {
 
     if (!activeModal) return null;
 
+    debugger;
     const modals: Record<ModalType, React.ReactNode> = {
         // connect: <ConnectModal onClose={closeModal} />,
         // subscribe: <SubscribeModal isOpen={true} onClose={closeModal} />,
