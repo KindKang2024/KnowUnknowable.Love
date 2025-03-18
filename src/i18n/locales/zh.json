@@ -1129,9 +1129,9 @@
       "errorManifesting": "显化错误",
       "noDivinationsFound": "未找到占卜记录",
       "epistemicEnums": [
+        "等待验证",
         "确认有效",
         "确认无效",
-        "等待验证",
         "确认已弃用"
       ],
       "showMore": "显示更多",

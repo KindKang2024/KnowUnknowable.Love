@@ -60,7 +60,7 @@ export default function DiviCircle({
 }: DaoIsLoveDivisionProps) {
     const diviPointsRef = useRef<THREE.Points>(null); // its location should follow  capturedWillDataRef
     const [, forceUpdate] = useReducer(x => x + 1, 0);
-    const { will, isDivinationCompleted, gua, reset,
+    const { will, isDivinationCompleted, gua, 
         divide, getStage, getTotalDivisions, getCurrentRound, mutate,
         setStage } = useDivinationStore();
 

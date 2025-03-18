@@ -1186,9 +1186,9 @@
       },
       "connectWallet": "Connect Wallet",
       "epistemicEnums": [
+        "Awaiting Verification",
         "Confirmed Valid",
         "Confirmed Invalid",
-        "Awaiting Verification",
         "Confirmed Deprecated"
       ],
       "actionViewDetail": "View",
@@ -1214,7 +1214,8 @@
       },
       "buttons": {
         "view": "View",
-        "verify": "Verify"
+        "verify": "Verify",
+        "details": "View Details"
       },
       "action": "Action"
     }

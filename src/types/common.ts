@@ -9,6 +9,7 @@ export enum ModalType {
     ENLIGHTENMENT = 'ENLIGHTENMENT',
     GUA = 'GUA',
     INVEST = 'INVEST',
+    VERIFICATION = 'VERIFICATION',
     // JOIN_COMMUNITY_LOTTERY = 'joinCommunityLottery',
 }
 

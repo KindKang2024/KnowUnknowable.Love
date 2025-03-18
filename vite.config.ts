@@ -4,9 +4,9 @@ import path from "path";
 import glsl from "vite-plugin-glsl";
 
 export default defineConfig(({ mode }) => ({
-  // esbuild: {
-  //   drop: ['console', 'debugger'],
-  // },
+  esbuild: {
+    drop: ['console', 'debugger'],
+  },
   server: {
     host: "::",
     port: 8080,

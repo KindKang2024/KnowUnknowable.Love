@@ -254,6 +254,28 @@ const apiClient = {
         if (!response.ok) throw new Error('Failed to fetch user data');
         return response.json();
     },
+
+    // Update divination verification status
+    updateDivinationStatus: async (uuid: string, status: number): Promise<DivinationEntry> => {
+        const response = await fetch(`${API_BASE}/divination/status`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                uuid,
+                known_status: status
+            }),
+        });
+
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message || 'Failed to update divination status');
+        }
+        const resp = await response.json() as CommonResponse<DivinationEntry>;
+        return addGetGuaMethod(resp.data);
+    },
 }
 
 // Export the createDivination hook for use with TanStack Query
@@ -346,5 +368,35 @@ export const useUserData = (addr: Address) => {
         select: (data) => {
             return data.data;
         }
+    });
+};
+
+// Hook for updating divination verification status
+export const useUpdateDivinationStatus = (options?: {
+    onSuccess?: (data: DivinationEntry) => void
+}) => {
+    const queryClient = useQueryClient();
+
+    return useMutation<
+        DivinationEntry, // Success response type
+        Error, // Error type
+        { uuid: string; status: number }, // Variables type
+        unknown // Context type
+    >({
+        mutationFn: async (data) => {
+            const response = await apiClient.updateDivinationStatus(
+                data.uuid,
+                data.status
+            );
+            return response;
+        },
+        onSuccess: (data) => {
+            // Invalidate relevant queries to trigger refetch
+            queryClient.invalidateQueries({ queryKey: ['my-divinations-initial'] });
+            queryClient.invalidateQueries({ queryKey: ['featured-divinations'] });
+            
+            // Call the optional onSuccess callback
+            options?.onSuccess?.(data);
+        },
     });
 };

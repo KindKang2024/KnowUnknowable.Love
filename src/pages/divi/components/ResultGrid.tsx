@@ -21,7 +21,7 @@ export const ResultGrid = ({
   disabledIndexes = []
 }: ResultGridProps) => {
   // Convert DivinationAgg to YAO array for visualization
-  const { isDivinationCompleted, mutate, reset, divide, gua, getTotalDivisions, getCurrentRound } = useDivinationStore();
+  const { isDivinationCompleted, mutate, divide, gua, getTotalDivisions, getCurrentRound } = useDivinationStore();
 
   // Animation for the entire grid
   const gridAnimation = useSpring({

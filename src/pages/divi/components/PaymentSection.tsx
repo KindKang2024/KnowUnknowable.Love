@@ -4,6 +4,7 @@ import { Button } from "../../../components/ui/button.tsx";
 import { Input } from "../../../components/ui/input.tsx";
 import { useToast } from "@/hooks/use-toast.ts";
 import { useAccount } from "wagmi";
+import { scrollTxLink } from "@/utils/commonUtils.ts";
 import { parseUnits, formatUnits } from "viem";
 import {
   useReadBaguaDukiDaoContractBuaguaDaoAgg4Me,
@@ -28,23 +29,23 @@ interface PaymentSectionProps {
 }
 
 export const PaymentSection = ({
-  handleDeepSeek = () => { },
+  // handleDeepSeek = () => { },
   isDivinationCompleted = false,
 }: PaymentSectionProps) => {
   const { toast } = useToast();
   const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
+  const [daoTx, setDaoTx] = useState<string | null>(null);
   const [hasPaymentError, setHasPaymentError] = useState(false);
   const [isPaymentComplete, setIsPaymentComplete] = useState(false);
   const { address, isConnected, chainId } = useAccount();
   const { openModal } = useUIStore();
 
-  const { will, entry, recordDeepseekDao } = useDivinationStore();
+  const { entry, recordDeepseekDao } = useDivinationStore();
 
   const { mutate: deepseekDao,
     isPending: isDeepseekDaoPending, isSuccess: isDeepseekDaoSuccess, data: deepseekDaoAnswer } = useDeepseekDao(
       {
         onSuccess: (data) => {
-          debugger;
           recordDeepseekDao(
             data.interpretation,
             data.dao_tx,
@@ -55,18 +56,7 @@ export const PaymentSection = ({
     );
 
   const [selectedAmount, setSelectedAmount] = useState<number>(1);
-
-  // Get contract details
-  const {
-    data: baguaDaoAgg4Me,
-    isLoading: baguaDaoAgg4MeLoading,
-    refetch: refetchBaguaDukiDao  // Get the refetch function
-  } = useReadBaguaDukiDaoContractBuaguaDaoAgg4Me({
-    address: dukiDaoContractConfig[chainId].address,
-    query: {
-      enabled: true
-    }
-  })
+ 
   const { writeContractAsync: connectDaoToKnow } = useWriteBaguaDukiDaoContractConnectDaoToKnow()
 
   const { data: allowance, refetch: refetchAllowance } = useReadErc20Allowance({
@@ -83,7 +73,7 @@ export const PaymentSection = ({
     query: { enabled: !!address }
   })
 
-  const handlePayment = async () => {
+  const payToDeepseekDao = async () => {
     if (!isConnected || !address) {
       toast({
         variant: "destructive",
@@ -93,9 +83,19 @@ export const PaymentSection = ({
       return;
     }
 
-    if (isPaymentComplete && !hasPaymentError) {
-      const manifestation = dukiDaoContractConfig[chainId].explorer + "/tx/" + entry.manifestation;
-      window.open(manifestation, "_blank");
+    if (isDeepseekDaoPending) {
+      toast({
+        variant: "destructive",
+        title: "Deepseek DAO is still in progress",
+        description: "Please wait for the deepseek DAO to complete.",
+      });
+      return;
+    }
+
+    if (isPaymentComplete && !hasPaymentError && isDeepseekDaoSuccess) {
+      // const manifestation = dukiDaoContractConfig[chainId].explorer + "/tx/" + entry.manifestation;
+      // window.open(manifestation, "_blank");
+      openModal(ModalType.ENLIGHTENMENT, entry);
       return;
     }
 
@@ -165,7 +165,7 @@ export const PaymentSection = ({
         }
       }
 
-      // debugger;
+      debugger;
       // Call the contract function TODO
       const manifestationStr = entry.manifestation.startsWith('0x') ? entry.manifestation : `0x${entry.manifestation}`;
       const pendingTxHash = await connectDaoToKnow({
@@ -190,11 +190,12 @@ export const PaymentSection = ({
         // Notify the parent component about the payment
         // onPaymentSuccess(paymentAmount, txReceipt.transactionHash);
 
+      setDaoTx(txReceipt.transactionHash);
         setIsPaymentComplete(true);
         setIsPaymentProcessing(false);
 
         // Call deepseekDao and handle the response
-        await deepseekDao({
+        deepseekDao({
           entry,
           daoTx: txReceipt.transactionHash,
           daoTxAmount: paymentAmount
@@ -231,7 +232,7 @@ export const PaymentSection = ({
 
       {hasPaymentError ? (
         <Button
-          onClick={handlePayment}
+          onClick={payToDeepseekDao}
           className="w-full h-9 bg-transparent border-red-700/50 hover:bg-red-900/20 text-red-400"
           variant="outline"
         >
@@ -240,7 +241,7 @@ export const PaymentSection = ({
         </Button>
       ) : (
         <Button
-          onClick={handlePayment}
+          onClick={payToDeepseekDao}
           disabled={isPaymentProcessing || (!isConnected)}
           className={cn(
             "w-full h-9 transition-all duration-300",
@@ -252,10 +253,17 @@ export const PaymentSection = ({
           {isPaymentProcessing ? (
             "Processing..."
           ) : isPaymentComplete ? (
-            <span className="flex items-center gap-2">
-              View DAO Flow
-              <ExternalLink className="h-3 w-3" />
-            </span>
+            isDeepseekDaoSuccess ? (
+              <span className="flex items-center gap-2">
+                Meditate on Results
+                <MoveRight className="h-3 w-3" />
+              </span>
+            ) : (
+              <span className="flex items-center gap-2">
+                Deepseeking DAO
+                <Sparkles className="h-3 w-3" />
+              </span>
+            )
           ) : !isConnected ? (
             "Connect Wallet to Pay"
           ) : (
@@ -271,7 +279,7 @@ export const PaymentSection = ({
         </Button>
       )}
 
-      {/* DeepSeek Button - Disabled until payment is complete */}
+      {/* DeepSeek Button - Shows View DAO Flow when paid */}
       {!isPaymentComplete ? (
         <div className="mt-2">
           <Button
@@ -281,42 +289,24 @@ export const PaymentSection = ({
           >
             <span className="flex items-center justify-center gap-2">
               <Lock className="w-4 h-4" />
-              DeepSeek Locked
+              No Proof of DAO Connection
             </span>
           </Button>
-          <div className="text-xs text-center mt-1 text-gray-500">
-            Complete payment to unlock DeepSeek insights
-          </div>
         </div>
       ) : (
         <div className="mt-2">
-          {isDeepseekDaoSuccess ? (
-            <Button
-              variant="outline"
-              className="w-full bg-gradient-to-r from-emerald-900/30 to-teal-900/30 hover:from-emerald-900/40 hover:to-teal-900/40 text-emerald-300 border-emerald-700/50 transition-all duration-300 shadow-sm"
-              onClick={() => {
-                debugger;
-                openModal(ModalType.ENLIGHTENMENT, entry);
-              }}
-            >
-              <span className="flex items-center justify-center gap-2">
-                <Sparkles className="w-4 h-4" />
-                Meditate on Results
-                <MoveRight className="w-4 h-4" />
-              </span>
-            </Button>
-          ) : (
-            <Button
-              variant="outline"
-              className="w-full bg-gradient-to-r from-blue-900/30 to-indigo-900/30 hover:from-blue-900/40 hover:to-indigo-900/40 text-blue-300 border-blue-700/50 transition-all duration-300 shadow-sm"
-              onClick={handleDeepSeek}
-            >
-              <span className="flex items-center justify-center gap-2">
-                <Sparkles className="w-4 h-4" />
-                DeepSeek It
-              </span>
-            </Button>
-          )}
+          <Button
+            variant="outline"
+            className="w-full bg-gradient-to-r from-blue-900/30 to-indigo-900/30 hover:from-blue-900/40 hover:to-indigo-900/40 text-blue-300 border-blue-700/50 transition-all duration-300 shadow-sm"
+            onClick={() => {
+              window.open(scrollTxLink(daoTx), "_blank");
+            }}
+          >
+            <span className="flex items-center justify-center gap-2">
+              <ExternalLink className="w-4 h-4" />
+              View On Scroll
+            </span>
+          </Button>
           <div className="text-xs text-center mt-1">
             {isDeepseekDaoSuccess ? (
               <span className="text-emerald-400/80">

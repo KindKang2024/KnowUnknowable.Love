@@ -63,8 +63,9 @@ export interface DivinationTabs {
 }
 
 export interface Buttons {
-    view:   string;
-    verify: string;
+    view:    string;
+    verify:  string;
+    details: string;
 }
 
 export interface DiviFields {
@@ -392,6 +393,7 @@ const typeMap: any = {
     "Buttons": o([
         { json: "view", js: "view", typ: "" },
         { json: "verify", js: "verify", typ: "" },
+        { json: "details", js: "details", typ: "" },
     ], false),
     "DiviFields": o([
         { json: "diviWill", js: "diviWill", typ: "" },

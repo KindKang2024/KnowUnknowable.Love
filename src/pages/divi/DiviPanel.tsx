@@ -107,48 +107,48 @@ const DiviPanel: React.FC = () => {
     const [hasPaymentError, setHasPaymentError] = useState(false);
     const [isPaymentComplete, setIsPaymentComplete] = useState(false);
 
-    const handlePaymentSuccess = async (amount: number, daoTxHash: string) => {
-        setIsPaymentProcessing(true);
-        setHasPaymentError(false);
+    // const handlePaymentSuccess = async (amount: number, daoTxHash: string) => {
+    //     setIsPaymentProcessing(true);
+    //     setHasPaymentError(false);
 
-        try {
-            // Simulate payment processing with 30% success rate
-            await new Promise(resolve => setTimeout(resolve, 2000));
-            const isSuccess = Math.random() < 0.3;
+    //     try {
+    //         // Simulate payment processing with 30% success rate
+    //         await new Promise(resolve => setTimeout(resolve, 2000));
+    //         const isSuccess = Math.random() < 0.3;
 
-            if (!isSuccess) {
-                throw new Error("Payment failed");
-            }
+    //         if (!isSuccess) {
+    //             throw new Error("Payment failed");
+    //         }
 
-            setIsPaymentComplete(true);
-            setIsPaymentProcessing(false);
+    //         setIsPaymentComplete(true);
+    //         setIsPaymentProcessing(false);
 
-            toast({
-                title: "Payment Successful",
-                description: "Click to learn about DAO flow.",
-            });
-        } catch (error) {
-            setHasPaymentError(true);
-            setIsPaymentProcessing(false);
+    //         toast({
+    //             title: "Payment Successful",
+    //             description: "Click to learn about DAO flow.",
+    //         });
+    //     } catch (error) {
+    //         setHasPaymentError(true);
+    //         setIsPaymentProcessing(false);
 
-            toast({
-                variant: "destructive",
-                title: "Payment Failed",
-                description: "Please try again.",
-            });
-        }
-    };
+    //         toast({
+    //             variant: "destructive",
+    //             title: "Payment Failed",
+    //             description: "Please try again.",
+    //         });
+    //     }
+    // };
     const { mutateAsync: createDivination,
         isError: createDivinationError,
         isPending: createDivinationPending,
         isSuccess: createDivinationSuccess,
         data: entry } = useCreateDivination();
 
-    const [showMeditationDialog, setShowMeditationDialog] = useState(false);
+    // const [showMeditationDialog, setShowMeditationDialog] = useState(false);
 
     const handleCreateDivination = async () => {
-        if (entry !== null && !createDivinationError) {
-            setShowMeditationDialog(true);
+        if (entry || createDivinationPending) {
+            // Already created or in progress
             return;
         }
 
@@ -170,6 +170,7 @@ const DiviPanel: React.FC = () => {
             };
 
             const data = await createDivination(divinationData);
+            debugger;
 
             data.gua = Gua.createFromOpsBigint(BigInt(data.manifestation));
 
@@ -201,65 +202,66 @@ const DiviPanel: React.FC = () => {
         if (divinationCompleted && (entry === null || entry === undefined)
             && !createDivinationPending && !createDivinationSuccess) {
             // handleDeepSeek();
+            debugger;
             handleCreateDivination();
         }
     }, [divinationCompleted]);
 
 
-    const handleDeepSeek = async () => {
-        if (entry !== null && !createDivinationError) {
-            setShowMeditationDialog(true);
-            return;
-        }
+    // const handleDeepSeek = async () => {
+    //     if (entry !== null && !createDivinationError) {
+    //         setShowMeditationDialog(true);
+    //         return;
+    //     }
 
-        try {
+    //     try {
 
-            const divinationData: DivinationRequest = {
-                will: will,
-                will_signature: willSignature,
-                manifestation: gua.toOpsString(),
-                interpretation: "",
-                visibility: visibility,
-                dao_money: selectedAmount,
-                dao_hash: willSignature,
-                //other info
-                lang: 'en', // todo : multiple language
-                gua: gua.getBinaryString(),
-                mutability: gua.getMutabilityArray(),
-            };
+    //         const divinationData: DivinationRequest = {
+    //             will: will,
+    //             will_signature: willSignature,
+    //             manifestation: gua.toOpsString(),
+    //             interpretation: "",
+    //             visibility: visibility,
+    //             dao_money: selectedAmount,
+    //             dao_hash: willSignature,
+    //             //other info
+    //             lang: 'en', // todo : multiple language
+    //             gua: gua.getBinaryString(),
+    //             mutability: gua.getMutabilityArray(),
+    //         };
 
-            const data = await createDivination(divinationData);
+    //         const data = await createDivination(divinationData);
 
-            data.gua = Gua.createFromOpsBigint(data.manifestation);
+    //         data.gua = Gua.createFromOpsBigint(data.manifestation);
 
-            recordDivination(data);
-            toast({
-                title: "Reading Complete",
-                description: "Your divine reading is ready for meditation.",
-            });
-        } catch (error) {
-            console.error("DeepSeek error:", error);
+    //         recordDivination(data);
+    //         toast({
+    //             title: "Reading Complete",
+    //             description: "Your divine reading is ready for meditation.",
+    //         });
+    //     } catch (error) {
+    //         console.error("DeepSeek error:", error);
 
-            // Extract the error message from the API response if available
-            let errorMessage = "Failed to process your reading. Please try again.";
+    //         // Extract the error message from the API response if available
+    //         let errorMessage = "Failed to process your reading. Please try again.";
 
-            if (error instanceof Error) {
-                // Use the error message from the API if available
-                errorMessage = error.message || errorMessage;
-            }
+    //         if (error instanceof Error) {
+    //             // Use the error message from the API if available
+    //             errorMessage = error.message || errorMessage;
+    //         }
 
-            toast({
-                variant: "destructive",
-                title: "Error",
-                description: errorMessage,
-            });
-        }
-    };
+    //         toast({
+    //             variant: "destructive",
+    //             title: "Error",
+    //             description: errorMessage,
+    //         });
+    //     }
+    // };
 
     const handleTestDivide = () => {
         if (isDivinationCompleted()) {
             console.log("Reset", selectedYinCount);
-            reset();
+            reset(true);
             return;
         }
         // console.log("Divide", selectedYinCount);
@@ -275,8 +277,8 @@ const DiviPanel: React.FC = () => {
 
     // Determine step completion status
     const isStep1Completed = willSignature !== '';
-    const isStep2Completed = isDivinationCompleted();
-    const isStep3Completed = createDivinationSuccess;
+    const isStep2Completed = isStep1Completed && isDivinationCompleted();
+    const isStep3Completed = isStep2Completed && entry?.interpretation !== '';
 
     return (
         <FloatingPanel
@@ -364,8 +366,8 @@ const DiviPanel: React.FC = () => {
                 </div>
 
                 <PaymentSection
-                    isDeepSeekUsed={createDivinationSuccess}
-                    handleDeepSeek={handleDeepSeek}
+                    // isDeepSeekUsed={createDivinationSuccess}
+                    // handleDeepSeek={handleDeepSeek}
                     isDivinationCompleted={isDivinationCompleted()}
                 />
             </Section>
