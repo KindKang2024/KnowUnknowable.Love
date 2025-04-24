@@ -13,21 +13,24 @@ import {Buffer} from 'buffer'
 import './index.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import {WagmiProvider} from 'wagmi'
-import {darkTheme, RainbowKitProvider} from '@rainbow-me/rainbowkit';
+import {darkTheme, Locale, RainbowKitProvider} from '@rainbow-me/rainbowkit';
 import {config} from "./wagmi.ts";
 import {AuthProvider} from './AuthProvider.tsx';
+import {useTranslation} from "react-i18next";
 
 globalThis.Buffer = Buffer
 
 const queryClient = new QueryClient()
 
 export default function Providers({ children }: { children: ReactNode }) {
+  const { i18n } = useTranslation();
   return (
     <>
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
           <AuthProvider>
             <RainbowKitProvider
+              locale={i18n.language as Locale}
               // theme={darkTheme({
               //   accentColor: '#7b3fe4',
               //   accentColorForeground: 'white',

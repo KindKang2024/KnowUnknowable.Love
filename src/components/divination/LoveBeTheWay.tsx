@@ -1,10 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import {useEffect, useMemo, useRef, useState} from 'react';
 import * as THREE from 'three';
-import { ThreeStep } from './ThreeStep';
-import { Text } from '@react-three/drei';
-import { Gua } from '@/stores/Gua';
-import { useIChing } from '@/i18n/DataProvider';
-import { useUIStore } from '@/stores/uiStore';
+import {ThreeStep} from './ThreeStep';
+import {Text} from '@react-three/drei';
+import {Gua} from '@/stores/Gua';
+import {useIChing} from '@/i18n/DataProvider';
+import {useUIStore} from '@/stores/uiStore';
+import {processGuaText} from '@/utils/commonUtils';
 
 interface ThreeStepProps {
     gua: Gua;
@@ -80,11 +81,7 @@ export const LoveBeTheWay: React.FC<ThreeStepProps> = ({
     const [evolutionStates, setEvolutionStates] = useState<boolean[]>(allPossibleEvolutions[0]);
     const [binary, setBinary] = useState<string>(allPossibleBinary[0]);
 
-    const { focusedGuaBinary, speedMode } = useUIStore();
-    const currentIndex = useRef(0);
-    const intervalRef = useRef(null);
-    const lastFocusTimeRef = useRef<number | null>(null);
-    const previousFocusedRef = useRef(focusedGuaBinary);
+    const { focusedGuaBinary } = useUIStore();
 
     // Handle focused gua binary changes
     useEffect(() => {
@@ -93,65 +90,22 @@ export const LoveBeTheWay: React.FC<ThreeStepProps> = ({
             if (focusedIndex !== -1) {
                 setEvolutionStates(allPossibleEvolutions[focusedIndex]);
                 setBinary(focusedGuaBinary);
-                currentIndex.current = focusedIndex;
             }
         }
-
-        // When focus is removed, set the last focus time
-        if (previousFocusedRef.current && !focusedGuaBinary) {
-            console.log("Focus removed, setting last focus time");
-            lastFocusTimeRef.current = Date.now();
-        }
-
-        previousFocusedRef.current = focusedGuaBinary;
     }, [focusedGuaBinary, allPossibleBinary, allPossibleEvolutions]);
 
-    // Main animation effect with interval
-    useEffect(() => {
-        // Clear any existing interval
-        if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-            intervalRef.current = null;
-        }
-
-        // // Don't start animation if we have a focused binary
-        // if (focusedGuaBinary) {
-        //     return;
-        // }
-        const intervalTime = speedMode === 'normal' ? 8000 : (speedMode === 'fast' ? 4000 : 1000);
-        const focusPause = Math.min(intervalTime * 4, 10000);
-
-        // Set up interval to check periodically
-        intervalRef.current = setInterval(() => {
-            const now = Date.now();
-
-            // If we're within 10 seconds of last focus, don't update
-            if (lastFocusTimeRef.current && now - lastFocusTimeRef.current < focusPause) {
-                console.log("Within pause window, waiting...");
-                return;
-            }
-
-            // If we're past the pause window, clear the timestamp
-            if (lastFocusTimeRef.current && now - lastFocusTimeRef.current >= focusPause) {
-                console.log("Pause window ended, resuming animation");
-                lastFocusTimeRef.current = null;
-            }
-
-            // Update the animation state
-            setEvolutionStates(allPossibleEvolutions[currentIndex.current]);
-            setBinary(allPossibleBinary[currentIndex.current]);
-            currentIndex.current = (currentIndex.current + 1) % allPossibleEvolutions.length;
-
-        }, intervalTime);
-
-        // Cleanup function
-        return () => {
-            if (intervalRef.current) {
-                clearInterval(intervalRef.current);
-                intervalRef.current = null;
-            }
-        };
-    }, [focusedGuaBinary, speedMode, allPossibleEvolutions, allPossibleBinary]);
+    // const iterateIndex = useRef(0);
+    // useEffect(() => {
+    //     const allKeys = Object.keys(iChing).filter(key => key.length === 6);
+    //     // iterate iChing every 1 second
+    //     const interval = setInterval(() => {
+    //         setBinary(allKeys[iterateIndex.current]);
+    //         // setBinary("101100");
+    //         // setBinary("111100");
+    //         iterateIndex.current = (iterateIndex.current + 1) % allKeys.length;
+    //     }, 100);
+    //     return () => clearInterval(interval);
+    // }, [binary]);
 
     const positions = useMemo(() => {
         return Array.from({ length: 6 }, (_, index) => calculateStepPosition(startStepPosition, targetStepPosition, index + 1, 6, configSize));
@@ -168,27 +122,55 @@ export const LoveBeTheWay: React.FC<ThreeStepProps> = ({
 
     return (
         <group scale={scale} key={"love-be-the-way"}>
-            {/* <group position={[1.8, 0, 0]}> */}
-            <group position={[-1.0, 1.4, 0]}>
-                <Text fontSize={0.4} color="white" anchorX="left" anchorY="middle">
-                    {iChing[binary].name}
+
+
+
+            <group position={[-1.12, 1.5, 0]}>
+
+                <Text
+                    position={[0.0, 0.14, 0]}
+                    fontSize={0.16}
+                    color="red"
+                    anchorX="left"
+                    anchorY="top"
+                >
+                    {processGuaText(iChing[binary].gua_ci, 1)}
                 </Text>
-                <group position={[-0.9, 0.7, 0]}>
-                    <Text fontSize={0.25}
-                        position={[0.2, -0.7, 0]}
-                        color="white" anchorX="left" anchorY="middle">
-                        {Gua.binaryToDecimalString(binary, true)}
+
+
+                <group position={[0.88, 0.3, 0]}>
+                    <Text fontSize={0.4} color="white" anchorX="left" anchorY="middle">
+                        {iChing[binary].name}
                     </Text>
-                    <Text fontSize={0.1}
-                        position={[0.65, -0.65, 0]}
-                        color="white" anchorX="left" anchorY="middle">
-                        {Gua.getGeneticCodeFromBinary(binary)}
-                    </Text>
-                    <Text fontSize={0.1}
-                        position={[0.5, -0.75, 0]}
-                        color="white" anchorX="left" anchorY="middle">
-                        {binary}
-                    </Text>
+
+
+
+                    <group position={[-0.9, 0.7, 0]}>
+                        <Text fontSize={0.38}
+                            position={[0.0, -0.7, 0]}
+                            color="white" anchorX="left" anchorY="middle">
+                            {Gua.binaryToDecimalString(binary, true)}
+                        </Text>
+
+                        <Text fontSize={0.09}
+                            position={[0.49, -0.60, 0]}
+                            color="white" anchorX="left" anchorY="middle">
+                            {Gua.getGeneticCodeFromBinary(binary)}
+                        </Text>
+
+                        <Text fontSize={0.09}
+                            position={[0.49, -0.70, 0]}
+                            color="white" anchorX="left" anchorY="middle">
+                            {Gua.binaryToBinaryDecimalString(binary, true)}
+                        </Text>
+
+
+                        <Text fontSize={0.1}
+                            position={[0.48, -0.80, 0]}
+                            color="white" anchorX="left" anchorY="middle">
+                            {binary}
+                        </Text>
+                    </group>
                 </group>
             </group>
 
@@ -201,7 +183,7 @@ export const LoveBeTheWay: React.FC<ThreeStepProps> = ({
                     stepNumber={index + 1}
                     stepSize={{ ...configSize }}
                     position={positions[index]}
-                    isYang={evolutionStates[index]} // Pass the controlled state
+                    isYang={evolutionStates[index]}
                 />
             ))}
         </group>

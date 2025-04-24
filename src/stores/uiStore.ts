@@ -3,6 +3,7 @@ import {Vector3} from 'three';
 import {AuthenticationStatus} from '@rainbow-me/rainbowkit';
 import {ModalType, SpeedMode, VerificationIntent, VerifyStatus} from '@/types/common';
 import {immer} from 'zustand/middleware/immer';
+import {DividePhase} from '@/types/divi';
 
 enum CameraState {
     FREE = 'FREE',
@@ -69,11 +70,13 @@ interface UIState {
     // Modal state
     activeModal: ModalType | null;
     modalData: any;
+    onModalCallback: (data: any) => void;
 
     divideReady: boolean;
     elevated: boolean;
     speedMode: SpeedMode;
-
+    autoReviewInterval: number;
+    dividePhase: DividePhase | null;
 
     error: string;
     open: boolean;
@@ -98,10 +101,11 @@ interface UIActions {
     setRingRotation: (rotation: number) => void;
 
     setDiviFocusKey: (key: string) => void;
+    setAutoReviewInterval: (interval: number) => void;
 
     // Modal actions
     setError: (error: string) => void;
-    openModal: (type: ModalType, data?: any) => void;
+    openModal: <T>(type: ModalType, data?: T, onModalCallback?: (data: T) => void) => void;
     closeModal: () => void;
 
     setVerification: (intent: VerificationIntent) => void;
@@ -116,6 +120,7 @@ interface UIActions {
     setElevated: (elevated: boolean) => void;
     setSpeedMode: (speedMode: SpeedMode) => void;
     getSpeedMode: () => SpeedMode;
+    setDividePhase: (phase: DividePhase | null) => void;
 
 }
 
@@ -133,8 +138,12 @@ export const useUIStore = create<UIStore>()(
         guaEvolutionPlaying: true,
         setGuaEvolutionPlaying: (playing: boolean) => set({ guaEvolutionPlaying: playing }),
         focusedGuaBinary: '',
+        autoReviewInterval: 3000,
+        setAutoReviewInterval: (interval: number) => set({ autoReviewInterval: interval }),
         divideReady: false,
         elevated: false,
+        dividePhase: null,
+        setDividePhase: (phase: DividePhase | null) => set({ dividePhase: phase }),
         speedMode: 'normal',
         cameraState: CameraState.FREE,
         cutState: CutState.READY,
@@ -147,31 +156,13 @@ export const useUIStore = create<UIStore>()(
         units: [],
         activeModal: null,
         modalData: null,
+        onModalCallback: null,
         error: '',
         open: false,
         verificationIntent: 'idle' as VerificationIntent,
         verification: false,
         status: 'loading' as VerifyStatus,
         authStatus: 'loading' as AuthenticationStatus,
-        divination: {
-            will_to_manifest: '',
-            radius: 0,
-            divisions: [{
-                points: [
-                    { x: 0, y: 0, z: 0 },
-                    { x: 0, y: 0, z: 0 },
-                    { x: 0, y: 0, z: 0 },
-                    { x: 0, y: 0, z: 0 }
-                ],
-                division_line: [
-                    { x: 0, y: 0, z: 0 },
-                    { x: 0, y: 0, z: 0 }
-                ],
-                reminder_count: 0
-            }],
-            yao: [6, 6, 6, 6, 6, 6],
-            gua: "010101"
-        },
         focusGuaBinary: (binary: string) => set({ focusedGuaBinary: binary }),
         setSpeedMode: (speedMode: SpeedMode) => {
             set(state => {
@@ -202,13 +193,15 @@ export const useUIStore = create<UIStore>()(
             verification: intent !== 'idle'
         }),
         // Modal actions
-        openModal: (type, data) => set({
+        openModal: (type, data, onModalCallback) => set({
             activeModal: type,
-            modalData: data
+            modalData: data,
+            onModalCallback: onModalCallback
         }),
         closeModal: () => set({
             activeModal: null,
-            modalData: null
+            modalData: null,
+            onModalCallback: null
         }),
         setStatus: (status: VerifyStatus) => set({
             status

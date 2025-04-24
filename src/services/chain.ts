@@ -91,7 +91,7 @@ function addGetGuaMethod(entry: DivinationEntry): DivinationEntry {
 
     // Add getGua method if it doesn't exist
     if (!entry.gua) {
-        entry.gua = Gua.createFromOpsBigint(entry.manifestation);
+        entry.gua = Gua.createFromOpsString(entry.manifestation);
     }
 
     return entry;

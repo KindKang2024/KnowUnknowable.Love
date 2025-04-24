@@ -129,7 +129,9 @@ export type Qualification = {
 
 export interface Section {
   id: string;
+  bid: string;
   ch_symbol: string;
+  cn_seq: number;
   arr_index: number;
   seq: number;
   percentage: number;
@@ -139,7 +141,7 @@ export interface Section {
   description?: string;
   target?: string;
   claimQualification?: Qualification;
-  hasClaimed: boolean;
+  supportClaimed: boolean;
 }
 
 const publicLoveLoveColor = "#b31900";
@@ -157,171 +159,117 @@ export const getWillColor = (number: number): string => {
 export const DualityDaoLoveSection: Section =
 {
   id: 'Dao',
-  ch_symbol: 'DUKI',
+  bid: '☯',
+  ch_symbol: '',
+  cn_seq: 9,
   seq: 8,
-  hasClaimed: false,
+  supportClaimed: false,
   arr_index: 0,
   percentage: 100,
   color: "#C084FC",
   opacity: 1,
-  // title: 'Love Be Ye Way',
-  // description: 'Dao is Love.',
-  // target: "to free will. Free will are born of love and born with sin, it needs power and wisdom to be useful",
-  // claimQualification: {
-  //   title: "Claim",
-  //   requirements_text: "DUKI for all lives in that community",
-  //   note: "Fairness always, those who love and care for the world indeed deserves more DUKI"
-  // }
+
 }
 
 export const BaguaSections: Section[] = [
   {
     id: 'Earth',
+    bid: "000",
     ch_symbol: 'Kun',
+    cn_seq: 8,
     seq: 0,
     arr_index: 5,
-    hasClaimed: true,
+    supportClaimed: true,
     percentage: 25,
     color: privateLoveSinColor,
     opacity: 1,
-    // title: 'Private Love For Creators',
-    // description: 'Wills Receptivity and Nurturing',
-    // target: "Money to DUKIGE - We need sin first for survival and then evolve to be love",
-    // claimQualification: {
-    //   title: "Claim",
-    //   requirements_text: "DUKI for all lives in that community",
-    //   note: "Fairness always, those who love and care for the world indeed deserves more DUKI"
-    // }
   },
   {
     id: 'Mountain',
+    bid: "001",
     ch_symbol: 'Gen',
+    cn_seq: 7,
     seq: 1,
     arr_index: 6,
-    hasClaimed: true,
+    supportClaimed: true,
     percentage: 25,
     color: privateLoveSinColor,
     opacity: 0.75,
-    // title: 'Private Love For Maintainers',
-    // description: 'Wills Stillness and Meditation',
-    // target: "Money to Founders - Fairness Always! We need visionary creators to evolve.",
-    // claimQualification: {
-    //   title: "Claim",
-    //   requirements_text: "DUKI for all lives in that community",
-    //   note: "Fairness always, those who love and care for the world indeed deserves more DUKI"
-    // }
   },
   {
     id: 'Water',
+    bid: "010",
     ch_symbol: 'Kan',
+    cn_seq: 6,
     seq: 2,
     arr_index: 7,
-    hasClaimed: true,
+    supportClaimed: true,
     percentage: 0,
     color: privateLoveSinColor,
     opacity: 0.5,
-    // title: 'Private Love For Investors',
-    // description: 'Wills Flow and Adaptation',
-    // target: "Money to Investors - Free Will of Goodness needs power to manifest and be useful",
-    // claimQualification: {
-    //   title: "Claim",
-    //   requirements_text: "DUKI for all lives in that community",
-    //   note: "Fairness always, those who love and care for the world indeed deserves more DUKI"
-    // }
   },
   {
     id: 'Wind',
+    bid: "011",
     ch_symbol: 'Xun',
+    cn_seq: 5,
     seq: 3,
     arr_index: 8,
-    hasClaimed: true,
+    supportClaimed: true,
     percentage: 0,
     color: privateLoveSinColor,
     opacity: 0.25,
-    // title: 'Private Love For Contributors',
-    // description: 'Wills Influence and Penetration',
-    // target: "Money to Partners - Fostering strategic collaborations and alliances",
-    // claimQualification: {
-    //   title: "Claim",
-    //   requirements_text: "DUKI for all lives in that community",
-    //   note: "Fairness always, those who love and care for the world indeed deserves more DUKI"
-    // }
-  }, 
-  
+  },
+
   {
     id: 'Thunder',
+    bid: "100",
     ch_symbol: 'Zhen',
+    cn_seq: 4,
     seq: 4,
     arr_index: 4,
-    hasClaimed: true,
+    supportClaimed: true,
     percentage: 0,
     color: publicLoveLoveColor,
     opacity: 0.75,
-    // title: 'Public Love For Builders',
-    // description: 'Wills Initiative and Action',
-    // target: "Money to Community - Nurturing active and engaged user base",
-    // claimQualification: {
-    //   title: "Claim",
-    //   requirements_text: "DUKI for all lives in that community",
-    //   note: "Fairness always, those who love and care for the world indeed deserves more DUKI"
-    // }
   },
   {
     id: 'Fire',
+    bid: "101",
     ch_symbol: 'Li',
+    cn_seq: 3,
     seq: 5,
     arr_index: 3,
-    hasClaimed: true,
+    supportClaimed: true,
     percentage: 0,
     color: publicLoveLoveColor,
     opacity: 0.75,
-    // title: 'Public Love For Community',
-    // description: 'Wills Clarity and Transformation',
-    // target: "Money to Pioneers - First adopters and adventurers are the pioneers of the world",
-    // claimQualification: {
-    //   title: "Claim",
-    //   requirements_text: "DUKI for all lives in that community",
-    //   note: "Fairness always, those who love and care for the world indeed deserves more DUKI"
-    // }
+
   },
   {
     id: 'Marsh',
+    bid: "110",
     ch_symbol: 'Dui',
+    cn_seq: 2,
     seq: 6,
     arr_index: 2,
-    hasClaimed: false,
+    supportClaimed: false,
     percentage: 2.5,
     color: publicLoveLoveColor,
     opacity: 0.75,
-    // title: 'Public Love For Nation',
-    // description: 'Wills Joy and Satisfaction',
-    // target: "Money to Nation - A nation of people who love and care for the world",
-    // claimQualification:
-    // {
-    //   title: "Claim",
-    //   requirements_text: "DUKI for all lives in that nation",
-    //   note: "Fairness always, those who love and care for the world indeed deserves more DUKI"
-    // }
   },
-  
+
   {
     id: 'Heaven',
-    seq: 7,
+    bid: "111",
     ch_symbol: 'Qian',
-    hasClaimed: true,
+    cn_seq: 1,
+    seq: 7,
     arr_index: 1,
+    supportClaimed: true,
     percentage: 2.5,
     color: publicLoveLoveColor,
     opacity: 1,
-    // title: 'Public Love For All Lives',
-    // description: 'Wills Humanity and Creativity',
-    // target: "Money to World - DUKI in Action to remind all lives that freedom is not free, it needs power to reject evil and do good",
-    // claimQualification:
-    // {
-    //   title: "Claim",
-    //   requirements_text: "DUKI as First Kindness for all lives. ",
-    //   note: "All we need a human uniqueness zero-knowledge proof system for the world to Make All Great Again(Like WLD but backed by decentralized authorities that welcome critisism). Currently we use wallet and unstoppable domain to uniquely identify you",
-    // }
   },
   DualityDaoLoveSection,
 ];

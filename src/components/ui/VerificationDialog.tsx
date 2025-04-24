@@ -1,9 +1,9 @@
-import { ArrowRightFromLine, Check, CheckCircle, Pencil, XCircle } from "lucide-react";
-import { Dialog, DialogContent, DialogTitle } from "@radix-ui/react-dialog";
-import { RadioGroup, RadioGroupItem } from "@radix-ui/react-radio-group";
-import { DialogHeader } from "./dialog";
-import { Button } from "./button";
-import { Label } from "./label";
+import {ArrowRightFromLine, Check, CheckCircle, Pencil, XCircle} from "lucide-react";
+import {Dialog, DialogContent, DialogTitle} from "@radix-ui/react-dialog";
+import {RadioGroup, RadioGroupItem} from "@radix-ui/react-radio-group";
+import {DialogHeader} from "./dialog";
+import {Button} from "./button";
+import {Label} from "./label";
 
 // Verification Dialog Component
 interface VerificationDialogProps {

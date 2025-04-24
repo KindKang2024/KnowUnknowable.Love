@@ -13,8 +13,8 @@ import {useUIStore} from "@/stores/uiStore.ts";
 import {useNavigate} from "react-router-dom";
 import {useDivinationStore} from "@/stores/divineStore.ts";
 import {routes} from "@/utils/constants.ts";
-import {ModalType} from "@/types/common";
 import {useAccount} from "wagmi";
+import {useConnectModal} from "@rainbow-me/rainbowkit";
 
 interface DiviWillInputProps {
     onSubmit?: (message: string) => void;
@@ -31,6 +31,7 @@ export const DiviWillInput = ({ onSubmit, readonly }: DiviWillInputProps) => {
     const { isConnected, address } = useAccount();
     const { authStatus, setAuthStatus } = useUIStore();
     const { openModal } = useUIStore();
+    const { openConnectModal } = useConnectModal();
 
     // const { data: userData } = useUserData(address);
     // const { mutateAsync: login } = useLogin(address);
@@ -52,7 +53,7 @@ export const DiviWillInput = ({ onSubmit, readonly }: DiviWillInputProps) => {
         if (!will.trim()) return;
 
         if (!isConnected) {
-            openModal(ModalType.LOGIN);
+            openConnectModal();
             return;
         }
 

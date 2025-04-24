@@ -1,6 +1,6 @@
 import {immerable} from "immer";
 import {YAO} from "./YAO";
-import {binaryIChingMap} from "@/i18n/symbols";
+import {binaryIChingMap, commonIChingMap} from "@/i18n/symbols";
 
 /**
  * Gua class represents a complete hexagram in I Ching divination.
@@ -122,6 +122,10 @@ export class Gua {
         return this.mutabilityArr.filter(mutation => mutation).length ?? 0;
     }
 
+    public getTotalManifestationsCount(): number {
+        return Math.pow(2, this.getMutationsCount());
+    }
+
     public isDivinationCompleted(): boolean {
         // return this.isComplete;
         return this.yaos[5].isCompleted();
@@ -240,11 +244,23 @@ export class Gua {
     }
 
     public static binaryToDecimalString(binary: string, paddingSpace: boolean = false): string {
-        if (paddingSpace) {
-            return parseInt(binary, 2).toString().padStart(2, ' ');
+        let num = commonIChingMap[binary].num;
+        if (num === undefined || num === null) {
+            return '';
         }
-        return parseInt(binary, 2).toString();
+        if (paddingSpace) {
+            return num.toString().padStart(2, '0');
+        }
+        return num.toString();
     }
+
+    public static binaryToBinaryDecimalString(binary: string, paddingSpace: boolean = false): string {
+        if (paddingSpace) {
+            return parseInt(binary, 2).toString().padStart(2, ' ') + "b";
+        }
+        return parseInt(binary, 2).toString() + "b";
+    }
+
 
     public static getGeneticCodeFromBinary(binary: string): string {
         if (binary.length === 0) {
@@ -318,14 +334,26 @@ export class Gua {
     }
 
 
-    public getAllPossibleBinary(): string[] {
-        const allPossibleEvolutions = Gua.getAllPossibleEvolutions(this);
+    public getAllPossibleBinary(excludeOriginal: boolean = false): string[] {
+        const allPossibleEvolutions = Gua.getAllPossibleEvolutions(this, excludeOriginal);
         return allPossibleEvolutions.map(e => e.map(bit => bit ? '1' : '0').join(''));
     }
 
     public getAllPossibleMutationSymbols(excludeOriginal: boolean = false): string[] {
         const allPossibleEvolutions = Gua.getAllPossibleEvolutions(this, excludeOriginal);
         return allPossibleEvolutions.map(e => binaryIChingMap[e.map(bit => bit ? '1' : '0').join('')].symbol);
+    }
+
+    public getAllRepresentationGuaList(excludeOriginal: boolean  = false): Gua[] {
+        const allRepresentations = this.getAllPossibleBinary(excludeOriginal);
+        const allGuaList = allRepresentations.map(e => Gua.fakeCreateFromBinary(e));
+        if (!excludeOriginal) {
+            allGuaList[0].yaos = [...this.yaos];
+            allGuaList[0].binaryArr = [...this.binaryArr];
+            allGuaList[0].undividedGroupCounts = [...this.undividedGroupCounts];
+            allGuaList[0].isComplete = this.isComplete;
+        }
+        return allGuaList;
     }
 
     // each bool area is 6  
@@ -451,20 +479,12 @@ export class Gua {
      * Creates a Gua from a bytes32 hex string representation
      * @param opsValue - Hex string (with or without '0x' prefix) or bigint
      */
-    public static createFromOpsBigint(opsValue: string | bigint): Gua {
+    public static createFromOpsString(opsValue: string): Gua {
         try {
-            let hexValue: string;
-            if (typeof opsValue === 'string') {
-                // Remove '0x' prefix if present and ensure valid hex string
-                hexValue = opsValue.toLowerCase().replace('0x', '');
-                if (!/^[0-9a-f]+$/.test(hexValue)) {
-                    throw new Error('Invalid hex string');
-                }
-            } else {
-                // Convert BigInt to hex string
-                hexValue = opsValue.toString(16);
+            let hexValue: string = opsValue.toLowerCase().replace('0x', '');
+            if (!/^[0-9a-f]+$/.test(hexValue)) {
+                throw new Error('Invalid hex string');
             }
-            console.log("hexValue", hexValue);
             // Convert hex string to BigInt
             const packedValue = BigInt('0x' + hexValue);
 
@@ -504,16 +524,15 @@ export class Gua {
 
     /**
      * Validates if a BigInt represents valid packed YAO data
-     * todo: not quite right, just mark it here
+     * todo: validate not quite complete, just mark it here
      */
-    public static isValidPackedYao(packedValue: bigint): boolean {
-        // Check if the value is too large for uint256
-        if (packedValue > 2n ** 256n - 1n) {
+    public static isValidPackedYao(packedValue: string): boolean {
+        if (!packedValue.startsWith('0x')) {
             return false;
         }
 
         // Extract all yinCounts to validate them
-        let tempValue = packedValue;
+        let tempValue = BigInt(packedValue);
         const mask = 0x3Fn; // 6 bits mask
 
         // For each of the 6 YAOs

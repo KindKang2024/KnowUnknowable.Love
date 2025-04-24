@@ -1,240 +1,244 @@
-// import { useEffect, useState } from 'react';
-// import { useAccount, useWriteContract, useWaitForTransactionReceipt, useTransactionReceipt, useClient } from 'wagmi';
-// import { TransactionDebug } from './TransactionDebug';
-// import React from 'react';
-// import { useUnsname } from '@/services/api';
-// import { useReadErc20Allowance, useReadErc20BalanceOf, useWriteBaguaDukiDaoContractPayToInvestUnsInLimo, useWriteBaguaDukiDaoContractpayToInvest, useWriteErc20Approve } from '@/contracts/generated';
-// import { toast } from '@/hooks/use-toast';
-// import { dukiDaoContractConfig } from '@/contracts/externalContracts';
-// import { waitForTransactionReceipt } from 'viem/actions';
-// import { useQueryClient } from '@tanstack/react-query';
-// import { config } from '@/wagmi';
+import React, { useState } from 'react';
+import { useAccount } from 'wagmi';
+import {
+    useReadLoveDaoContractBaguaDaoAgg4Me,
+    useReadErc20Allowance,
+    useReadErc20BalanceOf,
+    useWriteLoveDaoContractConnectDaoToInvest,
+    useWriteErc20Approve
+} from '@/contracts/generated';
+import { toast } from '@/hooks/use-toast';
+import {
+    defaultChainWhenNotConnected,
+    dukiDaoContractConfig,
+    InvestFeeBaseAmount,
+    InvestFeeDollarAmount
+} from '@/contracts/externalContracts';
+import { waitForTransactionReceipt } from 'viem/actions';
+import { useQueryClient } from '@tanstack/react-query';
+import { config } from '@/wagmi';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { CheckCircle2, Coins, Crown } from "lucide-react";
+import { usePageCommonData } from '@/i18n/DataProvider';
 
-// interface InvestModalProps {
-//     isOpen: boolean;
-//     onClose: () => void;
-// }
+interface InvestModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
 
-// export const InvestModal = ({ isOpen, onClose }: InvestModalProps) => {
-//     const queryClient = useQueryClient();
-//     const { address } = useAccount();
-//     const { data: uns_domain } = useUnsname(address || '0x');
+export const InvestModal = ({ isOpen, onClose }: InvestModalProps) => {
+    const queryClient = useQueryClient();
 
-//     const [domain, setDomain] = useState(uns_domain || 'kindkang');
-//     const [years, setYears] = useState(3);
-//     const [error, setError] = useState('');
-//     const [transactionHash, setTransactionHash] = useState<string | null>(null);
-//     const [txStatus, setTxStatus] = useState('idle');
+    const { address, isConnected, chainId } = useAccount();
+    const targetChainId = chainId || defaultChainWhenNotConnected;
 
-//     const { data: payToInvestData,
-//         writeContractAsync: payToInvest,
-//         isSuccess: payToInvestSuccess,
-//         isPending: payToInvestPending,
-//         isError: ispayToInvestError,
-//         error: payToInvestError } = useWriteBaguaDukiDaoContractPayToInvestUnsInLimo()
+    const [error, setError] = useState('');
+    const [transactionHash, setTransactionHash] = useState<string | null>(null);
 
-//     useEffect(() => {
-//         console.log({
-//             pending: payToInvestPending,
-//             success: payToInvestSuccess,
-//             data: payToInvestData,
-//             isError: ispayToInvestError,
-//             error: payToInvestError,
-//         });
-//     }, [payToInvestPending, ispayToInvestError, payToInvestSuccess]);
+    const commonPageData = usePageCommonData();
 
-//     // Check current allowance
-//     const { data: allowance } = useReadErc20Allowance({
-//         address: dukiDaoContractConfig.stableCoin,
-//         args: [address!, dukiDaoContractConfig.address],
-//     });
+    const { writeContractAsync: connectDaoToInvest,
+        isSuccess: connectDaoToInvestSuccess,
+        isPending: connectDaoToInvestPending,
+        isError: isConnectDaoToInvestError,
+        error: connectDaoToInvestError
+    } = useWriteLoveDaoContractConnectDaoToInvest();
 
-//     // Add balance check before approval
-//     const { data: balance } = useReadErc20BalanceOf({
-//         address: dukiDaoContractConfig.stableCoin,
-//         args: [address!]
-//     });
+    const { data: balance } = useReadErc20BalanceOf({
+        address: dukiDaoContractConfig[targetChainId]?.stableCoin || '0x',
+        args: [address!],
+        query: { enabled: true }
+    });
 
-//     console.log('Current balance:', balance);
+    const { data: allowance } = useReadErc20Allowance({
+        address: dukiDaoContractConfig[targetChainId]?.stableCoin || '0x',
+        args: [address!, dukiDaoContractConfig[targetChainId]?.address || '0x'],
+        query: { enabled: true }
+    });
 
+    const { writeContractAsync: approve,
+        isSuccess: approveSuccess,
+        isPending: approvePending,
+        isError: isApproveError,
+        error: approveError
+    } = useWriteErc20Approve();
 
+    const {
+        refetch: refetchBaguaDaoAgg4Me,
+      } = useReadLoveDaoContractBaguaDaoAgg4Me({
+        address: dukiDaoContractConfig[targetChainId]?.address || '0x',
+        args: [address || dukiDaoContractConfig[targetChainId].ZeroAddress],
+        query: {
+          enabled: true,
+          refetchInterval: 8000 // Refetch every 8 seconds
+        }
+      })
 
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setError('');
+        setTransactionHash(null);
 
-//     const {
-//         // data: approveData,
-//         writeContractAsync: approve,
-//         // isSuccess: approveSuccess,
-//         // isPending: approvePending,
-//         // isError: isApproveError,
-//         // error: approveError
-//     } = useWriteErc20Approve();
+        if (isConnected !== true) {
+            toast({
+                // title: 'Please connect your wallet',
+                title: commonPageData.connectWallet,
+                variant: 'destructive',
+            });
+            return;
+        }
 
-//     // useEffect(() => {
-//     //     console.log({
-//     //         pending: approvePending,
-//     //         success: approveSuccess,
-//     //         data: approveData,
-//     //         isError: isApproveError,
-//     //         error: approveError
-//     //     });
-//     // }, [approvePending, isApproveError, approveSuccess]);
+        try {
+            if ((balance !== undefined) && balance < InvestFeeBaseAmount) {
+                // setError(`Insufficient balance: invest amount is ${InvestFeeDollarAmount} `);
+                setError(commonPageData.modals.insufficientBalanceError);
+                return;
+            }
 
-//     const handleSubmit = async (e: React.FormEvent) => {
-//         e.preventDefault();
-//         setError('');
-//         setTransactionHash(null);
+            if ((allowance === undefined || allowance === 0n) || allowance < InvestFeeBaseAmount) {
+                const approveTx = await approve({
+                    address: dukiDaoContractConfig[targetChainId]?.stableCoin || '0x',
+                    args: [dukiDaoContractConfig[targetChainId]?.address || '0x', InvestFeeBaseAmount]
+                });
 
-//         if (domain === undefined) {
-//             toast({
-//                 title: 'Please enter your domain',
-//                 variant: 'destructive',
-//             });
-//             return;
-//         }
+                const approveReceipt = await waitForTransactionReceipt(
+                    config.getClient(),
+                    {
+                        hash: approveTx,
+                    }
+                );
 
-//         const investFee = BigInt(dukiDaoContractConfig.investFee * 10 ** 6);
+                if (approveReceipt.status === 'success') {
+                    console.log('Approval successful');
+                } else {
+                    // setError('Approval failed');
+                    setError(commonPageData.modals.approvalFailed);
+                    return;
+                }
+            }
 
-//         try {
-//             // First approve USDC spending
-//             if (balance && balance < dukiDaoContractConfig.investFee) {
-//                 setError(`Insufficient balance: ${balance} < ${dukiDaoContractConfig.investFee}`);
-//                 return;
-//             }
+            const subscribeTx = await connectDaoToInvest({
+                address: dukiDaoContractConfig[targetChainId]?.address || '0x',
+                args: []
+            });
 
-//             if ((allowance === undefined || allowance === 0n) || allowance < investFee) {
-//                 setTxStatus('approving');
-//                 const approveTx = await approve({
-//                     address: dukiDaoContractConfig.stableCoin,
-//                     args: [dukiDaoContractConfig.address, investFee]
-//                 });
-//                 console.log(approveTx);
-//                 // Wait for the transaction to be mined
-//                 const approveReceipt = await waitForTransactionReceipt(
-//                     config.getClient(),
-//                     {
-//                         hash: approveTx,
-//                     }
-//                 );
+            const subscribeReceipt = await waitForTransactionReceipt(
+                config.getClient(),
+                {
+                    hash: subscribeTx
+                });
 
-//                 if (approveReceipt.status === 'success') {
-//                     // Transaction was successful
-//                     console.log('Approval successful');
-//                 } else {
-//                     setError('Approval failed');
-//                     return;
-//                 }
-//             }
+            if (subscribeReceipt.status === 'success') {
+                toast({
+                    // title: 'Successfully become an Investor!',
+                    title: commonPageData.modals.successfullyBecomeAnInvestor,
+                    variant: 'default',
+                });
+                refetchBaguaDaoAgg4Me();
+                // } else {
+                // setError('Subscription failed');
+                // return;
+            }
+            onClose();
+        } catch (err) {
+            console.log("err", err);
+            setError((err as Error).message);
+            toast({
+                title: 'Transaction failed',
+                description: (err as Error).message,
+                variant: 'destructive',
+            });
+        }
+    };
 
-//             // Then subscribe
-//             const subscribeTx = await payToInvest({
-//                 address: dukiDaoContractConfig.address,
-//                 args: [domain]
-//             });
+    return (
+        <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
+            <DialogContent className="bg-[#1A1F2C] border border-white/10 max-w-lg">
+                <DialogHeader className="space-y-6">
+                    <div className="flex flex-col items-center text-center space-y-2">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center border border-purple-500/20">
+                            <Crown className="w-6 h-6 text-purple-400" />
+                        </div>
+                        <DialogTitle className="text-[#9b87f5] text-2xl font-semibold">
+                            {/* Become an Investor */}
+                            {commonPageData.modals.becomeAnInvestor}
+                        </DialogTitle>
+                        <DialogDescription className="text-white/70 text-base max-w-md">
+                            {/* Join our exclusive community of investors and support the growth of KnowUnknowable.Love */}
+                            {commonPageData.modals.joinAsInvestorToSupport}
+                        </DialogDescription>
+                    </div>
 
-//             console.log(subscribeTx);
+                    <div className="flex items-center justify-center gap-2 text-white/60 text-sm">
+                        <Coins className="w-4 h-4" />
+                        <span>
+                            {/* Investment Amount: */}
+                            {commonPageData.modals.investmentAmountLabel}:
+                        </span>
+                        <span className="text-purple-400 font-medium">
+                            {InvestFeeDollarAmount.toString()} USDC
+                        </span>
+                    </div>
+                </DialogHeader>
 
-//             // setTransactionHash(subscribeTx);
-//             const subscribeReceipt = await waitForTransactionReceipt(
-//                 config.getClient(),
-//                 {
-//                     hash: subscribeTx
-//                 });
-//             console.log("subscribeReceipt", subscribeReceipt);
-//             // setTxStatus('success');
-//             if (subscribeReceipt.status === 'success') {
-//                 toast({
-//                     title: 'Successfully subscribed!',
-//                     variant: 'default',
-//                 });
-//             } else {
-//                 setError('Subscription failed');
-//                 return;
-//             }
-//             onClose();
-//         } catch (err) {
-//             console.log("err", err);
-//             setError((err as Error).message);
-//             toast({
-//                 title: 'Transaction failed',
-//                 description: (err as Error).message,
-//                 variant: 'destructive',
-//             });
-//         }
-//     };
+                {error && (
+                    <div className="text-red-500 text-sm mt-2 bg-red-500/10 p-3 rounded-lg border border-red-500/20 max-h-18 overflow-y-auto">
+                        Error: {error || 'An error occurred during the transaction.'}
+                    </div>
+                )}
 
-//     return (
-//         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-//             <div className="bg-gray-800 p-6 rounded-lg w-full max-w-md">
-//                 <h2 className="text-2xl font-bold mb-4 text-white">Invest On Your Domain</h2>
-//                 <form onSubmit={handleSubmit} className="space-y-4">
-//                     <div>
-//                         <label className="block text-sm font-medium mb-2 text-gray-200">
-//                             Domain Name
-//                         </label>
-//                         <div className="flex items-center">
-//                             <input
-//                                 type="text"
-//                                 value={domain || ''}
-//                                 onChange={(e) => setDomain(e.target.value)}
-//                                 className="flex-1 p-2 bg-gray-700 text-white rounded-l border border-gray-600 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-//                                 placeholder="Enter your domain prefix"
-//                             />
-//                             <span className="p-2 bg-gray-600 text-gray-300 rounded-r border border-l-0 border-gray-600">
-//                                 .unstoppable
-//                             </span>
-//                         </div>
-//                     </div>
+                <div className="py-6">
+                    <div className="bg-gradient-to-br from-purple-500/10 via-blue-500/5 to-purple-500/10 rounded-xl p-6 border border-white/10 backdrop-blur-sm">
+                        <div className="flex items-center gap-3 mb-5">
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center border border-purple-500/30">
+                                <Crown className="w-5 h-5 text-purple-400" />
+                            </div>
+                            <h3 className="text-white/90 text-lg font-medium">
+                                {/* Why become an Investor */}
+                                {commonPageData.modals.whyBecomeAnInvestor}
+                            </h3>
+                        </div>
+                        <ul className="space-y-4">
+                            {commonPageData.modals.investorBenefits.map((benefit, index) => (
+                                <li key={index} className="flex items-start gap-3 text-white/80">
+                                    <CheckCircle2 className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                                    <span className="text-sm">{benefit}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
 
-
-//                     <div className="text-sm text-gray-300">
-//                         Investment Amount: {dukiDaoContractConfig.investFee.toString()} USDC
-//                     </div>
-
-//                     {error && (
-//                         <div className="text-red-500 text-sm mt-2">
-//                             Error: {error || 'An error occurred during the transaction.'}
-//                         </div>
-//                     )}
-//                     {/* {approveError && (
-//                         <div className="text-red-500 text-sm mt-2">
-//                             {typeof approveError === 'string' ? approveError : approveError.message || 'An error occurred during token approval.'}
-//                         </div>
-//                     )} */}
-
-//                     <div className="rounded-lg space-y-3 mb-4">
-//                         <h3 className="text-white font-medium">Why Becoming an Investor:</h3>
-//                         <ul className="list-disc list-outside text-gray-300 space-y-2">
-//                             <li>Gain lifetime DNS management access for the domain</li>
-//                             <li>The owner of the invested domain will share 10% of all revenues in the DAO. (Do not expect too high returns, treat it as a good way to get involved in the DAO.)</li>
-//                         </ul>
-//                     </div>
-
-//                     <div className="flex justify-end gap-2">
-//                         <button
-//                             type="button"
-//                             onClick={onClose}
-//                             className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors"
-//                             disabled={txStatus === 'submitted' || txStatus === 'confirming'}
-//                         >
-//                             Cancel
-//                         </button>
-//                         <button
-//                             type="submit"
-//                             className="px-4 py-2 bg-purple-600 text-white rounded hover:bg-purple-700 transition-colors disabled:bg-purple-400"
-//                             disabled={txStatus === 'submitted' || txStatus === 'confirming'}
-//                         >
-//                             {txStatus === 'submitted' || txStatus === 'confirming' ? 'Processing...' : 'Become an Investor Now'}
-//                         </button>
-//                     </div>
-//                 </form>
-//                 {/* <TransactionDebug
-//                     error={error}
-//                     isPending={txStatus === 'submitted' || txStatus === 'confirming'}
-//                     hash={transactionHash}
-//                     txStatus={txStatus}
-//                 /> */}
-//             </div>
-
-//         </div>
-//     );
-// };
+                    <div className="flex justify-end gap-3 mt-8">
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="border-gray-600 text-gray-300 hover:bg-gray-800/50 px-6"
+                            onClick={onClose}
+                            disabled={connectDaoToInvestPending || approvePending}
+                        >
+                            {/* Cancel */}
+                            {commonPageData.buttons.cancel}
+                        </Button>
+                        <Button
+                            size="lg"
+                            className="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 text-white border-none px-6"
+                            onClick={handleSubmit}
+                            disabled={connectDaoToInvestPending || approvePending}
+                        >
+                            {connectDaoToInvestPending || approvePending ? (
+                                <>
+                                    <div className="h-5 w-5 mr-2 animate-spin rounded-full border-2 border-white border-t-transparent"></div>
+                                    {/* Processing... */}
+                                    {commonPageData.modals.processing}
+                                </>
+                            ) : (
+                                `${commonPageData.modals.becomeAnInvestor}`
+                            )}
+                        </Button>
+                    </div>
+                </div>
+            </DialogContent>
+        </Dialog>
+    );
+};

@@ -1,9 +1,9 @@
 {
   "iChing": {
     "☯️": {
+      "gua_ci": "",
       "name": "Taiji",
       "symbol": "☯️",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -15,9 +15,9 @@
       ]
     },
     "0": {
+      "gua_ci": "",
       "name": "Yin",
       "symbol": "⚋",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -29,9 +29,9 @@
       ]
     },
     "1": {
+      "gua_ci": "",
       "name": "Yang",
       "symbol": "⚊",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -43,9 +43,9 @@
       ]
     },
     "00": {
+      "gua_ci": "",
       "name": "Old Yin",
       "symbol": "⚏",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -57,9 +57,9 @@
       ]
     },
     "01": {
+      "gua_ci": "",
       "name": "Young Yang",
       "symbol": "⚎",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -71,9 +71,9 @@
       ]
     },
     "10": {
+      "gua_ci": "",
       "name": "Young Yin",
       "symbol": "⚍",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -85,9 +85,9 @@
       ]
     },
     "11": {
+      "gua_ci": "",
       "name": "Old Yang",
       "symbol": "⚌",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -99,9 +99,9 @@
       ]
     },
     "000": {
+      "gua_ci": "",
       "name": "Earth, The Receptive",
       "symbol": "☷",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -112,9 +112,9 @@
       ]
     },
     "001": {
+      "gua_ci": "",
       "name": "Mountain, Keeping Still",
       "symbol": "☶",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -125,9 +125,9 @@
       ]
     },
     "010": {
+      "gua_ci": "",
       "name": "Water, The Abysmal",
       "symbol": "☵",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -138,9 +138,9 @@
       ]
     },
     "011": {
+      "gua_ci": "",
       "name": "Wind, The Gentle",
       "symbol": "☴",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -151,9 +151,9 @@
       ]
     },
     "100": {
+      "gua_ci": "",
       "name": "Thunder, The Arousing",
       "symbol": "☳",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -164,9 +164,9 @@
       ]
     },
     "101": {
+      "gua_ci": "",
       "name": "Fire, The Clinging",
       "symbol": "☲",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -177,9 +177,9 @@
       ]
     },
     "110": {
+      "gua_ci": "",
       "name": "Lake, The Joyous",
       "symbol": "☱",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -190,9 +190,9 @@
       ]
     },
     "111": {
+      "gua_ci": "",
       "name": "Heaven, The Creative",
       "symbol": "☰",
-      "gua_ci": "",
       "yao_ci": [
         "",
         "",
@@ -202,394 +202,9 @@
         ""
       ]
     },
-    "100000": {
-      "name": "Falling Away",
-      "gua_ci": "SPLITTING APART. IT does not further one\nTo go anywhere.",
-      "yao_ci": [
-        "Initial Six: The leg of the bed is split.\nThose who persevere are destroyed.\nMisfortune.",
-        "Second Six: The bed is split at the edge.\nThose who persevere are destroyed.\nMisfortune.",
-        "Third Six: He splits with them. No blame.",
-        "Fourth Six: The bed is split up to the skin.\nMisfortune.",
-        "Fifth Six: A shoal of fishes. Favor comes through the court ladies.\nEverything acts to further.",
-        "Top Nine: There is a large fruit still uneaten.\nThe superior man receives a carriage.\nThe house of the inferior man is split apart."
-      ]
-    },
-    "100001": {
-      "name": "Nourishing",
-      "gua_ci": "THE CORNERS OF THE MOUTH.\nPerseverance brings good fortune.\nPay heed to the providing of nourishment\nAnd to what a man seeks\nTo fill his own mouth with.\nIn bestowing care and nourishment, it is important that the right people should be taken care of and that we should attend to our own nourishment in the right way. If we wish to know what anyone is like, we have only to observe on whom he bestows his care and what sides of his own nature he cultivates and nourishes. Nature nourishes all creatures. The great man fosters and takes care of superior men, in order to take care of all men through them. Mencius says about this:",
-      "yao_ci": [
-        "Initial Nine: You let your magic tortoise go,\nAnd look at me with the corners of your mouth drooping.\nMisfortune.",
-        "Second Six: Turning to the summit for nourishment,\nDeviating from the path",
-        "Third Six: Turning away from nourishment.\nPerseverance brings misfortune.\nDo not act thus for ten years.",
-        "Fourth Six: Turning to the summit\nFor provision of nourishment\nBrings good fortune.",
-        "Fifth Six: Turning away from the path.",
-        "Top Nine: The source of nourishment.\nAwareness of danger brings good fortune.\nIt furthers one to cross the great water."
-      ]
-    },
-    "100010": {
-      "name": "Childhood",
-      "gua_ci": "YOUTHFUL FOLLY has success.\nIt is not I who seek the young fool;\nThe young fool seeks me.\nAt the first oracle I inform him.\nIf he asks two or three times, it is importunity.\nIf he importunes, I give him no information.\nPerseverance furthers.",
-      "yao_ci": [
-        "Initial Six: To make a fool develop\nIt furthers one to apply discipline.\nThe fetters should be removed.\nTo go on in this way bring humiliation.",
-        "Second Nine: To bear with fools in kindliness brings good fortune.\nTo know how to take women\nBrings good fortune.\nThe son is capable of taking charge of the household.",
-        "Third Six: Take not a maiden who. When she sees a man of bronze,\nLoses possession of herself.\nNothing furthers.",
-        "Fourth Six: Entangled folly bring humiliation.",
-        "Fifth Six: Childlike folly brings good fortune.",
-        "Top Nine: In punishing folly\nIt does not further one\nTo commit transgressions.\nThe only thing that furthers\nIs to prevent transgressions."
-      ]
-    },
-    "100011": {
-      "name": "Decreasing",
-      "gua_ci": "DECREASE combined with sincerity\nBrings about supreme good fortune\nWithout blame.\nOne may be persevering in this.\nIt furthers one to undertake something.\nHow is this to be carried out?\nOne may use two small bowls for the sacrifice.",
-      "yao_ci": [
-        "Initial Nine: Going quickly when one's tasks are finished\nIs without blame.\nBut one must reflect on how much one may decrease others.",
-        "Second Nine: Perseverance furthers.",
-        "Third Six: When three people journey together,",
-        "Fourth Six: If a man deceases his faults,\nIt makes the other hasten to come and rejoice.",
-        "Fifth Six: Someone does indeed increase him.",
-        "Top Nine: If one is increased without depriving other,"
-      ]
-    },
-    "100100": {
-      "name": "Keeping Still",
-      "gua_ci": "KEEPING STILL. Keeping his back still\nSo that he no longer feels his body.\nHe goes into his courtyard\nAnd does not see his people.\nNo blame.",
-      "yao_ci": [
-        "Initial Six: Keeping his toes still.",
-        "Second Six: Keeping his calves still.\nHe cannot rescue him whom he follows.\nHis heart is not glad.",
-        "Third Nine: Keeping his hips still.\nMaking his sacrum stiff.\nDangerous. The heart suffocates.",
-        "Fourth Six: Keeping his trunk still.",
-        "Fifth Six: Keeping his jaws still.",
-        "Top Nine: Noblehearted keeping still.\nGood fortune."
-      ]
-    },
-    "100101": {
-      "name": "Adorning",
-      "gua_ci": "GRACE has success.\nIn small matters\nIt is favorable to undertake something.",
-      "yao_ci": [
-        "Initial Nine: He lends grace to his toes, leaves the carriage, and walks.",
-        "Second Six: Lends grace to the beard on his chin.",
-        "Third Nine: Graceful and moist.\nConstant perseverance brings good fortune.",
-        "Fourth Six: Grace or simplicity?\nA white horse comes as if on wings.\nHe is not a robber,\nHe will woo at the right time.",
-        "Fifth Six: Grace in the hills and gardens.\nThe roll of silk is meager and small.\nHumiliation, but in the end good fortune.",
-        "Top Nine: Simple grace. No blame."
-      ]
-    },
-    "100110": {
-      "name": "Remedying",
-      "gua_ci": "WORK ON WHAT HAS BEEN SPOILED\nHas supreme success.\nIt furthers one to cross the great water.\nBefore the starting point, three days.\nAfter the starting point, three days.",
-      "yao_ci": [
-        "Initial Six: Setting right what has been spoiled by the father.\nIf there is a son,\nNo blame rests upon the departed father.\nDanger. In the end good fortune.",
-        "Second Nine: Setting right what has been spoiled by the mother.\nOne must not be too persevering.",
-        "Third Nine: Setting right what has been spoiled by the father.\nThere will be a little remorse. No great blame.",
-        "Fourth Six: Tolerating what has been spoiled by the father.\nIn continuing one sees humiliation.",
-        "Fifth Six: Setting right what has been spoiled by the father.\nOne meets with praise.",
-        "Top Nine: He does not serve kings and princes,\nSets himself higher goals."
-      ]
-    },
-    "100111": {
-      "name": "Great Accumulation",
-      "gua_ci": "THE TAMING POWER OF THE GREAT.\nPerseverance furthers.\nNot eating at home brings good fortune.\nIt furthers one to cross the great water.",
-      "yao_ci": [
-        "Initial Nine: Danger is at hand. It furthers one to desist.",
-        "Second Nine: The axletrees are taken from the wagon.",
-        "Third Nine: A good horse that follows others.\nAwareness of danger,\nWith perseverance, furthers.\nPractice chariot driving and armed defense daily.\nIt furthers one to have somewhere to go.",
-        "Fourth Six: The headboard of a young bull.\nGreat good fortune.",
-        "Fifth Six: The tusk of a gelded boar.\nGood fortune.",
-        "Top Nine: One attains the way of heaven."
-      ]
-    },
-    "101000": {
-      "name": "Proceeding Forward",
-      "gua_ci": "PROGRESS. The powerful prince\nIs honored with horses in large numbers.\nIn a single day he is granted audience three times.\nAs an example of progress, this pictures a time when a powerful feudal lord rallies the other lords around the sovereign and pledges fealty and peace. The sovereign rewards him richly and invites him to a closer intimacy.",
-      "yao_ci": [
-        "Initial Six: Progressing, but turned back.\nPerseverance brings good fortune.\nIf one meets with no confidence, one should remain calm.",
-        "Second Six: Progressing, but in sorrow.\nPerseverance brings good fortune.",
-        "Third Six: All are in accord. Remorse disappears.",
-        "Fourth Nine: Progress like a hamster.\nPerseverance brings danger.",
-        "Fifth Six: Remorse disappears.",
-        "Top Nine: Making progress with the horns is permissible\nOnly for the purpose of punishing one's own city."
-      ]
-    },
-    "101001": {
-      "name": "Eradicating",
-      "gua_ci": "BITING THROUGH has success.\nIt is favorable to let justice be administered.",
-      "yao_ci": [
-        "Initial Nine: His feet are fastened in the stocks,\nSo that his toes disappear.\nNo blame.",
-        "Second Six: Bites through tender meat,\nSo that his nose disappears.\nNo blame.",
-        "Third Six: Bites on old dried meat\nAnd strikes on something poisonous.\nSlight humiliation. No blame.",
-        "Fourth Nine: Bites on dried gristly meat.\nReceives metal arrows.\nIt furthers one to be mindful of difficulties\nAnd to be persevering.\nGood fortune.",
-        "Fifth Six: Bites on dried lean meat.\nReceives yellow gold.\nPerseveringly aware of danger.",
-        "Top Nine: His neck is fastened in the wooden cangue,\nSo that his ears disappear.\nMisfortune."
-      ]
-    },
-    "101010": {
-      "name": "Not Yet Fulfilled",
-      "gua_ci": "BEFORE COMPLETION. Success.\nBut if the little fox, after nearly completing the crossing,\nGets his tail in the water,\nThere is nothing that would further.",
-      "yao_ci": [
-        "Initial Six: He gets his tail in the water.\nHumiliating.",
-        "Second Nine: He brakes his wheels.\nPerseverance brings good fortune.",
-        "Third Six: Before completion, attack brings misfortune.\nIt furthers one to cross the great water.",
-        "Fourth Nine: Perseverance brings good fortune.\nRemorse disappears.",
-        "Fifth Six: Perseverance brings good fortune.",
-        "Top Nine: There is drinking of wine\nIn genuine confidence. No blame.\nBut if one wets his head,\nHe loses it, in truth."
-      ]
-    },
-    "101011": {
-      "name": "Diversity",
-      "gua_ci": "OPPOSITION. In small matters, good fortune.",
-      "yao_ci": [
-        "Initial Nine: Remorse disappears.\nIf you lose your horse, do not run after it;\nIt will come back of its own accord.\nWhen you see evil people,\nGuard yourself against mistakes.",
-        "Second Nine: One meets his lord in a narrow street.",
-        "Third Six: One sees the wagon dragged back,",
-        "Fourth Nine: Isolated through opposition,\nOne meets a like-minded man\nWith whom one can associate in good faith.\nDespite the danger, no blame.",
-        "Fifth Six: Remorse disappears.",
-        "Top Nine: Isolated through opposition,\nOne sees one's companion as a pig covered with dirt,\nAs a wagon full of devils.\nFirst one draws a bow against him,"
-      ]
-    },
-    "101100": {
-      "name": "Travelling",
-      "gua_ci": "The Wanderer. Success through smallness.\nPerseverance brings good fortune to the wanderer.\nWHEN A man is a wanderer and stranger, he should not be gruff nor overbearing. He has no large circle of acquaintances, therefore he should not give himself airs. He must be cautious and reserved; in this way he protects himself from evil. If he is obliging toward others, he wins success.",
-      "yao_ci": [
-        "Initial Six: If the wanderer busies himself with trivial things,\nHe draws down misfortune upon himself.",
-        "Second Six: The wanderer comes to an inn.\nHe has his property with him.\nHe wins the steadfastness of a young servant.",
-        "Third Nine: The wanderer's inn burns down.\nHe loses the steadfastness of his young servant.\nDanger.",
-        "Fourth Nine: The wanderer rests in a shelter.\nHe obtains his property and an ax.\nMy heart is not glad.",
-        "Fifth Six: He shoots a pheasant.\nIt drops with the first arrow.\nIn the end this brings both praise and office.",
-        "Top Nine: The bird's nest burns up."
-      ]
-    },
-    "101101": {
-      "name": "Brightness",
-      "gua_ci": "THE CLINGING. Perseverance furthers.\nIt brings success.\nCare of the cow brings good fortune.",
-      "yao_ci": [
-        "Initial Nine: The footprints run crisscross.\nIf one is seriously intent, no blame.",
-        "Second Six: Yellow light. Supreme good fortune.",
-        "Third Nine: In the light of the setting sun,\nMen either beat the pot and sing\nOr loudly bewail the approach of old age.\nMisfortune.",
-        "Fourth Nine: Its coming is sudden;\nIt flames up, dies down, is thrown away.",
-        "Fifth Six: Tears in floods, sighing and lamenting.\nGood fortune.",
-        "Top Nine: The king used him to march forth and chastise."
-      ]
-    },
-    "101110": {
-      "name": "Establishing The New",
-      "gua_ci": "THE CALDRON. Supreme good fortune.\nSuccess.",
-      "yao_ci": [
-        "Initial Six: A ting with legs upturned.\nFurthers removal of stagnating stuff.\nOne takes a concubine for the sake of her son.",
-        "Second Nine: There is food in the ting.\nMy comrades are envious,\nBut they cannot harm me.\nGood fortune.",
-        "Third Nine: The handle of the ting is altered.\nOne is impeded in his way of life.",
-        "Fourth Nine: The legs of the ting are broken.",
-        "Fifth Six: The ting has yellow handles, golden carrying rings.\nPerseverance furthers.",
-        "Top Nine: The ting has rings of jade.\nGreat good fortune."
-      ]
-    },
-    "101111": {
-      "name": "Great Harvest",
-      "gua_ci": "POSSESSION IN GREAT MEASURE.\nSupreme success.",
-      "yao_ci": [
-        "Initial Nine: No relationship with what is harmful;\nThere is no blame in this.\nIf one remains conscious of difficulty,\nOne remains without blame.",
-        "Second Nine: A big wagon for loading.\nOne may undertake something.\nNo blame.",
-        "Third Nine: A prince offers it to the Son of Heaven.\nA petty man cannot do this.",
-        "Fourth Nine: He makes a difference\nBetween himself and his neighbor.\nNo blame.",
-        "Fifth Six: He whose truth is accessible, yet dignified,\nHas good fortune.",
-        "Top Nine: He is blessed by heaven.\nGood fortune.\nNothing that does not further."
-      ]
-    },
-    "110000": {
-      "name": "Watching",
-      "gua_ci": "CONTEMPLATION. The ablution has been made,\nBut not yet the offering.\nFull of trust they look up to him.",
-      "yao_ci": [
-        "Initial Six: Boy like contemplation.\nFor an inferior man, no blame.\nFor a superior man, humiliation.",
-        "Second Six: Contemplation through the crack of the door.\nFurthering for the perseverance of a woman.",
-        "Third Six: Contemplation of my life\nDecides the choice\nBetween advance and retreat.",
-        "Fourth Six: Contemplation of the light of the kingdom.\nIt furthers one to exert influence as the guest of a king.",
-        "Fifth Nine: Contemplation of my life.\nThe superior man is without blame.",
-        "Top Nine: Contemplation of his life.\nThe superior man is without blame."
-      ]
-    },
-    "110001": {
-      "name": "Increasing",
-      "gua_ci": "INCREASE. It furthers one\nTo undertake something.\nIt furthers one to cross the great water.",
-      "yao_ci": [
-        "Initial Nine: It furthers one to accomplish great deeds.",
-        "Second Six: Someone does indeed increase him;",
-        "Third Six: One is enriched through unfortunate events.",
-        "Fourth Six: If you walk in the middle\nAnd report the prince,\nHe will follow.\nIt furthers one to be used\nIn the removal of the capital.",
-        "Fifth Nine: If in truth you have a kind heart, ask not.",
-        "Top Nine: He brings increase to no one.\nIndeed, someone even strikes him.\nHe does not keep his heart constantly steady.\nMisfortune."
-      ]
-    },
-    "110010": {
-      "name": "Dispersing",
-      "gua_ci": "DISPERSION. Success.\nThe king approaches his temple.\nIt furthers one to cross the great water.\nPerseverance furthers.\nThe text of this hexagram resembles that of Ts'ui, GATHERING TOGETHER",
-      "yao_ci": [
-        "Initial Six: He brings help with the strength of a horse.\nGood fortune.",
-        "Second Nine: At the dissolution\nHe hurries to that which supports him.\nRemorse disappears.",
-        "Third Six: He dissolves his self. No remorse.",
-        "Fourth Six: He dissolves his bond with his group.",
-        "Fifth Nine: His loud cries are as dissolving as sweat.\nDissolution! A king abides without blame.",
-        "Top Nine: He dissolves his blood.\nDeparting, keeping at a distance, going out,\nIs without blame."
-      ]
-    },
-    "110011": {
-      "name": "Innermost Sincerity",
-      "gua_ci": "INNER TRUTH. Pigs and fishes.\nGood fortune.\nIt furthers one to cross the great water.\nPerseverance furthers.",
-      "yao_ci": [
-        "Initial Nine: Being prepared brings good fortune.\nIf there are secret designs, it is disquieting.",
-        "Second Nine: A crane calling in the shade.\nIts young answers it.\nI have a good goblet.\nI will share it with you.",
-        "Third Six: He finds a comrade.",
-        "Fourth Six: The moon nearly at the full.",
-        "Fifth Nine: He possesses truth, which links together.",
-        "Top Nine: Cockcrow penetrating to heaven.\nPerseverance brings misfortune."
-      ]
-    },
-    "110100": {
-      "name": "Developing Gradually",
-      "gua_ci": "DEVELOPMENT. The maiden\nIs given in marriage.\nGood fortune.\nPerseverance furthers.",
-      "yao_ci": [
-        "Initial Six: The wild goose gradually draws near the shore.",
-        "Second Six: The wild goose gradually draws near the cliff.\nEating and drinking in peace and concord.\nGood fortune.",
-        "Third Nine: The wild goose gradually draws near the plateau.",
-        "Fourth Six: The wild goose goes gradually draws near the tree.\nPerhaps it will find a flat branch. No blame.",
-        "Fifth Nine: The wild goose gradually draws near the summit.\nFor three years the woman has no child.\nIn the end nothing can hinder her.\nGood fortune.",
-        "Top Nine: The wild goose gradually draws near the clouds heights.\nIts feathers can be used for the sacred dance.\nGood fortune."
-      ]
-    },
-    "110101": {
-      "name": "Household",
-      "gua_ci": "THE FAMILY. The perseverance of the woman furthers.",
-      "yao_ci": [
-        "Initial Nine: Firm seclusion within the family.\nRemorse disappears.",
-        "Second Six: She should not follow her whims.",
-        "Third Nine: When tempers flare up in the family,",
-        "Fourth Six: She is the treasure of the house.\nGreat good fortune.",
-        "Fifth Nine: As a king he approaches his family.\nFear not.\nGood fortune.",
-        "Top Nine: His work commands respect.'\nIn the end good fortune comes."
-      ]
-    },
-    "110110": {
-      "name": "Proceeding Humbly",
-      "gua_ci": "THE GENTLE. Success through what is small.\nIt furthers one to have somewhere to go.\nIt furthers one to see the great man.",
-      "yao_ci": [
-        "Initial Six: In advancing and in retreating,",
-        "Second Nine: Penetration under the bed.\nPriests and magicians are used in great number.\nGood fortune. No blame.",
-        "Third Nine: Repeated penetration. Humiliation.",
-        "Fourth Six: Remorse vanishes.\nDuring the hunt",
-        "Fifth Nine: Perseverance brings good fortune.\nRemorse vanishes.",
-        "Top Nine: Penetration under the bed.\nHe loses his property and his ax.\nPerseverance brings misfortune."
-      ]
-    },
-    "110111": {
-      "name": "Little Accumulation",
-      "gua_ci": "THE TAMING POWER OF THE SMALL\nHas success.\nDense clouds, no rain from our western region.",
-      "yao_ci": [
-        "Initial Nine: Return to the way.\nHow could there be blame in this?\nGood fortune.",
-        "Second Nine: He allows himself to be drawn into returning.\nGood fortune.",
-        "Third Nine: The spokes burst out of the wagon wheels.\nMan and wife roll their eyes.",
-        "Fourth Six: If you are sincere, blood vanishes and fear gives way.\nNo blame.",
-        "Fifth Nine: If you are sincere and loyally attached,\nYou are rich in your neighbor.",
-        "Top Nine: The rain comes, there is rest.\nThis is due to the lasting effect of character.\nPerseverance brings the woman into danger.\nThe moon is nearly full.\nIf the superior man persists,\nMisfortune comes."
-      ]
-    },
-    "111000": {
-      "name": "Hindrance",
-      "gua_ci": "STANDSTILL. Evil people do not further\nThe perseverance of the superior man.\nThe great departs; the small approaches.",
-      "yao_ci": [
-        "Initial Six: When ribbon grass is pulled up, the sod comes with it.\nEach according to his kind.\nPerseverance brings good fortune and success.",
-        "Second Six: They bear and endure;\nThis means good fortune for inferior people.\nThe standstill serves to help the great man to attain success.",
-        "Third Six: They bear shame.",
-        "Fourth Nine: He who acts at the command of the highest\nRemains without blame.\nThose of like mind partake of the blessing.",
-        "Fifth Nine: Standstill is giving way.\nGood fortune for the great man.\n\"What if it should fail, what if it should fail?\"\nIn this way he ties it to a cluster of mulberry shoots.",
-        "Top Nine: The standstill comes to an end.\nFirst standstill, then good fortune."
-      ]
-    },
-    "111001": {
-      "name": "Without Falsehood",
-      "gua_ci": "INNOCENCE. Supreme success.\nPerseverance furthers.\nIf someone is not as he should be,\nHe has misfortune,\nAnd it does not further him\nTo undertake anything.",
-      "yao_ci": [
-        "Initial Nine: Innocent behavior brings good fortune.",
-        "Second Six: If one does not count on the harvest while plowing,",
-        "Third Six: Undeserved misfortune.",
-        "Fourth Nine: He who can be persevering\nRemains without blame.",
-        "Fifth Nine: Use no medicine in an illness\nIncurred through no fault of your own.\nIt will pass of itself.",
-        "Top Nine: Innocent action brings misfortune."
-      ]
-    },
-    "111010": {
-      "name": "Contention",
-      "gua_ci": "CONFLICT. You are sincere\nAnd are being obstructed.\nA cautious halt halfway brings good fortune.\nGoing through to the end brings misfortune.\nIt furthers one to see the great man.\nIt does not further one to cross the great water.",
-      "yao_ci": [
-        "Initial Six: If one does not perpetuate the affair,\nThere is a little gossip.\nIn the end, good fortune comes.",
-        "Second Nine: One cannot engage in conflict;\nOne returns home, gives way.\nThe people of his town,\nThree hundred households,\nRemain free of guilt.",
-        "Third Six: To nourish oneself on ancient virtue induces perseverance.\nDanger. In the end, good fortune comes.\nIf by chance you are in the service of a king,\nSeek not works.",
-        "Fourth Nine: One cannot engage in conflict.\nOne turns back and submits to fate,\nChanges one's attitude,\nAnd finds peace in perseverance.\nGood fortune.",
-        "Fifth Nine: To contend before him\nBrings supreme good fortune.",
-        "Top Nine: Even if by chance a leather belt is bestowed on one,'\nBy the end of a morning\nIt will have been snatched away three times."
-      ]
-    },
-    "111011": {
-      "name": "Fulfillment",
-      "gua_ci": "TREADING. Treading upon the tail of the tiger.\nIt does not bite the man. Success.",
-      "yao_ci": [
-        "Initial Nine: Simple conduct. Progress without blame.",
-        "Second Nine: Treading a smooth, level course.\nThe perseverance of a dark man\nBrings good fortune.",
-        "Third Six: A one-eyed man is able to see,\nA lame man is able to tread.\nHe treads on the tail of the tiger.",
-        "Fourth Nine: He treads on the tail of the tiger.\nCaution and circumspection\nLead ultimately to good fortune.",
-        "Fifth Nine: Resolute conduct.\nPerseverance with awareness of danger.",
-        "Top Nine: Look to your conduct and weigh the favorable signs.\nWhen everything is fulfilled, supreme good fortune comes."
-      ]
-    },
-    "111100": {
-      "name": "Retreat",
-      "gua_ci": "RETREAT. Success.\nIn what is small, perseverance furthers.",
-      "yao_ci": [
-        "Initial Six: At the tail in retreat. This is dangerous.\nOne must not wish to undertake anything.",
-        "Second Six: he holds him fast with yellow oxhide.",
-        "Third Nine: A halted retreat\nIs nerve-wracking and dangerous.",
-        "Fourth Nine: Voluntary retreat brings good fortune to the superior man\nAnd downfall to the inferior man.",
-        "Fifth Nine: Friendly retreat. Perseverance brings good fortune.",
-        "Top Nine: Cheerful retreat. Everything serves to further."
-      ]
-    },
-    "111101": {
-      "name": "Seeking Harmony",
-      "gua_ci": "FELLOWSHIP WITH MEN in the open.\nSuccess.\nIt furthers one to cross the great water.\nThe perseverance of the superior man furthers.",
-      "yao_ci": [
-        "Initial Nine: Fellowship with men at the gate.\nNo blame.",
-        "Second Six: Fellowship with men in the clan.\nHumiliation.",
-        "Third Nine: He hides weapons in the thicket;\nHe climbs the high hill in front of it.\nFor three years he does not rise up.",
-        "Fourth Nine: He climbs up on his wall; he cannot attack.\nGood fortune.",
-        "Fifth Nine: Men bound in fellowship first weep and lament,\nBut afterward they laugh.\nAfter great struggles they succeed in meeting.",
-        "Top Nine: Fellowship with men in the meadow.\nNo remorse."
-      ]
-    },
-    "111110": {
-      "name": "Encountering",
-      "gua_ci": "COMING TO MEET. The maiden is powerful.\nOne should not marry such a maiden.",
-      "yao_ci": [
-        "Initial Six: It must be checked with a brake of bronze.\nPerseverance brings good fortune.\nIf one lets it take its course, one experiences misfortune.\nEven a lean pig has it in him to rage around.",
-        "Second Nine: There is a fish in the tank. No blame.\nDoes not further guests.",
-        "Third Nine: And walking comes hard.\nIf one is mindful of the danger,",
-        "Fourth Nine: No fish in the tank.",
-        "Fifth Nine: A melon covered with willow leaves.\nHidden lines.",
-        "Top Nine: He comes to meet with his horns.\nHumiliation. No blame."
-      ]
-    },
-    "111111": {
-      "name": "Initiating",
-      "gua_ci": "THE CREATIVE works sublime success, Furthering through perseverance.",
-      "yao_ci": [
-        "Initial Nine: Hidden dragon. Do not act.",
-        "Second Nine: Dragon appearing in the field.\nIt furthers one to see the great man.",
-        "Third Nine: All day long the superior man is creatively active.\nAt nightfall his mind is still beset with cares.\nDanger. No blame.",
-        "Fourth Nine: Wavering flight over the depths.\nNo blame.",
-        "Fifth Nine: Flying dragon in the heavens.\nIt furthers one to see the great man.",
-        "Top Nine: Arrogant dragon will have cause to repent."
-      ],
-      "yong_ci": "There appears a flight of dragons without heads.\nGood fortune."
-    },
     "000000": {
-      "name": "Responding",
       "gua_ci": "THE RECEPTIVE brings about sublime success,\nFurthering through the perseverance of a mare.\nIf the superior man undertakes something and tries to lead,\nHe goes astray;\nBut if he follows, he finds guidance.\nIt is favorable to find friends in the west and south,\nTo forego friends in the east and north.\nQuiet perseverance brings good fortune.",
+      "name": "Responding",
       "yao_ci": [
         "Initial Six: When there is hoarfrost underfoot,\nSolid ice is not far off.",
         "Second Six: Straight, square, great.\nWithout purpose,\nYet nothing remains unfurthered.",
@@ -600,357 +215,141 @@
       ],
       "yong_ci": "A yielding ruler comes forth. Good fortune."
     },
-    "010001": {
-      "name": "Beginning",
-      "gua_ci": "DIFFICULTY AT THE BEGINNING works supreme success,\nFurthering through perseverance.\nNothing should be undertaken.\nIt furthers one to appoint helpers.",
-      "yao_ci": [
-        "Initial Nine: Hesitation and hindrance.\nIt furthers one to remain persevering.\nIt furthers one to appoint helpers.",
-        "Second Six: Difficulties pile up.\nHorse and wagon part.\nHe is not a robber;\nHe wants to woo when the time comes.\nThe maiden is chaste,\nShe does not pledge herself.\nTen years--then she pledges herself.",
-        "Third Six: Whoever hunts deer without the forester\nOnly loses his way in the forest.\nThe superior man understands the signs of the time\nAnd prefers to desist.\nTo go on brings humiliation.",
-        "Fourth Six: Horse and wagon part.\nStrive for union.\nTo go brings good fortune.\nEverything acts to further.",
-        "Fifth Nine: Difficulties in blessing.\nA little perseverance brings good fortune.\nGreat perseverance brings misfortune.",
-        "Top Six: Horse and wagon part.\nBloody tears flow."
-      ]
-    },
-    "010111": {
-      "name": "Needing",
-      "gua_ci": "WAITING. If you are sincere,\nYou have light and success.\nPerseverance brings good fortune.\nIt furthers one to cross the great water.",
-      "yao_ci": [
-        "Initial Nine: Waiting in the meadow.\nIT furthers one to abide in what endures.\nNo blame.",
-        "Second Nine: Waiting on the sand.\nThere is some gossip.\nThe end brings good fortune.",
-        "Third Nine: Waiting in the mud\nBrings about the arrival of the enemy.",
-        "Fourth Six: Waiting in blood.\nGet out of the pit.",
-        "Fifth Nine: Waiting at meat and drink.\nPerseverance brings good fortune.",
-        "Top Six: One falls into the pit.\nThree uninvited guests arrive.\nHonor them, and in the end there will be good fortune."
-      ]
-    },
-    "000010": {
-      "name": "Multitude",
-      "gua_ci": "THE ARMY. The army needs perseverance\nAnd a strong man.\nGood fortune without blame.\nAn army is a mass that needs organization in order to become a fighting force.",
-      "yao_ci": [
-        "Initial Six: An army must set forth in proper order.\nIf the order is not good, misfortune threatens.",
-        "Second Nine: In the midst of the army.\nGood fortune. No blame.\nThe king bestows a triple decoration.",
-        "Third Six: Perchance the army carries corpses in the wagon.\nMisfortune.",
-        "Fourth Six: The army retreats. No blame.",
-        "Fifth Six: There is game in the field.\nIt furthers one to catch it.\nWithout blame.\nLet the eldest lead the army.\nThe younger transports corpses;\nThen perseverance brings misfortune.",
-        "Top Six: The great prince issues commands,\nFounds states, vests families with fiefs.\nInferior people should not be employed."
-      ]
-    },
-    "010000": {
-      "name": "Union",
-      "gua_ci": "HOLDING TOGETHER brings good fortune.\nInquire of the oracle once again\nWhether you possess sublimity, constancy, and perseverance;\nThen there is no blame.\nThose who are uncertain gradually join.\nWhoever come too late\nMeets with misfortune.",
-      "yao_ci": [
-        "Initial Six: Hold to him in truth and loyalty;\nThis is without blame.\nTruth, like a full earthen bowl\"\nThus in the end\nGood fortune comes from without.",
-        "Second Six: Hold to him inwardly.\nPerseverance brings good fortune.",
-        "Third Six: You hold together with the wrong people.",
-        "Fourth Six: Hold to him outwardly also.\nPerseverance brings good fortune.",
-        "Fifth Nine: Manifestation of holding together.\nIn the hunt the king uses beaters on three sides only\nAnd forgoes game that runs off in front.\nThe citizens need no warning.\nGood fortune.",
-        "Top Six: He finds no head for holding together.\nMisfortune."
-      ]
-    },
-    "000111": {
-      "name": "Advance",
-      "gua_ci": "PEACE. The small departs,\nThe great approaches.\nGood fortune. Success.",
-      "yao_ci": [
-        "Initial Nine: When ribbon grass is pulled up, the sod comes with it.\nEach according to his kind.\nUndertakings bring good fortune.",
-        "Second Nine: Bearing with the uncultured in gentleness,\nFording the river with resolution,\nNot neglecting what is distant,\nNot regarding one's companions:",
-        "Third Nine: No plain not followed by a slope.\nNo going not followed by a return.\nHe who remains persevering in danger\nIs without blame.\nDo not complain about this truth;\nEnjoy the good fortune you still possess.",
-        "Fourth Six: He flutters down, not boasting of his wealth,\nTogether with his neighbor,\nGuileless and sincere.",
-        "Fifth Six: The sovereign I\nGives his daughter in marriage.\nAnd supreme good fortune.",
-        "Top Six: The wall falls back into the moat.\nUse no army now.\nMake your commands known within your own town.\nPerseverance brings humiliation."
-      ]
-    },
-    "000100": {
-      "name": "Humbleness",
-      "gua_ci": "MODESTY creates success.\n. The superior man carries things through.",
-      "yao_ci": [
-        "Initial Six: A superior man modest about his modesty\nMay cross the great water.\nGood fortune.",
-        "Second Six: Modesty that comes to expression. Perseverance brings good fortune.",
-        "Third Nine: A superior man of modesty and merit\nCarries things to conclusion.\nGood fortune.",
-        "Fourth Six: Nothing that would not further modesty\nIn movement.",
-        "Fifth Six: No boasting of wealth before one's neighbor.\nIt is favorable to attack with force.\nNothing that would not further.",
-        "Top Six: Modesty that comes to expression.\nIt is favorable to set armies marching\nTo chastise one's own city and one's country."
-      ]
-    },
-    "001000": {
-      "name": "Delight",
-      "gua_ci": "ENTHUSIASM. It furthers one to install helpers\nAnd to set armies marching.",
-      "yao_ci": [
-        "Initial Six: Enthusiasm that expresses itself\nBrings misfortune.",
-        "Second Six: Firm as a rock. Not a whole day.\nPerseverance brings good fortune.",
-        "Third Six: Enthusiasm that looks upward creates remorse.\nHesitation brings remorse.",
-        "Fourth Nine: The source of enthusiasm.\nHe achieves great things.\nDoubt not.\nYou gather friends around you\nAs a hair clasp gathers the hair.",
-        "Fifth Six: Persistently ill, and still does not die.",
-        "Top Six: Deluded enthusiasm.\nBut if after completion one changes,\nThere is no blame."
-      ]
-    },
-    "011001": {
-      "name": "Following",
-      "gua_ci": "FOLLOWING has supreme success.\nPerseverance furthers. No blame.",
-      "yao_ci": [
-        "Initial Nine: The standard is changing.\nPerseverance brings good fortune.\nTo go out of the door in company\nProduces deeds.",
-        "Second Six: If one clings to the little boy,\nOne loses the strong man.",
-        "Third Six: If one clings to the strong man,\nOne loses the little boy.",
-        "Fourth Nine: Following creates success.\nPerseverance brings misfortune.\nTo go one's way with sincerity brings clarity.\nHow could there be blame in this?",
-        "Fifth Nine: Sincere in the good. Good fortune.",
-        "Top Six: He meets with firm allegiance\nAnd is still further bound.\nThe king introduces him\nTo the Western Mountain."
-      ]
-    },
-    "000011": {
-      "name": "Approaching",
-      "gua_ci": "APPROACH has supreme success.\nPerseverance furthers.\nWhen the eighth month comes,\n. There will be misfortune.",
-      "yao_ci": [
-        "Initial Nine: Joint approach.\nPerseverance brings good fortune.",
-        "Second Nine: Joint approach.\nGood fortune.\nEverything furthers.",
-        "Third Six: Comfortable approach.\nNothing that would further.\nIf one is induced to grieve over it,\nOne becomes free of blame.",
-        "Fourth Six: Complete approach.\nNo blame.",
-        "Fifth Six: Wise approach.\nThis is right for a great prince.\nGood fortune.",
-        "Top Six: Great hearted approach.\nGood-hearted approach.\nGood fortune. No blame."
-      ]
-    },
     "000001": {
-      "name": "Turning Back",
       "gua_ci": "RETURN. Success.\nGoing out and coming in without error.\nFriends come without blame.\nTo and fro goes the way.\nOn the seventh day comes return.\nIt furthers one to have somewhere to go.",
+      "name": "Turning Back",
       "yao_ci": [
-        "Initial Nine: Return from a short distance.\nNo need for remorse.\nGreat good fortune.",
+        "Initial Six: Return from a short distance.\nNo need for remorse.\nGreat good fortune.",
         "Second Six: Quiet return. Good fortune.",
         "Third Six: Repeated return. Danger. No blame.",
         "Fourth Six: Walking in the midst of others,\nOne returns alone.",
         "Fifth Six: Noblehearted return. No remorse.",
-        "Top Six: Missing the return. Misfortune.\nMisfortune from within and without.\nIf armies are set marching in this way,\nOne will in the end suffer a great defeat,\nDisastrous for the ruler of the country.\nFor ten years\nIt will not be possible to attack again."
+        "Top Nine: Missing the return. Misfortune.\nMisfortune from within and without.\nIf armies are set marching in this way,\nOne will in the end suffer a great defeat,\nDisastrous for the ruler of the country.\nFor ten years\nIt will not be possible to attack again."
       ]
     },
-    "011110": {
-      "name": "Great Exceeding",
-      "gua_ci": "PREPONDERANCE OF THE GREAT.\nThe ridgepole sags to the breaking point.\nIt furthers one to have somewhere to go.\nSuccess.",
+    "000010": {
+      "gua_ci": "THE ARMY. The army needs perseverance\nAnd a strong man.\nGood fortune without blame.\nAn army is a mass that needs organization in order to become a fighting force.",
+      "name": "Multitude",
       "yao_ci": [
-        "Initial Six: To spread white rushes underneath.",
-        "Second Nine: A dry poplar sprouts at the root.\nAn older man takes a young wife.\nEverything furthers.",
-        "Third Nine: The ridgepole sags to the breaking point.\nMisfortune.",
-        "Fourth Nine: The ridgepole is braced. Good fortune.\nIf there are ulterior motives, it is humiliating.",
-        "Fifth Nine: A withered poplar puts forth flowers.\nAn older woman takes a husband.",
-        "Top Six: One must go through the water.\nIt goes over one's head.\nMisfortune. No blame."
+        "Initial Six: An army must set forth in proper order.\nIf the order is not good, misfortune threatens.",
+        "Second Six: In the midst of the army.\nGood fortune. No blame.\nThe king bestows a triple decoration.",
+        "Third Six: Perchance the army carries corpses in the wagon.\nMisfortune.",
+        "Fourth Six: The army retreats. No blame.",
+        "Fifth Nine: There is game in the field.\nIt furthers one to catch it.\nWithout blame.\nLet the eldest lead the army.\nThe younger transports corpses;\nThen perseverance brings misfortune.",
+        "Top Six: The great prince issues commands,\nFounds states, vests families with fiefs.\nInferior people should not be employed."
       ]
     },
-    "010010": {
-      "name": "Darkness",
-      "gua_ci": "The Abysmal repeated.\nIf you are sincere, you have success in your heart,\nAnd whatever you do succeeds.",
+    "000011": {
+      "gua_ci": "APPROACH has supreme success.\nPerseverance furthers.\nWhen the eighth month comes,\n. There will be misfortune.",
+      "name": "Approaching",
       "yao_ci": [
-        "Initial Six: Repetition of the Abysmal.\nIn the abyss one falls into a pit.\nMisfortune.",
-        "Second Nine: The abyss is dangerous.\nOne should strive to attain small things only.",
-        "Third Six: Forward and backward, abyss on abyss.\nIn danger like this, pause at first and wait,\nOtherwise you will fall into a pit in the abyss.\nDo not act this way.",
-        "Fourth Six: A jug of wine, a bowl of rice with it;\nEarthen vessels",
-        "Fifth Nine: The abyss is not filled to overflowing,\nIt is filled only to the rim.",
-        "Top Six: Bound with cords and ropes,"
+        "Initial Six: Joint approach.\nPerseverance brings good fortune.",
+        "Second Six: Joint approach.\nGood fortune.\nEverything furthers.",
+        "Third Six: Comfortable approach.\nNothing that would further.\nIf one is induced to grieve over it,\nOne becomes free of blame.",
+        "Fourth Six: Complete approach.\nNo blame.",
+        "Fifth Nine: Wise approach.\nThis is right for a great prince.\nGood fortune.",
+        "Top Nine: Great hearted approach.\nGood-hearted approach.\nGood fortune. No blame."
       ]
     },
-    "011100": {
-      "name": "Mutual Influence",
-      "gua_ci": "Influence. Success.\nPerseverance furthers.\nTo take a maiden to wife brings good fortune.",
+    "000100": {
+      "gua_ci": "MODESTY creates success.\n. The superior man carries things through.",
+      "name": "Humbleness",
       "yao_ci": [
-        "Initial Six: The influence shows itself in the big toe.",
-        "Second Six: The influence shows itself in the calves of the legs.\nMisfortune.",
-        "Third Nine: The influence shows itself in the thighs.\nHolds to that which follows it.",
-        "Fourth Nine: Perseverance brings good fortune.\nRemorse disappears.\nIf a man is agitated in mind,\nAnd his thoughts go hither and thither,\nOnly those friends\nOn whom he fixes his conscious thoughts\nWill follow.",
-        "Fifth Nine: The influence shows itself in the back of the neck.",
-        "Top Six: The influence shows itself in the jaws, cheeks, and tongue."
-      ]
-    },
-    "001110": {
-      "name": "Long Lasting",
-      "gua_ci": "DURATION. Success. No blame.\nPerseverance furthers.\nIt furthers one to have somewhere to go.",
-      "yao_ci": [
-        "Initial Six: Seeking duration too hastily brings misfortune persistently.",
-        "Second Nine: Remorse disappears.",
-        "Third Nine: He who does not give duration to his character\nMeets with disgrace.\nPersistent humiliation.",
-        "Fourth Nine: No game in the field.",
-        "Fifth Six: Giving duration to one's character through perseverance.",
-        "Top Six: Restlessness as an enduring condition brings misfortune."
-      ]
-    },
-    "001111": {
-      "name": "Great Strength",
-      "gua_ci": "THE POWER OF THE GREAT. Perseverance furthers.",
-      "yao_ci": [
-        "Initial Nine: Power in the toes.\nContinuing brings misfortune.",
-        "Second Nine: Perseverance brings good fortune.",
-        "Third Nine: The inferior man works through power.",
-        "Fourth Nine: Perseverance brings good fortune.\nRemorse disappears.",
-        "Fifth Six: Loses the goat with ease.",
-        "Top Six: A goat butts against a hedge.\nIt cannot go backward, it cannot go forward."
+        "Initial Six: A superior man modest about his modesty\nMay cross the great water.\nGood fortune.",
+        "Second Six: Modesty that comes to expression. Perseverance brings good fortune.",
+        "Third Six: A superior man of modesty and merit\nCarries things to conclusion.\nGood fortune.",
+        "Fourth Nine: Nothing that would not further modesty\nIn movement.",
+        "Fifth Six: No boasting of wealth before one's neighbor.\nIt is favorable to attack with force.\nNothing that would not further.",
+        "Top Six: Modesty that comes to expression.\nIt is favorable to set armies marching\nTo chastise one's own city and one's country."
       ]
     },
     "000101": {
-      "name": "Brilliance Injured",
       "gua_ci": "DARKENING OF THE LIGHT. In adversity\nIt furthers one to be persevering.",
+      "name": "Brilliance Injured",
       "yao_ci": [
-        "Initial Nine: Darkening of the light during flight.\nHe lowers his wings.",
+        "Initial Six: Darkening of the light during flight.\nHe lowers his wings.",
         "Second Six: Darkening of the light injures him in the left thigh.\nHe gives aid with the strength of a horse.\nGood fortune.",
-        "Third Nine: Darkening of the light during the hunt in the south.",
-        "Fourth Six: He penetrates the left side of the belly.\nOne gets at the very heart of the darkening of the light.",
+        "Third Six: Darkening of the light during the hunt in the south.",
+        "Fourth Nine: He penetrates the left side of the belly.\nOne gets at the very heart of the darkening of the light.",
         "Fifth Six: Darkening of the light as with Prince Chi.\nPerseverance furthers.",
-        "Top Six: Not light but darkness.\nFirst he climbed up to heaven,"
-      ]
-    },
-    "010100": {
-      "name": "Hardship",
-      "gua_ci": "OBSTRUCTION. The southwest furthers.\nThe northeast does not further.\nIt furthers one to see the great man.\nPerseverance brings good fortune.",
-      "yao_ci": [
-        "Initial Six: Going leads to obstructions,\nComing meets with praise.",
-        "Second Six: The King's servant is beset by obstruction upon obstruction,\nBut it is not his own fault.",
-        "Third Nine: Going leads to obstructions;\nHence he comes back.",
-        "Fourth Six: Going leads to obstructions,\nComing leads to union.",
-        "Fifth Nine: In the midst of the greatest obstructions,\nFriends come.",
-        "Top Six: Going leads to obstructions,\nComing leads to great good fortune.\nIt furthers one to see the great man."
-      ]
-    },
-    "001010": {
-      "name": "Relief",
-      "gua_ci": "DELIVERANCE. The southwest furthers.\nIf there is no longer anything where one has to go,\nReturn brings good fortune.\nIf there is still something where one has to go,\nHastening brings good fortune.",
-      "yao_ci": [
-        "Initial Six: Without blame.",
-        "Second Nine: One kills three foxes in the field\nAnd receives a yellow arrow.\nPerseverance brings good fortune.",
-        "Third Six: If a man carries a burden on his back\nAnd nonetheless rides in a carriage,\nHe thereby encourages robbers to draw near.\nPerseverance leads to humiliation.",
-        "Fourth Nine: Deliver yourself from your great toe.",
-        "Fifth Six: If only the superior man can deliver himself,\nIt brings good fortune.",
-        "Top Six: The prince shoots at a hawk on a high wall.\nHe kills it. Everything serves to further."
-      ]
-    },
-    "011111": {
-      "name": "Eliminating",
-      "gua_ci": "BREAK-THROUGH. One must resolutely make the matter known\nAt the court of the king.\nIt must be announced truthfully. Danger.\nIt is necessary to notify one's own city.\nIt does not further to resort to arms.\nIt furthers one to undertake something.",
-      "yao_ci": [
-        "Initial Nine: Mighty in the forward-striding toes.\nWhen one goes and is not equal to the task,\nOne makes a mistake.",
-        "Second Nine: A cry of alarm. Arms at evening and at night.\nFear nothing.",
-        "Third Nine: To be powerful in the cheekbones\nBrings misfortune.",
-        "Fourth Nine: There is no skin on his thighs,\nAnd walking comes hard.\nIf a man were to let himself be led like a sheep,\nRemorse would disappear.\nBut if these words are heard",
-        "Fifth Nine: In dealing with weeds,\nFirm resolution is necessary.\nWalking in the middle\nRemains free of blame.",
-        "Top Six: No cry.\nIn the end misfortune comes."
-      ]
-    },
-    "011000": {
-      "name": "Bringing Together",
-      "gua_ci": "GATHERING TOGETHER. Success.\nThe king approaches his temple.\nIt furthers one to see the great man.\nThis brings success. Perseverance furthers.\nTo bring great offerings creates good fortune.\nIt furthers one to undertake something.",
-      "yao_ci": [
-        "Initial Six: If you are sincere, but not to the end,",
-        "Second Six: Letting oneself be drawn\nBrings good fortune and remains blameless.\nIf one is sincere,\nIt furthers one to bring even a small offering.",
-        "Third Six: Gathering together amid sighs.",
-        "Fourth Nine: Great good fortune. No blame.",
-        "Fifth Nine: If in gathering together one has position,",
-        "Top Six: Lamenting and sighing, floods of tears."
+        "Top Nine: Not light but darkness.\nFirst he climbed up to heaven,"
       ]
     },
     "000110": {
-      "name": "Growing Upward",
       "gua_ci": "PUSHING UPWARD has supreme success.\nOne must see the great man.\nFear not.\nDeparture toward the south\nBrings good fortune.",
+      "name": "Growing Upward",
       "yao_ci": [
         "Initial Six: Pushing upward that meets with confidence\nBrings great good fortune.",
-        "Second Nine: If one is sincere,\nIt furthers one to bring even a small offering.",
-        "Third Nine: One pushes upward into an empty city.",
-        "Fourth Six: The king offers him Mount Ch'i.\nGood fortune. No blame.",
-        "Fifth Six: Perseverance brings good fortune.\nOne pushes upward by steps.",
+        "Second Six: If one is sincere,\nIt furthers one to bring even a small offering.",
+        "Third Six: One pushes upward into an empty city.",
+        "Fourth Nine: The king offers him Mount Ch'i.\nGood fortune. No blame.",
+        "Fifth Nine: Perseverance brings good fortune.\nOne pushes upward by steps.",
         "Top Six: Pushing upward in darkness.\nIt furthers one"
       ]
     },
-    "011010": {
-      "name": "Exhausting",
-      "gua_ci": "OPPRESSION. Success. Perseverance.\nThe great man brings about good fortune.\nNo blame.\nWhen one has something to say,\nIt is not believed.",
+    "000111": {
+      "gua_ci": "PEACE. The small departs,\nThe great approaches.\nGood fortune. Success.",
+      "name": "Advance",
       "yao_ci": [
-        "Initial Six: One sits oppressed under a bare tree\nAnd strays into a gloomy valley.\nFor three years one sees nothing.",
-        "Second Nine: One is oppressed while at meat and drink.",
-        "Third Six: A man permits himself to be oppressed by stone,\nAnd leans on thorns and thistles.\nHe enters the house and does not see his wife.\nMisfortune.",
-        "Fourth Nine: He comes very quietly, oppressed in a golden carriage.\nHumiliation, but the end is reached.",
-        "Fifth Nine: His nose and feet are cut off.\nOppression at the hands of the man with the purple knee bands.\nJoy comes softly.\nIt furthers one to make offerings and libations.",
-        "Top Six: He is oppressed by creeping vines.\nHe moves uncertainly and says, \"Movement brings remorse.\"\nIf one feels remorse over this and makes a start,\nGood fortune comes."
+        "Initial Six: When ribbon grass is pulled up, the sod comes with it.\nEach according to his kind.\nUndertakings bring good fortune.",
+        "Second Six: Bearing with the uncultured in gentleness,\nFording the river with resolution,\nNot neglecting what is distant,\nNot regarding one's companions:",
+        "Third Six: No plain not followed by a slope.\nNo going not followed by a return.\nHe who remains persevering in danger\nIs without blame.\nDo not complain about this truth;\nEnjoy the good fortune you still possess.",
+        "Fourth Nine: He flutters down, not boasting of his wealth,\nTogether with his neighbor,\nGuileless and sincere.",
+        "Fifth Nine: The sovereign I\nGives his daughter in marriage.\nAnd supreme good fortune.",
+        "Top Nine: The wall falls back into the moat.\nUse no army now.\nMake your commands known within your own town.\nPerseverance brings humiliation."
       ]
     },
-    "010110": {
-      "name": "Replenishing",
-      "gua_ci": "THE WELL. The town may be changed,\nBut the well cannot be changed.\nIt neither decreases nor increases.\nThey come and go and draw from the well.\nIf one gets down almost to the water\nAnd the rope does not go all the way,\nOr the jug breaks, it brings misfortune.",
+    "001000": {
+      "gua_ci": "ENTHUSIASM. It furthers one to install helpers\nAnd to set armies marching.",
+      "name": "ENTHUSIASM",
       "yao_ci": [
-        "Initial Six: One does not drink the mud of the well.",
-        "Second Nine: At the well hole one shoots fishes.",
-        "Third Nine: The well is cleaned, but no one drinks from it.",
-        "Fourth Six: The well is being lined. No blame.",
-        "Fifth Nine: In the well there is a clear, cold spring\nFrom which one can drink.",
-        "Top Six: One draws from the well\nWithout hindrance.\nIt is dependable."
-      ]
-    },
-    "011101": {
-      "name": "Abolishing The Old",
-      "gua_ci": "REVOLUTION. On your own day\nYou are believed.\nSupreme success,\nFurthering through perseverance.\nRemorse disappears.",
-      "yao_ci": [
-        "Initial Nine: Wrapped in the hide of a yellow cow.",
-        "Second Six: When one's own day comes, one may create revolution.",
-        "Third Nine: Starting brings misfortune.\nPerseverance brings danger.\nWhen talk of revolution has gone the rounds three times,\nOne may commit himself,\nAnd men will believe him.",
-        "Fourth Nine: Remorse disappears. Men believe him.\nChanging the form of government brings good fortune.",
-        "Fifth Nine: The great man changes like a tiger.\nEven before he questions the oracle\nHe is believed.",
-        "Top Six: The superior man changes like a panther."
+        "Initial Six: Enthusiasm that expresses itself\nBrings misfortune.",
+        "Second Six: Firm as a rock. Not a whole day.\nPerseverance brings good fortune.",
+        "Third Nine: Enthusiasm that looks upward creates remorse.\nHesitation brings remorse.",
+        "Fourth Six: The source of enthusiasm.\nHe achieves great things.\nDoubt not.\nYou gather friends around you\nAs a hair clasp gathers the hair.",
+        "Fifth Six: Persistently ill, and still does not die.",
+        "Top Six: Deluded enthusiasm.\nBut if after completion one changes,\nThere is no blame."
       ]
     },
     "001001": {
-      "name": "Taking Action",
       "gua_ci": "SHOCK brings success. Shock comes-oh, oh! Laughing words -ha, ha!\nThe shock terrifies for a hundred miles,\nAnd he does not let fall the sacrificial spoon and chalice.",
+      "name": "Taking Action",
       "yao_ci": [
-        "Initial Nine: Shock comes-oh, oh!",
+        "Initial Six: Shock comes-oh, oh!",
         "Second Six: Shock comes bringing danger.\nA hundred thousand times\nYou lose your treasures\nAnd must climb the nine hills.\nDo not go in pursuit of them.\nAfter seven days you will get them back again.",
-        "Third Six: Shock comes and makes one distraught.\nIf shock spurs to action\nOne remains free of misfortune.",
-        "Fourth Nine: Shock is mired.",
+        "Third Nine: Shock comes and makes one distraught.\nIf shock spurs to action\nOne remains free of misfortune.",
+        "Fourth Six: Shock is mired.",
         "Fifth Six: Shock goes hither and thither.\nDanger.\nHowever, nothing at all is lost.\nYet there are things to be done.",
-        "Top Six: Shock brings ruin and terrified gazing around.\nGoing ahead brings misfortune.\nIf it has not yet touched one's own body\nBut has reached one's neighbor first,"
+        "Top Nine: Shock brings ruin and terrified gazing around.\nGoing ahead brings misfortune.\nIf it has not yet touched one's own body\nBut has reached one's neighbor first,"
+      ]
+    },
+    "001010": {
+      "gua_ci": "DELIVERANCE. The southwest furthers.\nIf there is no longer anything where one has to go,\nReturn brings good fortune.\nIf there is still something where one has to go,\nHastening brings good fortune.",
+      "name": "Relief",
+      "yao_ci": [
+        "Initial Six: Without blame.",
+        "Second Six: One kills three foxes in the field\nAnd receives a yellow arrow.\nPerseverance brings good fortune.",
+        "Third Nine: If a man carries a burden on his back\nAnd nonetheless rides in a carriage,\nHe thereby encourages robbers to draw near.\nPerseverance leads to humiliation.",
+        "Fourth Six: Deliver yourself from your great toe.",
+        "Fifth Nine: If only the superior man can deliver himself,\nIt brings good fortune.",
+        "Top Six: The prince shoots at a hawk on a high wall.\nHe kills it. Everything serves to further."
       ]
     },
     "001011": {
-      "name": "Marrying Maiden",
       "gua_ci": "THE MARRYING MAIDEN.\nUndertakings bring misfortune.\nNothing that would further.",
+      "name": "Marrying Maiden",
       "yao_ci": [
-        "Initial Nine: The marrying maiden as a concubine.\nA lame man who is able to tread.\nUndertakings bring good fortune.",
-        "Second Nine: A one-eyed man who is able to see.",
-        "Third Six: The marrying maiden as a slave.",
-        "Fourth Nine: The marrying maiden draws out the allotted time.\nA late marriage comes in due course.",
-        "Fifth Six: The sovereign I gave his daughter in marriage.",
-        "Top Six: The woman holds the basket, but there are no fruits in it."
-      ]
-    },
-    "001101": {
-      "name": "Abundance",
-      "gua_ci": "ABUNDANCE has success.\nThe king attains abundance.\nBe not sad.\nBe like the sun at midday.",
-      "yao_ci": [
-        "Initial Nine: When a man meets his destined ruler,",
-        "Second Six: The curtain is of such fullness",
-        "Third Nine: The underbrush is of such abundance",
-        "Fourth Nine: The curtain is of such fullness",
-        "Fifth Six: Lines are coming,\nBlessing and fame draw near.\nGood fortune.",
-        "Top Six: His house is in a state of abundance.\nHe screens off his family.\nHe peers through the gate\nAnd no longer perceives anyone.\nFor three years he sees nothing.\nMisfortune."
-      ]
-    },
-    "011011": {
-      "name": "Joyful",
-      "gua_ci": "THE JOYOUS. Success.\nPerseverance is favorable.",
-      "yao_ci": [
-        "Initial Nine: Contented joyousness. Good fortune.",
-        "Second Nine: Sincere joyousness. Good fortune.\nRemorse disappears.",
-        "Third Six: Coming joyousness. Misfortune.",
-        "Fourth Nine: Joyousness that is weighed is not at peace.\nAfter ridding himself of mistakes a man has joy.",
-        "Fifth Nine: Sincerity toward disintegrating influences is dangerous.",
-        "Top Six: Seductive joyousness."
-      ]
-    },
-    "010011": {
-      "name": "Restricting",
-      "gua_ci": "LIMITATION. Success.\nGalling limitation must not be persevered in.",
-      "yao_ci": [
-        "Initial Nine: Not going out of the door and the courtyard\nIs without blame.",
-        "Second Nine: Not going out of the gate and the courtyard\nBrings misfortune.",
-        "Third Six: He who knows limitation\nWill have cause to lament.",
-        "Fourth Six: Contented limitation. Success.",
-        "Fifth Nine: Sweet limitation brings good fortune.\nGoing brings esteem.",
-        "Top Six: Galling limitation.\nPerseverance brings misfortune.\nRemorse disappears."
+        "Initial Six: The marrying maiden as a concubine.\nA lame man who is able to tread.\nUndertakings bring good fortune.",
+        "Second Six: A one-eyed man who is able to see.",
+        "Third Nine: The marrying maiden as a slave.",
+        "Fourth Six: The marrying maiden draws out the allotted time.\nA late marriage comes in due course.",
+        "Fifth Nine: The sovereign I gave his daughter in marriage.",
+        "Top Nine: The woman holds the basket, but there are no fruits in it."
       ]
     },
     "001100": {
-      "name": "Little Exceeding",
       "gua_ci": "PREPONDERANCE OF THE SMALL. Success.\nPerseverance furthers.\nSmall things may be done; great things should not be done.\nThe flying bird brings the message:\nIt is not well to strive upward,\nIt is well to remain below.\nGreat good fortune.\nExceptional modesty and conscientiousness are sure to be rewarded with success; however, if a man is not to throw himself away, it is important that they should not become empty form and subservience but be combined always with a correct dignity in personal behavior. We must understand the demands of the time in order to find the necessary offset for its deficiencies and damages. In any event we must not count on great success, since the requisite strength is lacking. In this lies the importance of the message that one should not strive after lofty things but hold to lowly things. The structure of the hexagram gives rise to the idea that this message is brought by a bird. In Ta Kuo, PREPONDERANCE OF THE GREAT",
+      "name": "Little Exceeding",
       "yao_ci": [
         "Initial Six: The bird meets with misfortune through flying.",
         "Second Six: She passes by her ancestor\nAnd meets her ancestress.\nHe does not reach his prince\nAnd meets the official.",
@@ -960,45 +359,1739 @@
         "Top Six: He passes him by, not meeting him."
       ]
     },
-    "010101": {
-      "name": "Already Fulfilled",
-      "gua_ci": "AFTER COMPLETION. Success in small matters.\nPerseverance furthers.\nAt the beginning good fortune.\nAt the end disorder.",
+    "001101": {
+      "gua_ci": "ABUNDANCE has success.\nThe king attains abundance.\nBe not sad.\nBe like the sun at midday.",
+      "name": "Abundance",
       "yao_ci": [
-        "Initial Nine: He breaks his wheels.\nHe gets his tail in the water.",
-        "Second Six: The woman loses the curtain of her carriage.\nDo not run after it;\nOn the seventh day you will get it.",
-        "Third Nine: The Illustrious Ancestor\nDisciplines the Devil's Country.\nAfter three years he conquers it.\nInferior people must not be employed.",
-        "Fourth Six: The finest clothes turn to rags.\nBe careful all day long.",
-        "Fifth Nine: The neighbor in the east who slaughters an ox\nDoes not attain as much real happiness\nAs the neighbor in the west\nWith his small offering.",
-        "Top Six: He gets his head in the water. Danger."
+        "Initial Six: When a man meets his destined ruler,",
+        "Second Six: The curtain is of such fullness",
+        "Third Nine: The underbrush is of such abundance",
+        "Fourth Nine: The curtain is of such fullness",
+        "Fifth Six: Lines are coming,\nBlessing and fame draw near.\nGood fortune.",
+        "Top Nine: His house is in a state of abundance.\nHe screens off his family.\nHe peers through the gate\nAnd no longer perceives anyone.\nFor three years he sees nothing.\nMisfortune."
       ]
+    },
+    "001110": {
+      "gua_ci": "DURATION. Success. No blame.\nPerseverance furthers.\nIt furthers one to have somewhere to go.",
+      "name": "Long Lasting",
+      "yao_ci": [
+        "Initial Six: Seeking duration too hastily brings misfortune persistently.",
+        "Second Six: Remorse disappears.",
+        "Third Nine: He who does not give duration to his character\nMeets with disgrace.\nPersistent humiliation.",
+        "Fourth Nine: No game in the field.",
+        "Fifth Nine: Giving duration to one's character through perseverance.",
+        "Top Six: Restlessness as an enduring condition brings misfortune."
+      ]
+    },
+    "001111": {
+      "gua_ci": "THE POWER OF THE GREAT. Perseverance furthers.",
+      "name": "Great Strength",
+      "yao_ci": [
+        "Initial Six: Power in the toes.\nContinuing brings misfortune.",
+        "Second Six: Perseverance brings good fortune.",
+        "Third Nine: The inferior man works through power.",
+        "Fourth Nine: Perseverance brings good fortune.\nRemorse disappears.",
+        "Fifth Nine: Loses the goat with ease.",
+        "Top Nine: A goat butts against a hedge.\nIt cannot go backward, it cannot go forward."
+      ]
+    },
+    "010000": {
+      "gua_ci": "HOLDING TOGETHER brings good fortune.\nInquire of the oracle once again\nWhether you possess sublimity, constancy, and perseverance;\nThen there is no blame.\nThose who are uncertain gradually join.\nWhoever come too late\nMeets with misfortune.",
+      "name": "Union",
+      "yao_ci": [
+        "Initial Six: Hold to him in truth and loyalty;\nThis is without blame.\nTruth, like a full earthen bowl\"\nThus in the end\nGood fortune comes from without.",
+        "Second Nine: Hold to him inwardly.\nPerseverance brings good fortune.",
+        "Third Six: You hold together with the wrong people.",
+        "Fourth Six: Hold to him outwardly also.\nPerseverance brings good fortune.",
+        "Fifth Six: Manifestation of holding together.\nIn the hunt the king uses beaters on three sides only\nAnd forgoes game that runs off in front.\nThe citizens need no warning.\nGood fortune.",
+        "Top Six: He finds no head for holding together.\nMisfortune."
+      ]
+    },
+    "010001": {
+      "gua_ci": "DIFFICULTY AT THE BEGINNING works supreme success,\nFurthering through perseverance.\nNothing should be undertaken.\nIt furthers one to appoint helpers.",
+      "name": "Beginning",
+      "yao_ci": [
+        "Initial Six: Hesitation and hindrance.\nIt furthers one to remain persevering.\nIt furthers one to appoint helpers.",
+        "Second Nine: Difficulties pile up.\nHorse and wagon part.\nHe is not a robber;\nHe wants to woo when the time comes.\nThe maiden is chaste,\nShe does not pledge herself.\nTen years--then she pledges herself.",
+        "Third Six: Whoever hunts deer without the forester\nOnly loses his way in the forest.\nThe superior man understands the signs of the time\nAnd prefers to desist.\nTo go on brings humiliation.",
+        "Fourth Six: Horse and wagon part.\nStrive for union.\nTo go brings good fortune.\nEverything acts to further.",
+        "Fifth Six: Difficulties in blessing.\nA little perseverance brings good fortune.\nGreat perseverance brings misfortune.",
+        "Top Nine: Horse and wagon part.\nBloody tears flow."
+      ]
+    },
+    "010010": {
+      "gua_ci": "The Abysmal repeated.\nIf you are sincere, you have success in your heart,\nAnd whatever you do succeeds.",
+      "name": "Darkness",
+      "yao_ci": [
+        "Initial Six: Repetition of the Abysmal.\nIn the abyss one falls into a pit.\nMisfortune.",
+        "Second Nine: The abyss is dangerous.\nOne should strive to attain small things only.",
+        "Third Six: Forward and backward, abyss on abyss.\nIn danger like this, pause at first and wait,\nOtherwise you will fall into a pit in the abyss.\nDo not act this way.",
+        "Fourth Six: A jug of wine, a bowl of rice with it;\nEarthen vessels",
+        "Fifth Nine: The abyss is not filled to overflowing,\nIt is filled only to the rim.",
+        "Top Six: Bound with cords and ropes,"
+      ]
+    },
+    "010011": {
+      "gua_ci": "LIMITATION. Success.\nGalling limitation must not be persevered in.",
+      "name": "Restricting",
+      "yao_ci": [
+        "Initial Six: Not going out of the door and the courtyard\nIs without blame.",
+        "Second Nine: Not going out of the gate and the courtyard\nBrings misfortune.",
+        "Third Six: He who knows limitation\nWill have cause to lament.",
+        "Fourth Six: Contented limitation. Success.",
+        "Fifth Nine: Sweet limitation brings good fortune.\nGoing brings esteem.",
+        "Top Nine: Galling limitation.\nPerseverance brings misfortune.\nRemorse disappears."
+      ]
+    },
+    "010100": {
+      "gua_ci": "OBSTRUCTION. The southwest furthers.\nThe northeast does not further.\nIt furthers one to see the great man.\nPerseverance brings good fortune.",
+      "name": "Hardship",
+      "yao_ci": [
+        "Initial Six: Going leads to obstructions,\nComing meets with praise.",
+        "Second Nine: The King's servant is beset by obstruction upon obstruction,\nBut it is not his own fault.",
+        "Third Six: Going leads to obstructions;\nHence he comes back.",
+        "Fourth Nine: Going leads to obstructions,\nComing leads to union.",
+        "Fifth Six: In the midst of the greatest obstructions,\nFriends come.",
+        "Top Six: Going leads to obstructions,\nComing leads to great good fortune.\nIt furthers one to see the great man."
+      ]
+    },
+    "010101": {
+      "gua_ci": "AFTER COMPLETION. Success in small matters.\nPerseverance furthers.\nAt the beginning good fortune.\nAt the end disorder.",
+      "name": "Already Fulfilled",
+      "yao_ci": [
+        "Initial Six: He breaks his wheels.\nHe gets his tail in the water.",
+        "Second Nine: The woman loses the curtain of her carriage.\nDo not run after it;\nOn the seventh day you will get it.",
+        "Third Six: The Illustrious Ancestor\nDisciplines the Devil's Country.\nAfter three years he conquers it.\nInferior people must not be employed.",
+        "Fourth Nine: The finest clothes turn to rags.\nBe careful all day long.",
+        "Fifth Six: The neighbor in the east who slaughters an ox\nDoes not attain as much real happiness\nAs the neighbor in the west\nWith his small offering.",
+        "Top Nine: He gets his head in the water. Danger."
+      ]
+    },
+    "010110": {
+      "gua_ci": "THE WELL. The town may be changed,\nBut the well cannot be changed.\nIt neither decreases nor increases.\nThey come and go and draw from the well.\nIf one gets down almost to the water\nAnd the rope does not go all the way,\nOr the jug breaks, it brings misfortune.",
+      "name": "Replenishing",
+      "yao_ci": [
+        "Initial Six: One does not drink the mud of the well.",
+        "Second Nine: At the well hole one shoots fishes.",
+        "Third Six: The well is cleaned, but no one drinks from it.",
+        "Fourth Nine: The well is being lined. No blame.",
+        "Fifth Nine: In the well there is a clear, cold spring\nFrom which one can drink.",
+        "Top Six: One draws from the well\nWithout hindrance.\nIt is dependable."
+      ]
+    },
+    "010111": {
+      "gua_ci": "WAITING. If you are sincere,\nYou have light and success.\nPerseverance brings good fortune.\nIt furthers one to cross the great water.",
+      "name": "Needing",
+      "yao_ci": [
+        "Initial Six: Waiting in the meadow.\nIT furthers one to abide in what endures.\nNo blame.",
+        "Second Nine: Waiting on the sand.\nThere is some gossip.\nThe end brings good fortune.",
+        "Third Six: Waiting in the mud\nBrings about the arrival of the enemy.",
+        "Fourth Nine: Waiting in blood.\nGet out of the pit.",
+        "Fifth Nine: Waiting at meat and drink.\nPerseverance brings good fortune.",
+        "Top Nine: One falls into the pit.\nThree uninvited guests arrive.\nHonor them, and in the end there will be good fortune."
+      ]
+    },
+    "011000": {
+      "gua_ci": "GATHERING TOGETHER. Success.\nThe king approaches his temple.\nIt furthers one to see the great man.\nThis brings success. Perseverance furthers.\nTo bring great offerings creates good fortune.\nIt furthers one to undertake something.",
+      "name": "Bringing Together",
+      "yao_ci": [
+        "Initial Six: If you are sincere, but not to the end,",
+        "Second Nine: Letting oneself be drawn\nBrings good fortune and remains blameless.\nIf one is sincere,\nIt furthers one to bring even a small offering.",
+        "Third Nine: Gathering together amid sighs.",
+        "Fourth Six: Great good fortune. No blame.",
+        "Fifth Six: If in gathering together one has position,",
+        "Top Six: Lamenting and sighing, floods of tears."
+      ]
+    },
+    "011001": {
+      "gua_ci": "FOLLOWING has supreme success.\nPerseverance furthers. No blame.",
+      "name": "Following",
+      "yao_ci": [
+        "Initial Six: The standard is changing.\nPerseverance brings good fortune.\nTo go out of the door in company\nProduces deeds.",
+        "Second Nine: If one clings to the little boy,\nOne loses the strong man.",
+        "Third Nine: If one clings to the strong man,\nOne loses the little boy.",
+        "Fourth Six: Following creates success.\nPerseverance brings misfortune.\nTo go one's way with sincerity brings clarity.\nHow could there be blame in this?",
+        "Fifth Six: Sincere in the good. Good fortune.",
+        "Top Nine: He meets with firm allegiance\nAnd is still further bound.\nThe king introduces him\nTo the Western Mountain."
+      ]
+    },
+    "011010": {
+      "gua_ci": "OPPRESSION. Success. Perseverance.\nThe great man brings about good fortune.\nNo blame.\nWhen one has something to say,\nIt is not believed.",
+      "name": "Exhausting",
+      "yao_ci": [
+        "Initial Six: One sits oppressed under a bare tree\nAnd strays into a gloomy valley.\nFor three years one sees nothing.",
+        "Second Nine: One is oppressed while at meat and drink.",
+        "Third Nine: A man permits himself to be oppressed by stone,\nAnd leans on thorns and thistles.\nHe enters the house and does not see his wife.\nMisfortune.",
+        "Fourth Six: He comes very quietly, oppressed in a golden carriage.\nHumiliation, but the end is reached.",
+        "Fifth Nine: His nose and feet are cut off.\nOppression at the hands of the man with the purple knee bands.\nJoy comes softly.\nIt furthers one to make offerings and libations.",
+        "Top Six: He is oppressed by creeping vines.\nHe moves uncertainly and says, \"Movement brings remorse.\"\nIf one feels remorse over this and makes a start,\nGood fortune comes."
+      ]
+    },
+    "011011": {
+      "gua_ci": "THE JOYOUS. Success.\nPerseverance is favorable.",
+      "name": "Joyful",
+      "yao_ci": [
+        "Initial Six: Contented joyousness. Good fortune.",
+        "Second Nine: Sincere joyousness. Good fortune.\nRemorse disappears.",
+        "Third Nine: Coming joyousness. Misfortune.",
+        "Fourth Six: Joyousness that is weighed is not at peace.\nAfter ridding himself of mistakes a man has joy.",
+        "Fifth Nine: Sincerity toward disintegrating influences is dangerous.",
+        "Top Nine: Seductive joyousness."
+      ]
+    },
+    "011100": {
+      "gua_ci": "Influence. Success.\nPerseverance furthers.\nTo take a maiden to wife brings good fortune.",
+      "name": "Mutual Influence",
+      "yao_ci": [
+        "Initial Six: The influence shows itself in the big toe.",
+        "Second Nine: The influence shows itself in the calves of the legs.\nMisfortune.",
+        "Third Nine: The influence shows itself in the thighs.\nHolds to that which follows it.",
+        "Fourth Nine: Perseverance brings good fortune.\nRemorse disappears.\nIf a man is agitated in mind,\nAnd his thoughts go hither and thither,\nOnly those friends\nOn whom he fixes his conscious thoughts\nWill follow.",
+        "Fifth Six: The influence shows itself in the back of the neck.",
+        "Top Six: The influence shows itself in the jaws, cheeks, and tongue."
+      ]
+    },
+    "011101": {
+      "gua_ci": "REVOLUTION. On your own day\nYou are believed.\nSupreme success,\nFurthering through perseverance.\nRemorse disappears.",
+      "name": "Abolishing The Old",
+      "yao_ci": [
+        "Initial Six: Wrapped in the hide of a yellow cow.",
+        "Second Nine: When one's own day comes, one may create revolution.",
+        "Third Nine: Starting brings misfortune.\nPerseverance brings danger.\nWhen talk of revolution has gone the rounds three times,\nOne may commit himself,\nAnd men will believe him.",
+        "Fourth Nine: Remorse disappears. Men believe him.\nChanging the form of government brings good fortune.",
+        "Fifth Six: The great man changes like a tiger.\nEven before he questions the oracle\nHe is believed.",
+        "Top Nine: The superior man changes like a panther."
+      ]
+    },
+    "011110": {
+      "gua_ci": "PREPONDERANCE OF THE GREAT.\nThe ridgepole sags to the breaking point.\nIt furthers one to have somewhere to go.\nSuccess.",
+      "name": "Great Exceeding",
+      "yao_ci": [
+        "Initial Six: To spread white rushes underneath.",
+        "Second Nine: A dry poplar sprouts at the root.\nAn older man takes a young wife.\nEverything furthers.",
+        "Third Nine: The ridgepole sags to the breaking point.\nMisfortune.",
+        "Fourth Nine: The ridgepole is braced. Good fortune.\nIf there are ulterior motives, it is humiliating.",
+        "Fifth Nine: A withered poplar puts forth flowers.\nAn older woman takes a husband.",
+        "Top Six: One must go through the water.\nIt goes over one's head.\nMisfortune. No blame."
+      ]
+    },
+    "011111": {
+      "gua_ci": "BREAK-THROUGH. One must resolutely make the matter known\nAt the court of the king.\nIt must be announced truthfully. Danger.\nIt is necessary to notify one's own city.\nIt does not further to resort to arms.\nIt furthers one to undertake something.",
+      "name": "Eliminating",
+      "yao_ci": [
+        "Initial Six: Mighty in the forward-striding toes.\nWhen one goes and is not equal to the task,\nOne makes a mistake.",
+        "Second Nine: A cry of alarm. Arms at evening and at night.\nFear nothing.",
+        "Third Nine: To be powerful in the cheekbones\nBrings misfortune.",
+        "Fourth Nine: There is no skin on his thighs,\nAnd walking comes hard.\nIf a man were to let himself be led like a sheep,\nRemorse would disappear.\nBut if these words are heard",
+        "Fifth Nine: In dealing with weeds,\nFirm resolution is necessary.\nWalking in the middle\nRemains free of blame.",
+        "Top Nine: No cry.\nIn the end misfortune comes."
+      ]
+    },
+    "100000": {
+      "gua_ci": "SPLITTING APART. IT does not further one\nTo go anywhere.",
+      "name": "Falling Away",
+      "yao_ci": [
+        "Initial Nine: The leg of the bed is split.\nThose who persevere are destroyed.\nMisfortune.",
+        "Second Six: The bed is split at the edge.\nThose who persevere are destroyed.\nMisfortune.",
+        "Third Six: He splits with them. No blame.",
+        "Fourth Six: The bed is split up to the skin.\nMisfortune.",
+        "Fifth Six: A shoal of fishes. Favor comes through the court ladies.\nEverything acts to further.",
+        "Top Six: There is a large fruit still uneaten.\nThe superior man receives a carriage.\nThe house of the inferior man is split apart."
+      ]
+    },
+    "100001": {
+      "gua_ci": "THE CORNERS OF THE MOUTH.\nPerseverance brings good fortune.\nPay heed to the providing of nourishment\nAnd to what a man seeks\nTo fill his own mouth with.\nIn bestowing care and nourishment, it is important that the right people should be taken care of and that we should attend to our own nourishment in the right way. If we wish to know what anyone is like, we have only to observe on whom he bestows his care and what sides of his own nature he cultivates and nourishes. Nature nourishes all creatures. The great man fosters and takes care of superior men, in order to take care of all men through them. Mencius says about this:",
+      "name": "Nourishing",
+      "yao_ci": [
+        "Initial Nine: You let your magic tortoise go,\nAnd look at me with the corners of your mouth drooping.\nMisfortune.",
+        "Second Six: Turning to the summit for nourishment,\nDeviating from the path",
+        "Third Six: Turning away from nourishment.\nPerseverance brings misfortune.\nDo not act thus for ten years.",
+        "Fourth Six: Turning to the summit\nFor provision of nourishment\nBrings good fortune.",
+        "Fifth Six: Turning away from the path.",
+        "Top Nine: The source of nourishment.\nAwareness of danger brings good fortune.\nIt furthers one to cross the great water."
+      ]
+    },
+    "100010": {
+      "gua_ci": "YOUTHFUL FOLLY has success.\nIt is not I who seek the young fool;\nThe young fool seeks me.\nAt the first oracle I inform him.\nIf he asks two or three times, it is importunity.\nIf he importunes, I give him no information.\nPerseverance furthers.",
+      "name": "Childhood",
+      "yao_ci": [
+        "Initial Nine: To make a fool develop\nIt furthers one to apply discipline.\nThe fetters should be removed.\nTo go on in this way bring humiliation.",
+        "Second Six: To bear with fools in kindliness brings good fortune.\nTo know how to take women\nBrings good fortune.\nThe son is capable of taking charge of the household.",
+        "Third Six: Take not a maiden who. When she sees a man of bronze,\nLoses possession of herself.\nNothing furthers.",
+        "Fourth Six: Entangled folly bring humiliation.",
+        "Fifth Nine: Childlike folly brings good fortune.",
+        "Top Six: In punishing folly\nIt does not further one\nTo commit transgressions.\nThe only thing that furthers\nIs to prevent transgressions."
+      ]
+    },
+    "100011": {
+      "gua_ci": "DECREASE combined with sincerity\nBrings about supreme good fortune\nWithout blame.\nOne may be persevering in this.\nIt furthers one to undertake something.\nHow is this to be carried out?\nOne may use two small bowls for the sacrifice.",
+      "name": "Decreasing",
+      "yao_ci": [
+        "Initial Nine: Going quickly when one's tasks are finished\nIs without blame.\nBut one must reflect on how much one may decrease others.",
+        "Second Six: Perseverance furthers.",
+        "Third Six: When three people journey together,",
+        "Fourth Six: If a man deceases his faults,\nIt makes the other hasten to come and rejoice.",
+        "Fifth Nine: Someone does indeed increase him.",
+        "Top Nine: If one is increased without depriving other,"
+      ]
+    },
+    "100100": {
+      "gua_ci": "KEEPING STILL. Keeping his back still\nSo that he no longer feels his body.\nHe goes into his courtyard\nAnd does not see his people.\nNo blame.",
+      "name": "Keeping Still",
+      "yao_ci": [
+        "Initial Nine: Keeping his toes still.",
+        "Second Six: Keeping his calves still.\nHe cannot rescue him whom he follows.\nHis heart is not glad.",
+        "Third Six: Keeping his hips still.\nMaking his sacrum stiff.\nDangerous. The heart suffocates.",
+        "Fourth Nine: Keeping his trunk still.",
+        "Fifth Six: Keeping his jaws still.",
+        "Top Six: Noblehearted keeping still.\nGood fortune."
+      ]
+    },
+    "100101": {
+      "gua_ci": "GRACE has success.\nIn small matters\nIt is favorable to undertake something.",
+      "name": "Adorning",
+      "yao_ci": [
+        "Initial Nine: He lends grace to his toes, leaves the carriage, and walks.",
+        "Second Six: Lends grace to the beard on his chin.",
+        "Third Six: Graceful and moist.\nConstant perseverance brings good fortune.",
+        "Fourth Nine: Grace or simplicity?\nA white horse comes as if on wings.\nHe is not a robber,\nHe will woo at the right time.",
+        "Fifth Six: Grace in the hills and gardens.\nThe roll of silk is meager and small.\nHumiliation, but in the end good fortune.",
+        "Top Nine: Simple grace. No blame."
+      ]
+    },
+    "100110": {
+      "gua_ci": "WORK ON WHAT HAS BEEN SPOILED\nHas supreme success.\nIt furthers one to cross the great water.\nBefore the starting point, three days.\nAfter the starting point, three days.",
+      "name": "Remedying",
+      "yao_ci": [
+        "Initial Nine: Setting right what has been spoiled by the father.\nIf there is a son,\nNo blame rests upon the departed father.\nDanger. In the end good fortune.",
+        "Second Six: Setting right what has been spoiled by the mother.\nOne must not be too persevering.",
+        "Third Six: Setting right what has been spoiled by the father.\nThere will be a little remorse. No great blame.",
+        "Fourth Nine: Tolerating what has been spoiled by the father.\nIn continuing one sees humiliation.",
+        "Fifth Nine: Setting right what has been spoiled by the father.\nOne meets with praise.",
+        "Top Six: He does not serve kings and princes,\nSets himself higher goals."
+      ]
+    },
+    "100111": {
+      "gua_ci": "THE TAMING POWER OF THE GREAT.\nPerseverance furthers.\nNot eating at home brings good fortune.\nIt furthers one to cross the great water.",
+      "name": "Great Accumulation",
+      "yao_ci": [
+        "Initial Nine: Danger is at hand. It furthers one to desist.",
+        "Second Six: The axletrees are taken from the wagon.",
+        "Third Six: A good horse that follows others.\nAwareness of danger,\nWith perseverance, furthers.\nPractice chariot driving and armed defense daily.\nIt furthers one to have somewhere to go.",
+        "Fourth Nine: The headboard of a young bull.\nGreat good fortune.",
+        "Fifth Nine: The tusk of a gelded boar.\nGood fortune.",
+        "Top Nine: One attains the way of heaven."
+      ]
+    },
+    "101000": {
+      "gua_ci": "PROGRESS. The powerful prince\nIs honored with horses in large numbers.\nIn a single day he is granted audience three times.\nAs an example of progress, this pictures a time when a powerful feudal lord rallies the other lords around the sovereign and pledges fealty and peace. The sovereign rewards him richly and invites him to a closer intimacy.",
+      "name": "Proceeding Forward",
+      "yao_ci": [
+        "Initial Nine: Progressing, but turned back.\nPerseverance brings good fortune.\nIf one meets with no confidence, one should remain calm.",
+        "Second Six: Progressing, but in sorrow.\nPerseverance brings good fortune.",
+        "Third Nine: All are in accord. Remorse disappears.",
+        "Fourth Six: Progress like a hamster.\nPerseverance brings danger.",
+        "Fifth Six: Remorse disappears.",
+        "Top Six: Making progress with the horns is permissible\nOnly for the purpose of punishing one's own city."
+      ]
+    },
+    "101001": {
+      "gua_ci": "BITING THROUGH has success.\nIt is favorable to let justice be administered.",
+      "name": "Eradicating",
+      "yao_ci": [
+        "Initial Nine: His feet are fastened in the stocks,\nSo that his toes disappear.\nNo blame.",
+        "Second Six: Bites through tender meat,\nSo that his nose disappears.\nNo blame.",
+        "Third Nine: Bites on old dried meat\nAnd strikes on something poisonous.\nSlight humiliation. No blame.",
+        "Fourth Six: Bites on dried gristly meat.\nReceives metal arrows.\nIt furthers one to be mindful of difficulties\nAnd to be persevering.\nGood fortune.",
+        "Fifth Six: Bites on dried lean meat.\nReceives yellow gold.\nPerseveringly aware of danger.",
+        "Top Nine: His neck is fastened in the wooden cangue,\nSo that his ears disappear.\nMisfortune."
+      ]
+    },
+    "101010": {
+      "gua_ci": "BEFORE COMPLETION. Success.\nBut if the little fox, after nearly completing the crossing,\nGets his tail in the water,\nThere is nothing that would further.",
+      "name": "Not Yet Fulfilled",
+      "yao_ci": [
+        "Initial Nine: He gets his tail in the water.\nHumiliating.",
+        "Second Six: He brakes his wheels.\nPerseverance brings good fortune.",
+        "Third Nine: Before completion, attack brings misfortune.\nIt furthers one to cross the great water.",
+        "Fourth Six: Perseverance brings good fortune.\nRemorse disappears.",
+        "Fifth Nine: Perseverance brings good fortune.",
+        "Top Six: There is drinking of wine\nIn genuine confidence. No blame.\nBut if one wets his head,\nHe loses it, in truth."
+      ]
+    },
+    "101011": {
+      "gua_ci": "OPPOSITION. In small matters, good fortune.",
+      "name": "Diversity",
+      "yao_ci": [
+        "Initial Nine: Remorse disappears.\nIf you lose your horse, do not run after it;\nIt will come back of its own accord.\nWhen you see evil people,\nGuard yourself against mistakes.",
+        "Second Six: One meets his lord in a narrow street.",
+        "Third Nine: One sees the wagon dragged back,",
+        "Fourth Six: Isolated through opposition,\nOne meets a like-minded man\nWith whom one can associate in good faith.\nDespite the danger, no blame.",
+        "Fifth Nine: Remorse disappears.",
+        "Top Nine: Isolated through opposition,\nOne sees one's companion as a pig covered with dirt,\nAs a wagon full of devils.\nFirst one draws a bow against him,"
+      ]
+    },
+    "101100": {
+      "gua_ci": "The Wanderer. Success through smallness.\nPerseverance brings good fortune to the wanderer.\nWHEN A man is a wanderer and stranger, he should not be gruff nor overbearing. He has no large circle of acquaintances, therefore he should not give himself airs. He must be cautious and reserved; in this way he protects himself from evil. If he is obliging toward others, he wins success.",
+      "name": "Travelling",
+      "yao_ci": [
+        "Initial Nine: If the wanderer busies himself with trivial things,\nHe draws down misfortune upon himself.",
+        "Second Six: The wanderer comes to an inn.\nHe has his property with him.\nHe wins the steadfastness of a young servant.",
+        "Third Nine: The wanderer's inn burns down.\nHe loses the steadfastness of his young servant.\nDanger.",
+        "Fourth Nine: The wanderer rests in a shelter.\nHe obtains his property and an ax.\nMy heart is not glad.",
+        "Fifth Six: He shoots a pheasant.\nIt drops with the first arrow.\nIn the end this brings both praise and office.",
+        "Top Six: The bird's nest burns up."
+      ]
+    },
+    "101101": {
+      "gua_ci": "THE CLINGING. Perseverance furthers.\nIt brings success.\nCare of the cow brings good fortune.",
+      "name": "Brightness",
+      "yao_ci": [
+        "Initial Nine: The footprints run crisscross.\nIf one is seriously intent, no blame.",
+        "Second Six: Yellow light. Supreme good fortune.",
+        "Third Nine: In the light of the setting sun,\nMen either beat the pot and sing\nOr loudly bewail the approach of old age.\nMisfortune.",
+        "Fourth Nine: Its coming is sudden;\nIt flames up, dies down, is thrown away.",
+        "Fifth Six: Tears in floods, sighing and lamenting.\nGood fortune.",
+        "Top Nine: The king used him to march forth and chastise."
+      ]
+    },
+    "101110": {
+      "gua_ci": "THE CALDRON. Supreme good fortune.\nSuccess.",
+      "name": "Establishing The New",
+      "yao_ci": [
+        "Initial Nine: A ting with legs upturned.\nFurthers removal of stagnating stuff.\nOne takes a concubine for the sake of her son.",
+        "Second Six: There is food in the ting.\nMy comrades are envious,\nBut they cannot harm me.\nGood fortune.",
+        "Third Nine: The handle of the ting is altered.\nOne is impeded in his way of life.",
+        "Fourth Nine: The legs of the ting are broken.",
+        "Fifth Nine: The ting has yellow handles, golden carrying rings.\nPerseverance furthers.",
+        "Top Six: The ting has rings of jade.\nGreat good fortune."
+      ]
+    },
+    "101111": {
+      "gua_ci": "POSSESSION IN GREAT MEASURE.\nSupreme success.",
+      "name": "Great Harvest",
+      "yao_ci": [
+        "Initial Nine: No relationship with what is harmful;\nThere is no blame in this.\nIf one remains conscious of difficulty,\nOne remains without blame.",
+        "Second Six: A big wagon for loading.\nOne may undertake something.\nNo blame.",
+        "Third Nine: A prince offers it to the Son of Heaven.\nA petty man cannot do this.",
+        "Fourth Nine: He makes a difference\nBetween himself and his neighbor.\nNo blame.",
+        "Fifth Nine: He whose truth is accessible, yet dignified,\nHas good fortune.",
+        "Top Nine: He is blessed by heaven.\nGood fortune.\nNothing that does not further."
+      ]
+    },
+    "110000": {
+      "gua_ci": "CONTEMPLATION. The ablution has been made,\nBut not yet the offering.\nFull of trust they look up to him.",
+      "name": "Watching",
+      "yao_ci": [
+        "Initial Nine: Boy like contemplation.\nFor an inferior man, no blame.\nFor a superior man, humiliation.",
+        "Second Nine: Contemplation through the crack of the door.\nFurthering for the perseverance of a woman.",
+        "Third Six: Contemplation of my life\nDecides the choice\nBetween advance and retreat.",
+        "Fourth Six: Contemplation of the light of the kingdom.\nIt furthers one to exert influence as the guest of a king.",
+        "Fifth Six: Contemplation of my life.\nThe superior man is without blame.",
+        "Top Six: Contemplation of his life.\nThe superior man is without blame."
+      ]
+    },
+    "110001": {
+      "gua_ci": "INCREASE. It furthers one\nTo undertake something.\nIt furthers one to cross the great water.",
+      "name": "Increasing",
+      "yao_ci": [
+        "Initial Nine: It furthers one to accomplish great deeds.",
+        "Second Nine: Someone does indeed increase him;",
+        "Third Six: One is enriched through unfortunate events.",
+        "Fourth Six: If you walk in the middle\nAnd report the prince,\nHe will follow.\nIt furthers one to be used\nIn the removal of the capital.",
+        "Fifth Six: If in truth you have a kind heart, ask not.",
+        "Top Nine: He brings increase to no one.\nIndeed, someone even strikes him.\nHe does not keep his heart constantly steady.\nMisfortune."
+      ]
+    },
+    "110010": {
+      "gua_ci": "DISPERSION. Success.\nThe king approaches his temple.\nIt furthers one to cross the great water.\nPerseverance furthers.\nThe text of this hexagram resembles that of Ts'ui, GATHERING TOGETHER",
+      "name": "Dispersing",
+      "yao_ci": [
+        "Initial Nine: He brings help with the strength of a horse.\nGood fortune.",
+        "Second Nine: At the dissolution\nHe hurries to that which supports him.\nRemorse disappears.",
+        "Third Six: He dissolves his self. No remorse.",
+        "Fourth Six: He dissolves his bond with his group.",
+        "Fifth Nine: His loud cries are as dissolving as sweat.\nDissolution! A king abides without blame.",
+        "Top Six: He dissolves his blood.\nDeparting, keeping at a distance, going out,\nIs without blame."
+      ]
+    },
+    "110011": {
+      "gua_ci": "INNER TRUTH. Pigs and fishes.\nGood fortune.\nIt furthers one to cross the great water.\nPerseverance furthers.",
+      "name": "Innermost Sincerity",
+      "yao_ci": [
+        "Initial Nine: Being prepared brings good fortune.\nIf there are secret designs, it is disquieting.",
+        "Second Nine: A crane calling in the shade.\nIts young answers it.\nI have a good goblet.\nI will share it with you.",
+        "Third Six: He finds a comrade.",
+        "Fourth Six: The moon nearly at the full.",
+        "Fifth Nine: He possesses truth, which links together.",
+        "Top Nine: Cockcrow penetrating to heaven.\nPerseverance brings misfortune."
+      ]
+    },
+    "110100": {
+      "gua_ci": "DEVELOPMENT. The maiden\nIs given in marriage.\nGood fortune.\nPerseverance furthers.",
+      "name": "Developing Gradually",
+      "yao_ci": [
+        "Initial Nine: The wild goose gradually draws near the shore.",
+        "Second Nine: The wild goose gradually draws near the cliff.\nEating and drinking in peace and concord.\nGood fortune.",
+        "Third Six: The wild goose gradually draws near the plateau.",
+        "Fourth Nine: The wild goose goes gradually draws near the tree.\nPerhaps it will find a flat branch. No blame.",
+        "Fifth Six: The wild goose gradually draws near the summit.\nFor three years the woman has no child.\nIn the end nothing can hinder her.\nGood fortune.",
+        "Top Six: The wild goose gradually draws near the clouds heights.\nIts feathers can be used for the sacred dance.\nGood fortune."
+      ]
+    },
+    "110101": {
+      "gua_ci": "THE FAMILY. The perseverance of the woman furthers.",
+      "name": "Household",
+      "yao_ci": [
+        "Initial Nine: Firm seclusion within the family.\nRemorse disappears.",
+        "Second Nine: She should not follow her whims.",
+        "Third Six: When tempers flare up in the family,",
+        "Fourth Nine: She is the treasure of the house.\nGreat good fortune.",
+        "Fifth Six: As a king he approaches his family.\nFear not.\nGood fortune.",
+        "Top Nine: His work commands respect.'\nIn the end good fortune comes."
+      ]
+    },
+    "110110": {
+      "gua_ci": "THE GENTLE. Success through what is small.\nIt furthers one to have somewhere to go.\nIt furthers one to see the great man.",
+      "name": "Proceeding Humbly",
+      "yao_ci": [
+        "Initial Nine: In advancing and in retreating,",
+        "Second Nine: Penetration under the bed.\nPriests and magicians are used in great number.\nGood fortune. No blame.",
+        "Third Six: Repeated penetration. Humiliation.",
+        "Fourth Nine: Remorse vanishes.\nDuring the hunt",
+        "Fifth Nine: Perseverance brings good fortune.\nRemorse vanishes.",
+        "Top Six: Penetration under the bed.\nHe loses his property and his ax.\nPerseverance brings misfortune."
+      ]
+    },
+    "110111": {
+      "gua_ci": "THE TAMING POWER OF THE SMALL\nHas success.\nDense clouds, no rain from our western region.",
+      "name": "Little Accumulation",
+      "yao_ci": [
+        "Initial Nine: Return to the way.\nHow could there be blame in this?\nGood fortune.",
+        "Second Nine: He allows himself to be drawn into returning.\nGood fortune.",
+        "Third Six: The spokes burst out of the wagon wheels.\nMan and wife roll their eyes.",
+        "Fourth Nine: If you are sincere, blood vanishes and fear gives way.\nNo blame.",
+        "Fifth Nine: If you are sincere and loyally attached,\nYou are rich in your neighbor.",
+        "Top Nine: The rain comes, there is rest.\nThis is due to the lasting effect of character.\nPerseverance brings the woman into danger.\nThe moon is nearly full.\nIf the superior man persists,\nMisfortune comes."
+      ]
+    },
+    "111000": {
+      "gua_ci": "STANDSTILL. Evil people do not further\nThe perseverance of the superior man.\nThe great departs; the small approaches.",
+      "name": "Hindrance",
+      "yao_ci": [
+        "Initial Nine: When ribbon grass is pulled up, the sod comes with it.\nEach according to his kind.\nPerseverance brings good fortune and success.",
+        "Second Nine: They bear and endure;\nThis means good fortune for inferior people.\nThe standstill serves to help the great man to attain success.",
+        "Third Nine: They bear shame.",
+        "Fourth Six: He who acts at the command of the highest\nRemains without blame.\nThose of like mind partake of the blessing.",
+        "Fifth Six: Standstill is giving way.\nGood fortune for the great man.\n\"What if it should fail, what if it should fail?\"\nIn this way he ties it to a cluster of mulberry shoots.",
+        "Top Six: The standstill comes to an end.\nFirst standstill, then good fortune."
+      ]
+    },
+    "111001": {
+      "gua_ci": "INNOCENCE. Supreme success.\nPerseverance furthers.\nIf someone is not as he should be,\nHe has misfortune,\nAnd it does not further him\nTo undertake anything.",
+      "name": "Without Falsehood",
+      "yao_ci": [
+        "Initial Nine: Innocent behavior brings good fortune.",
+        "Second Nine: If one does not count on the harvest while plowing,",
+        "Third Nine: Undeserved misfortune.",
+        "Fourth Six: He who can be persevering\nRemains without blame.",
+        "Fifth Six: Use no medicine in an illness\nIncurred through no fault of your own.\nIt will pass of itself.",
+        "Top Nine: Innocent action brings misfortune."
+      ]
+    },
+    "111010": {
+      "gua_ci": "CONFLICT. You are sincere\nAnd are being obstructed.\nA cautious halt halfway brings good fortune.\nGoing through to the end brings misfortune.\nIt furthers one to see the great man.\nIt does not further one to cross the great water.",
+      "name": "Contention",
+      "yao_ci": [
+        "Initial Nine: If one does not perpetuate the affair,\nThere is a little gossip.\nIn the end, good fortune comes.",
+        "Second Nine: One cannot engage in conflict;\nOne returns home, gives way.\nThe people of his town,\nThree hundred households,\nRemain free of guilt.",
+        "Third Nine: To nourish oneself on ancient virtue induces perseverance.\nDanger. In the end, good fortune comes.\nIf by chance you are in the service of a king,\nSeek not works.",
+        "Fourth Six: One cannot engage in conflict.\nOne turns back and submits to fate,\nChanges one's attitude,\nAnd finds peace in perseverance.\nGood fortune.",
+        "Fifth Nine: To contend before him\nBrings supreme good fortune.",
+        "Top Six: Even if by chance a leather belt is bestowed on one,'\nBy the end of a morning\nIt will have been snatched away three times."
+      ]
+    },
+    "111011": {
+      "gua_ci": "TREADING. Treading upon the tail of the tiger.\nIt does not bite the man. Success.",
+      "name": "Fulfillment",
+      "yao_ci": [
+        "Initial Nine: Simple conduct. Progress without blame.",
+        "Second Nine: Treading a smooth, level course.\nThe perseverance of a dark man\nBrings good fortune.",
+        "Third Nine: A one-eyed man is able to see,\nA lame man is able to tread.\nHe treads on the tail of the tiger.",
+        "Fourth Six: He treads on the tail of the tiger.\nCaution and circumspection\nLead ultimately to good fortune.",
+        "Fifth Nine: Resolute conduct.\nPerseverance with awareness of danger.",
+        "Top Nine: Look to your conduct and weigh the favorable signs.\nWhen everything is fulfilled, supreme good fortune comes."
+      ]
+    },
+    "111100": {
+      "gua_ci": "RETREAT. Success.\nIn what is small, perseverance furthers.",
+      "name": "Retreat",
+      "yao_ci": [
+        "Initial Nine: At the tail in retreat. This is dangerous.\nOne must not wish to undertake anything.",
+        "Second Nine: he holds him fast with yellow oxhide.",
+        "Third Nine: A halted retreat\nIs nerve-wracking and dangerous.",
+        "Fourth Nine: Voluntary retreat brings good fortune to the superior man\nAnd downfall to the inferior man.",
+        "Fifth Six: Friendly retreat. Perseverance brings good fortune.",
+        "Top Six: Cheerful retreat. Everything serves to further."
+      ]
+    },
+    "111101": {
+      "gua_ci": "FELLOWSHIP WITH MEN in the open.\nSuccess.\nIt furthers one to cross the great water.\nThe perseverance of the superior man furthers.",
+      "name": "Seeking Harmony",
+      "yao_ci": [
+        "Initial Nine: Fellowship with men at the gate.\nNo blame.",
+        "Second Nine: Fellowship with men in the clan.\nHumiliation.",
+        "Third Nine: He hides weapons in the thicket;\nHe climbs the high hill in front of it.\nFor three years he does not rise up.",
+        "Fourth Nine: He climbs up on his wall; he cannot attack.\nGood fortune.",
+        "Fifth Six: Men bound in fellowship first weep and lament,\nBut afterward they laugh.\nAfter great struggles they succeed in meeting.",
+        "Top Nine: Fellowship with men in the meadow.\nNo remorse."
+      ]
+    },
+    "111110": {
+      "gua_ci": "COMING TO MEET. The maiden is powerful.\nOne should not marry such a maiden.",
+      "name": "Encountering",
+      "yao_ci": [
+        "Initial Nine: It must be checked with a brake of bronze.\nPerseverance brings good fortune.\nIf one lets it take its course, one experiences misfortune.\nEven a lean pig has it in him to rage around.",
+        "Second Nine: There is a fish in the tank. No blame.\nDoes not further guests.",
+        "Third Nine: And walking comes hard.\nIf one is mindful of the danger,",
+        "Fourth Nine: No fish in the tank.",
+        "Fifth Nine: A melon covered with willow leaves.\nHidden lines.",
+        "Top Six: He comes to meet with his horns.\nHumiliation. No blame."
+      ]
+    },
+    "111111": {
+      "gua_ci": "THE CREATIVE works sublime success, Furthering through perseverance.",
+      "name": "Initiating",
+      "yao_ci": [
+        "Initial Nine: Hidden dragon. Do not act.",
+        "Second Nine: Dragon appearing in the field.\nIt furthers one to see the great man.",
+        "Third Nine: All day long the superior man is creatively active.\nAt nightfall his mind is still beset with cares.\nDanger. No blame.",
+        "Fourth Nine: Wavering flight over the depths.\nNo blame.",
+        "Fifth Nine: Flying dragon in the heavens.\nIt furthers one to see the great man.",
+        "Top Nine: Arrogant dragon will have cause to repent."
+      ],
+      "yong_ci": "There appears a flight of dragons without heads.\nGood fortune."
     }
   },
   "ui": {
+    "commonData": {
+      "action": "Action",
+      "actionVerify": "Verify",
+      "actionViewDetail": "View",
+      "address": "Address",
+      "amountSelectLabel": "Select Amount",
+      "authenticating": "Authenticating...",
+      "authStatus": "Status",
+      "balance": "Balance",
+      "bridgeActionLabel": "Bridge",
+      "buttons": {
+        "cancel": "Cancel",
+        "details": "View Details",
+        "startDivine": "Start Divine",
+        "submit": "Submit",
+        "submitVerification": "Submit Verification",
+        "verify": "Verify",
+        "view": "View",
+        "refresh": "Refresh"
+      },
+      "chainBridgeLabel": "Chain Bridge Tool",
+      "changingLines": " changing lines",
+      "close": "Close",
+      "connecting": "Connecting...",
+      "connectWallet": "Connect Wallet",
+      "daoActionSlogan": "DUKI in Action: Pledging 1% of Profits to Decentralized Universal Kindness Income (DUKI) as a Marketing Strategy to Spread Love for All.",
+      "daoContractLabel": "DAO Contract",
+      "daoParticipantAmount": "DAO Particant Amount",
+      "daoParticipantNo": "DAO Community Number",
+      "daoSlogan": "Love Be The Way To Make All Great Again",
+      "disconnect": "Disconnect",
+      "diviFields": {
+        "action": "Actions",
+        "daoTx": "DAO Transaction",
+        "daoTxAmount": "DAO Transaction Amount",
+        "diviGua": "Gua",
+        "diviGuaMutations": "Gua Mutations",
+        "diviGuaProof": "Divination Proof",
+        "diviGuaSummary": "Gua Summary",
+        "diviManifestation": "Manifestation",
+        "diviner": "Diviner",
+        "diviSignature": "Signature",
+        "diviTime": "Time",
+        "diviWill": "Will Content",
+        "knowDaoStatus": "Proof Verification",
+        "knowTime": "Known Time"
+      },
+      "DivinationTabs": {
+        "dao": "DAO",
+        "iChing": "I Ching",
+        "will": "Will"
+      },
+      "epistemicEnums": [
+        "Awaiting",
+        "Valid",
+        "Invalid",
+        "Deprecated"
+      ],
+      "errorManifesting": "Error manifesting",
+      "gua": "Gua",
+      "highlightPrefix": false,
+      "information": "Information",
+      "knowUnknowablePrefix": "Know Unknowable",
+      "knowUnknowableSuffix": "Love",
+      "loading": "Loading...",
+      "loadMore": "Load More",
+      "manifesting": "Manifesting...",
+      "modals": {
+        "amountSelectPlaceholder": "Enter any positive number",
+        "connectDaoDescription": "Connect with DAO and deep seek its meaning by paying any amount of money. The money will be used to demonstrate the concept of 'DUKI in action'. DUKI /dju:ki/ is Decentralized Universal Kindness Income For All lives.",
+        "connectDaoTitle": "Connect with DAO",
+        "connectWalletToPay": "Connect Wallet to Pay",
+        "deepseekDao": "Deepseek with DAO",
+        "deepseekExplanation": "View Deepseek Explanation",
+        "deepseeking": "Deepseeking...",
+        "deepseekResult": "View Deepseek Result",
+        "divinationResult": "Divination Result",
+        "emptyInterpretationPlaceholder": "You have to connect DAO to get interpretation.",
+        "enlightenmentText": "Reflect on this interpretation with an open mind. The I Ching speaks in metaphors that may reveal deeper enlightenment about the situation over time. Return to this reading when you need guidance.",
+        "finishDivinationFirst": "Please complete the divination first",
+        "finishConsentFirst": "Please complete the consent first",
+        "insufficientBalance": "Insufficient USDC balance",
+        "joinDaoToDeepseek": "Join DAO to Deepseek Enlightenment",
+        "processing": "Processing...",
+        "retryPayment": "Retry Payment",
+        "connectingDao": "Connecting DAO...",
+        "deepseekDaoError": "Remote Service Failed",
+        "deepseekDaoErrorDescription": "DeepSeek Interpretation Failed. Please try again.",
+        "approveAllowanceFailed": "Approve Allowance Failed",
+        "daoConnected": "DAO Connected",
+        "daoConnectedDescription": "Blockchain transaction completed successfully",
+        "invalidAmount": "Invalid Amount",
+        "invalidAmountDescription": "Please enter a valid amount",
+        "paymentSuccessful": "Payment Successful",
+        "retryDaoRequest": "Retry Deepseek Request",
+        "transactionCancelled": "Transaction Cancelled",
+        "transactionCancelledDescription": "User cancelled the transaction",
+        "saveImage": "Save Image",
+        "share": "Share",
+        "updateKnownStatus": "Update Verification Status",
+        "updateKnownStatusDeprecated": "Deprecated - This divination is no longer relevant",
+        "updateKnownStatusDescription": "How do you judge the divination based on real-world outcomes and reflections?",
+        "updateKnownStatusNote": "Additional Notes (Optional)",
+        "updateKnownStatusNotePlaceholder": "Share your experience or reasoning for this verification...",
+        "updateKnownStatusVerifiedCorrect": "Verified Correct - The divination was proven accurate",
+        "updateKnownStatusVerifiedIncorrect": "Verified Incorrect - The divination was proven inaccurate",
+        "verificationStatus": "Verification Status",
+        "viewDaoTx": "View DAO Transaction",
+        "willManifestationQuestion": "Will Manifestation Question",
+        "consentPoints": [
+          "By using this site for divination, you affirm your intent is honest, faithful, and righteous. Otherwise, reconsider participating.",
+          "You understand that the I Ching offers no direct answers, only glimpses—like a zero-knowledge proof—gently guiding us toward the Divine Will.",
+          "This site is a proof of concept for 'DUKI in action'. It offers no guarantees about service availability, and most of your divination data is also recorded on the ZK-Chain Scroll once connected to the DAO. We make no claims about the truth or falsity of I Ching divination, as we indeed know nothing. The Unknowable remains beyond reach—there is always more unknown beyond any known unknown. We can only seek it humbly, with love."
+        ],
+        "agreementSignatureLabel": "Agreement Digital Signature",
+        "awaitingSignatureLabel": "Awaiting your signature...",
+        "signingLabel": "Signing...",
+        "signAgreementButton": "Sign Agreement",
+        "errorSigningLabel": "Error signing",
+        "divineAgreement": "Divine Agreement",
+        "insufficientBalanceError": "Insufficient balance: invest amount is 64 USDC ",
+        "approvalFailed": "Approval failed",
+        "successfullyBecomeAnInvestor": "Successfully become an Investor!",
+        "becomeAnInvestor": "Become an Investor",
+        "joinAsInvestorToSupport": "Join our exclusive community of investors and support the growth of KnowUnknowable.Love",
+        "investmentAmountLabel": "Investment Amount",
+        "whyBecomeAnInvestor": "Why become an Investor",
+        "investorBenefits": [
+          "Share 20% of DAO revenues with other investors",
+          "Limited to 64 investors with first-come-first-serve revenue sharing",
+          "Support the vision of 'DUKI In Action' to Make All Great Again"
+        ]
+      },
+      "mutation": "Gua Mutation",
+      "mutationCountSuffix": "Possible Mutations",
+      "navLabels": [
+        "Divine",
+        "I Ching",
+        "DAO"
+      ],
+      "noDivinationsFound": "No divinations found",
+      "private": "Private",
+      "privateDescription": "The will you divine is unknown by others",
+      "public": "Public",
+      "publicDescription": "The will you divine can be known by all",
+      "showMore": "Show More",
+      "statusAuthenticated": "Authenticated",
+      "statusNotAuthenticated": "Not Authenticated",
+      "textLoveBeTheWayToKnow": "Divide To Divine — Love Be The Way To Know.",
+      "textPrimaryHexagram": "Primary Hexagram",
+      "textRelatingHexagram": "Relating Hexagram",
+      "unsupportedChain": "Unsupported",
+      "viewOnChain": "View on Chain",
+      "voyager": {
+        "copyright_notice": "Most of the 116 images and 31 tracks on the Voyager Golden Record are strictly protected by copyright and cannot be shown online without obtaining licenses—a task that even NASA finds challenging. To address this, we have selected four images and seven tracks that are likely low-risk or in the public domain for demonstration. If any of these violate copyright, please notify us, and we will remove them immediately.",
+        "copyright_notice_title": "Copyright",
+        "images": [
+          {
+            "low_copyright_risk": true,
+            "name": "1. Calibration circle"
+          },
+          {
+            "name": "2. Solar location map"
+          },
+          {
+            "name": "3. Mathematical definitions"
+          },
+          {
+            "name": "4. Physical unit definitions"
+          },
+          {
+            "name": "5. Solar system parameters"
+          },
+          {
+            "name": "6. Solar system parameters"
+          },
+          {
+            "low_copyright_risk": true,
+            "name": "7. The Sun"
+          },
+          {
+            "name": "8. Solar spectrum"
+          },
+          {
+            "name": "9. Mercury"
+          },
+          {
+            "low_copyright_risk": true,
+            "name": "10. Mars"
+          },
+          {
+            "name": "11. Jupiter"
+          },
+          {
+            "low_copyright_risk": true,
+            "name": "12. Earth"
+          },
+          {
+            "name": "13. Egypt, Red Sea, Sinai Peninsula and the Nile"
+          },
+          {
+            "name": "14. Chemical definitions"
+          },
+          {
+            "name": "15. DNA Structure"
+          },
+          {
+            "name": "16. DNA Structure magnified, light hit"
+          },
+          {
+            "name": "17. Cells and cell division"
+          },
+          {
+            "name": "18. Anatomy 1 (Skeleton front)"
+          },
+          {
+            "name": "19. Anatomy 2 (Internal organs front)"
+          },
+          {
+            "name": "20. Anatomy 3 (Skeleton and muscles back)"
+          },
+          {
+            "name": "21. Anatomy 4 (Internal organs back)"
+          },
+          {
+            "name": "22. Anatomy 5 (Ribcage)"
+          },
+          {
+            "name": "23. Anatomy 6 (Muscles front)"
+          },
+          {
+            "name": "24. Anatomy 7 (Heart, lungs, kidneys and main blood vessels back)"
+          },
+          {
+            "name": "25. Anatomy 8 (Heart, lungs, kidneys and main blood vessels front)"
+          },
+          {
+            "name": "26. Human sex organs"
+          },
+          {
+            "name": "27. Diagram of conception"
+          },
+          {
+            "name": "28. Conception"
+          },
+          {
+            "name": "29. Fertilized ovum"
+          },
+          {
+            "name": "30. Fetus diagram"
+          },
+          {
+            "name": "31. Fetus"
+          },
+          {
+            "name": "32. Diagram of male and female"
+          },
+          {
+            "name": "33. Birth"
+          },
+          {
+            "name": "34. Nursing mother"
+          },
+          {
+            "name": "35. Father and daughter (Malaysia)"
+          },
+          {
+            "name": "36. Group of children"
+          },
+          {
+            "name": "37. Diagram of family ages"
+          },
+          {
+            "name": "38. Family portrait"
+          },
+          {
+            "name": "39. Diagram of continental drift"
+          },
+          {
+            "name": "40. Structure of the Earth"
+          },
+          {
+            "name": "41. Heron Island (Great Barrier Reef of Australia)"
+          },
+          {
+            "name": "42. Seashore"
+          },
+          {
+            "name": "43. Snake River and Grand Tetons"
+          },
+          {
+            "name": "44. Sand dunes"
+          },
+          {
+            "name": "45. Monument Valley"
+          },
+          {
+            "name": "46. Forest scene with mushrooms"
+          },
+          {
+            "name": "47. Leaf"
+          },
+          {
+            "name": "48. Autumn Fallen leaves"
+          },
+          {
+            "name": "49. Snowflakes over Sequoia"
+          },
+          {
+            "name": "50. Tree with daffodils"
+          },
+          {
+            "name": "51. Flying insect with flowers"
+          },
+          {
+            "name": "52. Diagram of vertebrate evolution"
+          },
+          {
+            "name": "53. Seashell (Xancidae)"
+          },
+          {
+            "name": "54. Dolphins"
+          },
+          {
+            "name": "55. School of fish"
+          },
+          {
+            "name": "56. Tree toad"
+          },
+          {
+            "name": "57. Crocodile"
+          },
+          {
+            "name": "58. Eagle"
+          },
+          {
+            "name": "59. Waterhole"
+          },
+          {
+            "name": "60. Jane Goodall and chimps"
+          },
+          {
+            "name": "61. Sketch of bushmen"
+          },
+          {
+            "name": "62. Bushmen hunters"
+          },
+          {
+            "name": "63. Man from Guatemala"
+          },
+          {
+            "name": "64. Dancer from Bali"
+          },
+          {
+            "name": "65. Andean girls"
+          },
+          {
+            "name": "66. Thailand master craftsman"
+          },
+          {
+            "name": "67. Elephant"
+          },
+          {
+            "name": "68. Old man with beard and glasses (Turkey)"
+          },
+          {
+            "name": "69. Old man with dog and flowers"
+          },
+          {
+            "name": "70. Mountain climber"
+          },
+          {
+            "name": "71. Gymnast"
+          },
+          {
+            "name": "72. Sprinters (Valeriy Borzov of the U.S.S.R. in lead)"
+          },
+          {
+            "name": "73. Schoolroom"
+          },
+          {
+            "name": "74. Children with globe"
+          },
+          {
+            "name": "75. Cotton harvest"
+          },
+          {
+            "name": "76. Grape picker"
+          },
+          {
+            "name": "77. Supermarket"
+          },
+          {
+            "name": "78. Underwater scene with diver and fish"
+          },
+          {
+            "name": "79. Fishing boat with nets"
+          },
+          {
+            "name": "80. Cooking fish"
+          },
+          {
+            "name": "81. Chinese dinner party"
+          },
+          {
+            "name": "82. Demonstration of licking, eating and drinking"
+          },
+          {
+            "name": "83. Great Wall of China"
+          },
+          {
+            "name": "84. House construction (African)"
+          },
+          {
+            "name": "85. Construction scene (Amish country)"
+          },
+          {
+            "name": "86. House (Africa)"
+          },
+          {
+            "name": "87. House (New England)"
+          },
+          {
+            "name": "88. Modern house (Cloudcroft, New Mexico)"
+          },
+          {
+            "name": "89. House interior with artist and fire"
+          },
+          {
+            "name": "90. Taj Mahal"
+          },
+          {
+            "name": "91. English city (Oxford)"
+          },
+          {
+            "name": "92. Boston"
+          },
+          {
+            "name": "93. UN Building Day"
+          },
+          {
+            "name": "94. UN Building Night"
+          },
+          {
+            "name": "95. Sydney Opera House"
+          },
+          {
+            "name": "96. Artisan with drill"
+          },
+          {
+            "name": "97. Factory interior"
+          },
+          {
+            "name": "98. Museum"
+          },
+          {
+            "name": "99. X-ray of hand"
+          },
+          {
+            "name": "100. Woman with microscope"
+          },
+          {
+            "name": "101. Street scene, Asia (Pakistan)"
+          },
+          {
+            "name": "102. Rush hour traffic, India"
+          },
+          {
+            "name": "103. Modern highway (Ithaca, NY)"
+          },
+          {
+            "name": "104. Golden Gate Bridge"
+          },
+          {
+            "name": "105. Train"
+          },
+          {
+            "name": "106. Airplane in flight"
+          },
+          {
+            "name": "107. Airport (Toronto)"
+          },
+          {
+            "name": "108. Antarctic Expedition"
+          },
+          {
+            "name": "109. Radio telescope (Westerbork, Netherlands)"
+          },
+          {
+            "name": "110. Radio telescope (Arecibo)"
+          },
+          {
+            "name": "111. Page of book (Newton, System of the World)"
+          },
+          {
+            "name": "112. Astronaut in space"
+          },
+          {
+            "name": "113. Titan Centaur launch"
+          },
+          {
+            "name": "114. Sunset with birds"
+          },
+          {
+            "name": "115. String Quartet (Quartetto Italiano)"
+          },
+          {
+            "name": "116. Violin with music score (Cavatina)"
+          }
+        ],
+        "title": "Voyager Golden Record",
+        "tracks": [
+          {
+            "artist": "Kurt Waldheim",
+            "country_code": "UN",
+            "low_copyright_risk": true,
+            "title": "Greetings from the Secretary-General of the UN",
+            "track_number": 1
+          },
+          {
+            "artist": null,
+            "country_code": "UN",
+            "low_copyright_risk": true,
+            "title": "Greetings In 55 Languages",
+            "track_number": 2
+          },
+          {
+            "artist": null,
+            "country_code": "UN",
+            "low_copyright_risk": true,
+            "title": "United Nations Greetings / Whale Songs",
+            "track_number": 3
+          },
+          {
+            "artist": null,
+            "country_code": "UN",
+            "low_copyright_risk": true,
+            "title": "The Sounds Of Earth",
+            "track_number": 4
+          },
+          {
+            "artist": "Munich Bach Orchestra / Karl Richter (Johann Sebastian Bach)",
+            "country_code": "DE",
+            "title": "Brandenburg Concerto No. 2 in F Major, BWV 1047: I. Allegro",
+            "track_number": 5
+          },
+          {
+            "artist": "Pura Paku Alaman Palace Orchestra / K.R.T. Wasitodipuro",
+            "country_code": "ID",
+            "title": "Ketawang: Puspåwårnå (Kinds of Flowers)",
+            "track_number": 6
+          },
+          {
+            "artist": "Mahi musicians",
+            "country_code": "BJ",
+            "title": "Cengunmé",
+            "track_number": 7
+          },
+          {
+            "artist": "Mbuti of the Ituri Rainforest",
+            "country_code": "CD",
+            "title": "Alima Song",
+            "track_number": 8
+          },
+          {
+            "artist": "Tom Djawa, Mudpo and Waliparu",
+            "country_code": "AU",
+            "title": "Barnumbirr & Moikoi Song",
+            "track_number": 9
+          },
+          {
+            "artist": "Antonio Maciel and Los Aguilillas with Mariachi México de Pepe Villa / Rafael Carrión (Lorenzo Barcelata)",
+            "country_code": "MX",
+            "title": "El Cascabel",
+            "track_number": 10
+          },
+          {
+            "artist": "Chuck Berry",
+            "country_code": "US",
+            "title": "Johnny B. Goode",
+            "track_number": 11
+          },
+          {
+            "artist": "Pranis Pandang and Kumbui of the Nyaura Clan",
+            "country_code": "PG",
+            "title": "Mariuamangɨ",
+            "track_number": 12
+          },
+          {
+            "artist": "Goro Yamaguchi",
+            "country_code": "JP",
+            "title": "Sokaku-Reibo (Depicting the Cranes in Their Nest)",
+            "track_number": 13
+          },
+          {
+            "artist": "Arthur Grumiaux (Johann Sebastian Bach)",
+            "country_code": "DE",
+            "title": "Partita for Violin Solo No. 3 in E Major, BWV 1006: III. Gavotte en Rondeau",
+            "track_number": 14
+          },
+          {
+            "artist": "Bavarian State Opera Orchestra and Chorus / Wolfgang Sawallisch (Wolfgang Amadeus Mozart)",
+            "country_code": "DE",
+            "title": "The Magic Flute (Die Zauberflöte), K. 620, Act II: Hell's Vengeance Boils in My Heart",
+            "track_number": 15
+          },
+          {
+            "artist": "Georgian State Merited Ensemble of Folk Song and Dance / Anzor Kavsadze",
+            "country_code": "GE",
+            "title": "Chakrulo",
+            "track_number": 16
+          },
+          {
+            "artist": "Musicians from Ancash",
+            "country_code": "PE",
+            "title": "Roncadoras and Drums",
+            "track_number": 17
+          },
+          {
+            "artist": "Louis Armstrong and His Hot Seven (Marty Bloom / Walter Melrose)",
+            "country_code": "US",
+            "title": "Melancholy Blues",
+            "track_number": 18
+          },
+          {
+            "artist": "Kamil Jalilov",
+            "country_code": "AZ",
+            "title": "Muğam",
+            "track_number": 19
+          },
+          {
+            "artist": "Columbia Symphony Orchestra / Igor Stravinsky",
+            "country_code": "RU",
+            "title": "The Rite of Spring (Le Sacre du Printemps), Part II—The Sacrifice: VI. Sacrificial Dance (The Chosen One)",
+            "track_number": 20
+          },
+          {
+            "artist": "Glenn Gould (Johann Sebastian Bach)",
+            "country_code": "DE",
+            "title": "The Well-Tempered Clavier, Book II: Prelude & Fugue No. 1 in C Major, BWV 870",
+            "track_number": 21
+          },
+          {
+            "artist": "Philharmonia Orchestra / Otto Klemperer (Ludwig Van Beethoven)",
+            "country_code": "DE",
+            "title": "Symphony No. 5 in C Minor, Opus 67: I. Allegro Con Brio",
+            "track_number": 22
+          },
+          {
+            "artist": "Valya Balkanska",
+            "country_code": "BG",
+            "title": "Izlel e Delyu Haydutin",
+            "track_number": 23
+          },
+          {
+            "artist": "Ambrose Roan Horse, Chester Roan and Tom Roan",
+            "country_code": "US",
+            "title": "Navajo Night Chant, Yeibichai Dance",
+            "track_number": 24
+          },
+          {
+            "artist": "Early Music Consort of London / David Munrow (Anthony Holborne)",
+            "country_code": "UK",
+            "title": "The Fairie Round",
+            "track_number": 25
+          },
+          {
+            "artist": "Maniasinimae and Taumaetarau Chieftain Tribe of Oloha and Palasu'u Village Community",
+            "country_code": "SB",
+            "title": "Naranaratana Kookokoo (The Cry of the Megapode Bird)",
+            "track_number": 26
+          },
+          {
+            "artist": "Young girl of Huancavelica",
+            "country_code": "PE",
+            "title": "Wedding Song",
+            "track_number": 27
+          },
+          {
+            "artist": "Guan Pinghu",
+            "country_code": "CN",
+            "low_copyright_risk": true,
+            "title": "Liu Shui (Flowing Streams)",
+            "track_number": 28
+          },
+          {
+            "artist": "Kesarbai Kerkar",
+            "country_code": "IN",
+            "low_copyright_risk": true,
+            "title": "Bhairavi: Jaat Kahan Ho",
+            "track_number": 29
+          },
+          {
+            "artist": "Blind Willie Johnson",
+            "country_code": "US",
+            "low_copyright_risk": true,
+            "title": "Dark Was the Night, Cold Was the Ground",
+            "track_number": 30
+          },
+          {
+            "artist": "Budapest String Quartet (Ludwig Van Beethoven)",
+            "country_code": "DE",
+            "title": "String Quartet No. 13 in B-flat Major, Opus 130: V. Cavatina",
+            "track_number": 31
+          }
+        ]
+      },
+      "walletInformation": "Wallet Information",
+      "walletNetwork": "Network",
+      "walletProfileTitle": "Wallet Profile",
+      "walletTotalUSDCLabel": "Wallet Total USDC",
+      "connectDaoToParticipate": "Connect the DAO to participate"
+    },
+    "daoPageData": {
+      "allTransactions": "All Transactions",
+      "almWorldSlogons": [
+        {
+          "desc": "A single act of kindness throws out roots in all directions, and the roots spring up and make new trees.",
+          "slogon": "Kindness First"
+        },
+        {
+          "desc": "Individual Conduct Accountability. Tit for tat with proper forgiveness to prevent conflicts.",
+          "slogon": "Fairness Always"
+        },
+        {
+          "desc": "The Way that can be spoken is not the true Way; only by walking the path of love can it be known.",
+          "slogon": "DUKI in Action"
+        }
+      ],
+      "claim": "Claim",
+      "claimed": "Claimed",
+      "claimRequirements": "Claim Requirements",
+      "alreadyAnInvestor": "You are now an investor.",
+      "maxInvestorCountReached": "The maximum investor limit of 64 has already been reached",
+      "currentBlock": "Current Round",
+      "currentEvolutionDrop": "Current Evolution Drop",
+      "daoEvolutionDesc": "DAO evolves at most once per week and needs 100 USDC in treasury to success. Fair drop comes as a result of DAO evolution.",
+      "daoEvolutionDescPrefix": "The Below DAO is on ",
+      "daoTerm": "DAO IS ALL LOVE",
+      "daoTermDefinitionMiddle": "DUKI",
+      "daoTermDefinitionPrefix": "Kindness First, Fairness Always and ",
+      "daoTermDefinitionSuffix": "In Action",
+      "dropDollars": "FairDrop Dollars:",
+      "dropUnits": "FairDrop Units (Left/Total):",
+      "dukiDefinition": "DUKI /dju:ki/: Decentralized Universal Kindness Initiative.  A DAO-based system promoting fairness and kindness in action",
+      "dukiInAction": "DUKI in Action",
+      "evolutionStatus": "Evolution Round",
+      "fairDrop": "FairDrop",
+      "historyTotalDrop": "Total Dropped",
+      "lottery": "Lottery",
+      "lotteryPrizeRule": "the winner can claim the min of max prize and 1000 * his/her total spent",
+      "manifestation": {
+        "age": "Age",
+        "amount": "Amount",
+        "creator": "Creator",
+        "interaction": "Interaction",
+        "interactTypes": [
+          "Divine",
+          "Renew",
+          "Invest",
+          "Claim Duki4World",
+          "Claim Duki4Nation",
+          "Claim Community Lottery",
+          "Claim As Builder",
+          "Claim As Contributor",
+          "Claim As Investor",
+          "Claim As Maintainer",
+          "Claim As Founder"
+        ],
+        "txHash": "Tx Hash"
+      },
+      "maxPrize": "Max Prize",
+      "myTransactions": "My Transactions",
+      "daoInvestmentNews": "DAO Investment News",
+      "noTransactionsFound": "No transactions found",
+      "noInvestorPromotion": "Join first to share %s of DAO revenue equally among up to 64 investors—first come, first served!",
+      "philosophy": "Philosophical Thinking",
+      "sections": [
+        {
+          "description": "Wills Receptivity and Nurturing",
+          "requirements": {
+            "p1": "Only project creators are eligible to claim",
+            "p2": ""
+          },
+          "target": "Money to DUKIGE - We need sin first for survival and then evolve to be love",
+          "title": "Private Love For Creators"
+        },
+        {
+          "description": "Wills Stillness and Meditation",
+          "requirements": {
+            "p1": "Survival of the fittest. Nothing can skip the rule, we have to survive first and then thrive.",
+            "p2": ""
+          },
+          "target": "",
+          "title": "Private Love For Maintainers"
+        },
+        {
+          "description": "Wills Flow and Adaptation",
+          "requirements": {
+            "btn": {
+              "modal": "INVEST",
+              "text": "Become an Investor"
+            },
+            "p1": "You can invest in the DUKI in action project.",
+            "p2": ""
+          },
+          "target": "Money to Investors - Free Will of Goodness needs power to manifest and be useful",
+          "title": "Private Love For Investors"
+        },
+        {
+          "description": "Wills Influence and Penetration",
+          "requirements": {
+            "p1": "As the hexagram Xun says: 'The wind follows, and the noble one carries out his commands.'",
+            "p2": "Only project contributors can claim"
+          },
+          "target": "Money to Partners - Fostering strategic collaborations and alliances",
+          "title": "Private Love For Contributors"
+        },
+        {
+          "description": "Wills Awakening and Mobilization",
+          "requirements": {
+            "p1": "Influencers using their platform or service to amplify positive impact and inspire participation.",
+            "p2": "Only 64 spots available. Apply offline to become an evangelist. Embrace a 'love all' marketing strategy by pledging to donate 1% of profits to humanity, distributed equally if possible, potentially via blockchain in the future like zk-kyc and so on. No donation is required if there are no profits. May your kindness-first actions warm humanity and capture all lives' attention."
+          },
+          "target": "Money to Influencers - Empowering voices that awaken and mobilize all lives",
+          "title": "Public Love For Influencers"
+        },
+        {
+          "description": "Wills Clarity and Transformation",
+          "requirements": {
+            "p1": "Gathering flames into brilliance, kindling fire together",
+            "p2": "Only the lucky community user who wins the lottery is eligible to claim"
+          },
+          "target": "Money to Pioneers - First adopters and adventurers are the pioneers of the world",
+          "title": "Public Love For Community"
+        },
+        {
+          "description": "Wills Joy and Satisfaction",
+          "requirements": {
+            "p1": "To benefit all beings, one must be as vast as lakes and seas, embracing all rivers.",
+            "p2": "A nation's tax revenue is essentially the love generated by commercial activity for its people. Web3 does not currently support this, but we hope to see future national-level support for ZK-KYC or ZK-ID to establish a unified WorldID."
+          },
+          "target": "Money to Nation - A nation of people who love and care for the world",
+          "title": "Public Love For Nation"
+        },
+        {
+          "description": "Wills Humanity and Creativity",
+          "requirements": {
+            "p1": "Everyone can claim it.",
+            "p2": "At this stage, we cannot determine whether a wallet corresponds to a unique human being. We simply verify whether there is 1 USDC in the wallet.",
+            "p1_": "DUKI is used for all lives, you just need to prove you are a unique human.DUKI needs decentralized zero knowledge proof system to uniquely identify humans.",
+            "p2_": "WorldID is not enough for DUKI. &nbsp; <a href='https://x.com/OrdKindKang/status/1835352385423814858' target='_blank' className='text-cyan-400 hover:text-cyan-300 underline'>Without True Authority, WorldID Could Become a Hoax</a>"
+          },
+          "target": "Money to World - DUKI in Action to remind all lives that freedom is not free, it needs power to reject evil and do good",
+          "title": "Public Love For All Lives"
+        },
+        {
+          "description": "DAO is All Love.",
+          "requirements": {
+            "p1": "Free will is the unknowable force born from 'making love together.' Likewise, all wills are born from love.",
+            "p2": ""
+          },
+          "target": "to free will. Free will are born of love and born with sin, it needs power and wisdom to be useful",
+          "title": "Love Be The Way"
+        }
+      ],
+      "totalParticipants": "Total Participants:",
+      "trackLatestTransactions": "Track the latest manifestations as they unfold.",
+      "treasury": "Treasury",
+      "usdcAvailable": "USDC Available",
+      "usdcBalance": "USDC Balance"
+    },
+    "diviPageData": {
+      "diviPanelData": {
+        "beforeDividePhaseText": "Primordial Chaos (Taiji Undivided)",
+        "createDivinationError": "Error saving divination. Please try again.",
+        "dividePhasesTextArray": [
+          "Divide To Know",
+          "Generation of Yin-Yang",
+          "Differentiation of Two Forms [Heaven-Earth]",
+          "Suspend One to Manifest Triadic Cosmology",
+          "Grouping by Four to Correspond with the Seasons",
+          "Returning the Remainder to Complete the Lunar Adjustment"
+        ],
+        "inspectMutationTip": "play the mutable lines to inspect",
+        "mutationsCountPrefix": "Got",
+        "mutationsCountSuffix": "Possible Mutations",
+        "startDivideTip": "Ready to begin your divination journey",
+        "step1": {
+          "description": "Divine the will of the universe",
+          "divinationConsentLabel": "Sign Consent Form",
+          "divinationConsentProof": "View Consent Form Signature",
+          "title": "Will Awaken"
+        },
+        "step2": {
+          "description": "Divine the will into possible manifestations",
+          "diviSpeed": "Divi Speed",
+          "diviSpeedOptions": {
+            "fast": "Fast",
+            "normal": "Normal",
+            "slow": "Slow"
+          },
+          "textChangesInProgress": "Changes",
+          "textLineChangeable": "Click to change",
+          "textLineNotChangeable": "This line is not changeable",
+          "textProgress": "Lines Progress",
+          "title": "Divide To Divine"
+        },
+        "step3": {
+          "description": "Connect the DAO and deep seek its meaning by paying any amount of money. The money will be used to demonstrate the concept of 'DUKI in action'. DUKI /dju:ki/ is Decentralized Universal Kindness Income For All lives.",
+          "textConnectWalletToPay": "Connect Wallet to Pay",
+          "textDeepseekDao": "Deepseek DAO",
+          "textDeepseekExplanation": "View Deepseek Explanation",
+          "textDeepseekResult": "Deepseek Result",
+          "textDivinationCompleted": "Divination Completed - Explore Your Insights",
+          "textJoinDaoToDeepseek": "Join DAO to Deepseek",
+          "textLoveBeTheWayToKnow": "Love Be The Way To Know",
+          "textNoDaoConnectionProof": "No DAO Connection Proof",
+          "textPaymentCompleted": "Payment Completed - Access Insights Through DeepSeek",
+          "textProcessing": "Processing...",
+          "textViewDaoTx": "View DAO Transaction",
+          "title": "Walk the Path of Love"
+        },
+        "textRetrySave": "Retry Save",
+        "textSaveSuccess": "Divination Completed",
+        "textSaving": "Saving...",
+        "title": "DAO IS ALL LOVE",
+        "toasts": {
+          "divinationComplete": {
+            "description": "You can connect with the DAO to deep seek its meaning.",
+            "title": "Your Divination is Complete And Saved"
+          }
+        }
+      },
+      "loadingPhrase": "Into the Unknowable..."
+    },
     "gua": "Gua",
+    "iChingPageData": {
+      "howIChingWorks": "How I Ching Divination Works",
+      "iChingAndWillAndLoveAndDNA": "How I Ching, Will, Love, and DNA are related?",
+      "iChingAndWillAndLoveAndDNADetails": [
+        "Love is the fundamental source of all will and drive. It operates through a dynamic mechanism of \"division and union\"—as exemplified by the interplay of yin and yang, or the structural duality represented by male and female DNA—constructing the generative order of all things. In this process, love functions not only as a force of union but also as a principle of differentiation, continuously partitioning and generating domains of naming within an infinite conceptual space—local fields of meaning and existence. It is through this division and union that the world unfolds and existence comes into being.",
+        "This process resembles a cosmic act of \"making love\": in the tension between division and unity, new will is conceived. It may manifest as the birth of life, the emergence of an idea, an invention, or a moment of transformation—each act of creation is the interweaving of love and will.",
+        "Everyday experience affirms this: all human intentions and actions are rooted in love. The object of love may vary—oneself, a partner, family, friends, strangers, nations, cultures, or even the entirety of humanity and the world. Love makes us agents of action, and also creators of meaning.",
+        "Yet the essence of love resists full comprehension through empirical or reductionist scientific frameworks. It is not an object measurable by instruments, but a force belonging to the generative realm of becoming. We can only approach it through the manifestations of will that it drives—manifestations that may take the form of collaboration or conflict, creation or destruction, forming the dynamic tapestry of reality.",
+        "Within this framework, the I Ching can be seen as a proto \"zero-knowledge proof\" system: it does not directly reveal the truth, but rather, through symbolic structure and patterned logic, offers insight into how a particular will might unfold within reality. This method of divination is, at its core, a reading of generative forces rather than a confirmation of static facts.",
+        "Through it all, love remains the thread—the passageway to the unknowable. It is not only the starting point for understanding the world, but also the possibility for transcending it. It exists within the sayable, and beyond the reach of language. Love is the precondition of naming, and also the excess that naming can never fully contain."
+      ],
+      "iChingAndZkProofAndRandomness": "I Ching, Zero-Knowledge Proof and Randomness",
+      "modernZeroKnowledgeProof": "Modern Zero-Knowledge Proof Interpretation",
+      "perspectiveExplanation": "This viewpoint is rooted in humanistic inquiry, extending beyond the bounds of verifiable science.",
+      "prerequisite": "Be honest, be faithful, and be righteous for the will.",
+      "prerequisiteDescription": "The prerequisite of the divination",
+      "quotes": [
+        {
+          "author": "I Ching - The Divide To Divine Method",
+          "quote": "The number of the Great Expansion is fifty, yet only forty-nine are used. They are divided into two to symbolize the two primal forces. One is set apart to symbolize the three powers. They are counted by fours to symbolize the four seasons. The remainder is returned to the lei to symbolize the intercalary month. Since there are two intercalations in five years, the process is repeated, and then one is set apart again. Heaven is one, Earth is two; Heaven is three, Earth is four; Heaven is five, Earth is six; Heaven is seven, Earth is eight; Heaven is nine, Earth is ten. There are five heavenly numbers and five earthly numbers. The five positions correspond, each finding its complement. The sum of the heavenly numbers is twenty-five, that of the earthly numbers is thirty. Together, the numbers of Heaven and Earth make fifty-five. This is what brings about change and sets the spirits in motion."
+        },
+        {
+          "author": "I Ching - ䷃ Hexagram Meng (Youthful Folly)",
+          "quote": "YOUTHFUL FOLLY has success. It is not I who seek the young fool; The young fool seeks me. At the first oracle I inform him. If he asks two or three times, it is importunity. If he importunes, I give him no information. Perseverance furthers."
+        }
+      ],
+      "references": [
+        {
+          "author": "Professor Avi Wigderson",
+          "description": "Everything provable is provable in zero-knowledge",
+          "link": "https://www.youtube.com/watch?v=Eu_j5_tains",
+          "title": "Professor Avi Wigderson on cryptography"
+        },
+        {
+          "author": "Fuxi, Wen Wang, Confucius",
+          "description": "Used for divination, it is a method of exploring the future by consulting the oracle",
+          "link": "https://en.wikipedia.org/wiki/I_Ching",
+          "title": "IChing: Book of Changes"
+        },
+        {
+          "author": "Lao Tzu",
+          "description": "The Way that can be spoken is not the true Way",
+          "link": "https://en.wikipedia.org/wiki/Tao_Te_Ching",
+          "title": "Tao Te Ching"
+        },
+        {
+          "author": "Martin Schonberger",
+          "description": "programming code of all living creatures ...",
+          "link": "https://a.co/d/5Aszb1j",
+          "title": "I Ching & the Genetic Code: The Hidden Key to Life"
+        },
+        {
+          "authors": "Leibniz",
+          "description": "Leibniz viewed binary arithmetic less as a computational tool than as a means of discovering mathematical, philosophical and even theological truths",
+          "link": "https://www.yuque.com/kangqinghua/eimrru/hczvklqsnv9pe3ei",
+          "title": "Leibniz: Explanation of binary arithmetic (1703)"
+        },
+        {
+          "author": "Arthur Schopenhauer",
+          "description": "The world as representation is, therefore, the 'objectification' of the will.",
+          "link": "https://en.wikipedia.org/wiki/The_World_as_Will_and_Representation",
+          "title": "The World as Will and Representation"
+        },
+        {
+          "author": "WeltgeistYT",
+          "description": "Schopenhauer discovered the strange duality is the single narrow door to the truth",
+          "link": "https://www.youtube.com/watch?v=f-djIdl8WO4",
+          "title": "SCHOPENHAUER Explained: The World as Will and Representation (ALL PARTS)"
+        }
+      ],
+      "zkDemo": {
+        "clickAnyEdge": "Click any edge to verify adjacent nodes have different colors. Colors shuffle between verifications to prevent solution discovery. Use the Reveal button to see the complete coloring (for demonstration purposes only).",
+        "comparisons": [
+          {
+            "aspect": "Aspect",
+            "iChing": "I Ching Divination",
+            "zkDemo": "Zero Knowledge Proof"
+          },
+          {
+            "aspect": "Prover",
+            "iChing": "The Unknowable (possible something in scientific or religious) who knows everything or something and is willing to deliver revelations through divination",
+            "zkDemo": "Entity who knows something and is willing to prove it to the verifier without revealing the truth"
+          },
+          {
+            "aspect": "Verifier",
+            "iChing": "Person who is determined and also wants to glimpse the possible manifestation of the 'Will' and adapt to the change",
+            "zkDemo": "Skeptical party who wants to verify if the prover's claim is true (e.g. if the  prover indeed knows the 3-coloring scheme of the graph)"
+          },
+          {
+            "aspect": "Prerequisite",
+            "iChing": "Honesty, Faith, and Righteousness",
+            "zkDemo": "None"
+          },
+          {
+            "aspect": "Verifier Request",
+            "iChing": "Divination about how a 'Will' will manifest",
+            "zkDemo": "Selection of an edge to verify"
+          },
+          {
+            "aspect": "Prover Response",
+            "iChing": "Revelation of the gua and its mutation with predefined commitment",
+            "zkDemo": "Revelation of the colors of two vertices with randomized commitment"
+          },
+          {
+            "aspect": "Verification",
+            "iChing": "User verifies accuracy through actual future events",
+            "zkDemo": "Verifier checks if the two vertices have different colors and are consistent with the pre-commitment"
+          },
+          {
+            "aspect": "Completeness",
+            "iChing": "Correct revelations are eventually acknowledged as accurate",
+            "zkDemo": "If the prover knows the graph 3-colorable scheme, the prover always passes verification"
+          },
+          {
+            "aspect": "Soundness",
+            "iChing": "Incorrect revelations are discovered and rejected <span className='text-xs text-white/50'> (in case of rejection, this still does not mean the entire I Ching is incorrect, since nobody can truly know the validity of the prerequisites or the accuracy of interpretations. The ultimate truth remains unknowable)</span>",
+            "zkDemo": "If the graph is not 3-colorable, the Prover cannot pass verification"
+          },
+          {
+            "aspect": "Zero-Knowledge",
+            "iChing": "User obtains only partial revelations, know nothing about the complete knowledge",
+            "zkDemo": "Verifier obtains only partial color information, not the entire scheme"
+          }
+        ],
+        "comparisonsTitle": "Comparative Analysis of i Ching Divination and Zero-Knowledge Proof",
+        "description": "Zero-knowledge proofs permit you to convince a verifier of the truth of a fact (namely, that a graph is three colorable), without revealing the actual fact itself (three coloring of the graph). It depends on randomness to ensure the verifier cannot learn the truth from the proof.",
+        "originalAddress": "original address",
+        "resetText": "Reset",
+        "revealText": "Reveal",
+        "title": "Zero Knowledge 3-Colorability Demo",
+        "turboText": "Turbo",
+        "useRevealButton": "Reveal"
+      }
+    },
     "mutation": "Gua Mutation",
     "mutationCountSuffix": "Possible Mutations",
     "willPageData": {
-      "samples": {
-        "typings": {
-          "prefix": "",
-          "suffix_options": [
-            "I want to find a new job. How is it going to manifest in the future?",
-            "I want to get a promotion. How is it going to unfold in the future?",
-            "I want to find my true love. What is going to happen in the future?"
-          ]
+      "connectToViewTips": "Connect to view your divination history and insights",
+      "connectWallet": "Connect Wallet",
+      "daoFeaturedDivinations": "Featured Divinations",
+      "daoLatestDivinations": "Latest Divinations",
+      "diviAlgo": "Divide to Divine",
+      "diviAlgoDescription": "know the unknowable, speak the unspeakable",
+      "diviAlgoSlogan": "Where Ancient Wisdom Meets Modern DAO",
+      "diviAlgoSloganDescription": "Unlock the secrets of will destiny through the power of divine guidance",
+      "diviAlgoSteps": [
+        {
+          "long_description": "Moving beyond representations is like seeing past the shadows on Plato's cave wall—symbols, words, speech, and all phenomena are manifestations of will. When we calmly transcend their representations, surpass their images, and open the door to the ancient wisdom of the I Ching, we can glimpse  the <span className=\"text-gradient-light\">deeper unity</span> connecting all beings.",
+          "short_description": "<span className=\"text-gradient-light\">Beneath all appearances</span> , there exists an ineffable will.",
+          "title": "Awakening of Will"
         },
+        {
+          "long_description": "Every division is an exploration, a journey of the will of love being tested and evolving in the infinite space. As love divides and flows within each awakened consciousness, it gives birth to the unique light of will — diverse thoughts and individual truths. These wills intertwine and entangle between the observer and the observed, forming the invisible hand that sculpts reality.",
+          "short_description": "Only through <span className=\"text-gradient-light\">division</span> can the optimal path be found in the boundless chaos.",
+          "title": "Knowing Through Division"
+        },
+        {
+          "long_description": "Science, technology, and all intricate systems are not the ultimate answer. They are merely tools that amplify the will of whoever wields them. When they no longer serve the all love and are used as weapons for mutual harm, they can only bring chaos in the end. However, love is different — a sincere love for all — not an empty slogan, but genuine care and empathy, which is enough to make division and unity align with the Great Way, revealing the commonality within our differences and the fundamental <span className=\"text-gradient-light\">oneness</span>, finally making all great again.",
+          "short_description": "Love nurtures <span className=\"text-gradient-light\">will</span> — giving us direction and purpose in the world.",
+          "title": "Walking the Path of All Love"
+        }
+      ],
+      "diviAlgoStepsTitle": "The Journey to Enlightenment",
+      "iChingToKnow": "I Ching To Know",
+      "iChingToKnowDescription": "While we often fixate on these static representations, the I Ching offers subtle guidance when consulted. Like zero-knowledge proofs, it reveals deeper, partial truths about the constantly changing will and its possible manifestations",
+      "iChingToKnowTarget": "The World as Will and Representation",
+      "loveWillRepresentation": "Love Begets Will, and Will Begets Representation",
+      "myDivinations": "My Divinations",
+      "samples": {
         "suggestions": [
           {
             "key": "World Peace",
             "value": "Can the will to cherish life and bring peace be fully fulfilled in the Ukraine-Russia conflict before 2026?"
           },
           {
-            "key": "ALM.World Advocacy",
-            "value": "Will the AllLivesMatter.World advocacy be associated with racism after 2024?"
+            "key": "Make All Great Again",
+            "value": "Let love and humility lead the way—reviving a dream as vast as Babel, to make all great again. How might the will represent itself in the time ahead?"
           },
           {
             "key": "GO TO MARS",
-            "value": "Will the will to go to Mars become fully manifested before 2030?"
+            "value": "Humankind has the will to set foot on Mars. Will it gain enough power to fully manifest before 2031?"
           },
           {
             "key": "Education",
@@ -1006,219 +2099,19 @@
           },
           {
             "key": "Job Hunting",
-            "value": "I wanna know how my push to land a new web3 job's gonna play out down the road"
+            "value": "I am actively looking for a new job, preferably in the Web3 space. How will this idea unfold in the future?"
           }
-        ]
-      },
-      "diviAlgo": "Divide to Divine",
-      "diviAlgoDescription": "Embark on a journey of self-discovery with I Ching divination, know the unknowable guided by a kindness-focused DAO",
-      "diviAlgoStepsTitle": "The Journey to Enlightenment",
-      "diviAlgoSteps": [
-        {
-          "title": "Will Awakens",
-          "description": "Awaken your inner voice and know your deepest will through sacred inquiry"
-        },
-        {
-          "title": "Divide Love To Divine",
-          "description": "Journey beyond the known, as ancient wisdom guides your exploration of the mysteries"
-        },
-        {
-          "title": "Love Into DAO",
-          "description": "Manifest divine wisdom into tangible representation - where spiritual truth meets physical reality"
+        ],
+        "typings": {
+          "prefix": "",
+          "suffix_options": [
+            "I want to find a new job. How is it going to manifest in the future?",
+            "I want to get a promotion. How is it going to unfold in the future?",
+            "I want to find my true love. What is going to happen in the future?"
+          ]
         }
-      ],
-      "diviAlgoSlogan": "Where Ancient Wisdom Meets Modern DAO",
-      "diviAlgoSloganDescription": "Unlock the secrets of will destiny through the power of divine guidance",
-      "willDiviTemplate": "I want to know how [the will] is going to manifest in the future?",
-      "myDivinations": "My Divinations",
-      "daoLatestDivinations": "Latest Divinations",
-      "daoFeaturedDivinations": "Featured Divinations",
-      "connectToViewTips": "Connect to view your divination history and insights",
-      "connectWallet": "Connect Wallet"
-    },
-    "daoPageData": {
-      "sections": [
-        {
-          "title": "Private Love For Creators",
-          "description": "Wills Receptivity and Nurturing",
-          "target": "Money to DUKIGE - We need sin first for survival and then evolve to be love",
-          "requirements": {
-            "p1": "DUKI for all lives in that community",
-            "p2": "Fairness always, those who love and care for the world indeed deserves more DUKI"
-          }
-        },
-        {
-          "title": "Private Love For Maintainers",
-          "description": "Wills Stillness and Meditation",
-          "target": "Money to Founders - Fairness Always! We need visionary creators to evolve.",
-          "requirements": {
-            "p1": "Survival of the fittest. Nothing can skip the rule, we have to survive first and then thrive.",
-            "p2": "When resources are scarce, basic survival needs must be addressed before other pursuits. we better make the resources more abundant avoid conflicts and thrive."
-          }
-        },
-
-        {
-          "title": "Private Love For Investors",
-          "description": "Wills Flow and Adaptation",
-          "target": "Money to Investors - Free Will of Goodness needs power to manifest and be useful",
-          "requirements": {
-            "p1": "You can invest in the DUKI in action. Currently, 20% of the DAO is for the investors; the investment is 100 USDC each.",
-            "p2": "Thanks for your investment. 20% of the DAO will allocated to the investors, even only one investor. the numbers of the investors determines the project value. Fair.",
-            "btn": {
-              "text": "Become an Investor",
-              "modal": "INVEST"
-            }
-          }
-        },
-        {
-          "title": "Private Love For Contributors",
-          "description": "Wills Influence and Penetration",
-          "target": "Money to Partners - Fostering strategic collaborations and alliances",
-          "requirements": {
-            "p1": " We need a usable zkp human proof system to make all great again.",
-            "p2": ""
-          }
-        },
-        {
-          "title": "Public Love For Builders",
-          "description": "Wills Initiative and Action",
-          "target": "Money to Community - Nurturing active and engaged user base",
-          "requirements": {
-            "p1": "Any one interested who build the DUKI in action , please contact me. I could add you here.",
-            "p2": "Even if the money is tiny , but it means the manifestion of the will. The will matters."
-          }
-        },
-        {
-          "title": "Public Love For Community",
-          "description": "Wills Clarity and Transformation",
-          "target": "Money to Pioneers - First adopters and adventurers are the pioneers of the world",
-          "requirements": {
-            "p1": "You must be actively participating in the lottery. when you join, you get an monotioally increasing ticket number which starts from 1.",
-            "p2": "Each round, an random number is draw from 1 to min(10000, total_community_members). and max 3 claims are allowed."
-          }
-        },
-        {
-          "title": "Public Love For Nation",
-          "description": "Wills Joy and Satisfaction",
-          "target": "Money to Nation - A nation of people who love and care for the world",
-          "requirements": {
-            "p1": "All nations and all countries should matter, just some matters more than others.",
-            "p2": "Currently, The zero knowledge human proof system should have national identity. The one who make all great again deserves better than those who are not."
-          }
-        },
-        {
-          "title": "Public Love For All Lives",
-          "description": "Wills Humanity and Creativity",
-          "target": "Money to World - DUKI in Action to remind all lives that freedom is not free, it needs power to reject evil and do good",
-          "requirements": {
-            "p1": "All lives matters, no matter how small or big if it is positive and constructive.",
-            "p2": "Even if the money is tiny , but it means the manifestion of the will. The will matters.",
-            "p1_": "DUKI is used for all lives, you just need to prove you are a unique human.DUKI needs decentralized zero knowledge proof system to uniquely identify humans.",
-            "p2_": "WorldID is not enough for DUKI. &nbsp; <a href='https://x.com/OrdKindKang/status/1835352385423814858' target='_blank' className='text-cyan-400 hover:text-cyan-300 underline'>Without True Authority, WorldID Could Become a Hoax</a>"
-          }
-        },
-        {
-          "title": "Love Be The Way",
-          "description": "Dao is All Love.",
-          "target": "to free will. Free will are born of love and born with sin, it needs power and wisdom to be useful",
-          "requirements": {
-            "p1": "Free will is the unknownable thing that born by 'making love together'. Every creation is born from love.",
-            "p2": "The representation or manifestation of will is the world. And Love is the way to know it."
-          }
-        }
-      ],
-      "claimRequirements": "Claim Requirements",
-      "philosophy": "Philosophical Thinking",
-      "dropUnits": "FairDrop Units (Left/Total):",
-      "dropDollars": "FairDrop Dollars:",
-      "totalParticipants": "Total Participants:",
-      "almWorldSlogons": [
-        {
-          "slogon": "Kindness First",
-          "desc": "A single act of kindness throws out roots in all directions, and the roots spring up and make new trees."
-        },
-        {
-          "slogon": "Fairness Always",
-          "desc": "You shall judge the people with righteous judgment. You shall not pervert justice. "
-        },
-        {
-          "slogon": "DUKI in Action",
-          "desc": "Give, and it will be given to you. For with the measure you use for the world, it will be measured to you."
-        }
-      ],
-      "daoTerm": "DAO IS ALL LOVE",
-      "daoTermDefinitionPrefix": "Kindness First, Fairness Always and ",
-      "daoTermDefinitionMiddle": "DUKI",
-      "dukiDefinition": "DUKI /dju:ki/: Decentralized Universal Kindness Initiative.  A DAO-based system promoting fairness and kindness in action",
-      "daoTermDefinitionSuffix": "In Action",
-      "evolutionStatus": "Evolution Status",
-      "currentBlock": "Current Block",
-      "fairDrop": "FairDrop",
-      "usdcAvailable": "USDC Available",
-      "treasury": "Treasury",
-      "usdcBalance": "USDC Balance",
-      "lottery": "Lottery",
-      "claim": "Claim"
-    },
-    "diviPageData": {
-      "y": ""
-    },
-    "iChingPageData": {
-      "z": ""
-    },
-    "commonData": {
-      "public": "Public",
-      "private": "Private",
-      "publicDescription": "The will you divine can be known by all",
-      "privateDescription": "The will you divine is unknown by others",
-      "navLabels": [
-        "Divine",
-        "I Ching",
-        "DAO"
-      ],
-      "knowUnknowablePrefix": "Know Unknowable",
-      "knowUnknowableSuffix": "Love",
-      "highlightPrefix": false,
-      "DivinationTabs": {
-        "will": "Will",
-        "iChing": "I Ching",
-        "dao": "DAO"
       },
-      "connectWallet": "Connect Wallet",
-      "epistemicEnums": [
-        "Awaiting Verification",
-        "Confirmed Valid",
-        "Confirmed Invalid",
-        "Confirmed Deprecated"
-      ],
-      "actionViewDetail": "View",
-      "actionVerify": "Verify",
-      "loading": "Loading...",
-      "manifesting": "Manifesting...",
-      "errorManifesting": "Error manifesting",
-      "noDivinationsFound": "No divinations found",
-      "showMore": "Show More",
-      "diviFields": {
-        "diviWill": "Will",
-        "diviTime": "Time",
-        "diviGua": "Gua",
-        "diviGuaProof": "Divination Proof",
-        "diviGuaSummary": "Gua Summary",
-        "diviManifestation": "Manifestation",
-        "diviSignature": "Signature",
-        "diviGuaMutations": "Gua Mutations",
-        "daoTx": "DAO Transaction",
-        "daoTxAmount": "DAO Transaction Amount",
-        "knowDaoStatus": "Proof Verification",
-        "action": "Actions"
-      },
-      "buttons": {
-        "view": "View",
-        "verify": "Verify",
-        "details": "View Details"
-      },
-      "action": "Action"
+      "willDiviTemplate": "I want to know how [the will] is going to manifest in the future?"
     }
-  },
-  "rings": []
+  }
 }

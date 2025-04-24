@@ -15,6 +15,8 @@ export type GenericContract = {
     external?: true;
     deploymentFile?: string;
     deploymentScript?: string;
+    isProxy?: boolean;
+    implementationName?: string;
 };
 
 export type InheritedFunctions = { readonly [key: string]: string };

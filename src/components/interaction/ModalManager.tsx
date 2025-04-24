@@ -3,12 +3,13 @@
 // import { JoinCommunityLotteryModal } from './JoinCommunityLottery';
 
 import {useUIStore} from "@/stores/uiStore";
-import {LoginModal} from "./LoginModal";
-import {WillSignatureModal} from "./WillSignatureModal";
+import {WillDivineAgreementModal} from "./WillDivineAgreementModal.tsx";
 import {EnlightenmentModal} from "./EnlightenmentModal.tsx";
 import {GuaModal} from "./GuaModal";
 import {ModalType} from "@/types/common.ts";
 import VerificationModal from "./VerificationModal";
+import {InvestModal} from "./InvestModal";
+import {ConnectDaoModal} from "@/components/interaction/ConnectDaoModal.tsx";
 
 export const ModalManager = () => {
     const { activeModal, modalData, closeModal } = useUIStore();
@@ -18,12 +19,18 @@ export const ModalManager = () => {
     const modals: Record<ModalType, React.ReactNode> = {
         // connect: <ConnectModal onClose={closeModal} />,
         // subscribe: <SubscribeModal isOpen={true} onClose={closeModal} />,
-        [ModalType.LOGIN]: <LoginModal isOpen={true} onClose={closeModal} />,
-        [ModalType.WILL_SIGNATURE]: <WillSignatureModal isOpen={true} onClose={closeModal} />,
+        [ModalType.WILL_SIGNATURE]: <WillDivineAgreementModal isOpen={true} onClose={closeModal} />,
         [ModalType.ENLIGHTENMENT]: <EnlightenmentModal isOpen={true} onClose={closeModal} entry={modalData} />,
         [ModalType.GUA]: <GuaModal isOpen={true} binary={modalData} onClose={closeModal} />,
-        [ModalType.INVEST]: <div>Invest Modal Placeholder</div>,
+        [ModalType.INVEST]: <InvestModal isOpen={true} onClose={closeModal} />,
         [ModalType.VERIFICATION]: <VerificationModal isOpen={true} onClose={closeModal} divination={modalData} />,
+        [ModalType.CONNECT_DAO]: (
+            <ConnectDaoModal
+                isOpen={true}
+                onClose={closeModal}
+                divination={modalData}
+            />
+        ),
         // joinCommunityLottery: <JoinCommunityLotteryModal isOpen={true} onClose={closeModal} />,
         // // domain: <DomainInputModal onClose={closeModal} data={modalData} />,
         // invest: <InvestModal isOpen={true} onClose={closeModal} />

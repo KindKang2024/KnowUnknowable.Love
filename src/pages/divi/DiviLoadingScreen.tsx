@@ -115,20 +115,20 @@ interface DiviLoadingScreenProps {
     onLoadingComplete?: () => void;
     minDisplayTime?: number; // Minimum time to display the loading screen in ms
     quickLoadThreshold?: number; // Threshold in ms to determine if loading was "quick"
+    loadingPhrase?: string ;
 }
 
 export const DiviLoadingScreen: React.FC<DiviLoadingScreenProps> = ({
     onLoadingComplete,
-    minDisplayTime = 10000, // Default to 3 seconds minimum display time
-    quickLoadThreshold = 10 // Default to 100ms threshold for "quick" loading
+    minDisplayTime = 10000, 
+    quickLoadThreshold = 1000,
+    loadingPhrase = "Into the Unknowable..."
 }) => {
     const { progress, active } = useProgress();
     const [loadingStartTime] = useState<number>(Date.now());
     const [loadingCompleteTime, setLoadingCompleteTime] = useState<number | null>(null);
     const [completionHandled, setCompletionHandled] = useState(false);
 
-    // Text phrases for loading (no animation)
-    const loadingPhrase = "Into the Unknowable...";
 
     // Handle progress reaching 100%
     useEffect(() => {
@@ -176,7 +176,7 @@ export const DiviLoadingScreen: React.FC<DiviLoadingScreenProps> = ({
     const displayProgress = completionHandled && progress === 100 ? 100 : Math.min(progress, 95); // Cap at 95% until fully loaded
 
     return (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black bg-opacity-90">
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black">
             {/* Animated rings */}
             <div className="w-128 h-128" style={{ display: 'none' }}>
                 <div className="relative w-32 h-32 mb-8">

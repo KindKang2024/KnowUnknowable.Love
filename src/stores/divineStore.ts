@@ -3,11 +3,11 @@
  * It coordinates the creation of YAO instances and builds a complete Gua (hexagram).
  * Each divination requires 18 divisions (3 divisions for each of the 6 lines).
  */
-import { create } from 'zustand';
-import { immer } from 'zustand/middleware/immer';
-import { Gua } from './Gua';
-import { DiviState, Visibility } from '@/types/divi';
-import { DivinationEntry } from '@/services/api';
+import {create} from 'zustand';
+import {immer} from 'zustand/middleware/immer';
+import {Gua} from './Gua';
+import {DiviState, Visibility} from '@/types/divi';
+import {DivinationEntry} from '@/services/api';
 
 
 interface DivinationState {
@@ -50,7 +50,7 @@ interface DivinationActions {
 export const useDivinationStore = create<DivinationState & DivinationActions>()(
     immer((set, get) => ({
         // Initial state
-        will: '',
+        will: 'x',
         willSignature: '',
         gua: Gua.createEmpty(),
         interpretation: '',
@@ -68,10 +68,12 @@ export const useDivinationStore = create<DivinationState & DivinationActions>()(
         getStage: () => get().stage,
 
         // Actions
-        reset: (hard?: boolean ) => {
+        reset: (hard?: boolean) => {
             set(state => {
                 state.will = '';
                 state.willSignature = '';
+                state.stage = DiviState.FREE;
+                state.divinationCompleted = false;
                 state.gua = Gua.createEmpty();
                 if (hard !== false) {
                     state.entry = null;

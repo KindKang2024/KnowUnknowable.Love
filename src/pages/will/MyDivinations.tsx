@@ -1,11 +1,18 @@
 import React from "react";
-import { DEFAULT_PAGE_SIZE, useMyDivinations } from "@/services/api";
-import { useUIStore } from "@/stores/uiStore";
-import { usePageCommonData } from "@/i18n/DataProvider";
-import DivinationsTable, { getCommonColumns } from "@/pages/will/components/DivinationsTable";
+import {DEFAULT_PAGE_SIZE, DivinationEntry, useMyDivinations} from "@/services/api";
+import {useUIStore} from "@/stores/uiStore";
+import {usePageCommonData} from "@/i18n/DataProvider";
+import DivinationsTable, {getCommonColumns} from "@/pages/will/components/DivinationsTable";
+import {useAccount} from "wagmi";
+import {defaultChainWhenNotConnected} from "@/contracts/externalContracts";
+import {useIsMobile} from "@/hooks/use-mobile";
 
 export const MyDivinations = () => {
     const commonData = usePageCommonData();
+    const { chainId } = useAccount();
+    const isMobile = useIsMobile();
+
+    const targetChainId = chainId || defaultChainWhenNotConnected;
 
     // Fetch my divinations with infinite query
     const {
@@ -23,14 +30,27 @@ export const MyDivinations = () => {
     const flattenedDivinations = myDivinations?.pages?.flatMap(page => page.data) || [];
 
     // Get common column configurations with verify button
-    const { willColumn, timeColumn, guaColumn, daoTxColumn, statusColumn, actionColumn } = 
-        getCommonColumns(commonData, openModal, { showVerifyButton: false });
+    const { willColumn, timeColumn, guaColumn, daoTxColumn, statusColumn, actionColumn } =
+        getCommonColumns(commonData,
+            targetChainId,
+            openModal,
+            {
+                showVerifyButton: true,
+                showConnectDaoButton: true,
+                onModalCallback: (data: DivinationEntry) => {
+                    // console.log("onModalCallback", data);
+                }
+            });
 
     // Configure specific columns for this table
-    const columns = [
+    const columns = isMobile ? [
         willColumn,
-        timeColumn,
         guaColumn,
+        actionColumn
+    ] : [
+        willColumn,
+        guaColumn,
+        timeColumn,
         daoTxColumn,
         statusColumn,
         actionColumn

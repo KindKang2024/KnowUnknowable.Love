@@ -1,80 +1,115 @@
 import TaiChiDiagram from "@/components/bagua/TaiChiDiagram";
 import {useUIStore} from "@/stores/uiStore";
 import {ModalType} from "@/types/common";
-
+import ZeroKnowledgeDemo from "./ZeroKnowledgeDemo";
+import References from "./References";
+import {usePageIChingData} from "@/i18n/DataProvider";
 
 interface ProofSystemProps {
     defaultBinary?: string;
 }
 
 export const IChingProofSystem = ({ defaultBinary = "111111" }: ProofSystemProps) => {
+    const iChingPageData = usePageIChingData();
+
     const { openModal } = useUIStore();
-    // const hexagrams = useIChing();
-    // console.log(hexagrams);
-    // const hexagram = hexagrams[binary];
-    // const gua = Gua.createFromBinary(binary);
-    // const yaos = YAO.fakeCreateFromBinary(binary);
-
-    // const [binary, setBinary] = useState(defaultBinary);
-    // const [hexagram, setHexagram] = useState<IChing | null>(null);
-    // const [gua, setGua] = useState<Gua | null>(null);
-    // const [yaos, setYaos] = useState<YAO[]>([]);
-    // useEffect(() => {
-    //     const hexagram = hexagrams[binary];
-    //     const gua = Gua.createFromBinary(binary);
-    //     const yaos = YAO.fakeCreateFromBinary(binary);
-    //     setHexagram(hexagram);
-    //     setGua(gua);
-    //     setYaos(yaos);
-    // }, [binary]);
-
-
     return (
-        <div className="max-w-4xl mx-auto ">
-            <div className="rounded-xl  backdrop-blur-sm bg-black/20 p-8 mt-4">
-                <div className="flex flex-col items-center justify-center">
-                    <h3 className="text-xl text-purple-300 mb-6">How I Ching Divination Works</h3>
+        <div className="max-w-4xl mx-auto">
+            <div className="rounded-xl backdrop-blur-sm bg-black/20 p-8 mt-4">
+                <div className="flex flex-col space-y-12">
+                    {/* Title Section */}
+                    <div className="text-center">
+                        <h3 className="text-2xl text-purple-300 mb-4">
+                            {/* How I Ching Divination Works */}
+                            {iChingPageData.howIChingWorks}
+                        </h3>
+                    </div>
 
-                    <div className="text-white/70 mb-8 text-left max-w-2xl mx-auto">
-                        <p className="mb-4">
-                            Treat the  I Ching Divination process like a three-color zero-knowledge prove process.
-                        </p>
+                    {/* Introduction Section */}
+                    <div className="space-y-6">
+                        {iChingPageData.quotes.map((quote) => (
+                            <blockquote key={quote.author} className="italic border-l-4 border-purple-500/50 pl-6 py-4 bg-black/20 rounded-r-lg">
+                                <p className="mb-4 text-white/80">
+                                    {quote.quote}
+                                </p>
+                                <footer className="text-sm text-purple-300 text-right">{quote.author}</footer>
+                            </blockquote>
+                        ))}
 
-                        <div className="space-y-2 my-4">
-                            <p>The <span className="text-purple-300 font-medium">Verifier</span> is the user who uses the divination system to know how Will manifests in the future.
-                                The <span className="text-purple-300 font-medium">Prover</span> is the Unknowable who gives a proof about the manifestation in the future.</p>
-                            <p>The Verifier can verify the proof in the future.</p>
-                        </div>
-
-                        <p className="my-4"></p>
-
-                        <div className="mt-6 p-3 border border-purple-500/30 rounded-lg bg-black/30">
-                            <p className="italic">Always remember, the prerequisite of the proof is the Verifier's divination is:
-                                {/* "不诚不占，不疑不占，不义不占" */}
+                        <div className="p-4 border border-purple-500/30 rounded-lg bg-black/30">
+                            <p className="text-yellow-200 font-medium text-center text-lg">
+                                {iChingPageData.prerequisite}
                             </p>
-                            {/* <p className="font-medium text-purple-200 my-2">"不诚不占，不疑不占，不义不占"</p> */}
-                            <p className="text-yellow-200 font-medium">Please be honest, be faithful, and be righteous for the wills. Always keep it in mind - Love is the answer for everything.</p>
+                            <p className="text-purple-300/80 text-center mt-2 italic">
+                                {iChingPageData.prerequisiteDescription}
+                            </p>
                         </div>
                     </div>
 
-
-                    <div className="mb-6 m-8 w-full h-full flex justify-center items-center animate-[spin_256s_linear_infinite]">
-                        <TaiChiDiagram onItemClick={(item) => {
-                            openModal(ModalType.GUA, item);
-                        }} className="w-[100%] h-[100%]" />
+                    {/* Tai Chi Diagram Section */}
+                    <div className="relative">
+                        <div className="w-full aspect-square max-w-2xl mx-auto animate-[spin_256s_linear_infinite]">
+                            <TaiChiDiagram
+                                onItemClick={(item) => {
+                                    openModal(ModalType.GUA, item);
+                                }}
+                                className="w-full h-full"
+                            />
+                        </div>
                     </div>
 
-                    <div className="text-sm text-white/50 mt-4 text-left max-w-lg space-y-2">
-                        <ul className="list-disc list-inside text-xs space-y-1 pt-2">
-                            <li>The I Ching (Book of Changes) - Ancient Chinese divination text</li>
-                            <li>Tao Te Ching by Lao Tzu - Foundational text of Taoist philosophy</li>
-                            <li>The Complete I Ching by Alfred Huang - Modern interpretation</li>
-                            <li>The Tao of Physics by Fritjof Capra - Connecting Eastern mysticism with modern physics</li>
-                            <li>Jung and the I Ching by Karcher and Ritsema - Psychological perspective</li>
-                        </ul>
+                    {/* Zero Knowledge Proof Section */}
+                    <div className="space-y-6">
+                        <h3 className="text-2xl text-purple-300 text-center">
+                            {iChingPageData.iChingAndZkProofAndRandomness}
+                        </h3>
+                        <div className="w-full">
+                            <ZeroKnowledgeDemo data={iChingPageData.zkDemo} />
+                        </div>
+                    </div>
+
+                    {/* I Ching, Will, Love, DNA Section */}
+                    <div className="space-y-3 border-t border-purple-500/30 pt-8">
+
+                        <h3 className="text-2xl text-purple-300 text-center">
+                            {iChingPageData.iChingAndWillAndLoveAndDNA}
+                        </h3>
+                        <div className="w-full flex flex-col items-center">
+                            <img
+                                width={100}
+                                src="/images/Fuxi_and_Nuwa.jpg"
+                                alt="Fu Xi and Nüwa"
+                                className="max-w-xs md:max-w-sm rounded-lg shadow-lg shadow-purple-900/30 mb-2"
+                            />
+                            <p className="text-xs text-purple-300/70 text-center">
+                                Image source: {' '}
+                                <a
+                                    href="https://commons.wikimedia.org/wiki/Category:Fuxi_and_N%C3%BCwa"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="underline hover:text-purple-200"
+                                >
+                                    Wikimedia Commons
+                                </a>
+                            </p>
+                        </div>
+
+                        <p className="text-xs italic text-purple-300/60">
+                            (Note: {iChingPageData.perspectiveExplanation})
+                        </p>
+                        <div className="text-sm text-left space-y-2">
+                            {iChingPageData.iChingAndWillAndLoveAndDNADetails.map((detail, index) => (
+                                <p key={index}>{detail}</p>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* References Section */}
+                    <div className="w-full">
+                        <References references={iChingPageData.references} />
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };

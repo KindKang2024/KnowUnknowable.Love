@@ -68,12 +68,12 @@ const ParticlesBackground: React.FC = () => {
                 },
                 move: {
                     enable: true,
-                    speed: 3,
+                    speed: 2.8,
                     direction: "none",
-                    random: false,
+                    random: true,
                     straight: false,
-                    out_mode: "out",
-                    bounce: false,
+                    out_mode: "bounce",
+                    bounce: true,
                     attract: {
                         enable: false,
                         rotateX: 600,
@@ -109,8 +109,8 @@ const ParticlesBackground: React.FC = () => {
                         speed: 3
                     },
                     repulse: {
-                        distance: 200,
-                        duration: 0.4
+                        distance: 120,
+                        duration: 8
                     },
                     push: {
                         particles_nb: 4

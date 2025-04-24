@@ -1,11 +1,15 @@
 import React from "react";
-import { useLatestDaoInActionDivinations } from "@/services/api";
-import { useUIStore } from "@/stores/uiStore";
-import { usePageCommonData } from "@/i18n/DataProvider";
-import DivinationsTable, { getCommonColumns, KnownStatus } from "@/pages/will/components/DivinationsTable";
+import {useLatestDaoInActionDivinations} from "@/services/api";
+import {useUIStore} from "@/stores/uiStore";
+import {usePageCommonData} from "@/i18n/DataProvider";
+import DivinationsTable, {getCommonColumns, KnownStatus} from "@/pages/will/components/DivinationsTable";
+import {useAccount} from "wagmi";
+import {defaultChainWhenNotConnected} from "@/contracts/externalContracts";
+import {useIsMobile} from "@/hooks/use-mobile";
 
 export const LatestDaoDivinations = () => {
     const commonData = usePageCommonData();
+    const isMobile = useIsMobile();
 
     // Fetch latest public divinations
     const {
@@ -16,9 +20,11 @@ export const LatestDaoDivinations = () => {
     } = useLatestDaoInActionDivinations();
 
     const { openModal } = useUIStore();
+    const { chainId } = useAccount();
+    const targetChainId = chainId || defaultChainWhenNotConnected;
 
     // Get common column configurations
-    const { willColumn, timeColumn, statusColumn, actionColumn } = getCommonColumns(commonData, openModal);
+    const { willColumn, timeColumn, statusColumn, actionColumn, guaColumn } = getCommonColumns(commonData, targetChainId, openModal);
 
     // Custom column configurations for this table
     const visibilityColumn = {
@@ -47,23 +53,18 @@ export const LatestDaoDivinations = () => {
     };
 
     // Configure specific columns for this table
-    const columns = [
+    const columns = isMobile ? [
         willColumn,
+        guaColumn,
+        actionColumn
+    ] : [
+        willColumn,
+        guaColumn,
         timeColumn,
         visibilityColumn,
         fixedStatusColumn,
-        actionColumn
+        actionColumn,
     ];
-
-    const modifiedWillColumn = {
-        ...willColumn,
-        cell: (divination: any) => (
-            <span className="text-white">{divination.will.substring(0, 30)}...</span>
-        ),
-    };
-
-    // Update columns with modified willColumn
-    columns[0] = modifiedWillColumn;
 
     return (
         <DivinationsTable

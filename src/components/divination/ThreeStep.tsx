@@ -2,7 +2,7 @@ import {useEffect, useRef, useState} from 'react';
 import * as THREE from 'three';
 import {a, useSpring} from '@react-spring/three';
 import {Text} from '@react-three/drei';
-import { processYaoText } from '@/utils/commonUtils';
+import {processGuaText} from '@/utils/commonUtils';
 
 interface LadderStepOptions {
     xLength: number;
@@ -107,7 +107,7 @@ export const ThreeStep: React.FC<ThreeStepProps> = ({
                 {/* Animated Text component */}
                 <a.group
                     position-x={position[0] - stepSize.xLength / 2}
-                    position-y={position[1] - stepSize.yLength / 2 + 0.05}
+                    position-y={position[1] - stepSize.yLength / 2 + 0.10}
                     position-z={0}
                     scale={spring.scale}
                     rotation-y={spring.rotationY}
@@ -118,7 +118,7 @@ export const ThreeStep: React.FC<ThreeStepProps> = ({
                         anchorX="left"
                         anchorY="top"
                     >
-                        {processYaoText(yaoText, 1)}
+                        {processGuaText(yaoText, 1)}
                     </Text>
                 </a.group>
             </group>

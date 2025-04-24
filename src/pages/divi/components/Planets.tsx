@@ -1,12 +1,15 @@
-import {useEffect, useMemo, useRef} from "react";
+import {useEffect, useMemo} from "react";
 import {Mesh, TextureLoader} from "three";
-import {useFrame, useLoader} from "@react-three/fiber";
+import {useLoader} from "@react-three/fiber";
 import {Sphere} from "@react-three/drei";
-import {PlanetData} from "../../../../types.ts";
+import {PlanetData} from "@/lib/planetsData.tsx";
 import SaturnRings from "./SaturnRings.tsx";
 import {usePlanetPositions} from "@/contexts/PlanetPositionsContext.tsx";
 
-type ExtendedPlanetData = PlanetData & { orbitProgress: number };
+type ExtendedPlanetData = PlanetData & {
+  orbitProgress: number;
+  meshRef?: React.RefObject<Mesh>;
+};
 
 export default function Planet({
   name,
@@ -17,6 +20,7 @@ export default function Planet({
   tilt,
   rotationSpeed,
   rings,
+  meshRef
 }: ExtendedPlanetData) {
   const { setPlanetPosition } = usePlanetPositions();
   const texture = useLoader(TextureLoader, texturePath);
@@ -27,14 +31,6 @@ export default function Planet({
   const orbitRadius = position.x;
   const x = Math.cos(orbitProgress) * orbitRadius;
   const z = Math.sin(orbitProgress) * orbitRadius;
-  const ref = useRef<Mesh>(null);
-
-  useFrame(() => {
-    if (ref.current) {
-      const rotationPerFrame = (rotationSpeed * (Math.PI / 180)) / 60;
-      ref.current.rotation.y += rotationPerFrame;
-    }
-  });
 
   useEffect(() => {
     setPlanetPosition(name, [x, 0, z]);
@@ -42,19 +38,18 @@ export default function Planet({
 
   return (
     <>
-      <mesh ref={ref} position={[x, 0, z]} rotation={[tilt, 0, 0]}>
+      <mesh ref={meshRef} position={[x, 0, z]} rotation={[tilt, 0, 0]} scale={0.8}>
         <Sphere args={sphereArgs}>
-          <meshStandardMaterial map={texture} />
+          <meshBasicMaterial map={texture} />
         </Sphere>
         {rings && (
           <SaturnRings
             texturePath={rings.texturePath}
-            innerRadius={rings.size[0]}
+            innerRadius={rings.size[1] - 0.03}
             outerRadius={rings.size[1]}
           />
         )}
       </mesh>
-      {/* <Ring radius={orbitRadius} /> */}
     </>
   );
 }

@@ -72,7 +72,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
                     return createSiweMessage({
                         domain: window.location.host,
                         address,
-                        statement: 'Sign in To Manage [your].unstoppable.limo DNS records',
+                        statement: 'Sign in To Manage Your Divinations',
                         uri: window.location.origin,
                         version: '1',
                         chainId,

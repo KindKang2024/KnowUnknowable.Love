@@ -37,17 +37,17 @@ test('toBigNumber should convert Gua to BigInt correctly', () => {
     ]);
 
     // Convert to BigInt
-    const bigNumber = gua.toOpsBigint();
+    const bigNumber = gua.toOpsString();
 
-    // Verify it's a BigInt
-    if (typeof bigNumber !== 'bigint') {
-        throw new Error('toBigNumber should return a BigInt');
+    // Verify it's a 0x string
+    if (!bigNumber.startsWith('0x')) {
+        throw new Error('toBigNumber should return a string starting with 0x');
     }
 
     // Log the value for debugging
     console.log(`BigInt value: ${bigNumber}`);
     // binary representation
-    console.log(`Binary representation: ${bigNumber.toString(2)}`);
+    console.log(`Binary representation: ${bigNumber}`);
     // ops string
     console.log(`Ops string: ${gua.toOpsDebugString()}`);
 });
@@ -65,12 +65,12 @@ test('createFromBigNumber should convert BigInt back to Gua correctly', () => {
     ]);
 
     // Convert to BigInt
-    const bigNumber = originalGua.toOpsBigint();
+    const bigNumber = originalGua.toOpsString();
 
     console.log(`Ops string: ${originalGua.toOpsDebugString()}`);
 
     // Convert back to Gua
-    const recreatedGua = Gua.createFromOpsBigint(bigNumber);
+    const recreatedGua = Gua.createFromOpsString(bigNumber);
     console.log(`recreated Ops string: ${recreatedGua.toOpsDebugString()}`);
 
     // Verify the recreated Gua has 6 YAOs
@@ -106,10 +106,10 @@ test('toBigNumber and createFromBigNumber should work with different values', ()
     ]);
 
     // Convert to BigInt and back
-    const bigNumber = originalGua.toOpsBigint();
+    const bigNumber = originalGua.toOpsString();
 
     console.log(`Ops string: ${originalGua.toOpsDebugString()}`);
-    const recreatedGua = Gua.createFromOpsBigint(bigNumber);
+    const recreatedGua = Gua.createFromOpsString(bigNumber);
     console.log(`recreated Ops string: ${recreatedGua.toOpsDebugString()}`);
     // Verify each YAO's yinCounts match the original
     for (let i = 0; i < 6; i++) {
@@ -139,8 +139,8 @@ test('toBigNumber and createFromBigNumber should handle edge cases', () => {
     ]);
 
     // Convert to BigInt and back
-    const bigNumber = originalGua.toOpsBigint();
-    const recreatedGua = Gua.createFromOpsBigint(bigNumber);
+    const bigNumber = originalGua.toOpsString();
+    const recreatedGua = Gua.createFromOpsString(bigNumber);
 
     // Verify each YAO's yinCounts match the original
     for (let i = 0; i < 6; i++) {
@@ -155,67 +155,6 @@ test('toBigNumber and createFromBigNumber should handle edge cases', () => {
             );
         }
     }
-});
-
-// Test validation function, 
-// validate not  quite right, since must < 49 and >=1 and less than left
-test('isValidPackedYao should validate correctly', () => {
-    // This function doesn't exist yet, but we can add a simple implementation for testing
-    // Add this function to Gua class if needed
-
-    if (typeof Gua.isValidPackedYao === 'function') {
-        // Create a valid Gua and convert to BigInt
-        const validGua = createGua([
-            [24, 18, 12],
-            [25, 17, 11],
-            [26, 16, 10],
-            [27, 15, 9],
-            [28, 14, 8],
-            [29, 13, 7]
-        ]);
-        const validBigNumber = validGua.toOpsBigint();
-
-        // Should be valid
-        if (!Gua.isValidPackedYao(validBigNumber)) {
-            throw new Error('Valid packed YAO data should validate as true');
-        }
-
-        // Create an invalid BigInt (too large for yinCount)
-        const invalidBigNumber = validBigNumber | (100n << 102n); // Set a yinCount to 100 (invalid)
-
-        // Should be invalid
-        if (Gua.isValidPackedYao(invalidBigNumber)) {
-            throw new Error('Invalid packed YAO data should validate as false');
-        }
-    } else {
-        console.log('⚠️ isValidPackedYao function not implemented, skipping validation test');
-    }
-});
-
-// Test uint256 compatibility
-test('toBigNumber should fit within uint256', () => {
-    // Create a Gua with maximum valid values
-    const gua = createGua([
-        [49, 49, 49],
-        [49, 49, 49],
-        [49, 49, 49],
-        [49, 49, 49],
-        [49, 49, 49],
-        [49, 49, 49]
-    ]);
-
-    // Convert to BigInt
-    const bigNumber = gua.toOpsBigint();
-
-    // Check if it fits within uint256 (2^256 - 1)
-    const uint256Max = 2n ** 256n - 1n;
-    if (bigNumber > uint256Max) {
-        throw new Error(`BigInt value ${bigNumber} exceeds uint256 maximum ${uint256Max}`);
-    }
-
-    // Log the bit length for reference
-    const bitLength = bigNumber.toString(2).length;
-    console.log(`Maximum bit length: ${bitLength} bits (uint256 allows 256 bits)`);
 });
 
 console.log('✨ All tests passed!'); 

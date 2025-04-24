@@ -1,7 +1,6 @@
-import { defineConfig } from '@wagmi/cli'
-import { etherscan, foundry, react } from '@wagmi/cli/plugins'
-import { erc20Abi } from 'viem'
-import { mainnet, sepolia } from 'wagmi/chains'
+import {defineConfig} from '@wagmi/cli'
+import {foundry, react} from '@wagmi/cli/plugins'
+import {erc20Abi} from 'viem'
 
 export default defineConfig({
   out: 'src/contracts/generated.ts',
@@ -80,8 +79,9 @@ export default defineConfig({
   ],
   plugins: [
     foundry({
-      project: '/Users/beswarm/Developer/web3/love/dao_is_all_love_contract/packages/foundry/',
-      include: ['BaguaDukiDaoContract.sol/**'],
+      // /Users/beswarm/Developer/web3/love/dao_is_all_love_contract/packages/foundry/contracts/duki_in_action/1_knowunknowable_love/LoveDaoContract.sol
+      project: '../dao_is_all_love_contract/packages/foundry/',
+      include: ['**/LoveDaoContract.sol/**'],
       // forge: {
       //   clean: true,
       // },

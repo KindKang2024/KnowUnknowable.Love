@@ -1,6 +1,5 @@
-import { useDivinationStore } from "@/stores/divineStore";
 import { Gua } from "@/stores/Gua";
-import { useInfiniteQuery, useMutation, useQuery, useQueryClient, } from "@tanstack/react-query";
+import { InfiniteData, useInfiniteQuery, useMutation, useQuery, useQueryClient, } from "@tanstack/react-query";
 import { Address } from "viem";
 
 
@@ -12,13 +11,17 @@ export const URL_API = process.env.NODE_ENV === 'development' ? 'http://localhos
 export const URL_API_NONCE = URL_API + '/open/nonce';
 export const URL_API_LOGIN = URL_API + '/open/login';
 export const URL_API_LOGOUT = URL_API + '/open/logout';
+export const URL_API_LATEST_DAO_EVENTS = URL_API + '/open/latest_dao_events';
+export const URL_API_INVESTORS = URL_API + '/open/investors';
 export const URL_API_ME = URL_API + '/api/me';
 export const API_BASE = URL_API + '/api';
+export const URL_API_MY_DAO_EVENTS = URL_API + '/api/my_dao_events';
 
 export type CommonResponse<T> = {
     success: boolean;
     message: string;
     data: T;
+    cursor?: number | null;
 };
 
 
@@ -71,6 +74,7 @@ export interface DivinationEntry {
     dao_tx_amount: number;
     // 0: Unknown, 1: Verified Pass, 2: Verified Reject, 3: Deprecated
     known_status: number;
+    known_at: number;
     created_at: number;
     gua: Gua;
 }
@@ -91,13 +95,55 @@ export interface DivinationDetailResponse {
     data: DivinationEntry;
 }
 
+// {
+//     "tx_hash": "0x44bc316691623a4e32d9375b3817f50b95552ffceed1d195e00e878cdbeb265b",
+//     "diviner": "0x40977C4706851E4c052356885957E61D74A9E4Ba",
+//     "block_number": 35,
+//     "event_type": "DukiInAction",
+//     "event_interact_type": null,
+//     "event_data": {
+//         "user": "0x40977C4706851E4c052356885957E61D74A9E4Ba",
+//         "interactType": 0,
+//         "daoEvolveRound": 2,
+//         "amount": 3000000,
+//         "unitNumber": 1,
+//         "timestamp": 1745303636,
+//         "metaDomain": ""
+//     }
+// }
+
+export interface DaoEvent {
+    tx_hash: string;
+    diviner: string;
+    block_number: number;
+    event_type: string;
+    event_interact_type: number | null;
+    event_data: {
+        user: string;
+        interactType: number;
+        daoEvolveRound: number;
+        amount: number;
+        unitNumber: number;
+        timestamp: number;
+        metaDomain: string;
+    }
+}
+export interface Transaction {
+    timestamp: number;
+    txHash: string;
+    account: string;
+    amount: number;
+    interactType: number;
+    evolveNum: number;
+}
+
 // Helper function to add getGua method to DivinationEntry objects
 function addGetGuaMethod(entry: DivinationEntry): DivinationEntry {
     if (!entry) return entry;
 
     // Add getGua method if it doesn't exist
     if (!entry.gua) {
-        entry.gua = Gua.createFromOpsBigint(entry.manifestation);
+        entry.gua = Gua.createFromOpsString(entry.manifestation);
     }
 
     return entry;
@@ -106,7 +152,7 @@ function addGetGuaMethod(entry: DivinationEntry): DivinationEntry {
 // API client with type hints
 const apiClient = {
     // API functions
-    interpretDivination: async (entry: DivinationEntry, daoTx: string, daoTxAmount: number): Promise<Interpretation> => {
+    interpretDivination: async (entry: DivinationEntry, daoTx: string, daoTxAmount: number, latestBlock: number): Promise<Interpretation> => {
         const response = await fetch(`${API_BASE}/deepseek_dao`, {
             method: 'POST',
             credentials: 'include',
@@ -120,6 +166,7 @@ const apiClient = {
                 gua_mutability: entry.gua.getMutabilityString(),
                 dao_tx: daoTx,
                 dao_tx_money: daoTxAmount,
+                latest_block: latestBlock
             }),
         });
         if (!response.ok) {
@@ -194,6 +241,34 @@ const apiClient = {
 
         return result;
     },
+
+    fetchMyDaoEvents: async (latestBlock: number, cursor: number | null): Promise<CommonResponse<DaoEvent[]>> => {
+        const response = await fetch(`${URL_API_MY_DAO_EVENTS}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                cursor: cursor,
+                latest_block: latestBlock
+            }),
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch my divinations');
+        }
+
+        const result = await response.json() as CommonResponse<DaoEvent[]>;
+
+        // Add getGua method to each entry in the response
+        if (result.success && result.data) {
+            result.data = result.data
+        }
+
+        return result;
+    },
+
     // API function for fetching my divinations
     fetchFeaturedDivinations: async ({ pageParam }): Promise<DivinationResponse> => {
         console.log(pageParam, "pageParam is cursor");
@@ -254,10 +329,47 @@ const apiClient = {
         if (!response.ok) throw new Error('Failed to fetch user data');
         return response.json();
     },
+    // API function for fetching latest public divinations
+    fetchDaoInvestors: async (latestBlock: number): Promise<CommonResponse<DaoEvent[]>> => {
+        const response = await fetch(`${URL_API_INVESTORS}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                latest_block: latestBlock
+            }),
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch all investors');
+        }
+        const data = await response.json() as CommonResponse<DaoEvent[]>;
+        return data;
+    },
+    fetchLatestDaoEvents: async (latestBlock: number): Promise<CommonResponse<DaoEvent[]>> => {
+        const response = await fetch(`${URL_API_LATEST_DAO_EVENTS}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                latest_block: latestBlock
+            }),
+            credentials: 'include'
+        });
+        debugger;
+        if (!response.ok) {
+            throw new Error('Failed to fetch latest dao events');
+        }
+        const data = await response.json() as CommonResponse<DaoEvent[]>;
+        return data;
+    },
 
     // Update divination verification status
-    updateDivinationStatus: async (uuid: string, status: number): Promise<DivinationEntry> => {
-        const response = await fetch(`${API_BASE}/divination/status`, {
+    updateDivinationKnownStatus: async (uuid: string, known_status: number, known_tx: string, known_note: string): Promise<boolean> => {
+        const response = await fetch(`${API_BASE}/divination/known_status`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -265,7 +377,9 @@ const apiClient = {
             },
             body: JSON.stringify({
                 uuid,
-                known_status: status
+                known_status,
+                known_tx,
+                known_note
             }),
         });
 
@@ -273,8 +387,7 @@ const apiClient = {
             const error = await response.json();
             throw new Error(error.message || 'Failed to update divination status');
         }
-        const resp = await response.json() as CommonResponse<DivinationEntry>;
-        return addGetGuaMethod(resp.data);
+        return true;
     },
 }
 
@@ -293,21 +406,24 @@ export const useCreateDivination = () => {
 };
 
 export const useDeepseekDao = (options?: {
-    onSuccess?: (data: Interpretation) => void
+    latestBlock?: bigint,
+    onSuccess?: (data: Interpretation) => void,
+    onError?: (error: Error) => void
 }) => {
     const queryClient = useQueryClient();
 
     return useMutation<
-      Interpretation, // Success response type
-      Error, // Error type
-      { entry: DivinationEntry; daoTx: string; daoTxAmount: number }, // Variables type
-      unknown // Context type
+        Interpretation, // Success response type
+        Error, // Error type
+        { entry: DivinationEntry; daoTx: string; daoTxAmount: number }, // Variables type
+        unknown // Context type
     >({
         mutationFn: async (data) => {
             const response = await apiClient.interpretDivination(
-                data.entry, 
-                data.daoTx, 
-                data.daoTxAmount
+                data.entry,
+                data.daoTx,
+                data.daoTxAmount,
+                Number(options?.latestBlock || 14944494n)
             );
             console.log(response, "response");
             return response; // Make sure this matches the Interpretation type
@@ -315,7 +431,9 @@ export const useDeepseekDao = (options?: {
         onSuccess: (data) => {
             queryClient.invalidateQueries({ queryKey: ['my-divinations'] });
             options?.onSuccess?.(data);
-            debugger;
+        },
+        onError: (error) => {
+            options?.onError?.(error);
         },
     });
 };
@@ -323,11 +441,12 @@ export const useDeepseekDao = (options?: {
 // Fetch my divinations with infinite query
 export const useMyDivinations = (limit: number = 6) => {
     return useInfiniteQuery<DivinationResponse>({
-        queryKey: ['my-divinations-initial'],
+        queryKey: ['my-divinations'],
         initialPageParam: null,
         getNextPageParam: (lastPage) => lastPage.cursor,
         queryFn: apiClient.fetchMyDivinations,
-        staleTime: 60000, // 1 minute
+        staleTime: 60000,
+        refetchOnWindowFocus: false,
     });
 };
 
@@ -337,7 +456,7 @@ export const useFeaturedDaoDivinations = () => {
         initialPageParam: null,
         getNextPageParam: (lastPage) => lastPage.cursor,
         queryFn: apiClient.fetchFeaturedDivinations,
-        staleTime: 60000, // 1 minute
+        staleTime: 60000,
         refetchOnWindowFocus: false,
     });
 };
@@ -347,7 +466,7 @@ export const useLatestDaoInActionDivinations = () => {
     return useQuery<DivinationEntry[]>({
         queryKey: ['latest-dao-in-action-divinations'],
         queryFn: apiClient.fetchLatestPublicDivinations,
-        staleTime: 60000, // 1 minute
+        staleTime: 60000,
         refetchOnWindowFocus: false,
     });
 };
@@ -373,30 +492,77 @@ export const useUserData = (addr: Address) => {
 
 // Hook for updating divination verification status
 export const useUpdateDivinationStatus = (options?: {
-    onSuccess?: (data: DivinationEntry) => void
+    onSuccess?: () => void
 }) => {
     const queryClient = useQueryClient();
 
     return useMutation<
-        DivinationEntry, // Success response type
+        boolean, // Success response type
         Error, // Error type
-        { uuid: string; status: number }, // Variables type
+        { uuid: string; known_status: number; known_tx: string, known_note: string }, // Variables type
         unknown // Context type
     >({
         mutationFn: async (data) => {
-            const response = await apiClient.updateDivinationStatus(
+            const updateSuccess = await apiClient.updateDivinationKnownStatus(
                 data.uuid,
-                data.status
+                data.known_status,
+                data.known_tx,
+                data.known_note
             );
-            return response;
+            return updateSuccess;
         },
         onSuccess: (data) => {
             // Invalidate relevant queries to trigger refetch
-            queryClient.invalidateQueries({ queryKey: ['my-divinations-initial'] });
+            queryClient.invalidateQueries({ queryKey: ['my-divinations'] });
             queryClient.invalidateQueries({ queryKey: ['featured-divinations'] });
-            
             // Call the optional onSuccess callback
-            options?.onSuccess?.(data);
+            options?.onSuccess?.();
         },
+    });
+};
+
+// Fetch latest DAO events
+export const useLatestDaoEvents = (latestBlock: bigint | undefined) => {
+    const latestBlockNumber = Number(latestBlock);
+    return useQuery<CommonResponse<DaoEvent[]>, Error, DaoEvent[]>({
+        queryKey: ['latest-dao-events', latestBlockNumber],
+        queryFn: () => apiClient.fetchLatestDaoEvents(latestBlockNumber),
+        staleTime: 6000,
+        refetchOnWindowFocus: false,
+        select: (data) => data.data,
+        enabled: !!latestBlockNumber
+    });
+};
+
+// Fetch all investors
+export const useDaoInvestors = (latestBlock: bigint | undefined) => {
+    const latestBlockNumber = Number(latestBlock);
+    return useQuery<CommonResponse<DaoEvent[]>, Error, DaoEvent[]>({
+        queryKey: ['dao-investors', latestBlockNumber],
+        queryFn: () => apiClient.fetchDaoInvestors(latestBlockNumber),
+        staleTime: 6000,
+        refetchOnWindowFocus: false,
+        select: (data) => data.data,
+        enabled: !!latestBlockNumber
+    });
+};
+
+// Fetch my divinations with infinite query
+export const useMyDaoEvents = (latestBlock: bigint | undefined) => {
+    const latestBlockNumber = Number(latestBlock);
+    return useInfiniteQuery<
+        CommonResponse<DaoEvent[]>,  // TQueryFnData - what fetchMyDaoEvents returns
+        Error,                       // TError
+        InfiniteData<CommonResponse<DaoEvent[]>>,  // TData - includes pages property
+        [string, number],            // TQueryKey
+        number | null                // TPageParam
+    >({
+        queryKey: ['my-dao-events', latestBlockNumber] as [string, number],
+        initialPageParam: null,
+        getNextPageParam: (lastPage) => lastPage.cursor,
+        queryFn: ({ pageParam }) => apiClient.fetchMyDaoEvents(latestBlockNumber, pageParam as number | null),
+        staleTime: 60000,
+        refetchOnWindowFocus: false,
+        enabled: !!latestBlockNumber
     });
 };

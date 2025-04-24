@@ -37,7 +37,7 @@ type Not64GuaData = {
 
 export const GuaModal = ({ isOpen, binary, onClose }: GuaModalProps) => {
     const hexagrams = useIChing();
-    console.log(hexagrams);
+    // console.log(hexagrams);
 
     const [gua, setGua] = useState<Gua | null>(null);
     const [yaos, setYaos] = useState<YAO[]>([]);

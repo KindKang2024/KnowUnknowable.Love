@@ -1,6 +1,6 @@
-import { useIChing } from '@/i18n/DataProvider';
-import { binaryIChingMap } from '@/i18n/symbols';
-import React, { useCallback } from 'react';
+import {useIChing} from '@/i18n/DataProvider';
+import {binaryIChingMap} from '@/i18n/symbols';
+import React, {useCallback} from 'react';
 
 const EMPTY_KEY: string = "☯️";
 

@@ -1,12 +1,15 @@
 import React from "react";
-import { useFeaturedDaoDivinations } from "@/services/api";
-import { useUIStore } from "@/stores/uiStore";
-import { usePageCommonData } from "@/i18n/DataProvider";
-import DivinationsTable, { getCommonColumns, KnownStatus } from "@/pages/will/components/DivinationsTable";
+import {useFeaturedDaoDivinations} from "@/services/api";
+import {useUIStore} from "@/stores/uiStore";
+import {usePageCommonData} from "@/i18n/DataProvider";
+import DivinationsTable, {getCommonColumns} from "@/pages/will/components/DivinationsTable";
+import {useAccount} from "wagmi";
+import {defaultChainWhenNotConnected} from "@/contracts/externalContracts";
+import {useIsMobile} from "@/hooks/use-mobile";
 
 export const FeaturedDaoDivinations = () => {
     const commonData = usePageCommonData();
-
+    const isMobile = useIsMobile();
     // Fetch latest public divinations
     const {
         data: featuredResponse,
@@ -16,12 +19,14 @@ export const FeaturedDaoDivinations = () => {
     } = useFeaturedDaoDivinations();
 
     const { openModal } = useUIStore();
+    const { chainId } = useAccount();
+    const targetChainId = chainId || defaultChainWhenNotConnected;
 
     // Flatten pages data for rendering
     const flattenedDivinations = featuredResponse?.pages?.flatMap(page => page.data) || [];
 
     // Get common column configurations
-    const { willColumn, timeColumn, statusColumn, actionColumn } = getCommonColumns(commonData, openModal);
+    const { willColumn, timeColumn, statusColumn, actionColumn, guaColumn } = getCommonColumns(commonData, targetChainId, openModal);
 
     // Custom column configurations for this table
     const visibilityColumn = {
@@ -33,8 +38,13 @@ export const FeaturedDaoDivinations = () => {
     };
 
     // Configure specific columns for this table
-    const columns = [
+    const columns = isMobile ? [
         willColumn,
+        guaColumn,
+        actionColumn
+    ] : [
+        willColumn,
+        guaColumn,
         timeColumn,
         visibilityColumn,
         statusColumn,

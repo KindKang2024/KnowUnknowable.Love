@@ -94,7 +94,7 @@ const DiviGalaxy: React.FC<GalaxyProps> = ({
 
     const uniforms = useMemo(() => ({
         uTime: { value: 0 },
-        uSize: { value: 30 * (window.devicePixelRatio || 1) },
+        uSize: { value: 20 * (window.devicePixelRatio || 1) },
     }), []);
 
     // Animation loop using useFrame

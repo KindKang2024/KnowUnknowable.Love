@@ -8,33 +8,36 @@ import DukiInAction from "@/pages/duki_in_action/DukiInAction";
 import {Globals} from "@react-spring/shared";
 import {routes} from "@/utils/constants";
 import DiviScreen from "@/pages/divi/DiviScreen";
-import About from "@/pages/About.tsx";
-import React from "react";
+import React, {useState} from "react";
 import Will from "@/pages/will/Will";
 import {IChingProofSystem} from "./pages/iChing/IChingProofSystem";
+import BgmPlayer from "./components/BgmPlayer";
 
 Globals.assign({
   frameLoop: "always",
 });
 
+const App = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
 
-const App = () => (
-  <Providers>
-    <Toaster />
-    <Sonner />
-    <BrowserRouter>
-      <Routes >
-        <Route path={routes.home} element={<Layout />}>
-          <Route index element={<Will />} />
-          <Route path={routes.about} element={<About />} />
-          <Route path={routes.dao} element={<DukiInAction />} />
-          <Route path={routes.iChing} element={<IChingProofSystem />} />
-        </Route>
-        <Route path={routes.divi} element={<DiviScreen />} />
-      </Routes>
-    </BrowserRouter>
-    <ModalManager />
-  </Providers>
-);
+  return (
+    <Providers>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
+        <Routes>
+          <Route path={routes.home} element={<Layout />}>
+            <Route index element={<Will />} />
+            <Route path={routes.dao} element={<DukiInAction />} />
+            <Route path={routes.iChing} element={<IChingProofSystem />} />
+          </Route>
+          <Route path={routes.divi} element={<DiviScreen />} />
+        </Routes>
+        <BgmPlayer />
+      </BrowserRouter>
+      <ModalManager />
+    </Providers>
+  );
+};
 
 export default App;

@@ -1,9 +1,11 @@
 import {useState} from 'react';
 import {BaguaSections, DualityDaoLoveSection, Section} from '@/i18n/types.ts';
+import {useIChing} from '@/i18n/DataProvider';
 
 interface BaguaDukiDAOProps {
   onElementClick?: (id: Section) => void;
   bpsArr?: number[];
+  showText: boolean;
 }
 
 
@@ -37,9 +39,12 @@ const getPointOnCircle = (section: Section, offset: number = 148) => {
 export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
   onElementClick,
   bpsArr = [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  showText = true
 }) => {
   // const [internalSection, setInternalSection] = useState<Section>(BaguaSections[0]);
   const [internalSection, setInternalSection] = useState<Section>(DualityDaoLoveSection);
+
+  const iChing = useIChing();
 
   // Sync internal state with external section prop
   const getDynamicStyles = (section: Section, disabled = false): React.CSSProperties => {
@@ -214,7 +219,7 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
       <g id="yinyang_dao_love" onClick={handleClick(DualityDaoLoveSection)} >
         <circle cx="273.70739" cy="273.70739" style={getDynamicStyles(internalSection)} r="85.5" opacity="0.5" filter="url(#f)" />
 
-        {BaguaSections.filter(section => section.seq !== DualityDaoLoveSection.seq).map((section, index) => {
+        {showText && BaguaSections.filter(section => section.seq !== DualityDaoLoveSection.seq).map((section, index) => {
         // {BaguaSections.map((section, index) => {
           const point = getPointOnCircle(section);
           const isSelected = internalSection.seq === section.seq
@@ -232,7 +237,8 @@ export const BaguaDukiDAO: React.FC<BaguaDukiDAOProps> = ({
                 // fontSize={section.percentage <= 0 ? "60" : "18"}
                 fontSize={"18"}
               >
-                {bpsArr[section.seq] <= 0 ? '•' : `${section.id} ${bpsArr[section.seq]}%`}
+                {/* {bpsArr[section.seq] <= 0 ? '•' : `${section.id} ${bpsArr[section.seq]}%`} */}
+                {`${iChing[section.bid].name}`} 
               </text>
             </g>
           );

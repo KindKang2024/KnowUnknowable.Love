@@ -102,7 +102,7 @@ const Header = () => {
 
 
             {/* Language Dropdown */}
-            {/* <LanguageSwitcher /> */}
+            <LanguageSwitcher />
             {/* <LanguageSwitcher isMobile={false} /> */}
 
             <div
@@ -129,13 +129,13 @@ const Header = () => {
           <div className="pb-4 space-y-2">
             {navigationItems.map((item, index) => (
               <div key={item.path + 'nav'}>
-                <NavLink key={item.path} item={item} />
+                <NavLink key={item.path} item={item} localeLabel={commonData.navLabels[index]} />
                 <div className="border-t border-white/10 my-2"></div>
               </div>
             ))}
 
             {/* Mobile Language Dropdown */}
-            {/* <LanguageSwitcher isMobile={true} /> */}
+            <LanguageSwitcher />
             <div className="border-t border-white/10 my-2"></div>
           </div>
           <div className='py-2 flex flex-col space-y-2'>

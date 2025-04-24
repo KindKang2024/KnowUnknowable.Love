@@ -86,8 +86,6 @@ export default function CameraController() {
 
   const orbitControlsRef = useRef(null);
 
-
-
   return (
     <DreiOrbitControls
       ref={orbitControlsRef}
@@ -96,6 +94,8 @@ export default function CameraController() {
       enablePan={true}
       camera={camera}
       maxPolarAngle={Math.PI / 2}
+      minAzimuthAngle={-Math.PI / 4}
+      maxAzimuthAngle={Math.PI / 4}
       maxDistance={10}
       minDistance={1}
       target={new Vector3(0, 0, 0)}

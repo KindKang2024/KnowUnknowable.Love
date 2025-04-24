@@ -3,9 +3,9 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import glsl from "vite-plugin-glsl";
 
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ command, mode }) => ({
   esbuild: {
-    drop: ['console', 'debugger'],
+    drop: command === 'build' ? ['console', 'debugger'] : [],
   },
   server: {
     host: "::",
@@ -32,5 +32,4 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  assetsInclude: ["**/*.bin"],
 }));

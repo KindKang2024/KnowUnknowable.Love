@@ -18,6 +18,7 @@ const FireRingShader = {
     uniform float iTime;
     uniform vec3 iMouse;
     uniform float sizeScale; // Uniform to control the circle size
+    uniform float opacity; // Add opacity uniform
     varying vec2 vUv;
 
     const float M_PI = 3.1415926535897932384626433832795;
@@ -93,7 +94,7 @@ const FireRingShader = {
      float alpha = smoothstep(0.0, 0.6, length(col));
      col *= alpha;
     
-     gl_FragColor = vec4(col, alpha);
+     gl_FragColor = vec4(col, alpha * opacity); // Multiply alpha by opacity uniform
     }
   `,
 };
@@ -102,7 +103,7 @@ const FireRingShader = {
  * FireRing Component
  * Renders a plane with a fire ring effect using a custom shader.
  */
-export default function FireRing({ width = 1 }: { width: number }) {
+export default function FireRing({ width = 1, opacity = 1 }: { width: number, opacity?: number }) {
   const meshRef = useRef();
   const materialRef = useRef();
   const { size, mouse } = useThree();
@@ -110,11 +111,16 @@ export default function FireRing({ width = 1 }: { width: number }) {
   // Update uniforms each frame for animation and interaction
   useFrame(({ clock }) => {
     if (materialRef.current) {
+      // @ts-ignore
       materialRef.current.uniforms.iTime.value = clock.getElapsedTime();
       const mx = (mouse.x + 1) / 2 * size.width;
       const my = (mouse.y + 1) / 2 * size.height;
+      // @ts-ignore
       materialRef.current.uniforms.iMouse.value.set(mx, my, 0);
+      // @ts-ignore
       materialRef.current.uniforms.iResolution.value.set(size.width, size.height);
+      // @ts-ignore
+      materialRef.current.uniforms.opacity.value = opacity;
     }
   });
 
@@ -125,6 +131,7 @@ export default function FireRing({ width = 1 }: { width: number }) {
       iTime: { value: 0 },
       iMouse: { value: new THREE.Vector3() },
       sizeScale: { value: 0.5 }, // Scales the fire ring size (0.5 makes it smaller)
+      opacity: { value: 1 }, // Add opacity uniform
     }),
     []
   );
@@ -137,6 +144,7 @@ export default function FireRing({ width = 1 }: { width: number }) {
         transparent={true} // Enable transparency
         side={THREE.DoubleSide} // Render both sides of the plane
         uniforms={uniforms}
+        depthWrite={false}
         vertexShader={FireRingShader.vertexShader}
         fragmentShader={FireRingShader.fragmentShader}
       />

@@ -3,6 +3,7 @@ import {useDivinationStore} from "@/stores/divineStore.ts";
 import {a, config, useSpring} from "@react-spring/web";
 import {YaoLine} from "./yao_line.tsx";
 import {MutationControl} from "./MutationControl.tsx";
+import {cn} from "@/lib/utils.ts";
 
 // YaoLine component to visualize the trigram lines
 
@@ -12,16 +13,23 @@ interface ResultGridProps {
   type: "number" | "checkbox";
   onCheckboxChange?: (index: number) => void;
   disabledIndexes?: number[];
+  textProgress?: string;
+  textLineChangeable?: string;
+  textLineNotChangeable?: string;
 }
 
 export const ResultGrid = ({
   label,
   type,
   onCheckboxChange,
-  disabledIndexes = []
+  disabledIndexes = [],
+  textProgress,
+  textLineChangeable,
+  textLineNotChangeable
 }: ResultGridProps) => {
   // Convert DivinationAgg to YAO array for visualization
   const { isDivinationCompleted, mutate, divide, gua, getTotalDivisions, getCurrentRound } = useDivinationStore();
+
 
   // Animation for the entire grid
   const gridAnimation = useSpring({
@@ -34,29 +42,23 @@ export const ResultGrid = ({
   // const progressPercentage = Math.min(100, (getTotalDivisions() / 18) * 100);
 
   return (
-    <a.div className="space-y-2" style={{
+    <a.div className="space-y-1" style={{
       opacity: 0,
       ...gridAnimation
     }}>
-      <div className="text-center space-y-2">
+      <div className="text-center">
         <div className="text-center items-center align-center  text-xs gap-2">
-        <label className=" text-[#9b87f5]/60">Change Progress ( {getTotalDivisions()} / 18 )</label>
-      </div>
+          <label className=" text-[#9b87f5]/60">
+            {textProgress} ( {getCurrentRound()} / 6 )
+          </label>
+        </div>
 
       </div>
 
-      <div className="flex flex-col space-y-3 mt-2">
+      <div className="flex flex-col">
         {Array.from({ length: 6 }, (_, index) => {
           const yaoIndex = 5 - index;
           const yao = gua.yaos[yaoIndex];
-
-          // Animation for each row
-          const rowAnimation = useSpring({
-            from: { opacity: 0, transform: 'translateY(-100px)' },
-            to: { opacity: 1, transform: 'translateY(0px)' },
-            delay: index * 100,
-            config: config.wobbly
-          });
 
           const isCompleted = yao.isCompleted();
           const rowOpacity = isCompleted ? 1 : 0.6;
@@ -68,13 +70,16 @@ export const ResultGrid = ({
                 // ...rowAnimation,
                 opacity: rowOpacity
               }}
-              className="grid grid-cols-5 items-center gap-2 p-1 rounded-md transition-all duration-300"
+              className={cn(
+                "grid grid-cols-5 items-center gap-2 p-1 rounded-md transition-all duration-300",
+                yaoIndex === 2 ? "mt-2" : ""
+              )}
             >
               <div className="col-span-1">
                 <YinYangCircleVisualization
                   yao={yao}
-                  size={28}
-                  dotSize={1.2}
+                  size={24}
+                  dotSize={0.6}
                   circleStrokeWidth={0.6}
                 />
               </div>
@@ -95,6 +100,8 @@ export const ResultGrid = ({
                   isCompleted={yao.isCompleted()}
                   index={yaoIndex}
                   onMutate={mutate}
+                  textLineChangeable={textLineChangeable}
+                  textLineNotChangeable={textLineNotChangeable}
                 />
               </div>
             </div>

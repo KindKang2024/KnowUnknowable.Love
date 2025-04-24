@@ -14,16 +14,37 @@ import {
 } from "@/components/ui/dialog";
 import {Check, Copy, ExternalLink, Wallet} from "lucide-react";
 import {useUIStore} from "@/stores/uiStore";
+import {formatContractMoney, getBridgeLink, getContractLink} from "@/utils/commonUtils";
+import {usePageCommonData} from "@/i18n/DataProvider";
+import {useReadLoveDaoContractBaguaDaoAgg4Me} from "@/contracts/generated";
+import {dukiDaoContractConfig} from "@/contracts/externalContracts";
 
-// Replace with your actual DAO contract address
-const DAO_CONTRACT_ADDRESS = "0x1234567890123456789012345678901234567890";
 
 const CustomConnectButton = () => {
-    const { address, isConnected } = useAccount();
+    const { address, isConnected, chainId } = useAccount();
     const { disconnect } = useDisconnect();
     const [showProfile, setShowProfile] = useState(false);
     const [copied, setCopied] = useState(false);
     const { authStatus, setAuthStatus } = useUIStore();
+
+    const commonData = usePageCommonData();
+
+    const {
+        data: baguaDaoAgg4Me,
+        isLoading: baguaDaoAgg4MeLoading,
+        refetch: refetchBaguaDukiDao,
+        error: baguaDaoAgg4MeError
+    } = useReadLoveDaoContractBaguaDaoAgg4Me({
+        address: dukiDaoContractConfig[chainId]?.address || '0x',
+        args: [address],
+        query: {
+            // enabled: !!dukiDaoContractConfig[defaultChainId]?.address,
+            enabled: isConnected,
+            refetchInterval: 30000 // Refetch every 30 seconds
+        }
+    })
+    // console.log("baguaDaoAgg4Me", baguaDaoAgg4Me);
+
 
 
     const copyToClipboard = (text: string) => {
@@ -65,7 +86,7 @@ const CustomConnectButton = () => {
                             className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg transition-all duration-300 hover:shadow-purple-300/30"
                         >
                             <Wallet className="w-4 h-4 mr-2" />
-                            {connectModalOpen ? "Connecting..." : "Connect Wallet"}
+                            {connectModalOpen ? commonData.connecting : commonData.connectWallet}
                         </Button>
                     );
                 }
@@ -78,7 +99,8 @@ const CustomConnectButton = () => {
                             // onClick={openConnectModal}
                             className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white shadow-lg transition-all duration-300 hover:shadow-purple-300/30"                        >
                             <Wallet className="w-4 h-4 mr-2" />
-                            Authenticating...
+                            {/* Authenticating... */}
+                            {commonData.authenticating}
                         </Button>
                     );
                 }
@@ -110,18 +132,27 @@ const CustomConnectButton = () => {
                             <DialogPortal>
                                 <DialogContent className="sm:max-w-md bg-gradient-to-br from-gray-900 to-gray-950 border border-gray-800 rounded-2xl shadow-xl">
                                     <DialogHeader>
-                                        <DialogTitle className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">Wallet Profile</DialogTitle>
+                                        <DialogTitle className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-500">
+                                            {/* Wallet Profile */}
+                                            {commonData.walletProfileTitle}
+                                        </DialogTitle>
                                     </DialogHeader>
 
                                     {/* Wallet Information Section */}
                                     <div className="space-y-6 py-4">
                                         <div className="bg-gray-800/50 rounded-xl p-4 border border-purple-500/10 shadow-inner">
-                                            <h3 className="text-sm font-semibold text-gray-300 mb-3 uppercase tracking-wider">Wallet Information</h3>
+                                            <h3 className="text-sm font-semibold text-gray-300 mb-3 uppercase tracking-wider">
+                                                {/* Wallet Information */}
+                                                {commonData.walletInformation}
+                                            </h3>
 
                                             <div className="flex flex-col space-y-4">
                                                 {chain && (
                                                     <div className="flex items-center justify-between">
-                                                        <span className="text-sm font-medium text-gray-400">Network</span>
+                                                        <span className="text-sm font-medium text-gray-400">
+                                                            {/* Network */}
+                                                            {commonData.walletNetwork}
+                                                        </span>
                                                         <div className="flex items-center bg-gray-700/50 px-3 py-1 rounded-lg">
                                                             {chain.hasIcon && chain.iconUrl && (
                                                                 <img
@@ -134,7 +165,8 @@ const CustomConnectButton = () => {
                                                                 {chain.name || chain.id}
                                                                 {chain.unsupported && (
                                                                     <span className="text-xs text-red-400 ml-1">
-                                                                        (Unsupported)
+                                                                        {/* (Unsupported) */}
+                                                                        {commonData.unsupportedChain}
                                                                     </span>
                                                                 )}
                                                             </span>
@@ -143,7 +175,10 @@ const CustomConnectButton = () => {
                                                 )}
 
                                                 <div className="flex items-center justify-between">
-                                                    <span className="text-sm font-medium text-gray-400">Address</span>
+                                                    <span className="text-sm font-medium text-gray-400">
+                                                        {/* Address */}
+                                                        {commonData.address}
+                                                    </span>
                                                     <div className="flex items-center bg-gray-700/50 px-3 py-1 rounded-lg">
                                                         <span className="text-sm font-medium text-white">{account.address?.substring(0, 6)}...{account.address?.substring(account.address.length - 4)}</span>
                                                         <button
@@ -156,18 +191,25 @@ const CustomConnectButton = () => {
                                                 </div>
 
                                                 <div className="flex items-center justify-between">
-                                                    <span className="text-sm font-medium text-gray-400">Balance</span>
+                                                    <span className="text-sm font-medium text-gray-400">
+                                                        {/* Balance */}
+                                                        {commonData.balance}
+                                                    </span>
                                                     <div className="bg-gray-700/50 px-3 py-1 rounded-lg">
                                                         <span className="text-sm font-medium text-white">{account.displayBalance}</span>
                                                     </div>
                                                 </div>
 
                                                 <div className="flex items-center justify-between">
-                                                    <span className="text-sm font-medium text-gray-400">Status</span>
+                                                    <span className="text-sm font-medium text-gray-400">
+                                                        {/* Status */}
+                                                        {commonData.authStatus}
+                                                    </span>
                                                     <div className="bg-gray-700/50 px-3 py-1 rounded-lg flex items-center">
                                                         <div className={`w-2 h-2 rounded-full mr-2 ${isAuthenticated ? 'bg-green-500' : 'bg-amber-500'}`}></div>
                                                         <span className="text-sm font-medium text-white">
-                                                            {isAuthenticated ? 'Authenticated' : 'Not Authenticated'}
+                                                            {/* {isAuthenticated ? 'Authenticated' : 'Not Authenticated'} */}
+                                                            {isAuthenticated ? commonData.statusAuthenticated : commonData.statusNotAuthenticated}
                                                         </span>
                                                     </div>
                                                 </div>
@@ -175,24 +217,80 @@ const CustomConnectButton = () => {
                                         </div>
 
                                         {/* DAO Section - Visually distinct */}
-                                        <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-xl p-4 border border-purple-500/20 shadow-lg">
-                                            <h3 className="text-sm font-semibold text-purple-300 mb-3 uppercase tracking-wider flex items-center">
-                                                <span className="bg-purple-500/20 p-1 rounded mr-2">DAO</span>
-                                                Information
-                                            </h3>
+                                        <div className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 rounded-xl p-2 border  border-purple-500/20 shadow-lg">
+                                            <div className="bg-purple-500/20 rounded-lg text-sm text-purple-300 mb-2 tracking-wider flex flex-col">
+                                                <div className="p-2 rounded mr-2 text-center font-semibold ">
+                                                    {/* DAO */}
+                                                    {commonData.daoSlogan}
+                                                </div>
+
+                                                <div className="text-xs text-gray-300 text-left px-2 pb-2">
+                                                  {commonData.daoActionSlogan}
+                                                </div>
+                                            </div>
 
                                             <div className="flex items-center justify-between">
-                                                <span className="text-sm font-medium text-gray-300">DAO Contract</span>
+                                                <span className="text-sm font-medium text-gray-300">
+                                                    {/* DAO Contract */}
+                                                    {commonData.daoContractLabel}
+                                                </span>
                                                 <a
-                                                    href={`https://etherscan.io/address/${DAO_CONTRACT_ADDRESS}`}
+                                                    href={getContractLink(chainId)}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
                                                     className="flex items-center text-sm font-medium bg-purple-500/20 px-3 py-1 rounded-lg text-purple-300 hover:text-purple-200 transition-colors group"
                                                 >
-                                                    View on Scroll 
+                                                    {/* View on Scroll */}
+                                                    {commonData.viewOnChain}
                                                     <ExternalLink className="w-3 h-3 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                                                 </a>
                                             </div>
+
+                                            {/* ZK Chain Bridge Link */}
+                                            <div className="flex items-center justify-between mt-1">
+                                                <span className="text-sm font-medium text-gray-300">
+                                                    {/* ZK Chain Bridge */}
+                                                    {commonData.chainBridgeLabel}
+                                                </span>
+                                                <a
+                                                    href={getBridgeLink(chainId)}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center text-sm font-medium bg-purple-500/20 px-3 py-1 rounded-lg text-purple-300 hover:text-purple-200 transition-colors group"
+                                                >
+                                                    {/* Bridge */}
+                                                    {commonData.bridgeActionLabel}
+                                                    <ExternalLink className="w-3 h-3 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                                                </a>
+                                            </div>
+
+                                            {/* baguaDaoAgg4Me */}
+                                            <div className="mt-2 space-y-2">
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-sm font-medium text-gray-300">
+                                                        {commonData.daoParticipantNo}
+                                                    </span>
+                                                    <div className="bg-purple-500/20 px-3 py-1 rounded-lg text-xs">
+                                                        {/* {baguaDaoAgg4Me?.participation.participantNo || "?"} */}
+
+                                                        {baguaDaoAgg4Me?.participation.participantNo
+                                                            ? `No. ${baguaDaoAgg4Me.participation.participantNo}`
+                                                            // :  "Connect the DAO to participate"}
+                                                            :  commonData.connectDaoToParticipate}
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex items-center justify-between">
+                                                    <span className="text-sm font-medium text-gray-300">
+                                                        {commonData.daoParticipantAmount}
+                                                    </span>
+                                                    <div className="bg-purple-500/20 px-3 py-1 rounded-lg text-xs">
+                                                        ${formatContractMoney(baguaDaoAgg4Me?.participation.participantAmount)}
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
                                         </div>
 
                                         <div className="flex justify-end pt-2">
@@ -201,14 +299,16 @@ const CustomConnectButton = () => {
                                                 onClick={handleDisconnect}
                                                 className="mr-2 bg-red-500/80 hover:bg-red-600 transition-colors"
                                             >
-                                                Disconnect
+                                                {/* Disconnect */}
+                                                {commonData.disconnect}
                                             </Button>
                                             <DialogClose asChild>
                                                 <Button
                                                     variant="outline"
                                                     className="border-purple-500/30 text-purple-300 hover:bg-purple-500/20 hover:text-purple-200 transition-colors"
                                                 >
-                                                    Close
+                                                    {/* Close */}
+                                                    {commonData.close}
                                                 </Button>
                                             </DialogClose>
                                         </div>

@@ -1,7 +1,8 @@
-import React, {createContext, useContext} from 'react';
-import {useTranslation} from 'react-i18next';
-import {CommonData, DAOPageData, DataTypes, DiviPageData, IChing, IChingPageData, WillPageData} from './data_types';
+import React, { createContext, useContext } from 'react';
+import { useTranslation } from 'react-i18next';
+import { CommonData, DAOPageData, DataTypes, DiviPageData, IChing, IChingPageData, WillPageData } from './data_types';
 import './i18n'; // Import i18n configuration
+import { GrokDivineIcon } from '@/components/icons';
 
 // { [key: string]: IChing }
 export type IChingGuaMap = { [key: string]: IChing };
@@ -12,15 +13,19 @@ export const DataProvider = ({ children }: { children: React.ReactNode }) => {
     const { t, i18n, ready } = useTranslation();
 
     if (!ready) {
-        return <div>Loading translations...</div>;
+        return (
+            <div className="flex flex-col items-center justify-center min-h-screen">
+                <GrokDivineIcon className="w-32 h-32" />
+            </div>
+        )
     }
 
-    
+
     const value = i18n.services.resourceStore.data[i18n.language]?.translation as DataTypes;
     // const value = i18n.services.resourceStore.data["en"]?.translation as DataTypes;
 
     if (!value) {
-        console.error('Translation resources not found');
+        console.error('Translation resources not found', i18n.language);
         return <div>Error loading translations</div>;
     }
     console.log("set value", value);

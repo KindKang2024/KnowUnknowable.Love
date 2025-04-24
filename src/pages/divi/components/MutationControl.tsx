@@ -8,13 +8,17 @@ interface MutationControlProps {
     isCompleted: boolean;
     index: number;
     onMutate: (checked: boolean, index: number) => void;
+    textLineChangeable?: string;
+    textLineNotChangeable?: string;
 }
 
 export const MutationControl: React.FC<MutationControlProps> = ({
     isMutable,
     isCompleted,
     index,
-    onMutate
+    onMutate,
+    textLineChangeable,
+    textLineNotChangeable
 }) => {
     if (!isCompleted) {
         return <div className="w-4 h-4" />;
@@ -46,13 +50,19 @@ export const MutationControl: React.FC<MutationControlProps> = ({
                 >
                     {isMutable ? (
                         <>
-                            <p className="whitespace-normal">Click to mutation</p>
-                            <p className="text-xs text-gray-400 whitespace-normal">Position {6 - index} from bottom</p>
+                            <p className="whitespace-normal">{textLineChangeable}</p>
+                            {/* <p className="text-xs text-gray-400 whitespace-normal">
+                                Position {6 - index} from bottom
+                            </p> */}
                         </>
                     ) : (
                         <>
-                            <p className="whitespace-normal">This line (爻) is not mutable</p>
-                            <p className="text-xs text-gray-400 whitespace-normal">Position {6 - index} from bottom</p>
+                            <p className="whitespace-normal">
+                                {textLineNotChangeable}
+                            </p>
+                            {/* <p className="text-xs text-gray-400 whitespace-normal">
+                                Position {6 - index} from bottom
+                            </p> */}
                         </>
                     )}
                 </TooltipContent>

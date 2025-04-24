@@ -1,41 +1,44 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { FloatingPanel, Section } from './components/FloatingPanel.tsx';
-import html2canvas from "html2canvas";
-import { dataURLtoBlob } from "@/utils/imageUtils.ts";
-import { useToast } from '@/hooks/use-toast.ts';
-import { PaymentSection } from './components/PaymentSection.tsx';
-import { Button } from '@/components/ui/button.tsx';
-import { GuaSection, MutationGuaSection } from './components/GuaSection.tsx';
-import { ResultGrid } from './components/ResultGrid.tsx';
-import { useDivinationStore } from '@/stores/divineStore';
-import { useUIStore } from '@/stores/uiStore';
-import { DivinationRequest, useCreateDivination } from '@/services/api';
+import React, {useEffect, useRef, useState} from 'react';
+import {FloatingPanel, Section} from './components/FloatingPanel.tsx';
+import {useToast} from '@/hooks/use-toast.ts';
+import {Button} from '@/components/ui/button.tsx';
+import {GuaSection, MutationGuaSection} from './components/GuaSection.tsx';
+import {ResultGrid} from './components/ResultGrid.tsx';
+import {useDivinationStore} from '@/stores/divineStore';
+import {useUIStore} from '@/stores/uiStore';
+import {DivinationRequest, useCreateDivination} from '@/services/api';
 import DiviButton from '@/pages/divi/components/DiviButton.tsx';
-import { ModalType } from '@/types/common.ts';
-import { Gua } from '@/stores/Gua.ts';
-import { DiviState } from '@/types/divi';
-import { useNavigate } from 'react-router-dom';
-import { NiceButton } from '@/components/ui/styled/nice-button.tsx';
-import { keccak256, stringToHex } from 'viem';
+import {ModalType} from '@/types/common.ts';
+import {Gua} from '@/stores/Gua.ts';
+import {DiviState} from '@/types/divi';
+import {useNavigate} from 'react-router-dom';
+import {NiceButton} from '@/components/ui/styled/nice-button.tsx';
+import {keccak256, stringToHex} from 'viem';
+import {AmountSelect} from '@/components/AmountSelect.tsx';
+import {Loader2} from 'lucide-react';
+import {useTranslation} from 'react-i18next';
+import {DiviPanelData} from '@/i18n/data_types.ts';
+import {DukiInActionToDeepseekDAO} from '@/components/DukiInActionToDeepseekDAO.tsx';
 
-const DiviPanel: React.FC = () => {
+const DiviPanel: React.FC<{ diviPanelData: DiviPanelData }> = ({ diviPanelData }) => {
     const navigate = useNavigate();
-    const [showCustomAmount, setShowCustomAmount] = useState(false);
-    const [selectedAmount, setSelectedAmount] = useState<number>(3);
-    const [customAmount, setCustomAmount] = useState<string>("0.1");
-    const [shareImage, setShareImage] = useState<string>("");
+    const { t, i18n } = useTranslation();
 
     const { will, isDivinationCompleted, divinationCompleted,
         getTotalMutationCount, gua, getMutationGua, reset,
         divide, getTotalDivisions, getCurrentRound, mutate,
         willSignature, setWillSignature,
         setStage, stage,
-        // id,
         visibility,
+        entry,
         recordDivination
     } = useDivinationStore();
 
+    const [selectedAmount, setSelectedAmount] = useState<number>(1);
 
+    const { setElevated, setDivideReady, speedMode, setSpeedMode,
+        autoReviewInterval, dividePhase,
+        setAutoReviewInterval, setDiviFocusKey } = useUIStore();
     const [selectedYinCount, setSelectedYinCount] = useState<number>(6);
     const panelRef = useRef<HTMLDivElement>(null);
 
@@ -46,105 +49,16 @@ const DiviPanel: React.FC = () => {
         } else {
             navigate('/'); // Navigate to home
         }
+        setElevated(false);
+        setDivideReady(false);
         reset();
     };
-
-    const handleAmountSelect = (amount: number | null) => {
-        if (amount === null) {
-            setShowCustomAmount(true);
-            setSelectedAmount(Number(customAmount));
-        } else {
-            setShowCustomAmount(false);
-            setSelectedAmount(amount);
-        }
-    };
-
-    const handleCustomAmountChange = (value: string) => {
-        setCustomAmount(value);
-        setSelectedAmount(Number(value));
-    };
-
-    const downloadCardAsImage = async () => {
-        if (panelRef.current) {
-            try {
-                const canvas = await html2canvas(panelRef.current);
-                const image = canvas.toDataURL("image/png", 0.8);
-                setShareImage(image);
-            } catch (error) {
-                console.error('Error capturing image:', error);
-            }
-        }
-    };
-
-    const handleShare = async () => {
-    };
-
-    const handleShareToTwitter = () => {
-        const imageBlob = dataURLtoBlob(shareImage);
-        const imageUrl = URL.createObjectURL(imageBlob);
-
-        const tweetText = `Just received my divine guidance through the I-Ching! 🔮\nRound ${getCurrentRound()}/${getTotalDivisions()}\n#iching #divination\n\nView my reading: ${imageUrl}`;
-        const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
-
-        window.open(shareUrl, '_blank');
-
-        setTimeout(() => {
-            URL.revokeObjectURL(imageUrl);
-        }, 60000);
-
-    };
-
-
-
-    const handleDownload = () => {
-        const link = document.createElement('a');
-        link.download = 'iching-divination.png';
-        link.href = shareImage;
-        link.click();
-    };
     const { toast } = useToast();
-    const [isPaymentProcessing, setIsPaymentProcessing] = useState(false);
-    const [hasPaymentError, setHasPaymentError] = useState(false);
-    const [isPaymentComplete, setIsPaymentComplete] = useState(false);
 
-    // const handlePaymentSuccess = async (amount: number, daoTxHash: string) => {
-    //     setIsPaymentProcessing(true);
-    //     setHasPaymentError(false);
-
-    //     try {
-    //         // Simulate payment processing with 30% success rate
-    //         await new Promise(resolve => setTimeout(resolve, 2000));
-    //         const isSuccess = Math.random() < 0.3;
-
-    //         if (!isSuccess) {
-    //             throw new Error("Payment failed");
-    //         }
-
-    //         setIsPaymentComplete(true);
-    //         setIsPaymentProcessing(false);
-
-    //         toast({
-    //             title: "Payment Successful",
-    //             description: "Click to learn about DAO flow.",
-    //         });
-    //     } catch (error) {
-    //         setHasPaymentError(true);
-    //         setIsPaymentProcessing(false);
-
-    //         toast({
-    //             variant: "destructive",
-    //             title: "Payment Failed",
-    //             description: "Please try again.",
-    //         });
-    //     }
-    // };
     const { mutateAsync: createDivination,
         isError: createDivinationError,
         isPending: createDivinationPending,
-        isSuccess: createDivinationSuccess,
-        data: entry } = useCreateDivination();
-
-    // const [showMeditationDialog, setShowMeditationDialog] = useState(false);
+        isSuccess: createDivinationSuccess } = useCreateDivination();
 
     const handleCreateDivination = async () => {
         if (entry || createDivinationPending) {
@@ -153,7 +67,6 @@ const DiviPanel: React.FC = () => {
         }
 
         try {
-
             const divinationData: DivinationRequest = {
                 will: will,
                 will_hash: keccak256(stringToHex(will)),
@@ -164,21 +77,24 @@ const DiviPanel: React.FC = () => {
                 dao_money: 0,
                 dao_hash: '',
                 //other info
-                lang: 'en', // todo : multiple language
+                lang: i18n.language,
                 gua: gua.getBinaryString(),
                 mutability: gua.getMutabilityArray(),
             };
 
             const data = await createDivination(divinationData);
-            debugger;
 
-            data.gua = Gua.createFromOpsBigint(BigInt(data.manifestation));
+            data.gua = Gua.createFromOpsString(data.manifestation);
 
             recordDivination(data);
             toast({
-                title: "Your Divination is Complete And Saved",
-                description: "You can connect with the DAO to deep seek its meaning.",
+                title: diviPanelData.toasts.divinationComplete.title,
+                description: diviPanelData.toasts.divinationComplete.description,
             });
+            // toast({
+            //     title: "Your Divination is Complete And Saved",
+            //     description: "You can connect with the DAO to deep seek its meaning.",
+            // });
         } catch (error) {
             console.error("DeepSeek error:", error);
 
@@ -201,62 +117,9 @@ const DiviPanel: React.FC = () => {
     useEffect(() => {
         if (divinationCompleted && (entry === null || entry === undefined)
             && !createDivinationPending && !createDivinationSuccess) {
-            // handleDeepSeek();
-            debugger;
             handleCreateDivination();
         }
     }, [divinationCompleted]);
-
-
-    // const handleDeepSeek = async () => {
-    //     if (entry !== null && !createDivinationError) {
-    //         setShowMeditationDialog(true);
-    //         return;
-    //     }
-
-    //     try {
-
-    //         const divinationData: DivinationRequest = {
-    //             will: will,
-    //             will_signature: willSignature,
-    //             manifestation: gua.toOpsString(),
-    //             interpretation: "",
-    //             visibility: visibility,
-    //             dao_money: selectedAmount,
-    //             dao_hash: willSignature,
-    //             //other info
-    //             lang: 'en', // todo : multiple language
-    //             gua: gua.getBinaryString(),
-    //             mutability: gua.getMutabilityArray(),
-    //         };
-
-    //         const data = await createDivination(divinationData);
-
-    //         data.gua = Gua.createFromOpsBigint(data.manifestation);
-
-    //         recordDivination(data);
-    //         toast({
-    //             title: "Reading Complete",
-    //             description: "Your divine reading is ready for meditation.",
-    //         });
-    //     } catch (error) {
-    //         console.error("DeepSeek error:", error);
-
-    //         // Extract the error message from the API response if available
-    //         let errorMessage = "Failed to process your reading. Please try again.";
-
-    //         if (error instanceof Error) {
-    //             // Use the error message from the API if available
-    //             errorMessage = error.message || errorMessage;
-    //         }
-
-    //         toast({
-    //             variant: "destructive",
-    //             title: "Error",
-    //             description: errorMessage,
-    //         });
-    //     }
-    // };
 
     const handleTestDivide = () => {
         if (isDivinationCompleted()) {
@@ -279,18 +142,20 @@ const DiviPanel: React.FC = () => {
     const isStep1Completed = willSignature !== '';
     const isStep2Completed = isStep1Completed && isDivinationCompleted();
     const isStep3Completed = isStep2Completed && entry?.interpretation !== '';
+    console.log(isStep1Completed, isStep2Completed, isStep3Completed);
 
     return (
         <FloatingPanel
-            title="DAO IS ALL LOVE"
+            title={diviPanelData.title}
+            defaultPosition={{ x: "1%", y: "10%" }}
             showExitButton={true}
             onExit={handleExit}
         >
             <Section
-                title="Will Awaken"
+                title={diviPanelData.step1.title}
                 stepNumber={1}
                 isCompleted={isStep1Completed}
-                defaultOpen={true}
+                defaultOpen={false}
             >
                 <div className="space-y-4">
                     <div className="space-y-3">
@@ -301,7 +166,7 @@ const DiviPanel: React.FC = () => {
                             <div className="self-end">
                                 <NiceButton
                                     onClick={() => openModal(ModalType.WILL_SIGNATURE)}>
-                                    {willSignature !== '' ? 'View Divinable Proof' : 'Sign to Prove it is Divineable'}
+                                    {willSignature !== '' ? diviPanelData.step1.divinationConsentProof : diviPanelData.step1.divinationConsentLabel}
                                 </NiceButton>
                             </div>
                         </div>
@@ -310,7 +175,7 @@ const DiviPanel: React.FC = () => {
             </Section>
 
             <Section
-                title="Divide To Divine"
+                title={diviPanelData.step2.title}
                 stepNumber={2}
                 isCompleted={isStep2Completed}
                 defaultOpen={stage !== DiviState.FREE}
@@ -321,6 +186,9 @@ const DiviPanel: React.FC = () => {
                         <ResultGrid
                             label="Division"
                             type="number"
+                            textProgress={`${diviPanelData.step2.textProgress}`}
+                            textLineChangeable={diviPanelData.step2.textLineChangeable}
+                            textLineNotChangeable={diviPanelData.step2.textLineNotChangeable}
                         />
                     </div>
 
@@ -336,39 +204,117 @@ const DiviPanel: React.FC = () => {
                     />
 
                     <div className="flex flex-col gap-2 pt-2">
-                        <DiviButton
-                            isDeepSeekUsed={createDivinationSuccess}
-                            isError={createDivinationError}
-                            isPending={createDivinationPending}
-                        />
+                        <div className="text-xs text-indigo-300 text-center">
+                            {!isDivinationCompleted() ? (
+                                <div className="text-center">
+                                    {`(${getTotalDivisions()}/18) ${diviPanelData.step2.textChangesInProgress}: ${diviPanelData.dividePhasesTextArray[dividePhase] ?? diviPanelData.beforeDividePhaseText}`}
+                                </div>
+                            ) : isDivinationCompleted() && !createDivinationSuccess ? (
+                                createDivinationError ? (
+                                    <span>{diviPanelData.createDivinationError}</span>
+                                ) : (
+                                    <span>
+                                        {/* Divination completed. Ready to save. */}
+                                        {diviPanelData.step3.textDivinationCompleted}
+                                    </span>
+                                )
+                            ) : isDivinationCompleted() && createDivinationSuccess ? (
+                                <div className="">
+                                    <div>
+                                        <span>{diviPanelData.mutationsCountPrefix} {gua.getTotalManifestationsCount()} {diviPanelData.mutationsCountSuffix} </span>
+                                    </div>
+                                    {gua.getTotalManifestationsCount() > 1 && (
+                                        <div className="text-xs text-indigo-300 font-medium mb-2 text-center">
+                                            {diviPanelData.inspectMutationTip}
+                                        </div>
+                                    )}
+                                </div>
+                            ) : (
+                                <span>{diviPanelData.startDivideTip}</span>
+                            )}
+                        </div>
+                        {/* diving including start  */}
+                        {
+                            !isDivinationCompleted() && (
+                                <DiviButton
+                                    divinationStarted={stage !== DiviState.FREE}
+                                    disabled={willSignature === ''}
+                                    onStartDivination={() => {
+                                        if (stage === DiviState.FREE) {
+                                            setStage(DiviState.DIVI_START);
+                                            setElevated(true);
+                                        }
+                                    }}
+                                    onChangeSpeedMode={(nextMode) => {
+                                        setSpeedMode(nextMode);
+                                    }}
+                                    speedMode={speedMode}
+                                />
+                            )
+                        }
 
-                        <Button
+                        {/* saving divination */}
+                        {isDivinationCompleted() && (
+                            <Button
+                                onClick={handleCreateDivination}
+                                disabled={createDivinationSuccess || createDivinationPending}
+                                className="bg-gradient-to-r from-indigo-600 to-purple-700 hover:from-indigo-700 hover:to-purple-800 text-white border border-indigo-500/50 shadow-lg shadow-indigo-900/20 font-medium py-2 px-4 rounded-md transition-all duration-300"
+                            >
+                                {createDivinationPending ? (
+                                    <span className="flex items-center justify-center gap-2">
+                                        <Loader2 className="w-4 h-4 animate-spin" />
+                                        {/* Saving... */}
+                                        {diviPanelData.textSaving}
+                                    </span>
+                                ) : (
+                                    <span className="flex items-center justify-center gap-2">
+                                        {/* {createDivinationError ? "Retry Save" : "Divination Completed"} */}
+                                        {createDivinationError ? diviPanelData.textRetrySave : diviPanelData.textSaveSuccess}
+                                    </span>
+                                )}
+                            </Button>
+                        )}
+
+
+                        {/* <Button
                             onClick={handleTestDivide}
                             className="bg-gradient-to-r from-indigo-600/90 to-purple-700/90 hover:from-indigo-600 hover:to-purple-700 text-white border border-indigo-500/50 mt-4"
                         >
                             {isDivinationCompleted() ? "Reset Divination" : "Divide"}
-                        </Button>
+                        </Button> */}
 
                     </div>
 
 
                 </div>
             </Section>
+
             <Section
-                title="Love Into DAO"
+                title={diviPanelData.step3.title}
                 stepNumber={3}
                 isCompleted={isStep3Completed}
-                defaultOpen={isStep2Completed}
+                defaultOpen={false}
             >
                 <div className="text-sm text-indigo-300/80 bg-indigo-950/20 backdrop-blur-sm rounded-md p-2.5 border border-indigo-500/10 mb-3">
-                    The DAO is used an proof of concept for DUKI in action. DUKI /dju:ki/ is Decentralized Universal Kindness Income For All lives.
-                    You must connect with the DAO to deep seek its meaning.
+                    {/* Connect the DAO and deep seek its meaning by paying any amount of money. The money will be used to demonstrate the concept of 'DUKI in action'. DUKI /dju:ki/ is Decentralized Universal Kindness Income For All lives. */}
+                    {diviPanelData.step3.description}
                 </div>
 
-                <PaymentSection
-                    // isDeepSeekUsed={createDivinationSuccess}
-                    // handleDeepSeek={handleDeepSeek}
-                    isDivinationCompleted={isDivinationCompleted()}
+                <div className="mb-4">
+                    <AmountSelect
+                        amounts={[1, 2, 3]}
+                        onSelect={setSelectedAmount}
+                        defaultAmount={selectedAmount}
+                        readonly={entry?.dao_tx !== ''}
+                    />
+                </div>
+
+                <DukiInActionToDeepseekDAO
+                    divination={entry}
+                    selectedAmount={selectedAmount}
+                    onSuccess={(data) => {
+                        recordDivination(data);
+                    }}
                 />
             </Section>
         </FloatingPanel >

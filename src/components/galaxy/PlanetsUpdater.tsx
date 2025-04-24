@@ -1,8 +1,8 @@
 // PlanetsUpdater.tsx
 import {useRef} from "react";
 import {useFrame} from "@react-three/fiber";
-import {PlanetData} from "../../../types";
-import {useSpeedControl} from "../../contexts/SpeedControlContext";
+import {PlanetData} from "@/lib/planetsData.tsx";
+// import {useSpeedControl} from "@/contexts/SpeedControlContext";
 
 type PlanetsUpdaterProps = {
   setPlanetOrbitProgress: React.Dispatch<
@@ -18,7 +18,8 @@ export default function PlanetsUpdater({
   setPlanetOrbitProgress,
   planets,
 }: PlanetsUpdaterProps) {
-  const { speedFactor } = useSpeedControl();
+  // const { speedFactor } = useSpeedControl();
+  const speedFactor = 1;
   const lastElapsedTimeRef = useRef(0);
 
   useFrame(({ clock }) => {
@@ -34,7 +35,7 @@ export default function PlanetsUpdater({
             (2 * Math.PI) *
             speedFactor * .1;
           acc[planet.name] =
-            (prevOrbitProgress[planet.name] || 0) +
+            (prevOrbitProgress[planet.name] || 0) -
             orbitSpeedRadians * deltaTime;
           return acc;
         },

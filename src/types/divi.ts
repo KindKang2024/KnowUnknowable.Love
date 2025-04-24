@@ -1,17 +1,6 @@
 import {PointUserData} from "@/i18n/types";
 import * as THREE from 'three';
 
-// export enum DiviState {
-//     INTRO_ANIMATION = 'INTRO_ANIMATION', // 50个粒子 1一个不用，一个 在上面
-//     DIVINATION_AWE = 'DIVINATION_AWE',
-//     FREE = 'FREE',
-//     DIVINATION_HEAVEN_EARTH_BORN = 'DIVINATION_DIVIDE',
-//     DIVINATION_HUMAN_BORN = 'DIVINATION_HUMAN_BORN', // 挂一象三 （❤️） 
-//     DIVINATION_REMINDER_COMPUTATION = 'DIVINATION_REMINDER_COMPUTATION', // 揲四 
-//     DIVINATION_REMINDER_TAKEN = 'DIVINATION_REMINDER_TAKEN', //  归奇
-//     DIVINATION_CHANGE_SETTLEMENT = 'DIVINATION_CHANGE_SETTLEMENT', //  一变
-
-// }
 
 export enum DiviState {
     FREE = 'FREE',
@@ -28,6 +17,23 @@ export enum DiviState {
     DIVI_YAO_END = 'DIVI_YAO_END', //  一yao
     DIVI_END = 'DIVI_END', //  
 }
+
+export enum DividePhase {
+    WaitDivide = 0,       // Wait for the divide
+    DivideIntoYinYang = 1,       // Divide Yin and Yang like make a judgement
+    BornOfHeavenAndEarth = 2,  // Born of Heaven and Earth
+    SetOneForThreePowers = 3,    // Set One Aside to Represent the Three Powers: Heaven, Earth, Human
+    CountByFours = 4,            // Count by Fours
+    GatherTheRemainders = 5      // Gather the Remainders
+}
+
+export enum DeepseekDAOState {
+    PAY_TO_CONNECT = "PAY_TO_CONNECT",
+    CONNECTING = "CONNECTING",
+    CONNECTED = "CONNECTED",
+    DEEPSEEK_DAO_SUCCESS = "DEEPSEEK_DAO_SUCCESS",
+    ERROR = "ERROR"
+  }
 
 
 export type Visibility = 0 | 1;
@@ -50,7 +56,7 @@ export type DiviContext = {
     allAnimationComplete: boolean;
     firstIntersectionPoint: THREE.Vector3 | null;
     secondIntersectionPoint: THREE.Vector3 | null;
-
+    firstIntersectionTime: number;
     lastPoint: THREE.Vector3 | null;
     diviPositions: Float32Array;
     velocities: Float32Array;

@@ -15,7 +15,7 @@ export const DivinationTabs = () => {
 
     const { openModal } = useUIStore();
     const queryClient = useQueryClient();
-    const { address } = useAccount();
+    const { address, isConnected } = useAccount();
     const { data: userData } = useUserData(address);
     const { openConnectModal } = useConnectModal();
 
@@ -23,7 +23,7 @@ export const DivinationTabs = () => {
     const commonData = usePageCommonData();
 
     // Check if user is logged in
-    const isUserLoggedIn = userData && (userData.address !== '0x' && userData.expire_at !== 0);
+    const isUserLoggedIn = isConnected && userData && (userData.address !== '0x' && userData.expire_at !== 0);
 
     return (
         <Tabs

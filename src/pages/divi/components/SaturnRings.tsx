@@ -20,8 +20,13 @@ export default function SaturnRings({
       args={[innerRadius, outerRadius, 128]}
       rotation={[-Math.PI / 2, 0, 0]}
     >
-      <meshStandardMaterial
+      {/* <meshStandardMaterial
         map={texture}
+        side={DoubleSide}
+        transparent={true}
+      /> */}
+      <meshBasicMaterial
+        color="white"
         side={DoubleSide}
         transparent={true}
       />

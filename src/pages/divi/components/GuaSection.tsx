@@ -1,6 +1,6 @@
 import {LocateFixed} from "lucide-react";
 import {Button} from "../../../components/ui/button.tsx";
-import {useLocaleData} from "@/i18n/DataProvider.tsx";
+import {useLocaleData, usePageCommonData} from "@/i18n/DataProvider.tsx";
 import {useUIStore} from "@/stores/uiStore.ts";
 import {cn} from "@/lib/utils";
 
@@ -13,6 +13,7 @@ interface GuaSectionProps {
 export const GuaSection = ({ binaryCodeString, currentDivisions }: GuaSectionProps) => {
   // const iChing: IChingGuaMap = useIChing();
   const { iChing, ui } = useLocaleData();
+  const commonData = usePageCommonData();
   const { focusGuaBinary } = useUIStore();
 
   // if (currentDivisions <= 17) {
@@ -28,7 +29,8 @@ export const GuaSection = ({ binaryCodeString, currentDivisions }: GuaSectionPro
     return (
       <div className="flex items-center justify-between">
         <label className="text-sm font-medium text-indigo-300/80 tracking-wide">
-          {ui.gua}:
+          {/* {ui.gua}: */}
+          {commonData.gua}:
         </label>
         <span className="text-xs text-gray-400">?</span>
       </div>
@@ -44,7 +46,8 @@ export const GuaSection = ({ binaryCodeString, currentDivisions }: GuaSectionPro
     <div className="space-y-2 transition-all duration-300 ease-in-out">
       <div className="flex items-center justify-between">
         <label className="text-sm font-medium text-indigo-300/80 tracking-wide">
-          {ui.gua}:
+          {/* {ui.gua}: */}
+          {commonData.gua}:
         </label>
         <span className="text-xs bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent font-semibold">
           {name}{symbol}
@@ -71,6 +74,7 @@ export const GuaSection = ({ binaryCodeString, currentDivisions }: GuaSectionPro
 
 export const MutationGuaSection = ({ binaryCodeString, currentDivisions, totalMutationCount = 0 }: GuaSectionProps) => {
   const { iChing, ui } = useLocaleData();
+  const commonData = usePageCommonData();
   console.log(binaryCodeString);
   const { focusGuaBinary } = useUIStore();
 
@@ -78,7 +82,8 @@ export const MutationGuaSection = ({ binaryCodeString, currentDivisions, totalMu
     return (
       <div className="flex items-center justify-between">
         <label className="text-sm font-medium text-purple-300/80 tracking-wide">
-          {ui.mutation}:
+          {/* {ui.mutation}: */}
+          {commonData.mutation}:
         </label>
         <span className="text-xs text-gray-400">?</span>
       </div>
@@ -89,7 +94,8 @@ export const MutationGuaSection = ({ binaryCodeString, currentDivisions, totalMu
     return (
       <div className="flex items-center justify-between">
         <label className="text-sm font-medium text-purple-300/80 tracking-wide">
-          {ui.mutation}:
+          {/* {ui.mutation}: */}
+          {commonData.mutation}:
         </label>
         <span className={cn(
           "text-xs",
@@ -97,7 +103,7 @@ export const MutationGuaSection = ({ binaryCodeString, currentDivisions, totalMu
             ? "bg-gradient-to-r from-purple-300 to-fuchsia-300 bg-clip-text text-transparent font-semibold"
             : "text-gray-400"
         )}>
-          {totalMutationCount} {ui.mutationCountSuffix}
+          {totalMutationCount} {commonData.mutationCountSuffix}
         </span>
       </div>
     )
@@ -112,7 +118,8 @@ export const MutationGuaSection = ({ binaryCodeString, currentDivisions, totalMu
     <div className="space-y-2 transition-all duration-300 ease-in-out">
       <div className="flex items-center justify-between">
         <label className="text-sm font-medium text-purple-300/80 tracking-wide">
-          {ui.mutation}:
+          {/* {ui.mutation}: */}
+          {commonData.mutation}:
         </label>
         <span className="text-xs bg-gradient-to-r from-purple-300 to-fuchsia-300 bg-clip-text text-transparent font-semibold">
           {name}{symbol}

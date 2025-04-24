@@ -10,10 +10,15 @@ import {useDivinationStore} from '@/stores/divineStore.ts';
 import {getPalette} from '@/utils/colorPalettes.ts';
 import FancyLine from './FancyLine.tsx';
 import {divi_point_f, divi_point_v, line_f, line_v} from '@/utils/glsl.ts';
-import {DiviContext, DiviState, StateMachine} from '@/types/divi.ts';
+import {DiviContext, DividePhase, DiviState, StateMachine} from '@/types/divi.ts';
 import DiviGalaxy from '@/pages/divi/diviGalaxy.tsx';
 import FireRing from '../FireRing.tsx';
+import {Text} from '@react-three/drei';
+import {animated, useSpring} from '@react-spring/three';
+import {SpeedModeConfig} from '@/types/common.ts';
+import {commonIChingBinaryList, commonIChingMap} from '@/i18n/symbols.ts';
 
+const BaseSpeedConstant = 0.01;
 
 interface DaoIsLoveDivisionProps extends GroupProps {
     radius: number;
@@ -53,21 +58,21 @@ export default function DiviCircle({
     separation_length = 0.5,
     spacing = 0.24, // Spacing between points
     rowSpacing = 0.12, // Spacing between rows
-    layoutRadiusRatio = 1.4,
+    layoutRadiusRatio = 1.6,
     startY = 2,
     // lerpSpeed = 0.04,
     ...props
 }: DaoIsLoveDivisionProps) {
     const diviPointsRef = useRef<THREE.Points>(null); // its location should follow  capturedWillDataRef
     const [, forceUpdate] = useReducer(x => x + 1, 0);
-    const { will, isDivinationCompleted, gua, 
-        divide, getStage, getTotalDivisions, getCurrentRound, mutate,
+    const { will, isDivinationCompleted, gua,
+        divide, getStage,
         setStage } = useDivinationStore();
 
     const circleRef = useRef<THREE.Mesh>(null);
     const { pointer } = useThree();
 
-    const { divideReady, setElevated, setDivideReady, getSpeedMode, speedMode, setSpeedMode } = useUIStore();
+    const { divideReady, setElevated, setDivideReady, getSpeedMode, speedMode, setSpeedMode, setDividePhase } = useUIStore();
 
     const diviContextRef = useRef<DiviContext>({
         stateStartTime: 0,
@@ -77,6 +82,7 @@ export default function DiviCircle({
         secondIntersectionPoint: null,
         lastPoint: null,
         yinCount: 0,
+        firstIntersectionTime: 0,
         diviPositions: createInitialPositions(initialPosition, count),
         velocities: new Float32Array(count * 2),
         diviData: Array(count).fill(null).map((_, i) => ({
@@ -93,7 +99,7 @@ export default function DiviCircle({
 
     const handleWandering = useCallback((ctx: DiviContext) => {
         // console.log('DIVI_CHANGE_START onUpdate', diviContextRef.current.stateElapsedTime);
-        const baseSpeed = 0.001 * speedFactor;
+        const baseSpeed = BaseSpeedConstant * speedFactor;
         const diviPositions = diviPointsRef.current.geometry.attributes.position.array as Float32Array;
         // const capturedWillPositions = diviPointsRef.current.geometry.attributes.position.array as Float32Array;
         for (let i = 0; i < count; i++) {
@@ -110,7 +116,7 @@ export default function DiviCircle({
 
                 // Check circle boundary collision
                 const distanceFromCenter = Math.sqrt(newX * newX + newY * newY);
-                const radiusRatio = 0.96;
+                const radiusRatio = 0.98;
                 if (distanceFromCenter > radius * radiusRatio) {
                     const angle = Math.atan2(newY, newX);
                     const bounceAngle = angle + Math.PI + (Math.random() - 0.5) * 0.5;
@@ -133,18 +139,12 @@ export default function DiviCircle({
     const lerpSpeed = useRef(0.04);
     useEffect(() => {
         const speedMode = getSpeedMode();
-        if (speedMode === 'normal') {
-            lerpSpeed.current = 0.05;
-        } else if (speedMode === 'fast') {
-            lerpSpeed.current = 0.1;
-        } else if (speedMode === 'instant') {
-            lerpSpeed.current = 0.2;
-        }
+        lerpSpeed.current = SpeedModeConfig[speedMode].speed;
     }, [speedMode]);
 
     const handleAnimating = useCallback(() => {
-        console.log('DIVI Common handleAnimating', stateMachineRef.current.currentState);
-        const baseSpeed = 0.001 * speedFactor;
+        // console.log('DIVI Common handleAnimating', stateMachineRef.current.currentState);
+        // const baseSpeed = 0.001 * speedFactor;
 
         // const diviPositions = diviPointsRef.current.geometry.attributes.position.array as Float32Array;
         const diviPositions = diviPointsRef.current.geometry.attributes.position.array as Float32Array;
@@ -210,7 +210,7 @@ export default function DiviCircle({
                     // }
                 },
                 onUpdate: (ctx: DiviContext) => {
-                    console.log('FREE onUpdate');
+                    // console.log('FREE onUpdate');
                     // handleWandering(ctx);
                 },
                 onExit: (ctx: DiviContext) => {
@@ -249,7 +249,7 @@ export default function DiviCircle({
                     {
                         condition: (ctx: DiviContext) => {
                             console.log('DIVI_YAO_START condition', ctx.allAnimationComplete, ctx.stateElapsedTime);
-                            return ctx.allAnimationComplete && ctx.stateElapsedTime > (getSpeedMode() === 'instant' ? 0.1 : 1);
+                            return ctx.allAnimationComplete && ctx.stateElapsedTime > (getSpeedMode() === 'fast' ? 0.1 : 1);
                         },
                         nextState: DiviState.DIVI_CHANGE_START
                     }
@@ -291,6 +291,7 @@ export default function DiviCircle({
                         }
                     }
                     diviContextRef.current.allAnimationComplete = false;
+                    setDividePhase(DividePhase.WaitDivide);
                 },
                 onUpdate: (ctx: DiviContext) => {
                     handleAnimating();
@@ -348,6 +349,7 @@ export default function DiviCircle({
                 onEnter: (ctx: DiviContext) => {
                     setDivideReady(true);
                     // resetDivision();
+                    setDividePhase(DividePhase.WaitDivide);
                 },
                 onUpdate: (ctx: DiviContext) => {
                     handleWandering(ctx);
@@ -427,6 +429,8 @@ export default function DiviCircle({
                     }
                     diviContextRef.current.yinCount = earthIndices.size;
                     diviPointsRef.current.geometry.attributes.color.needsUpdate = true;
+
+                    setDividePhase(DividePhase.DivideIntoYinYang);
                 },
                 onUpdate: (ctx: DiviContext) => {
                     handleAnimating();
@@ -458,6 +462,8 @@ export default function DiviCircle({
                     ctx.diviData[i].goal.type = PointWillType.HUMANITY;
                     ctx.diviData[i].goal.position.copy(humanPosition);
                     ctx.diviData[i].pointEvolveType = PointEvolveType.DIRECTED;
+
+                    setDividePhase(DividePhase.SetOneForThreePowers);
 
                 },
                 onUpdate: (ctx: DiviContext) => {
@@ -566,6 +572,8 @@ export default function DiviCircle({
                         }
                     }
                     diviPointsRef.current.geometry.attributes.position.needsUpdate = true;
+
+                    setDividePhase(DividePhase.CountByFours);
                 },
                 onUpdate: (ctx: DiviContext) => {
                     handleAnimating();
@@ -600,6 +608,7 @@ export default function DiviCircle({
                         }
                     }
                     diviPointsRef.current.geometry.attributes.position.needsUpdate = true;
+                    setDividePhase(DividePhase.GatherTheRemainders);
                 },
                 onUpdate: (ctx: DiviContext) => {
                     handleAnimating();
@@ -632,6 +641,7 @@ export default function DiviCircle({
                 onEnter: (ctx: DiviContext) => {
                     // console.log('DIVINATION_REMINDER_TAKEN onEnter'); 
                     divide(ctx.yinCount);
+                    setDividePhase(null);
                 },
                 // onUpdate: (ctx: DiviContext) => {
                 // handleAnimating();
@@ -795,7 +805,7 @@ export default function DiviCircle({
     // Store velocities for particles
     const velocities = useMemo(() => {
         const vels = new Float32Array(count * 2);
-        const baseSpeed = 0.001 * speedFactor;
+        const baseSpeed = BaseSpeedConstant * speedFactor;
         for (let i = 0; i < count; i++) {
             const angle = Math.random() * Math.PI * 2;
             vels[i * 2] = Math.cos(angle) * baseSpeed;
@@ -828,13 +838,39 @@ export default function DiviCircle({
         return { dotsGeometry: geo, dotsMaterial: mat, intersectionMaterial: intersectMat };
     }, []);
 
+    // Add memoized geometries for intersection points
+    const intersectionGeometries = useMemo(() => ({
+        first: new THREE.BufferGeometry(),
+        second: new THREE.BufferGeometry()
+    }), []);
+
+    // Update geometries when intersection points change
+    useEffect(() => {
+        if (diviContextRef.current.firstIntersectionPoint) {
+            intersectionGeometries.first.setFromPoints([diviContextRef.current.firstIntersectionPoint]);
+            intersectionGeometries.first.attributes.position.needsUpdate = true;
+        }
+        if (diviContextRef.current.secondIntersectionPoint) {
+            intersectionGeometries.second.setFromPoints([diviContextRef.current.secondIntersectionPoint]);
+            intersectionGeometries.second.attributes.position.needsUpdate = true;
+        }
+    }, [diviContextRef.current.firstIntersectionPoint, diviContextRef.current.secondIntersectionPoint]);
+
+    // Cleanup geometries on unmount
+    useEffect(() => {
+        return () => {
+            intersectionGeometries.first.dispose();
+            intersectionGeometries.second.dispose();
+        };
+    }, []);
+
     // Create reusable objects for pointer move handling
     const planeRef = useRef(new THREE.Plane(new THREE.Vector3(0, 0, 1), 0));
     const raycasterRef = useRef(new THREE.Raycaster());
     const intersectionPointRef = useRef(new THREE.Vector3());
 
     // Helper function to handle pointer movement from within useFrame
-    const handlePointerMoveFromVector2 = useCallback((pointerPosition: THREE.Vector2) => {
+    const handlePointerMoveFromVector2 = useCallback((pointerPosition: THREE.Vector2, currentTime: number) => {
         if (diviContextRef.current.firstIntersectionPoint != null && diviContextRef.current.secondIntersectionPoint != null) return;
 
         // Reuse the plane and raycaster objects
@@ -843,12 +879,7 @@ export default function DiviCircle({
         // Reuse the intersection point vector
         const result = raycasterRef.current.ray.intersectPlane(planeRef.current, intersectionPointRef.current);
         if (result === null) return;
-        // Transform point to local space
-        // if (groupRef.current) {
-        //     const worldMatrix = groupRef.current.matrixWorld.clone();
-        //     const inverseMatrix = worldMatrix.invert();
-        //     intersectionPointRef.current.applyMatrix4(inverseMatrix);
-        // }
+
         groupRef.current.worldToLocal(intersectionPointRef.current);
 
         if (diviContextRef.current.lastPoint) {
@@ -857,6 +888,7 @@ export default function DiviCircle({
             if (circleIntersection) {
                 if (!diviContextRef.current.firstIntersectionPoint) {
                     diviContextRef.current.firstIntersectionPoint = circleIntersection;
+                    diviContextRef.current.firstIntersectionTime = currentTime; // Record the time when first point is set
                     forceUpdate();
                 } else if (!diviContextRef.current.secondIntersectionPoint) {
                     // Check if second point is far enough from first point
@@ -915,30 +947,43 @@ export default function DiviCircle({
         }
         // Clone the intersection point to avoid reference issues
         diviContextRef.current.lastPoint = intersectionPointRef.current.clone();
-    }, [
-        camera,
-        MIN_DISTANCE,
-        MIN_UPDATE_INTERVAL,
-        radius,
-        count
-    ]);
+    }, [camera, radius, count]);
 
     // Particle animation and collision
-    useFrame(({ clock }) => {
-        // Only animate particles if not complete
+    useFrame(({ clock, pointer }, delta) => {
+        // const time = clock.getElapsedTime();
+        const currentTime = clock.getElapsedTime();
+
+        if (guaGroupRef.current) {
+            // has two points
+            if (!diviContextRef.current.firstIntersectionPoint || !diviContextRef.current.secondIntersectionPoint) {
+                guaGroupRef.current.rotation.z -= delta * 0.1;
+            }
+            if (diviContextRef.current.firstIntersectionPoint && !diviContextRef.current.secondIntersectionPoint) {
+                const timeSinceFirstPoint = currentTime - diviContextRef.current.firstIntersectionTime;
+
+                if (timeSinceFirstPoint > 1.0) { // 2 seconds timeout
+                    diviContextRef.current.firstIntersectionPoint = null;
+                    diviContextRef.current.firstIntersectionTime = 0;
+                    forceUpdate();
+                }
+            }
+        }
+
+
         if (!diviPointsRef.current) return;
 
-        const time = clock.getElapsedTime();
+
 
         // Update shader time uniform for particle animation
         if (divinationUnitsMaterial.uniforms) {
             // Update time
-            divinationUnitsMaterial.uniforms.uTime.value = time;
+            divinationUnitsMaterial.uniforms.uTime.value = currentTime;
 
             // Create more dramatic pulsing effects for glow
             if (divinationUnitsMaterial.uniforms.uGlowStrength) {
                 // More dramatic glow pulsing
-                const glowPulse = 1.2 + 0.8 * Math.sin(time * 0.5);
+                const glowPulse = 1.2 + 0.8 * Math.sin(currentTime * 0.5);
                 divinationUnitsMaterial.uniforms.uGlowStrength.value = glowPulse;
             }
 
@@ -950,13 +995,12 @@ export default function DiviCircle({
 
         // use it to make cut smooth instead of onPointerMove
         if (divideReady) {
-            handlePointerMoveFromVector2(pointer);
+            handlePointerMoveFromVector2(pointer, currentTime);
             if (groupRef.current?.userData.updateTime) {
-                groupRef.current.userData.updateTime(time);
+                groupRef.current.userData.updateTime(currentTime);
             }
         }
 
-        const currentTime = clock.getElapsedTime();
 
         // Update state machine
         const stateMachine = stateMachineRef.current;
@@ -997,6 +1041,7 @@ export default function DiviCircle({
             state.onUpdate(diviContextRef.current);
             return; // Skip the old animation code
         }
+
     });
 
 
@@ -1036,7 +1081,16 @@ export default function DiviCircle({
         });
 
         return { dashMaterial, standardMaterial };
-    }, [color]); // Only recreate if color changes
+    }, [color]);
+
+    const AnimatedFireRing = animated(FireRing);
+    const fireRingSpring = useSpring({
+        opacity: divideReady ? 1 : 0,
+        config: { tension: 240, friction: 120, mass: 10 }
+    });
+
+    const guaGroupRef = useRef<THREE.Group>(null);
+
 
     // Set up the updateTime function once
     useEffect(() => {
@@ -1057,35 +1111,28 @@ export default function DiviCircle({
 
             <points ref={diviPointsRef} geometry={divinationUnitsGeometry} material={divinationUnitsMaterial} />
 
-            {/* if divideReady is true, show the galaxy */}
-            {getStage() === DiviState.FREE && !isDivinationCompleted() && (
-                <group position={[0, 0.08, 0]}>
-                    <DiviGalaxy spin={1} branches={4}
-                        radius={radius * 1.9}
-                        randomness={2}
-                        size={2}
-                        randomnessPower={4}
-                        count={100000}
-                        spinSpeed={0.2}
-                    />
-                    <FireRing width={radius * 4} />
-                </group>
-            )}
+            <group position={[0, 0.0, 0]}>
+                <DiviGalaxy spin={1} branches={4}
+                    radius={radius * 2.0 + 0.2}
+                    randomness={2}
+                    size={2}
+                    randomnessPower={4}
+                    count={100000}
+                    spinSpeed={0.2}
+                />
+            </group>
 
-            {getStage() !== DiviState.FREE && (
-                <mesh ref={circleRef} position={[0, 0, 0]}>
-                    <ringGeometry args={[radius, radius * 1.02, 64, 1]} />
-                    <primitive object={divideReady ? materials.standardMaterial : materials.dashMaterial} />
-                </mesh>
-            )}
+            <animated.group>
+                <AnimatedFireRing width={radius * 4.4} opacity={fireRingSpring.opacity} />
+            </animated.group>
 
 
             {/* Intersection point markers */}
             {diviContextRef.current.firstIntersectionPoint && (
-                <points geometry={new THREE.BufferGeometry().setFromPoints([diviContextRef.current.firstIntersectionPoint])} material={intersectionMaterial} />
+                <points position={[0, 0, 0.16]} geometry={intersectionGeometries.first} material={intersectionMaterial} />
             )}
             {diviContextRef.current.secondIntersectionPoint && (
-                <points geometry={new THREE.BufferGeometry().setFromPoints([diviContextRef.current.secondIntersectionPoint])} material={intersectionMaterial} />
+                <points position={[0, 0, 0.16]} geometry={intersectionGeometries.second} material={intersectionMaterial} />
             )}
 
             {/* Division line */}
@@ -1095,6 +1142,32 @@ export default function DiviCircle({
                     end={diviContextRef.current.secondIntersectionPoint}
                 />
             )}
+
+            {/* Gua text items group */}
+            <group ref={guaGroupRef} rotation={[0, 0, 0]} position={[0, 0, 0.0]}>
+                {commonIChingBinaryList.map((item, i) => {
+                    // const angle = (i / commonIChingMap.length) * Math.PI * 2;
+                    const angle = (i / 64) * Math.PI * 2;
+                    const x = Math.cos(angle) * radius * 1.10;
+                    const y = Math.sin(angle) * radius * 1.10;
+
+                    return (
+                        <Text
+                            key={`gua-${i}`}
+                            position={[x, y, 0.01]}
+                            rotation={[0, 0, angle + Math.PI * 3 / 2]}
+                            fontSize={0.18}
+                            color="#e9b1ec"
+                            anchorX="center"
+                            anchorY="middle"
+                            outlineColor={particleColor}
+                            fillOpacity={1}
+                        >
+                            {commonIChingMap[item].symbol}
+                        </Text>
+                    );
+                })}
+            </group>
 
         </group>
 
