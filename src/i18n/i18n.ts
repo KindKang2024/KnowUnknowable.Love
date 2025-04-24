@@ -12,7 +12,19 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .use(resourcesToBackend((language, namespace) => {
-    return import(`./locales/${language}.json`);
+    // For locales like en-US, en-GB, extract the base language (en)
+    // Keep specific exceptions like zh-HK that have their own files
+    const exceptions = ['zh-HK'];
+    let mappedLanguage = language;
+    
+    if (language.includes('-') && !exceptions.includes(language)) {
+      mappedLanguage = language.split('-')[0];
+    }
+    
+    return import(`./locales/${mappedLanguage}.json`).catch(error => {
+      console.warn(`Failed to load locale: ${language}, mapped to ${mappedLanguage}, falling back to en`, error);
+      return import('./locales/en.json');
+    });
   }))
   
   .init({
