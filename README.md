@@ -1,4 +1,5 @@
 
+
 This project was originally created to participate in the SCROLL OPEN HACKATHON. Its primary purpose is to illustrate the concept of DUKI (/dju:ki/): Decentralized Universal Kindness Income, which promotes universal kindness as a fundamental economic principle.
 
 
@@ -20,3 +21,7 @@ If you make a few contributionsâ€”such as managing localization for a languageâ€
 
 ### Acknowledgments
 We extend our gratitude to the SCROLL OPEN HACKATHON for providing the platform that inspired this project.
+
+
+### Future Updates
+Work has been achieved and moved to https://github.com/almworld for maintenance and future development.
