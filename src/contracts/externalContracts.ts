@@ -55,7 +55,7 @@ export const dukiDaoContractConfig = {
         name: "Scroll",
         ZeroAddress: '0x0000000000000000000000000000000000000000',
         address: deployedContracts[scroll].ERC1967Proxy.address,
-        stableCoin: "0x6b1757362ca034e2bf97ab53b1783c0041bd8f7e",
+        stableCoin: "0x06eFdBFf2a14a7c8E15944D1F4A48F9F95F663A4",
         StableCoinBase: 10 ** 6,
         StableCoinDecimals: 6,
         explorer: "https://scrollscan.com",

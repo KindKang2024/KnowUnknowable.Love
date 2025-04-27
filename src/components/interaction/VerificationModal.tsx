@@ -1,19 +1,20 @@
-import React, {useState} from "react";
-import {Check, CheckCircle, Pencil, Trash2, XCircle} from "lucide-react";
-import {Dialog, DialogContent, DialogHeader, DialogTitle} from "@/components/ui/dialog";
-import {Button} from "@/components/ui/button";
-import {Label} from "@/components/ui/label";
-import {RadioGroup, RadioGroupItem} from "@/components/ui/radio-group";
-import {Textarea} from "@/components/ui/textarea";
-import {KnownStatus} from "@/pages/will/components/DivinationsTable";
-import {DivinationEntry, useUpdateDivinationStatus} from "@/services/api";
-import {useToast} from "@/components/ui/use-toast";
-import {useAccount} from 'wagmi';
-import {useWriteLoveDaoContractVowDaoManifestation} from '@/contracts/generated';
-import {waitForTransactionReceipt} from 'viem/actions';
-import {config} from '@/wagmi';
-import {defaultChainWhenNotConnected, dukiDaoContractConfig} from '@/contracts/externalContracts';
-import {usePageCommonData} from "@/i18n/DataProvider";
+import React, { useState } from "react";
+import { Check, CheckCircle, Pencil, Trash2, XCircle } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Textarea } from "@/components/ui/textarea";
+import { KnownStatus } from "@/pages/will/components/DivinationsTable";
+import { DivinationEntry, useUpdateDivinationStatus } from "@/services/api";
+import { useToast } from "@/components/ui/use-toast";
+import { useAccount } from 'wagmi';
+import { useWriteLoveDaoContractVowDaoManifestation } from '@/contracts/generated';
+import { waitForTransactionReceipt } from 'viem/actions';
+import { config } from '@/wagmi';
+import { defaultChainWhenNotConnected, dukiDaoContractConfig } from '@/contracts/externalContracts';
+import { usePageCommonData } from "@/i18n/DataProvider";
+import { zeroHash } from 'viem';
 
 interface VerificationModalProps {
     isOpen: boolean;
@@ -59,10 +60,9 @@ export const VerificationModal = ({
         setTxStatus('submitting');
 
         try {
-            // First, call the contract to vow the manifestation
             const manifestationTx = await vowDaoManifestation({
                 address: dukiDaoContractConfig[targetChainId]?.address || '0x',
-                args: [divination.uuid, status, 0n]
+                args: [divination.uuid, status, 0n, 0n, 0, zeroHash, zeroHash]
             });
 
             // Wait for the transaction receipt

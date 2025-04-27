@@ -50,7 +50,7 @@ interface DivinationActions {
 export const useDivinationStore = create<DivinationState & DivinationActions>()(
     immer((set, get) => ({
         // Initial state
-        will: 'x',
+        will: '',
         willSignature: '',
         gua: Gua.createEmpty(),
         interpretation: '',

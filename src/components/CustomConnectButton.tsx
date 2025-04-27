@@ -1,8 +1,8 @@
 // import { useLogin, useUserData, useLogout } from "@/services/api";
-import {ConnectButton} from "@rainbow-me/rainbowkit";
-import {useAccount, useDisconnect} from "wagmi";
-import {useState} from "react";
-import {Button} from "@/components/ui/button";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useAccount, useDisconnect } from "wagmi";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
     Dialog,
     DialogClose,
@@ -12,12 +12,12 @@ import {
     DialogPortal,
     DialogTitle
 } from "@/components/ui/dialog";
-import {Check, Copy, ExternalLink, Wallet} from "lucide-react";
-import {useUIStore} from "@/stores/uiStore";
-import {formatContractMoney, getBridgeLink, getContractLink} from "@/utils/commonUtils";
-import {usePageCommonData} from "@/i18n/DataProvider";
-import {useReadLoveDaoContractBaguaDaoAgg4Me} from "@/contracts/generated";
-import {dukiDaoContractConfig} from "@/contracts/externalContracts";
+import { Check, Copy, ExternalLink, Wallet } from "lucide-react";
+import { useUIStore } from "@/stores/uiStore";
+import { formatContractMoney, getBridgeLink, getContractLink } from "@/utils/commonUtils";
+import { usePageCommonData } from "@/i18n/DataProvider";
+import { useReadLoveDaoContractBaguaDaoAgg4Me } from "@/contracts/generated";
+import { dukiDaoContractConfig } from "@/contracts/externalContracts";
 
 
 const CustomConnectButton = () => {
@@ -179,7 +179,7 @@ const CustomConnectButton = () => {
                                                         {/* Address */}
                                                         {commonData.address}
                                                     </span>
-                                                    <div className="flex items-center bg-gray-700/50 px-3 py-1 rounded-lg">
+                                                    <div className="flex items-center bg-gray-700/50 px-3 pb-1 rounded-lg">
                                                         <span className="text-sm font-medium text-white">{account.address?.substring(0, 6)}...{account.address?.substring(account.address.length - 4)}</span>
                                                         <button
                                                             onClick={() => copyToClipboard(account.address || '')}
@@ -195,7 +195,7 @@ const CustomConnectButton = () => {
                                                         {/* Balance */}
                                                         {commonData.balance}
                                                     </span>
-                                                    <div className="bg-gray-700/50 px-3 py-1 rounded-lg">
+                                                    <div className="bg-gray-700/50 px-3 pb-1 rounded-lg">
                                                         <span className="text-sm font-medium text-white">{account.displayBalance}</span>
                                                     </div>
                                                 </div>
@@ -205,7 +205,7 @@ const CustomConnectButton = () => {
                                                         {/* Status */}
                                                         {commonData.authStatus}
                                                     </span>
-                                                    <div className="bg-gray-700/50 px-3 py-1 rounded-lg flex items-center">
+                                                    <div className="bg-gray-700/50 px-3 pb-1 rounded-lg flex items-center">
                                                         <div className={`w-2 h-2 rounded-full mr-2 ${isAuthenticated ? 'bg-green-500' : 'bg-amber-500'}`}></div>
                                                         <span className="text-sm font-medium text-white">
                                                             {/* {isAuthenticated ? 'Authenticated' : 'Not Authenticated'} */}
@@ -224,8 +224,8 @@ const CustomConnectButton = () => {
                                                     {commonData.daoSlogan}
                                                 </div>
 
-                                                <div className="text-xs text-gray-300 text-left px-2 pb-2">
-                                                  {commonData.daoActionSlogan}
+                                                <div className="text-xs text-gray-300 text-left px-2 pb-2 text-center">
+                                                    {commonData.daoActionSlogan}
                                                 </div>
                                             </div>
 
@@ -264,32 +264,32 @@ const CustomConnectButton = () => {
                                                 </a>
                                             </div>
 
-                                            {/* baguaDaoAgg4Me */}
+                                            {/* dao divi participation */}
                                             <div className="mt-2 space-y-2">
+                                                {/* Combined DAO Participation Info */}
                                                 <div className="flex items-center justify-between">
                                                     <span className="text-sm font-medium text-gray-300">
-                                                        {commonData.daoParticipantNo}
+                                                        {commonData.diviParticipationLabel}
                                                     </span>
-                                                    <div className="bg-purple-500/20 px-3 py-1 rounded-lg text-xs">
-                                                        {/* {baguaDaoAgg4Me?.participation.participantNo || "?"} */}
 
+                                                    <div className="bg-purple-500/20 px-3 py-1 rounded-lg text-xs">
                                                         {baguaDaoAgg4Me?.participation.participantNo
-                                                            ? `No. ${baguaDaoAgg4Me.participation.participantNo}`
-                                                            // :  "Connect the DAO to participate"}
-                                                            :  commonData.connectDaoToParticipate}
+                                                            ? commonData.diviParticipationInfo
+                                                                .replace('%s', String(baguaDaoAgg4Me?.participation.participantNo ?? ''))
+                                                                .replace('%s', `$${formatContractMoney(baguaDaoAgg4Me?.participation.participantAmount)}`)
+                                                            : commonData.connectDaoToParticipate}
                                                     </div>
                                                 </div>
 
-                                                <div className="flex items-center justify-between">
+                                                <div className="flex items-center justify-between mt-1">
                                                     <span className="text-sm font-medium text-gray-300">
-                                                        {commonData.daoParticipantAmount}
+                                                        {commonData.usdcTotalAmount}
                                                     </span>
                                                     <div className="bg-purple-500/20 px-3 py-1 rounded-lg text-xs">
-                                                        ${formatContractMoney(baguaDaoAgg4Me?.participation.participantAmount)}
+                                                        ${formatContractMoney(baguaDaoAgg4Me?.stableCoinBalance)}
                                                     </div>
                                                 </div>
                                             </div>
-
 
                                         </div>
 

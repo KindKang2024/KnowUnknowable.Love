@@ -540,7 +540,7 @@ export const useDaoInvestors = (latestBlock: bigint | undefined) => {
     return useQuery<CommonResponse<DaoEvent[]>, Error, DaoEvent[]>({
         queryKey: ['dao-investors', latestBlockNumber],
         queryFn: () => apiClient.fetchDaoInvestors(latestBlockNumber),
-        staleTime: 6000,
+        staleTime: 3000,
         refetchOnWindowFocus: false,
         select: (data) => data.data,
         enabled: !!latestBlockNumber

@@ -1074,8 +1074,9 @@
       "connectWallet": "ウォレットを接続",
       "daoActionSlogan": "杜康行動-1%の商業利益をすべての人に愛するグローバルマーケティング戦略",
       "daoContractLabel": "八卦道コントラクト",
-      "daoParticipantAmount": "DAO金庫残高",
-      "daoParticipantNo": "あなたのコミュニティ番号",
+      "usdcTotalAmount": "USDC総残高",
+      "diviParticipationLabel": "占い参加情報",
+      "diviParticipationInfo": "ユーザー番号: %s / 総支出: %s",
       "daoSlogan": "愛を道とし、すべての人を再び偉大に",
       "disconnect": "接続解除",
       "diviFields": {
@@ -1826,7 +1827,7 @@
       "myTransactions": "私の道上記録",
       "daoInvestmentNews": "DAO投資情報",
       "noTransactionsFound": "道の顕化記録が見つかりませんでした",
-      "noInvestorPromotion":"最初に参加して、最大64人の投資家とDAO収益の%sを平等に共有—早い者勝ち！",
+      "noInvestorPromotion": "最初の投資家になることができます。最大64名の投資家の間で%s DAOの収益を平等に分配し、先着順です！",
       "philosophy": "哲学的思考",
       "sections": [
         {
@@ -2115,6 +2116,7 @@
         "revealText": "表示",
         "title": "零知識三色着色デモ",
         "turboText": "加速",
+        "confidence": "信頼性",
         "useRevealButton": "表示"
       }
     },
@@ -2156,7 +2158,7 @@
         "suggestions": [
           {
             "key": "世界和平",
-            "value": "露ウ戦争が終わり、世界平和の意念が未来にどのように顕れるか？"
+            "value": "いつの日か、世界中のあらゆる生命が自由——つまり悪に対して「否」と言う力——を持ち、その力を用いて世界平和を守る意思を貫く時が来るのでしょうか？"
           },
           {
             "key": "すべての人を再び偉大に",
@@ -2167,8 +2169,8 @@
             "value": "人類は火星に足を踏み入れる意欲がある。この意欲は十分なエネルギーを得て、2030年までに完全に実現できるか？"
           },
           {
-            "key": "教育",
-            "value": "すべての人に公平な教育を提供する努力が最終的にどのように形成されるかを予測。"
+            "key": "MOOCグローバルブーム",
+            "value": "MOOC教育コースは今後10年間でTikTokビデオのよう世界的に流行し、教育の公平性を促進する重要な力になれるか？"
           },
           {
             "key": "求職",

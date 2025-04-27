@@ -49,8 +49,9 @@ export interface CommonData {
     connectWallet:           string;
     daoActionSlogan:         string;
     daoContractLabel:        string;
-    daoParticipantAmount:    string;
-    daoParticipantNo:        string;
+    usdcTotalAmount:         string;
+    diviParticipationLabel:  string;
+    diviParticipationInfo:   string;
     daoSlogan:               string;
     disconnect:              string;
     diviFields:              DiviFields;
@@ -210,6 +211,8 @@ export interface DAOPageData {
     claim:                   string;
     claimed:                 string;
     claimRequirements:       string;
+    alreadyAnInvestor:       string;
+    maxInvestorCountReached: string;
     currentBlock:            string;
     currentEvolutionDrop:    string;
     daoEvolutionDesc:        string;
@@ -385,6 +388,7 @@ export interface ZkDemo {
     revealText:       string;
     title:            string;
     turboText:        string;
+    confidence:       string;
     useRevealButton:  string;
 }
 
@@ -639,8 +643,9 @@ const typeMap: any = {
         { json: "connectWallet", js: "connectWallet", typ: "" },
         { json: "daoActionSlogan", js: "daoActionSlogan", typ: "" },
         { json: "daoContractLabel", js: "daoContractLabel", typ: "" },
-        { json: "daoParticipantAmount", js: "daoParticipantAmount", typ: "" },
-        { json: "daoParticipantNo", js: "daoParticipantNo", typ: "" },
+        { json: "usdcTotalAmount", js: "usdcTotalAmount", typ: "" },
+        { json: "diviParticipationLabel", js: "diviParticipationLabel", typ: "" },
+        { json: "diviParticipationInfo", js: "diviParticipationInfo", typ: "" },
         { json: "daoSlogan", js: "daoSlogan", typ: "" },
         { json: "disconnect", js: "disconnect", typ: "" },
         { json: "diviFields", js: "diviFields", typ: r("DiviFields") },
@@ -792,6 +797,8 @@ const typeMap: any = {
         { json: "claim", js: "claim", typ: "" },
         { json: "claimed", js: "claimed", typ: "" },
         { json: "claimRequirements", js: "claimRequirements", typ: "" },
+        { json: "alreadyAnInvestor", js: "alreadyAnInvestor", typ: "" },
+        { json: "maxInvestorCountReached", js: "maxInvestorCountReached", typ: "" },
         { json: "currentBlock", js: "currentBlock", typ: "" },
         { json: "currentEvolutionDrop", js: "currentEvolutionDrop", typ: "" },
         { json: "daoEvolutionDesc", js: "daoEvolutionDesc", typ: "" },
@@ -950,6 +957,7 @@ const typeMap: any = {
         { json: "revealText", js: "revealText", typ: "" },
         { json: "title", js: "title", typ: "" },
         { json: "turboText", js: "turboText", typ: "" },
+        { json: "confidence", js: "confidence", typ: "" },
         { json: "useRevealButton", js: "useRevealButton", typ: "" },
     ], false),
     "Comparison": o([

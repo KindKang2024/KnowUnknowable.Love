@@ -1074,8 +1074,9 @@
       "connectWallet": "連接錢包",
       "daoActionSlogan": "杜康行動-1%商業利潤愛所有人的全球營銷策略",
       "daoContractLabel": "八卦道合約",
-      "daoParticipantAmount": "DAO金庫餘額",
-      "daoParticipantNo": "你的社區編號",
+      "usdcTotalAmount": "USDC總餘額",
+      "diviParticipationLabel": "占卜參與信息",
+      "diviParticipationInfo": "用戶編號: %s / 總支出: %s",
       "daoSlogan": "以愛為道,讓所有人再次偉大",
       "disconnect": "斷開連接",
       "diviFields": {
@@ -1801,7 +1802,7 @@
       "fairDrop": "公平空投",
       "historyTotalDrop": "歷史總空投",
       "lottery": "當前中獎用户",
-      "lotteryPrizeRule": "中獎者可以申領的金額是最高獎勵和其總支出乘以1000倍中的較小值",
+      "lotteryPrizeRule": "中獎者可以申領的金額是最高獎勵和其占卜總支出乘以1000倍中的較小值",
       "manifestation": {
         "age": "時間",
         "amount": "DAO餘額變化",
@@ -1826,7 +1827,7 @@
       "myTransactions": "我的道上記錄",
       "daoInvestmentNews": "DAO投資資訊",
       "noTransactionsFound": "沒有找到道的顯現記錄",
-      "noInvestorPromotion": "第一个加入，在最多64位投資者中平等分享 %s DAO收入，先到先得！",
+      "noInvestorPromotion": "你成为第一个投资者。在最多64位投資者中平等分享 %s DAO收入，先到先得！",
       "philosophy": "哲學思考",
       "sections": [
         {
@@ -2115,6 +2116,7 @@
         "revealText": "顯示",
         "title": "零知識三着色演示",
         "turboText": "加速",
+        "confidence": "可信度",
         "useRevealButton": "顯示"
       }
     },
@@ -2156,7 +2158,7 @@
         "suggestions": [
           {
             "key": "世界和平",
-            "value": "俄烏戰爭停止，世界和平的意念將如何在未來顯現？"
+            "value": "是否會有那麼一天，全世界所有的生命都擁有自由——即對惡說「不」的力量——並運用這種力量來貫徹守護世界和平的意志？"
           },
           {
             "key": "讓所有人再次偉大",
@@ -2167,8 +2169,8 @@
             "value": "人類有着踏足火星的意願。這個意願能獲取到足夠的能量，在2030年之前完全實現嗎？"
           },
           {
-            "key": "教育",
-            "value": "預測為每個人提供公平教育的努力最終將如何形成。"
+            "key": "MOOC全球熱潮",
+            "value": "MOOC教育類課程在未來十年能否像TikTok视频一樣席捲全球，成為促進教育公平的關鍵力量？"
           },
           {
             "key": "求職",

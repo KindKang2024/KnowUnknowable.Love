@@ -1,33 +1,33 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 // import { BaguaDukiDAO } from '../components/assets/BaguaDukiDao';
-import {ArrowRight, Coins, ExternalLinkIcon, Gift, Heart, InfoIcon, Package, Scale, Sigma, Users} from 'lucide-react';
+import { ArrowRight, Coins, ExternalLinkIcon, Gift, Heart, InfoIcon, Package, Scale, Sigma, Users } from 'lucide-react';
 import {
-    useReadLoveDaoContractBaguaDaoAgg4Me,
-    useReadErc20BalanceOf,
-    useWriteLoveDaoContractClaim0LoveFounderFairDrop,
-    useWriteLoveDaoContractClaim1LoveMaintainerFairDrop,
-    useWriteLoveDaoContractClaim2LoveInvestorFairDrop,
-    useWriteLoveDaoContractClaim3LoveContributorFairDrop,
-    useWriteLoveDaoContractClaim4LoveDukiInfluencerFairDrop,
-    useWriteLoveDaoContractClaim5LoveCommunityLotteryFairDrop,
-    useWriteLoveDaoContractClaim7LoveWorldDukiInActionFairDrop,
-    useWriteLoveDaoContractRequestDaoEvolution,
-    useSimulateLoveDaoContractRequestDaoEvolution
+  useReadLoveDaoContractBaguaDaoAgg4Me,
+  useReadErc20BalanceOf,
+  useWriteLoveDaoContractClaim0LoveFounderFairDrop,
+  useWriteLoveDaoContractClaim1LoveMaintainerFairDrop,
+  useWriteLoveDaoContractClaim2LoveInvestorFairDrop,
+  useWriteLoveDaoContractClaim3LoveContributorFairDrop,
+  useWriteLoveDaoContractClaim4LoveDukiInfluencerFairDrop,
+  useWriteLoveDaoContractClaim5LoveCommunityLotteryFairDrop,
+  useWriteLoveDaoContractClaim7LoveWorldDukiInActionFairDrop,
+  useWriteLoveDaoContractRequestDaoEvolution,
+  useSimulateLoveDaoContractRequestDaoEvolution
 } from '@/contracts/generated';
-import {useUIStore} from '@/stores/uiStore';
-import {useAccount} from 'wagmi';
-import {defaultChainWhenNotConnected, dukiDaoContractConfig, MaxInvestorCount} from '@/contracts/externalContracts';
-import {waitForTransactionReceipt} from 'viem/actions';
-import {config} from '@/wagmi';
-import {BaguaDukiDAO} from '@/pages/divi/components/BaguaDukiDao.tsx';
-import {BaguaSections, getWillColor, Section} from '@/i18n/types';
-import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from '@/components/ui/tooltip';
+import { useUIStore } from '@/stores/uiStore';
+import { useAccount } from 'wagmi';
+import { defaultChainWhenNotConnected, dukiDaoContractConfig, MaxInvestorCount } from '@/contracts/externalContracts';
+import { waitForTransactionReceipt } from 'viem/actions';
+import { config } from '@/wagmi';
+import { BaguaDukiDAO } from '@/pages/divi/components/BaguaDukiDao.tsx';
+import { BaguaSections, getWillColor, Section } from '@/i18n/types';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import DukiInActionEvents from './DukiInActionEvents';
-import {ModalType} from '@/types/common';
-import {useIChing, usePageCommonData, usePageDaoData} from '@/i18n/DataProvider';
-import {YinYangIcon} from '@/components/icons';
-import {formatContractMoney, getContractLink} from '@/utils/commonUtils';
-import {TooltipIcon} from '@/components/ui/TooltipIcon';
+import { ModalType } from '@/types/common';
+import { useIChing, usePageCommonData, usePageDaoData } from '@/i18n/DataProvider';
+import { YinYangIcon } from '@/components/icons';
+import { formatContractMoney, getContractLink } from '@/utils/commonUtils';
+import { TooltipIcon } from '@/components/ui/TooltipIcon';
 import { toast } from 'sonner';
 
 // Helper function to safely get values from baguaDaoAgg4Me
@@ -69,6 +69,9 @@ const isClaimable = (baguaDaoAgg4Me: any, index: number) => {
   let evolveNum = baguaDaoAgg4Me?.evolveNum;
   debugger;
   if (claimedRound == null || claimedRound <= 0) {
+    if (index == 7) {
+      return baguaDaoAgg4Me?.stableCoinBalance >= 1 * 10 ** 6;
+    }
     return false;
   }
   if (claimedRound < evolveNum) {
@@ -241,7 +244,7 @@ const DukiInAction = () => {
   //   try {
   //     console.log("Attempting simulation before evolve...");
   //     const { data: simData, error: simError } = await refetchSimulation();
-      
+
   //     if (simError || !simData?.request) {
   //       console.error("Simulation failed:", simError);
   //       toast.error(`Simulation failed: ${simError?.message || 'Unknown error'}`);
@@ -251,11 +254,11 @@ const DukiInAction = () => {
   //     console.log("Simulation successful, proceeding with evolution request.", simData.request);
   //     const tx = await requestDaoEvolution({
   //       address: dukiDaoContractConfig[targetChainId].address,
-  //       args: [maxCallbackGasLimit],
+  //       args: [maxCallbackGaseipit],
   //       value: msgValue
   //     }); // Use the request from simulation result
   //     console.log("tx", tx);
-      
+
   //     toast.info("Evolution transaction sent. Waiting for confirmation...");
 
   //     const txReceipt = await waitForTransactionReceipt(config.getClient(), {
@@ -476,7 +479,7 @@ const DukiInAction = () => {
               <div className="flex-grow border-t border-gray-700 pt-4 mb-4">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg sm:text-xl font-semibold text-purple-400 whitespace-nowrap">
-                   {selectedSection.seq === 8 ? '100% ' : (notEmptyBpsArr[selectedSection.seq] ? `${notEmptyBpsArr[selectedSection.seq]}% ` : '·')} - {pageDaoData.sections?.[selectedSection.seq].title} 
+                    {selectedSection.seq === 8 ? '100% ' : (notEmptyBpsArr[selectedSection.seq] ? `${notEmptyBpsArr[selectedSection.seq]}% ` : '·')} - {pageDaoData.sections?.[selectedSection.seq].title}
                   </h3>
 
                   {

@@ -1001,8 +1001,9 @@
       "connectWallet": "Connect Wallet",
       "daoActionSlogan": "DUKI in Action: Pledging 1% of Profits to Decentralized Universal Kindness Income (DUKI) as a Marketing Strategy to Spread Love for All.",
       "daoContractLabel": "DAO Contract",
-      "daoParticipantAmount": "DAO Particant Amount",
-      "daoParticipantNo": "DAO Community Number",
+      "usdcTotalAmount": "USDC Total Amount",
+      "diviParticipationLabel": "Divine Participation",
+      "diviParticipationInfo": "Community No. %s / Total Spent: %s",
       "daoSlogan": "Love Be The Way To Make All Great Again",
       "disconnect": "Disconnect",
       "diviFields": {
@@ -1688,7 +1689,7 @@
       "connectDaoToParticipate": "Connect the DAO to participate"
     },
     "daoPageData": {
-      "allTransactions": "All Transactions",
+      "allTransactions": "Latest Transactions",
       "almWorldSlogons": [
         {
           "desc": "A single act of kindness throws out roots in all directions, and the roots spring up and make new trees.",
@@ -2042,6 +2043,7 @@
         "revealText": "Reveal",
         "title": "Zero Knowledge 3-Colorability Demo",
         "turboText": "Turbo",
+        "confidence": "Confidence",
         "useRevealButton": "Reveal"
       }
     },
@@ -2083,7 +2085,7 @@
         "suggestions": [
           {
             "key": "World Peace",
-            "value": "Can the will to cherish life and bring peace be fully fulfilled in the Ukraine-Russia conflict before 2026?"
+            "value": "Might there come a time when all lives around the world possess the freedom — the power to say no to evil — and use that power to uphold the will to protect world peace?"
           },
           {
             "key": "Make All Great Again",
@@ -2094,8 +2096,8 @@
             "value": "Humankind has the will to set foot on Mars. Will it gain enough power to fully manifest before 2031?"
           },
           {
-            "key": "Education",
-            "value": "predict how the effort to make education fair for everyone's gonna shape up eventually."
+            "key": "MOOC Global Surge",
+            "value": "Can MOOC educational courses become as globally viral as TikTok videos in the next decade, serving as a key force in promoting educational equity?"
           },
           {
             "key": "Job Hunting",

@@ -6,17 +6,20 @@ import { DeepseekDAOState } from "@/types/divi";
 import { DivinationEntry, useDeepseekDao } from "@/services/api";
 import { getTxLink, objectIsEmpty, objectIsNotEmpty } from "@/utils/commonUtils";
 import { defaultChainWhenNotConnected, dukiDaoContractConfig } from "@/contracts/externalContracts";
-import { useAccount, useBlockNumber } from "wagmi";
+import { useAccount, useBlockNumber, useSignTypedData } from "wagmi";
 import { ModalType } from "@/types/common";
 import { useUIStore } from "@/stores/uiStore";
+import { parseSignature } from 'viem'
+
 import { useToast } from "@/hooks/use-toast";
-import { parseUnits, TransactionReceipt } from "viem";
+import { Address, encodeAbiParameters, parseAbiParameters, parseUnits, TransactionReceipt } from "viem";
 import {
     useReadErc20Allowance,
     useReadErc20BalanceOf,
     useSimulateLoveDaoContract,
     useWriteLoveDaoContractConnectDaoToKnow,
-    useWriteErc20Approve
+    useReadErc20Nonces,
+    useReadErc20DomainSeparator
 } from "@/contracts/generated";
 import { waitForTransactionReceipt } from "viem/actions";
 import { config } from "@/wagmi";
@@ -92,7 +95,21 @@ export const DukiInActionToDeepseekDAO: React.FC<DukiInActionToDeepseekDaoProps>
         error: connectDaoToKnowError } =
         useWriteLoveDaoContractConnectDaoToKnow();
 
-    const { writeContractAsync: approve } = useWriteErc20Approve();
+    // get nonces of USDC for permit
+    const { data: nonce } = useReadErc20Nonces({
+        address: dukiDaoContractConfig[chainId]?.stableCoin,
+        args: [address],
+        query: { enabled: !!address && !!chainId }
+    });
+
+    // get domain separator for the ERC20 token
+    const { data: domainSeparator } = useReadErc20DomainSeparator({
+        address: dukiDaoContractConfig[chainId]?.stableCoin,
+        query: { enabled: !!chainId }
+    });
+
+    // signTypedData hook for permit signature
+    const { signTypedDataAsync } = useSignTypedData();
 
     const { data: allowance, refetch: refetchAllowance } = useReadErc20Allowance({
         address: dukiDaoContractConfig[chainId]?.stableCoin,
@@ -105,6 +122,60 @@ export const DukiInActionToDeepseekDAO: React.FC<DukiInActionToDeepseekDaoProps>
         args: [address],
         query: { enabled: !!address && !!chainId }
     });
+
+    // Generate permit signature
+    const getPermitSignature = async (amountInStableCoin: bigint) => {
+        if (!address || !domainSeparator || nonce === undefined) {
+            throw new Error("Missing required data for permit");
+        }
+
+        // EIP-2612 Permit type data
+        // 20 minutes deadline
+        const deadline = Math.floor(Date.now() / 1000) + 20 * 60;
+        
+        // Define the domain
+        const domain = {
+            name: "USDC", // Use actual token name from contract if available
+            version: "1",
+            chainId: targetChainId,
+            verifyingContract: dukiDaoContractConfig[chainId].stableCoin
+        };
+
+        // Define the permit type
+        const types = {
+            Permit: [
+                { name: "owner", type: "address" },
+                { name: "spender", type: "address" },
+                { name: "value", type: "uint256" },
+                { name: "nonce", type: "uint256" },
+                { name: "deadline", type: "uint256" },
+            ]
+        };
+
+        // Define the value
+        const value = {
+            owner: address,
+            spender: dukiDaoContractConfig[chainId].address,
+            value: amountInStableCoin,
+            nonce: nonce,
+            deadline: BigInt(deadline)
+        };
+
+        // Sign the typed data
+        const signature = await signTypedDataAsync({
+            domain,
+            types,
+            primaryType: "Permit",
+            message: value,
+            account: address
+        });
+
+        // Parse signature into v, r, s components
+        return {
+            ...parseSignature(signature),
+            deadline
+        };
+    };
 
     const initiatePayment = async () => {
         if (!divination) {
@@ -119,8 +190,6 @@ export const DukiInActionToDeepseekDAO: React.FC<DukiInActionToDeepseekDaoProps>
         if (!isConnected || !address) {
             toast({
                 variant: "destructive",
-                // title: "请先连接钱包",
-                // description: "需要连接钱包才能进行支付"
                 title: commonData.connectWallet,
             });
             return;
@@ -129,8 +198,6 @@ export const DukiInActionToDeepseekDAO: React.FC<DukiInActionToDeepseekDaoProps>
         if (isDeepseekDaoPending) {
             toast({
                 variant: "destructive",
-                // title: "DAO处理中",
-                // description: "请等待当前请求完成"
                 title: commonData.modals.processing,
             });
             return;
@@ -183,36 +250,21 @@ export const DukiInActionToDeepseekDAO: React.FC<DukiInActionToDeepseekDaoProps>
 
         try {
             if (objectIsEmpty(txReceiptRef.current)) {
-                if (allowance !== undefined && allowance < amountInStableCoin) {
-                    const approveTx = await approve({
-                        address: dukiDaoContractConfig[chainId].stableCoin,
-                        args: [dukiDaoContractConfig[chainId].address, amountInStableCoin],
-                    });
-
-                    const approveReceipt = await waitForTransactionReceipt(
-                        config.getClient(),
-                        { hash: approveTx }
-                    );
-
-                    if (approveReceipt.status !== 'success') {
-                        // throw new Error(commonData.modals.approveAllowanceFailed);
-                        toast({
-                            variant: "default",
-                            title: commonData.modals.approveAllowanceFailed,
-                        });
-                        return;
-                    }
-
-                    refetchAllowance();
-                }
-
-                const manifestationStr = divination.manifestation
+                // Get permit signature instead of approving
+                const permitSignature = await getPermitSignature(amountInStableCoin);
+                console.log("permitSignature", permitSignature);
+                
+                const manifestationStr = divination.manifestation;
                 const pendingTxHash = await connectDaoToKnow({
                     args: [
                         divination.uuid,
                         divination.will_hash,
                         manifestationStr,
-                        amountInStableCoin
+                        amountInStableCoin,
+                        permitSignature.deadline,
+                        permitSignature.v,
+                        permitSignature.r,
+                        permitSignature.s
                     ],
                     address: dukiDaoContractConfig[chainId].address,
                 });
@@ -224,7 +276,6 @@ export const DukiInActionToDeepseekDAO: React.FC<DukiInActionToDeepseekDaoProps>
                 txReceiptRef.current = txReceipt;
 
                 if (txReceipt.status !== 'success') {
-                    // throw new Error("交易失败");
                     deepseekDao({
                         entry: divination,
                         daoTx: '',

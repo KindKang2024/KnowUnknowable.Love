@@ -420,7 +420,7 @@ const ZeroKnowledgeDemo: React.FC<{ data: ZkDemo }> = ({ data }) => {
                         />
                     </div>
                     <div className={styles.confidenceDisplay}>
-                        Confidence: <span className={graphState === 'failure' ? styles.confidenceError : ''}>
+                        {data.confidence}: <span className={graphState === 'failure' ? styles.confidenceError : ''}>
                             {confidence.toFixed(2)}
                         </span>%
                     </div>
