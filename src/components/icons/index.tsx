@@ -14,6 +14,13 @@ export const HomeIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) => (
   </svg>
 );
 
+export const MediumIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10z" />
+    <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12s4.477 10 10 10z" />
+  </svg>
+);
+
 export const DivineIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -59,9 +66,17 @@ export const InfoIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) => (
 // use an yingyang icon
 
 export const YinYangIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className={`bi bi-yin-yang ${className}`} viewBox="0 0 16 16">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className={`bi bi-yin-yang ${className} rotate-180`} viewBox="0 0 16 16">
     <path d="M9.167 4.5a1.167 1.167 0 1 1-2.334 0 1.167 1.167 0 0 1 2.334 0" />
     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M1 8a7 7 0 0 1 7-7 3.5 3.5 0 1 1 0 7 3.5 3.5 0 1 0 0 7 7 7 0 0 1-7-7m7 4.667a1.167 1.167 0 1 1 0-2.334 1.167 1.167 0 0 1 0 2.334" />
+  </svg>
+);
+
+export const TwitterXIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) => (
+  <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="white">
+    <g>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+    </g>
   </svg>
 );
 
@@ -132,48 +147,48 @@ export const BaseIcon: React.FC<IconProps> = ({ className = "h-6 w-6" }) => (
 
 export const DiviSearchIcon: React.FC<IconProps> = ({ className = "h-4 w-4" }) => (
   <svg
-     width="24"
-     height="24"
-     viewBox="0 0 24 24"
-     fill="none"
-     stroke="currentColor"
-     stroke-width="2"
-     stroke-linecap="round"
-     stroke-linejoin="round"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
     //  className="lucide lucide-search-slash-icon lucide-search-slash"
     className={className}
-     version="1.1"
-     id="svg2"
-     xmlns="http://www.w3.org/2000/svg"
-     >
+    version="1.1"
+    id="svg2"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <path
-       d="m13.5 8.5-5 5"
-       id="path1" />
+      d="m13.5 8.5-5 5"
+      id="path1" />
     <circle
-       cx="11"
-       cy="11"
-       r="8"
-       id="circle1" />
+      cx="11"
+      cy="11"
+      r="8"
+      id="circle1" />
     <path
-       d="m21 21-4.3-4.3"
-       id="path2" />
+      d="m21 21-4.3-4.3"
+      id="path2" />
     <path
-       id="dot_2"
-       d="M 6.5084747,8.4406779 6.4208321,8.9680873 5.8921529,9.0477127 5.6530539,8.5695145 6.0339617,8.1943464 Z"
-       transform="matrix(0.56946783,0,0,0.56946783,5.2570027,3.4030385)"
-        />
+      id="dot_2"
+      d="M 6.5084747,8.4406779 6.4208321,8.9680873 5.8921529,9.0477127 5.6530539,8.5695145 6.0339617,8.1943464 Z"
+      transform="matrix(0.56946783,0,0,0.56946783,5.2570027,3.4030385)"
+    />
     <path
-       id="dot_1"
-       d="M 6.5084747,8.4406779 6.4208321,8.9680873 5.8921529,9.0477127 5.6530539,8.5695145 6.0339617,8.1943464 Z"
-       transform="matrix(0.56946783,0,0,0.56946783,8.350223,9.9781564)"
-       />
+      id="dot_1"
+      d="M 6.5084747,8.4406779 6.4208321,8.9680873 5.8921529,9.0477127 5.6530539,8.5695145 6.0339617,8.1943464 Z"
+      transform="matrix(0.56946783,0,0,0.56946783,8.350223,9.9781564)"
+    />
     <path
-       id="dot_3"
-       d="M 6.5084747,8.4406779 6.4208321,8.9680873 5.8921529,9.0477127 5.6530539,8.5695145 6.0339617,8.1943464 Z"
-       transform="matrix(0.56946783,0,0,0.56946783,11.850223,6.9030385)"
-       />
+      id="dot_3"
+      d="M 6.5084747,8.4406779 6.4208321,8.9680873 5.8921529,9.0477127 5.6530539,8.5695145 6.0339617,8.1943464 Z"
+      transform="matrix(0.56946783,0,0,0.56946783,11.850223,6.9030385)"
+    />
   </svg>
-  
+
 );
 
 

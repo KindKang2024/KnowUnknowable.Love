@@ -34,6 +34,7 @@ export interface UI {
 export interface CommonData {
     action:                  string;
     actionVerify:            string;
+    slogan:                  string;
     actionViewDetail:        string;
     address:                 string;
     amountSelectLabel:       string;
@@ -628,6 +629,7 @@ const typeMap: any = {
     "CommonData": o([
         { json: "action", js: "action", typ: "" },
         { json: "actionVerify", js: "actionVerify", typ: "" },
+        { json: "slogan", js: "slogan", typ: "" },
         { json: "actionViewDetail", js: "actionViewDetail", typ: "" },
         { json: "address", js: "address", typ: "" },
         { json: "amountSelectLabel", js: "amountSelectLabel", typ: "" },
